@@ -1,0 +1,8 @@
+# Agent Delivery runtime state
+.agent/run.env
+.agent/runs/
+.agent/workpads/
+
+# Preserve gate manifests under .agent/gates/
+!.agent/gates/
+!.agent/gates/**

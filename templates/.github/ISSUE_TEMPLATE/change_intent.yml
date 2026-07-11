@@ -1,0 +1,122 @@
+name: Change Intent
+description: Define an outcome for the agent-enabled product delivery workflow.
+title: "[Change]: "
+labels: ["state:proposed"]
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: What should be observably true after this Change?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Why it matters
+      description: Customer, business, product, or technical context.
+    validations:
+      required: true
+
+
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: Change type
+      options:
+        - bug
+        - feature
+        - improvement
+        - refactor
+        - documentation
+        - exploration
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_state
+    attributes:
+      label: Current behavior or starting state
+      description: For bugs, describe the failure signal and how it can be observed. For other Changes, describe the current state that should change.
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: What must be true for this Change to be accepted?
+      placeholder: |
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation and evidence
+      description: What proof must be produced? These items will be mirrored into the workpad.
+      placeholder: |
+        - Reproduction signal for bugs:
+        - Targeted tests:
+        - Browser route or journey:
+        - Screenshots or video:
+        - Logs or traces:
+        - Required specialist review:
+    validations:
+      required: true
+
+  - type: textarea
+    id: non_goals
+    attributes:
+      label: Non-goals
+      description: What is intentionally outside this Change?
+    validations:
+      required: true
+
+  - type: textarea
+    id: forbidden
+    attributes:
+      label: Forbidden changes
+      description: Which surfaces, behaviors, or additions must not be introduced?
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected
+    attributes:
+      label: Affected surfaces
+      description: Routes, modules, packages, data, docs, or workflows likely involved.
+
+  - type: input
+    id: gate_profile
+    attributes:
+      label: Gate profile
+      placeholder: low-risk-ui
+    validations:
+      required: true
+
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risk
+      description: Apply the matching risk label after the issue is created.
+      options:
+        - low
+        - medium
+        - high
+    validations:
+      required: true
+
+  - type: textarea
+    id: engagement
+    attributes:
+      label: Expected builder engagement
+      description: Where is human judgment expected, if known?
+      placeholder: |
+        Intent shaping / evidence review / specialist decision / collaborative / human-led / system-handled
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Customer examples, designs, logs, related Changes, or prior decisions.
