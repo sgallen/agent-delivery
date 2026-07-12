@@ -7,14 +7,15 @@ description: Use when reproducing, validating, or debugging user-visible behavio
 
 ## Purpose
 
-Use browser tooling to make UI behavior observable and produce evidence for a Change.
+Use browser tooling to make UI behavior observable and produce attributable evidence for a Change.
 
 ## Inputs
 
-- Change Intent and acceptance criteria
+- Change Intent and applicable delivered or non-landed resolution criteria
 - Run ID and isolated browser profile
 - App URL and test data
 - Change-specific artifact directory
+- Run resource-record path and environment lease, when measured
 
 ## Procedure
 
@@ -26,22 +27,24 @@ Use browser tooling to make UI behavior observable and produce evidence for a Ch
 6. Inspect console, page, and relevant network errors.
 7. Capture the final state, trace, and concise observations.
 8. Store artifacts under `.agent/runs/<change-id>/<run-id>/artifacts/browser/`.
-9. Update the workpad with the result and evidence links.
-10. Update an ExecPlan only when the findings change the plan or decision.
+9. Update the run resource record for metered browser, device, preview, or retry use when applicable.
+10. Update the workpad with the result, evidence links, and material environment variance.
+11. Update an ExecPlan only when the findings change the plan, forecast, or decision.
 
 ## Evidence
 
 Produce:
 
-- route or journey;
-- actions performed;
-- observed acceptance behavior;
-- screenshots or video;
-- console/page-error summary;
-- network-failure summary;
-- trace link when captured;
+- route or journey
+- actions performed
+- observed delivered behavior or decision-relevant result
+- screenshots or video
+- console/page-error summary
+- network-failure summary
+- trace link when captured
+- environment or retry signal when material
 - known gaps.
 
 ## Escalation
 
-Engage a builder when login or test data is missing, the environment cannot start, browser tooling exposes sensitive data, the expected behavior is ambiguous, or the observed result requires product/design judgment.
+Engage a builder when login or test data is missing, the environment cannot start, a resource or lease threshold is reached, browser tooling exposes sensitive data, the expected behavior or decision question is ambiguous, or the observed result changes the candidate disposition and requires product or design judgment.

@@ -22,13 +22,15 @@ Create the minimum repo structure:
 │   ├── PRODUCT.md
 │   ├── DESIGN.md
 │   ├── REGRESSION_LEDGER.md
+│   ├── initiatives/
 │   ├── decisions/
 │   └── exec-plans/
 │       ├── active/
 │       └── completed/
 ├── .agent/
 │   ├── gates/
-│   └── runs/
+│   ├── runs/
+│   └── workpads/
 ├── .agents/
 │   └── skills/
 ├── .github/
@@ -50,7 +52,8 @@ Start with:
 - `WORKFLOW.md` for the standing process
 - one persistent workpad issue comment per orchestrated Change
 - GitHub Actions for remote gates
-- browser proof for user-visible work.
+- browser proof for user-visible work
+- one small run-resource schema that attributes usage and attempts to the Change.
 
 Use an architectural bias toward a modular monolith: simple deployment, explicit module boundaries, and room to split later when the business earns the complexity.
 
@@ -59,7 +62,7 @@ Use an architectural bias toward a modular monolith: simple deployment, explicit
 Use one lifecycle consistently:
 
 ```text
-Proposed → Shaped → Ready → Running → Proving → Review → Released
+Proposed → Shaped → Ready → Running → Proving → Decision → Resolved
 ```
 
 Define:
@@ -69,7 +72,8 @@ Define:
 - which gates are required by Change class
 - what evidence is expected
 - which conditions engage a builder
-- what blocks or stops a run.
+- what blocks or stops a run
+- which resource use is recorded and whether any default thresholds apply.
 
 ## Phase 4: Create one gate profile
 
@@ -94,7 +98,7 @@ Choose a small, observable, reversible Change and use the [First Experiment](fir
 The point is to exercise the whole path:
 
 ```text
-intent → workpad → environment → agent → gates → evidence → review → learning
+intent → forecast → workpad → environment → agent → gates → evidence → actuals → decision → resolution → learning
 ```
 
 Do not optimize for an impressive first Change. Optimize for a complete, inspectable one.
@@ -110,6 +114,9 @@ After three runs, review the system rather than only the output:
 - Where did the environment collide or drift?
 - Which builder engagement was unnecessary?
 - Which repeated procedure belongs in a skill?
+- Which run or Change costs were surprising?
+- Did the estimate range become more useful?
+- Which capability or environment is becoming the first constraint?
 
 Then make the smallest durable improvements.
 
@@ -118,10 +125,12 @@ Then make the smallest durable improvements.
 The greenfield foundation is ready when:
 
 - a new builder or agent can find the product and architecture context
-- a Change can move from issue to evidence-backed PR
+- a Change can move from issue to an evidence-backed resolution, with a PR when a branch may land or carries useful decision evidence
 - the runtime is isolated enough to trust the result
 - the required gates are explicit
 - the workpad tells the live story
+- run resource use can be attributed to a Change
+- the first estimate-versus-actual lesson has been considered
 - the first learning has been promoted into the system.
 
 That is enough to begin. The operating model should grow with the product, not arrive fully armored before the first customer.

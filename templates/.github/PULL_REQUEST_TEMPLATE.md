@@ -1,52 +1,76 @@
 ## Change
 
-Fixes #
-Workpad:
-ExecPlan, if used:
+Issue / Change:
+Parent initiative:
 
-## Outcome
+## Resolution proposal
 
-What is now observably different?
+- Resolution status: resolved / unresolved
+- Resolution class: delivered / decision / administrative / unresolved_loss
+- Disposition:
+- Landed: true / false / not_applicable
+- Released: true / false / not_applicable
+- Resolution quality: weak / sufficient / strong / not_assessed
 
-## Acceptance criteria
+A PR is a review package, not proof that the Change must merge. Use it for a landing candidate or when the branch itself is useful decision evidence.
 
-| Criterion | Status | Evidence |
+## Outcome or decision
+
+What became observably true, or what decision should the evidence support?
+
+## Summary
+
+What changed, what was tested or investigated, and why?
+
+## Criteria
+
+### Landed acceptance criteria
+
+- [ ]
+
+### Useful non-landed resolution criteria
+
+- [ ]
+
+## Gates and evidence
+
+| Gate or criterion | Result | Evidence |
 | --- | --- | --- |
 |  |  |  |
 
-## Scope
+- Tests or experiment output:
+- Screenshots, video, logs, traces, benchmarks, or research:
+- Reviewer-agent findings:
+- Preview or deployment:
+- Known gaps or waivers:
 
-Expected surfaces changed:
+## Resource and variance summary
 
-Unexpected surfaces changed: none / explain
+- Forecast stage and range:
+- Actual model, tool, and environment cost:
+- Builder attention:
+- Failed, discarded, recovery, or superseded attempts included:
+- Threshold decisions:
+- Forecast variance and explanation:
+- Data-quality limits:
 
-Non-goals and forbidden changes confirmed:
+## Decision evidence when nothing should land
 
-## Gates
+- Decision question:
+- Evidence supporting the disposition:
+- Uncertainty reduced:
+- Alternatives considered:
+- Decision owner:
+- Follow-up or explicit stop:
 
-| Gate | Status | Evidence |
-| --- | --- | --- |
-| Scope |  |  |
-| Lint / typecheck / build |  |  |
-| Targeted tests |  |  |
-| Behavior proof |  |  |
-| Browser / runtime check |  |  |
-| Reviewer agents |  |  |
+## Risk, rollout, and continuing obligations
 
-## Evidence
-
-Screenshots, traces, logs, videos, preview links, reports, or other proof.
-
-## Risks and gaps
-
-Known tradeoffs, uncertainty, or follow-up work.
-
-## Required builder judgment
-
-What, if anything, still needs a human decision?
+- Risk:
+- Rollout or release plan:
+- Rollback plan:
+- Continuing human, agent, infrastructure, support, security, or compliance cost:
 
 ## Learning checkpoint
 
-- [ ] No reusable learning
-- [ ] System improvement included in this Change
-- [ ] Follow-up Change created:
+- What should change in the product, estimate, workflow, gate, test, skill, routing, architecture, ownership, or initiative forecast?
+- Parent initiative updated:

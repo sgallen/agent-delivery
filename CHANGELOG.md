@@ -1,5 +1,42 @@
 # Changelog
 
+## v0.13 — Resolved outcomes and productive non-landing
+
+This release strengthens the operating model for planned work that does not land. A Change now completes through an explicit resolution decision rather than through merge or release alone, and the economics and learning of non-landed work remain visible.
+
+Key changes:
+
+- Reframed the default Change lifecycle as `Proposed → Shaped → Ready → Running → Proving → Decision → Resolved`, with `Blocked` as a resumable state and abandonment as an explicit unresolved exception.
+- Separated **resolution status**, **resolution class**, **specific disposition**, **landed state**, and **released state** so a run, branch, merge, release, and Change outcome are no longer conflated.
+- Added four analytical resolution classes: `delivered`, `decision`, `administrative`, and `unresolved_loss`.
+- Defined a high bar for productive non-landing: work-derived evidence must support a useful decision, reduce material uncertainty, change a forecast or next action, and preserve reusable findings where applicable.
+- Distinguished evidence-backed non-landing from accountable administrative closure and from work abandoned without sufficient resolution.
+- Added cost per evidence-backed decision, resolution yield, landing yield, decision yield, administrative-closure rate, unresolved-loss rate, and spend by resolution class alongside cost per trustworthy landed Change.
+- Updated estimation and capacity planning to forecast a distribution of delivered, decision-resolved, administratively closed, and unresolved Changes rather than assuming every planned Change will land.
+- Strengthened initiative records to compare forecast and actual Change funnels, support initiatives concluded without release, and review later decision value as well as released-product value.
+- Added `Resolve a Change That Does Not Land` and integrated the doctrine through Changes, economics, learning checkpoints, `WORKFLOW.md`, GitHub labels, workpads, issue and PR templates, initiative templates, reviewer prompts, resource records, and starter scripts.
+- Removed the self-declared `productive_non_landing` flag from canonical records. Productive non-landing is derived from a decision-class resolution with adequate evidence and accountable review.
+- Preserved historical failed, discarded, superseded, and unresolved attempts in Change and initiative economics instead of hiding them behind the path that eventually landed.
+- Reworked the first-experiment and GitHub playbooks so implementation, investigation, experiment, optional PR review, decision, resolution, and abandonment are explicit branches rather than an assumed merge path.
+
+## v0.12 — Delivery economics and the value loop
+
+This release makes resource observability a first-class part of Agent Delivery and extends the model from Change-level execution to initiative-level investment and realized value.
+
+Key changes:
+
+- Added **Resource Observability and Delivery Economics** as a core operating-model concept covering human attention, agent and tool usage, infrastructure, elapsed time, retries, outcomes, estimation, resource gates, routing, and capacity constraints.
+- Added **Initiatives and the Value Loop**, distinguishing the Change as the unit of execution from the initiative as the unit of product investment and value learning.
+- Added staged forecasts—opportunity, post-discovery, post-shaping, in-flight, and final actual—so teams can learn both estimation accuracy and which activities reduce uncertainty.
+- Added soft and hard resource-gate behavior that warns, checkpoints, replans, preserves state, and requires an explicit decision rather than blindly burning budget or destroying context.
+- Expanded economics from model spend to the complete resource mix and reinforced **cost per trustworthy accepted outcome** as the Change-level metric.
+- Added initiative value hypotheses, investment forecasts, actual delivery rollups, post-release value reviews, continuing-cost analysis, and explicit delivery-versus-value variance.
+- Added capacity planning around customer discovery, shaping, review, recovery, infrastructure, release, and agent budget so teams can identify the binding constraint and direct the next dollar accordingly.
+- Added playbooks for forecasting and reviewing an initiative and for planning delivery capacity.
+- Added copyable initiative, run-resource, and Change-resource templates plus a normalized delivery-economics record reference.
+- Updated the README, The Case, Changes, workpads, gates, evidence, environments, skills, learning checkpoints, adoption playbooks, repo structure, glossary, `WORKFLOW.md`, and starter scripts so the idea is integrated throughout rather than isolated in a cost chapter.
+- Added guardrails against false precision, incomplete attribution, historical price rewriting, and using human-resource telemetry as simplistic individual performance surveillance.
+
 ## v0.11 — A coherent employer-cost benchmark
 
 This release removes the repeated $250,000 “senior engineer” assumption and replaces it with one dated, editable employer-cost benchmark.

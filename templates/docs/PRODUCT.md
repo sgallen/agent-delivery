@@ -8,7 +8,19 @@ Who is the product for? What important problem does it solve?
 
 ## Outcomes
 
-Which customer and business outcomes matter most?
+Which customer and business outcomes matter most? Include operational or strategic outcomes where they genuinely guide decisions.
+
+## Value model
+
+How does the product create value, and how can the team recognize that value without pretending attribution is cleaner than it is?
+
+- customer outcomes and useful baselines
+- business, operational, or strategic value
+- leading and lagging indicators
+- normal value-review horizons
+- important continuing costs or obligations.
+
+Large product bets should use an initiative record under `docs/initiatives/` so their original value hypothesis, investment forecasts, delivery actuals, and later value reviews remain comparable.
 
 ## Core journeys
 
@@ -30,8 +42,8 @@ Define language that could otherwise be misinterpreted.
 
 ## Current constraints
 
-Important business, technical, regulatory, or operational constraints.
+Important customer, business, technical, regulatory, operational, capacity, or resource constraints.
 
 ## Links
 
-Customer research, product specs, decision records, designs, analytics, or related context.
+Customer research, product specs, initiative records, decision records, designs, analytics, value reviews, or related context.

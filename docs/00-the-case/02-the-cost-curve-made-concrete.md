@@ -56,18 +56,22 @@ model usage
 + execution environments
 + retries and failed runs
 + builder attention
-= total cost per trustworthy outcome
+= total recorded cost per trustworthy outcome
 ```
+
+“Recorded” matters. Subscription usage, local compute, direct-provider calls, and unmeasured human work can make the record incomplete. A credible system shows its assumptions and missing data instead of turning an API bill into a complete theory of product development.
 
 ## The operating implication
 
 A cheap model is not cheap if it needs three attempts and consumes two hours of staff-engineer review. A premium model may be the economical choice if it completes a difficult Change cleanly in one pass. A smaller model may be ideal for narrow, well-gated work.
 
-That is why the mature metric is **cost per accepted Change**, paired with **builder attention per accepted Change** and the resulting defect or rework rate.
+That is why a mature team uses a small metric set rather than one denominator: **cost per trustworthy landed Change** for delivery work, **cost per evidence-backed decision** for exploratory work, builder attention by resolution class, resolution and landing yield, and the resulting defect, rework, or unresolved-loss rate.
+
+At the initiative level, cost is only half the question. The organization must later compare the complete investment with the customer, business, operational, or strategic value that appeared. Cheap delivery of an unhelpful capability is still a poor investment.
 
 The numbers will move. The operating implication is already here.
 
-See [Model Economics](../03-reference/model-economics.md) for the dated pricing table, assumptions, caveats, and calculator, then use [Measure Agent Economics](../02-playbooks/measure-agent-economics.md) to replace estimates with your own run data.
+See [Model Economics](../03-reference/model-economics.md) for the dated pricing table, assumptions, caveats, and calculator, then use [Measure Delivery Economics](../02-playbooks/measure-delivery-economics.md) to replace estimates with your own run data.
 
 ## Sources for this snapshot
 

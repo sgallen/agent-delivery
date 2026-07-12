@@ -18,11 +18,13 @@ Builders remain accountable for the things agents should not own in isolation:
 - architecture direction;
 - quality standards;
 - trust;
+- initiative and investment decisions;
+- resource allocation and capacity constraints;
 - the operating model itself.
 
 Agents can help research, summarize, inspect, propose, implement, test, and review all of those areas.
 
-Builders decide whether the work matters, whether the evidence is persuasive, and whether the system is improving in the right direction.
+Builders decide whether the work matters, whether the evidence is persuasive, whether the resource tradeoff is sensible, whether the expected value appeared, and whether the system is improving in the right direction.
 
 ## What changes
 
@@ -36,7 +38,7 @@ The old model often assigned responsibility by lane:
 
 The agent-enabled model still needs those skills, but the lanes become less rigid.
 
-A product builder should be able to move a customer problem toward a working result and evidence. A design builder should be able to encode taste into examples, components, skills, and gates. An engineering builder should be able to improve the harness, architecture, and validation so safe classes of work no longer require an engineer at every step.
+A product builder should be able to move a customer problem toward a working result and evidence. A design builder should be able to encode taste into examples, components, skills, and gates. An engineering builder should be able to improve the harness, architecture, and validation so safe classes of work no longer require an engineer at every step. Product-oriented builders should be able to form and shape enough worthwhile demand for the system to execute. Reviewers should make judgment durable so their capacity unlocks more work rather than becoming the permanent queue.
 
 ## The human outcome
 
@@ -44,6 +46,6 @@ A good operating model should give builders more agency and more room for creati
 
 They should spend less time waiting in queues, translating the same context between functions, and repeating preventable review comments. They should spend more time understanding customers, exploring possibilities, solving difficult problems, applying judgment, and helping other builders move.
 
-The goal is not only higher throughput.
+The goal is not only higher throughput or lower cost.
 
 It is better work: more direct, more creative, less frustrating, and more connected to the outcome.

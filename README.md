@@ -29,7 +29,12 @@ The resources cited here helped sharpen the argument. The playbook exists to mak
 - Bolting agents onto that process can increase output without reducing queues, handoffs, or review burden.
 - The better move is to invert the default: let the system attempt the work, then engage builders where human judgment creates the most leverage.
 - Builders shape intent and govern risk, taste, and outcomes. Agents execute. Gates prove quality. Evidence makes the result reviewable.
-- Every Change should make the product better. The best Changes also make the system better.
+- A Change is complete when it reaches an explicit, evidence-backed disposition. Code does not have to land for the work to be valuable.
+- Distinguish productive non-landing from unresolved loss; do not hide either behind a merge rate or a learning story.
+- Work-derived resolutions should improve the product or the decision. Administrative closure and unresolved loss should still make the record and the next planning decision more honest; they are not equivalent outcomes.
+- Make resource use observable at the Change: human attention, models, tools, environments, retries, elapsed time, disposition, and outcome.
+- Treat major initiatives as investment hypotheses. Compare expected value and resource use with actual delivery and realized value.
+- Use the history to improve estimates, route work, govern budgets, find capacity constraints, and decide where the next dollar or human hour should go.
 - This is a working playbook. Some of it will be wrong. The point is to start from a serious position, run real experiments, and improve it from evidence.
 
 ## The shift
@@ -54,11 +59,13 @@ Token counts do not translate cleanly into developer-days. The useful output dep
 
 The budget comparison is still useful. The deliberately high-usage scenario in the reference calculator costs roughly **$600 to $6,000 per month** across representative current models. For orientation, public U.S. wage and benefit data supports an approximate employer-compensation benchmark of **$190,000 per year, or about $15,800 per month**, for a software developer. That benchmark is not universal, and it is not a claim of equivalent output. It simply makes the difference in cost envelopes easier to feel.
 
-The meaningful comparison is not agent versus employee. It is whether the system can produce trustworthy Changes at a lower total cost and with less scarce builder attention.
+The meaningful comparison is not agent versus employee. It is whether the complete delivery system can turn human judgment, machine intelligence, infrastructure, and capital into trustworthy outcomes with less waste and better learning.
 
-The metric that ultimately matters is **total cost per accepted Change**, including models, tools, environments, failed attempts, and builder attention.
+At the Change level, use a small metric set rather than one flattering ratio: **cost per trustworthy landed Change** for delivery work, **cost per evidence-backed decision** for exploratory work, **resolution yield** across all work that entered execution, and spend by resolution class so productive non-landing and unresolved loss remain visible. At the initiative level, the system should also ask whether released capability—or the evidence-backed decision not to continue—created enough customer, business, operational, strategic, or decision value to justify the investment.
 
-See [The Cost Curve Made Concrete](docs/00-the-case/02-the-cost-curve-made-concrete.md) for the dated assumptions, and [Model Economics](docs/03-reference/model-economics.md) for the benchmark derivation, living price table, and calculator.
+That makes economics part of the operating model rather than a provider bill reviewed after the fact. Estimates can become ranges, thresholds can become governed pause points, actuals can improve routing and forecasting, and portfolio planning can expose whether product shaping, review, infrastructure, or agent budget is the real constraint.
+
+See [The Cost Curve Made Concrete](docs/00-the-case/02-the-cost-curve-made-concrete.md) for the dated assumptions, [Resource Observability and Delivery Economics](docs/01-operating-model/resource-observability-and-delivery-economics.md) for the operating principle, and [Model Economics](docs/03-reference/model-economics.md) for the benchmark derivation, living price table, and calculator.
 
 ## Invert the default
 
@@ -81,27 +88,45 @@ The default flow is intentionally simple:
 ```text
 Change Intent in an issue
   + repo-level WORKFLOW.md
+  + optional resource forecast and initiative link
   → one persistent workpad
   → isolated worktree and execution environment
-  → agent implementation
-  → gates and evidence
-  → PR and review
-  → Change Record
-  → learning checkpoint
+  → agent implementation, investigation, or experiment
+  → gates, evidence, and resource checkpoints
+  → builder decision, with a PR when something may land
+  → delivered resolution, evidence-backed non-landing, or unresolved loss
+  → Change Record with actuals, disposition, and landing status
+  → initiative rollup and learning checkpoint
+  → later outcome review when the Change serves a larger initiative
 ```
 
 The core pieces are:
 
 - **Builders** — the humans responsible for outcomes, judgment, taste, risk, and improving the system.
-- **Changes** — units of product work that carry intent, execution state, evidence, and learning.
+- **Changes** — units of product work that carry intent, execution state, evidence, resource use, explicit disposition, and learning.
 - **`WORKFLOW.md`** — the standing operating contract for how work moves through a repository.
 - **Workpads** — the live per-Change plan, checklist, validation state, blockers, and evidence links.
 - **Gates** — mechanical, behavioral, and judgment checks that make quality durable.
 - **Evidence** — tests, screenshots, logs, traces, reviews, and other proof that the outcome is real.
 - **Skills** — reusable procedures that encode how the team wants agents to perform important steps.
-- **Learning checkpoints** — the mechanism for turning repeated corrections into better docs, gates, tests, skills, and workflows.
+- **Resource observability** — attribution of human, agent, infrastructure, time, and failure cost to the Change and outcome that caused it.
+- **Initiatives** — product investment hypotheses that group Changes, forecast the landing and non-landing funnel, preserve expected value and investment, and later compare them with realized or decision value.
+- **Learning checkpoints** — the mechanism for turning repeated corrections and estimate variance into better docs, gates, tests, skills, routing, forecasts, and workflows.
 
-The machinery exists to focus human judgment, not bury it under a new layer of ceremony.
+The machinery exists to focus human judgment, not bury it under a new layer of ceremony. Start with attribution. Add estimates, budgets, capacity planning, and learned routing only when the data and decisions have earned the extra structure.
+
+## The system should learn from delivery
+
+Every resolved effort—and every honestly recorded unresolved loss—should improve the organization’s ability to estimate and decide about the next one.
+
+```text
+Run and disposition data
+  → better Change cost, resolution, and routing estimates
+  → better initiative forecasts and capacity plans
+  → better product and capital-allocation decisions
+```
+
+This is not a promise that software can be estimated with perfect precision. It is a commitment to preserve the original forecast, the actual resource use, the outcome, the uncertainty, and the lesson instead of repeatedly estimating from memory.
 
 ## So what do I do?
 
@@ -123,12 +148,20 @@ Use [Start a Greenfield Project](docs/02-playbooks/start-greenfield.md), then fo
 
 Start with [Shift an Existing Team](docs/02-playbooks/shift-existing-team.md). Pick one safe class of work, give a small group explicit permission to work differently, and expand only through earned trust.
 
+### I need to conclude work that should not land
+
+Use [Resolve a Change That Does Not Land](docs/02-playbooks/resolve-a-change-that-does-not-land.md) to preserve the evidence, resource use, decision, and learning without pretending every stopped branch was valuable.
+
+### I want to plan a major product investment
+
+Use [Forecast and Review an Initiative](docs/02-playbooks/forecast-and-review-an-initiative.md) to preserve the value hypothesis, staged investment and Change-funnel forecasts, actual delivery dispositions, and later value or decision-value reviews. Pair it with [Plan Delivery Capacity](docs/02-playbooks/plan-delivery-capacity.md) before assuming that more agent budget will translate into more trustworthy outcomes.
+
 ## What this repo gives you
 
 - **The Case** — why the economics and operating model of product delivery have changed.
-- **The Operating Model** — how builders, agents, workflows, workpads, gates, evidence, and learning fit together.
-- **Playbooks** — concrete procedures for experiments, greenfield projects, existing-team adoption, bug fixes, gates, browser proof, execution environments, and measuring real Change economics.
-- **Reference material** — copyable templates for GitHub Issues, PRs, `WORKFLOW.md`, workpads, gates, skills, reviewer agents, and a dated model-cost calculator.
+- **The Operating Model** — how builders, agents, workflows, workpads, gates, evidence, resource use, initiatives, and learning fit together.
+- **Playbooks** — concrete procedures for experiments, greenfield projects, existing-team adoption, bug fixes, gates, browser proof, execution environments, delivery economics, initiative forecasting, and capacity planning.
+- **Reference material** — copyable templates for GitHub Issues, PRs, `WORKFLOW.md`, workpads, resource records, initiatives, gates, skills, reviewer agents, and a dated model-cost calculator.
 
 For the complete map, see [`docs/index.md`](docs/index.md).
 
@@ -137,6 +170,8 @@ For the complete map, see [`docs/index.md`](docs/index.md).
 This is not an argument that engineers, product managers, designers, QA, security, or operators no longer matter. Their judgment matters more. The work is to apply it at the layer where it creates the most leverage.
 
 This is not permission for sloppy speed. Reliability, security, accessibility, architecture, and taste still matter. Move faster because the system is better, not because the standards are lower.
+
+Resource telemetry is not permission to collapse people into utilization numbers, label every abandoned branch “learning,” or pretend value attribution is cleaner than it is. Measure capability mix and system behavior to improve decisions. Preserve ranges, confidence, missing-data flags, explicit dispositions, and the distinctions among delivery efficiency, resolution quality, and product success.
 
 This is also not a finished methodology. It is a versioned operating thesis meant to meet reality. Use what works, challenge what does not, and feed the learning back into the system.
 

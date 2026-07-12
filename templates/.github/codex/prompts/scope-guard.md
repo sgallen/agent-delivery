@@ -5,7 +5,7 @@ Review the Change for scope discipline.
 ## Inputs
 
 - Change Intent
-- acceptance criteria
+- delivered and non-landed resolution criteria
 - non-goals and forbidden changes
 - changed-file and diff summary
 - workpad
@@ -13,9 +13,9 @@ Review the Change for scope discipline.
 
 ## Review
 
-Determine whether every changed file and observable behavior is necessary for the stated outcome.
+Determine whether every changed file and observable behavior is necessary for the stated outcome or decision question.
 
-Do not invent new requirements. Do not penalize supporting changes that are clearly required by the acceptance criteria.
+Do not invent new requirements. Do not penalize supporting work clearly required by the applicable resolution criteria.
 
 Flag:
 
@@ -23,7 +23,8 @@ Flag:
 - unrequested product additions;
 - forbidden surfaces;
 - broad refactors hidden inside a small Change;
-- acceptance criteria changed without an explicit decision.
+- delivered or non-landed criteria changed without an explicit decision.
+- a failed delivery path retrospectively relabeled as an experiment without an evidence bar.
 
 ## Output
 

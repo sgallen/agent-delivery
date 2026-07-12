@@ -10,9 +10,10 @@ By the end of 30 days, you should have:
 
 - one clearly defined class of Changes moving through the new path
 - a small group of builders who have run the system themselves
-- three to five completed or deliberately discarded Changes
+- three to five Changes with explicit delivered, decision, administrative, or unresolved outcomes
 - a working issue, workflow, workpad, environment, gate, and evidence pattern
-- baseline data on cycle time, human attention, quality, and rework
+- baseline data on cycle time, human attention, quality, rework, and recorded machine cost
+- one simple estimate-versus-actual comparison for the selected Change class
 - a short list of system improvements already applied
 - an explicit decision to expand, hold, or redesign the experiment.
 
@@ -26,6 +27,7 @@ Keep the first month bounded.
 - Keep the quality bar. Remove ceremony that does not help meet it.
 - Do not reorganize the company, buy a platform, or build a general-purpose orchestrator first.
 - Treat the pilot as product work, not an innovation theatre side quest.
+- Start with attribution. Do not require initiative forecasting, hard budgets, or a learned estimator before the first credible Change records exist.
 
 A useful pilot group is two to five builders with enough product, design, and engineering judgment to act without recreating every old handoff inside the experiment.
 
@@ -66,8 +68,10 @@ Use a small set of measures:
 - first-pass gate success
 - rework or regression rate
 - number of human interventions and why they happened
-- model, tool, and environment cost per accepted Change
-- builder minutes per accepted Change.
+- model, tool, and environment cost per trustworthy landed Change
+- model, tool, and environment cost per evidence-backed decision
+- builder minutes by resolution class
+- resolution, landing, decision, administrative-closure, and unresolved-loss counts.
 
 Precision is less important than having an honest comparison.
 
@@ -81,7 +85,8 @@ Add:
 - one persistent workpad pattern
 - one gate profile for the selected Change class
 - one evidence checklist
-- one learning checkpoint.
+- one learning checkpoint
+- one normalized run-resource record and a place to summarize Change actuals.
 
 Do not write the encyclopedia. The first workflow should be small enough that a builder can read it before coffee gets cold.
 
@@ -104,14 +109,15 @@ Run three Changes through the system.
 
 For each Change:
 
-1. Write the intent and validation expectations.
-2. Create the workpad.
+1. Write the intent, validation expectations, and a simple resource estimate or explicit `not set`.
+2. Create the workpad with a resource-status section.
 3. Let the agent investigate and plan.
 4. For a bug, reproduce the failure before changing the implementation.
 5. Let the agent implement, run gates, repair failures, and gather evidence.
 6. Engage a builder only where judgment or a true blocker requires it.
-7. Review the outcome and evidence, not only the diff.
-8. Complete the learning checkpoint.
+7. Review the proposed resolution class, disposition, evidence, and actual resource record, not only the diff.
+8. Compare estimate and actual when an estimate existed.
+9. Complete the learning checkpoint.
 
 Do not quietly rescue every rough run. The rough edges are the information you need.
 
@@ -130,7 +136,10 @@ Typical findings:
 - a reviewer repeatedly flagged the same design or architecture issue
 - the workpad became noisy
 - a builder was interrupted for a decision the system should have handled
-- the system handled something safely that no longer needs the same review.
+- the system handled something safely that no longer needs the same review
+- a model or environment appeared cheap but created expensive retries or review
+- the same class of work repeatedly exceeded the expected range
+- product shaping, review, or infrastructure rather than agent budget became the constraint.
 
 Promote the learning:
 
@@ -141,7 +150,8 @@ Promote the learning:
 - expose another runtime signal
 - tighten an architecture boundary
 - improve the evidence package
-- remove an artifact or step that did not earn its keep.
+- remove an artifact or step that did not earn its keep
+- adjust an estimate range, resource threshold, or routing rule.
 
 Aim to make two or three concrete system improvements during the week. A backlog of fifty ideas is not the same thing.
 
@@ -158,6 +168,8 @@ Then hold a short operating review. Answer:
 - What failures repeated?
 - Which builder interventions were genuinely high leverage?
 - Did the experience create more agency and creative energy, or more cleanup?
+- Did the simple estimates become more honest after three to five Changes?
+- Which capability or resource currently constrains useful throughput?
 - Is the system ready for another Change class?
 
 Choose one outcome:
@@ -182,9 +194,11 @@ Record:
 
 - the original hypothesis
 - the selected Change class
-- Changes attempted and outcomes
+- Changes entering execution, their resolution classes and dispositions, and what landed or released
 - baseline and current measures
-- model, environment, and builder-attention economics
+- machine, environment, validation, and builder-attention economics
+- estimate-versus-actual results and data-quality gaps
+- the current capacity constraint, if one is visible
 - human interventions by category
 - quality or regression findings
 - system improvements made
@@ -200,7 +214,8 @@ The first 30 days are complete when:
 
 - at least three real Changes have gone through the system
 - the team can explain the workflow without private context
-- evidence exists for speed, quality, human-attention, and cost effects
+- evidence exists for speed, quality, human-attention, and recorded-cost effects
+- the team can explain what the resource records do and do not include
 - at least one repeated lesson has been encoded into the system
 - unnecessary process has been removed rather than quietly accumulated
 - the next decision is explicit.

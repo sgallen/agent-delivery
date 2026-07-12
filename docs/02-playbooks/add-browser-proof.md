@@ -36,7 +36,7 @@ Each observation should be specific enough to test or show.
 
 ## Step 3: Give the agent browser access
 
-Provide an isolated browser profile and a tool such as Chrome DevTools MCP or Playwright.
+Provide an isolated browser profile and a tool such as Chrome DevTools MCP or Playwright. Attribute the browser session, preview environment, and retained artifacts to the Change when the workflow measures environment use.
 
 Use the browser tool for exploration and debugging. Use deterministic browser automation for repeatable proof in CI.
 
@@ -65,7 +65,8 @@ The gate should state:
 - observable assertions
 - permitted errors, if any
 - artifacts to retain
-- retry and failure behavior.
+- retry and failure behavior
+- resource or lease limits for expensive browser, device, or preview environments.
 
 Make the test stable enough to trust. A flaky green check is a decorative light.
 
@@ -83,4 +84,5 @@ Browser proof is useful when:
 - the agent can use the same surface to debug a failure
 - CI can repeat the critical journey
 - unexpected console/runtime failures are visible
-- repeated visual or behavioral regressions can be promoted into gates.
+- repeated visual or behavioral regressions can be promoted into gates
+- environment cost and flaky retries are visible enough to improve the proof strategy.

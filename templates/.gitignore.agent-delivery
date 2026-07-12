@@ -1,8 +1,11 @@
 # Agent Delivery runtime state
 .agent/run.env
 .agent/runs/
+.agent/changes/
 .agent/workpads/
 
-# Preserve gate manifests under .agent/gates/
+# Preserve starter schemas and gate manifests under .agent/
+!.agent/run-resource-use.json
+!.agent/change-resource-summary.yml
 !.agent/gates/
 !.agent/gates/**

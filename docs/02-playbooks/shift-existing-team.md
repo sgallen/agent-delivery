@@ -58,7 +58,11 @@ Before changing the path, capture a few facts:
 - defect or regression rate
 - classes of work repeatedly blocked on scarce specialists
 - common causes of rework
-- current test, browser, and observability coverage.
+- current test, browser, and observability coverage
+- model, tool, environment, and validation cost when available
+- builder attention by broad capability
+- landing, decision, administrative-closure, and unresolved-loss rates when available
+- known gaps in attribution.
 
 You do not need a management dashboard with twelve gradients. You need enough truth to know whether the new system helps.
 
@@ -72,7 +76,8 @@ Good starting classes include:
 - internal tooling
 - small UI behavior fixes
 - evidence generation
-- narrow reviewer-agent checks.
+- narrow reviewer-agent checks
+- bounded experiments or technical investigations with explicit decision questions.
 
 Avoid beginning with billing, security-sensitive flows, migrations, broad refactors, or politically loaded projects.
 
@@ -89,7 +94,8 @@ For the selected Change class, add:
 - a small gate profile
 - an evidence package
 - explicit builder-engagement rules
-- a learning checkpoint.
+- a learning checkpoint
+- one run-resource record and simple Change actual.
 
 Do not require the whole team to adopt everything at once. Do not build a general-purpose orchestration platform before one Change can move through the path reliably.
 
@@ -104,6 +110,10 @@ For each one, record:
 - whether the evidence shortened review
 - whether unrelated output appeared
 - whether the Change reduced or increased total human effort
+- machine and environment use
+- forecast and actual when an estimate existed
+- final resolution status, class, disposition, and landing or release state
+- whether non-landed work produced adequate decision evidence, closed administratively, or remained unresolved loss
 - what should improve before the next run.
 
 Invite skeptics to inspect the evidence and failure modes. Skepticism is useful when it is allowed to meet reality.
@@ -139,7 +149,11 @@ Examples:
 - repeated architecture drift → add a boundary rule or structural check
 - slow bug reproduction → improve browser, log, or trace access
 - needless builder interruptions → improve evidence or encode the decision
-- unused workpad sections → remove them.
+- unused workpad sections → remove them
+- recurring estimate variance → improve task shaping, routing, or the estimate range
+- recurring unresolved loss → improve ownership, stop conditions, recovery, or the resolution path
+- agent capacity available but no ready work → improve customer discovery and product shaping
+- shaped work available but review saturated → improve gates, evidence, or review capacity.
 
 The last item matters. Transformation should remove ceremony, not only add better ceremony.
 
@@ -151,7 +165,8 @@ Expand to a new Change class only when:
 - failures are understood
 - the gates and evidence are credible
 - builders know when they will be engaged
-- the system reduces, rather than relocates, human burden.
+- the system reduces, rather than relocates, human burden
+- resource records are complete enough to understand the next likely constraint.
 
 Trust belongs to a class of work and an operating system—not to “AI” in the abstract.
 
@@ -164,13 +179,16 @@ Reward builders for:
 - reducing repeat work
 - creating useful evidence
 - enabling others to move safely
-- achieving customer and business outcomes.
+- achieving customer and business outcomes
+- improving estimates, routing, and the useful capacity of the complete system.
 
 Do not reward raw generated-code volume. The system can produce plenty of that without encouragement.
 
 Leaders also need to make room for identity to change. A product manager may become more directly involved in creating and validating working Changes. A designer may encode taste into examples, components, skills, and gates. An engineer may spend more time on architecture, environments, and the delivery system than on typing implementation code.
 
 Those are not lesser versions of the old jobs. They are higher-leverage versions of the work.
+
+Use observed constraints to inform staffing. The next hire may be a product-oriented builder who can form and shape demand, a specialist reviewer, or a platform builder who improves gates and environments. More agent budget is only useful when the surrounding system can absorb it.
 
 ## Definition of done for the first phase
 
@@ -180,6 +198,8 @@ The first transformation phase is working when:
 - review burden is stable or lower
 - builders can point to concrete time or quality improvements
 - the pilot had real permission to remove unnecessary process
+- delivered, decision, administrative, and unresolved outcomes remain distinguishable
 - failures produce system improvements rather than blame
 - the team understands that this is a new operating model, not a new autocomplete feature
-- the next decision is explicit: expand, hold, or redesign.
+- the next decision is explicit: expand, hold, or redesign
+- the team can name the current constraint and the evidence behind it.

@@ -50,6 +50,47 @@ Structured review for concerns that require taste, context, or tradeoff evaluati
 
 Judgment gates may be performed by a builder, a reviewer agent, or both. The required reviewer depends on risk and the class of Change.
 
+### Decision and resolution gates
+
+Proof that the evidence supports the proposed disposition:
+
+- delivered acceptance criteria are met;
+- a product or technical hypothesis is supported or rejected;
+- an experiment answered its decision question;
+- a stop, narrow, replace, defer, or supersede decision has an adequate basis;
+- an administrative closure names an accountable owner and external reason;
+- unresolved loss is classified honestly rather than dressed up as learning.
+
+A failed implementation gate can be valid evidence for a decision resolution. It is not automatically permission to close the Change. The decision gate still needs to establish what the failure means.
+
+### Resource gates
+
+Decision points that govern a constrained resource:
+
+- model and tool spend
+- environment or CI spend
+- elapsed time
+- builder or specialist attention
+- use of a scarce test environment
+- initiative-stage investment.
+
+A resource gate does not prove quality. It prevents the system from silently consuming beyond an authorized or sensible envelope.
+
+Use progressive behavior:
+
+```text
+warning threshold
+  → update the completion forecast
+
+soft threshold
+  → checkpoint, explain variance, and propose options
+
+hard threshold
+  → preserve state and require an explicit decision
+```
+
+The decision may be to continue, reroute, narrow, split, defer, or stop. Never design a budget stop that discards the workpad, evidence, run records, or recovery path.
+
 ## A gate contract
 
 Every gate should define:
@@ -63,7 +104,8 @@ Every gate should define:
 | `runner` | Command, reviewer agent, or human role that executes it |
 | `pass_condition` | What must be true |
 | `evidence` | What proves the result |
-| `failure_action` | Repair, retry, block, or escalate |
+| `failure_action` | Repair, retry, checkpoint, block, escalate, or move to an accountable decision |
+| `resource_action` | Warn, reforecast, preserve state, or require approval when a threshold applies |
 
 Use a small result vocabulary:
 
@@ -101,7 +143,8 @@ The orchestrator should loop when:
 - a required gate fails
 - the failure is actionable
 - the Change remains within scope
-- the run is still making progress.
+- the run is still making progress
+- the current resource policy still authorizes continued work.
 
 It should stop and engage a builder when:
 
@@ -110,7 +153,11 @@ It should stop and engage a builder when:
 - repair requires a product, design, architecture, security, or business decision
 - the environment cannot produce trustworthy evidence
 - the agent changes forbidden or unrelated surfaces
-- the risk is outside the approved Change class.
+- the risk is outside the approved Change class
+- a hard resource threshold is reached
+- the completion forecast materially exceeds the authorized range and requires a scope or investment decision
+- the evidence now supports a non-landed resolution
+- ownership is insufficient to reach an accountable disposition.
 
 A useful failure message should tell the next agent what failed, where the evidence is, and what kind of repair is expected. Gates are part of the feedback system, not merely traffic lights.
 
@@ -136,9 +183,9 @@ Do not leave repeated judgment trapped in people’s heads. That creates human b
 
 - One-off issue: review comment.
 - Repeated issue: documentation, example, or skill.
-- Costly repeated issue: gate, regression test, lint, or reviewer rule.
+- Costly repeated issue: gate, regression test, lint, reviewer rule, routing rule, or estimate adjustment.
 - Broad drift: scheduled cleanup agent or architecture check.
 
 The goal is not a wall of gates.
 
-The goal is a system that can move quickly because “ready” is increasingly explicit, observable, and trustworthy.
+The goal is a system that can move quickly because “ready,” “within bounds,” “worth continuing,” and “adequately resolved” are increasingly explicit, observable, and trustworthy.

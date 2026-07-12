@@ -1,97 +1,72 @@
 # Reference: Workpad Template
 
-Use this template for the live per-Change workpad.
+The workpad is the live per-Change execution and decision surface. It is not a stream of agent narration.
 
-## Default location
+The copyable starter lives at:
 
-In the default GitHub implementation, the workpad is a **single persistent GitHub Issue comment**.
+```text
+templates/.agent/workpad-template.md
+```
 
-Start the comment with this marker so agents can find and update it:
+## Canonical location
 
-```markdown
+For a GitHub-driven Change, use one persistent issue comment headed:
+
+```md
 ## Agent Workpad
 ```
 
-Edit the same comment throughout the Change. Do not create a stream of progress comments that another agent has to assemble into a narrative later.
+Update it in place. A local `.agent/workpads/<change>.md` may mirror the comment or serve as a fallback when no ticket exists.
 
-## Template
+## Required distinctions
 
-```markdown
-## Agent Workpad
+The workpad should keep these separate:
 
-### Status
-
-state: running
-last_updated: <timestamp>
-runner: <agent/tool>
-run_id: <id>
-branch: <branch>
-commit: <sha>
-environment: <url or identifier>
-
-### Outcome
-
-Short restatement of what should be observably true.
-
-### Acceptance criteria
-
-- [ ] Criterion 1
-- [ ] Criterion 2
-- [ ] Criterion 3
-
-### Plan
-
-- [ ] Step 1
-- [ ] Step 2
-- [ ] Step 3
-
-### Validation and gates
-
-- [ ] Scope
-- [ ] Lint / typecheck / build
-- [ ] Targeted tests
-- [ ] Behavior proof
-- [ ] Browser or runtime check, if applicable
-- [ ] Evidence package
-
-### Discoveries and decisions
-
-- <Only items that affect the plan, scope, risk, or outcome>
-
-### Blockers / builder judgment
-
-- <Question, decision needed, or none>
-
-### Evidence
-
-- PR:
-- CI:
-- screenshots / video:
-- logs / traces:
-- preview / deployment:
-
-### Handoff
-
-- current outcome:
-- remaining work:
-- known gaps:
-- recommended reviewer:
-
-### Learning checkpoint
-
-- no reusable learning / improvement included / follow-up Change:
+```text
+run status
+Change lifecycle state
+resolution status
+resolution class
+specific disposition
+landed state
+released state
 ```
 
-## Maintenance rules
+A completed run is not a resolved Change. A resolved Change is not necessarily landed. A closed issue is not automatically an evidence-backed resolution.
 
-- Keep the status and checklist current.
-- Summarize; link large artifacts elsewhere.
-- Record decisions that change scope, risk, or approach.
-- Surface builder questions explicitly.
-- Close with the final outcome and learning checkpoint.
+## Minimum useful sections
 
-## Rule
+- identity and current lifecycle state;
+- resolution intent and decision question;
+- landed and useful non-landed criteria;
+- current plan and discoveries;
+- resource forecast, actual to date, thresholds, and variance when measured;
+- gate and validation state;
+- run status and contribution;
+- evidence links;
+- candidate resolution class and disposition;
+- handoff or final resolution;
+- learning checkpoint.
 
-The workpad should be useful at a glance and sufficient to resume the Change.
+## Non-landed work
 
-If it becomes a landfill, stop and clean it up.
+When nothing is likely to land, the workpad should become a decision surface rather than an implementation diary. It should make clear:
+
+- what question the work answered;
+- what evidence supports the conclusion;
+- what resource was consumed;
+- what uncertainty changed;
+- why the proposed resolution is `decision`, `administrative`, or `unresolved_loss`;
+- what happens next.
+
+Do not add a `productive_non_landing` checkbox. Productive non-landing is derived from a decision-class resolution with adequate evidence and accountable review.
+
+## Resource checkpoints
+
+At a soft threshold, update the forecast, explain the variance, and present options. At a hard threshold, preserve state and stop additional consumption until the named decision-maker responds.
+
+The workpad should remain useful even when the decision is to stop.
+
+## Copyable template
+
+Use [`templates/.agent/workpad-template.md`](../../templates/.agent/workpad-template.md).

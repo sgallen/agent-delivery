@@ -80,7 +80,12 @@ model cost
 Then pair it with:
 
 ```text
-accepted outcome
+resolution status, class, and disposition
+landed and released state
+resolution quality and evidence sufficiency
+cost per trustworthy landed Change
+cost per evidence-backed decision
+resolution, landing, decision, administrative, and unresolved-loss yields
 cycle time
 first-pass gate success
 rework and rollback rate
@@ -96,7 +101,7 @@ Route by the work:
 - narrow, objective, strongly gated tasks can use lower-cost models;
 - ambiguous, long-horizon, or high-consequence work may justify a more capable model;
 - failed gates, repeated retries, or low confidence can trigger escalation;
-- a model that costs more per token may cost less per accepted Change.
+- a model that costs more per token may cost less per trustworthy landed Change or evidence-backed decision.
 
 The router should improve from observed outcomes, not benchmark fandom.
 
@@ -110,7 +115,15 @@ This is not a universal senior-engineer cost and should not be presented as one.
 
 Use the committed value only as a familiar orientation point. Replace it with your own employer-cost benchmark when evaluating a real team, and do not mix U.S.-dollar API prices with payroll figures in another currency without converting them.
 
-Do not interpret the comparison as replacement equivalence. Interpret it as evidence that implementation capacity now has a radically different marginal cost and can be provisioned differently. The actual operating metric remains total cost per accepted Change.
+Do not interpret the comparison as replacement equivalence. Interpret it as evidence that implementation capacity now has a radically different marginal cost and can be provisioned differently. The Change-level operating metrics should distinguish cost per trustworthy landed Change from cost per evidence-backed decision, while keeping administrative closure and unresolved loss visible. Major initiatives add a separate value question: did the complete investment create enough customer, business, operational, strategic, or decision value to justify it?
+
+## Historical pricing and delivery records
+
+Store the billed amount or pricing snapshot used at the time of the run. Do not silently recalculate historical actuals with today’s model price.
+
+If a team wants a current-price comparison, label it as a retail-equivalent restatement and preserve the original actual separately.
+
+See [Delivery Economics Records](delivery-economics-records.md) for run, Change, initiative, data-quality, and retention guidance.
 
 ## Maintenance policy
 

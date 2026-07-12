@@ -14,7 +14,9 @@ Before making substantive edits, read:
 4. `docs/00-the-case/index.md`
 5. `docs/00-the-case/06-invert-the-default.md`
 6. `docs/01-operating-model/index.md`
-7. the pages directly related to the requested Change
+7. `docs/01-operating-model/resource-observability-and-delivery-economics.md`
+8. `docs/01-operating-model/initiatives-and-value.md` when the Change touches product investment or value realization
+9. the pages directly related to the requested Change
 
 For implementation-oriented edits, also read:
 
@@ -56,7 +58,14 @@ Keep these ideas intact:
 - `WORKFLOW.md` is the standing repo process.
 - The workpad is the live per-Change execution surface.
 - ExecPlans are optional, durable artifacts for complex work.
-- Every Change should make the product better. The best Changes also make the system better.
+- A Change is complete when it reaches an explicit, evidence-backed disposition; landing and release are separate facts.
+- Productive non-landing must be distinguished from accountable administrative closure and unresolved loss.
+- Work-derived resolutions should improve the product or the decision. Administrative closure and unresolved loss should still improve the record and future planning; do not present them as equivalent outcomes.
+- A Change is both a unit of execution and resolution and a natural unit of resource attribution.
+- Resource use includes builder attention, agent and tool usage, execution infrastructure, elapsed time, retries, and failed attempts.
+- Major initiatives are investment hypotheses. Preserve expected value and investment, actual delivery, realized value, and uncertainty.
+- Optimize the complete system for trustworthy resolution and worthwhile outcomes—not tokens, generated code, merge rate, raw autonomy, or one input cost in isolation.
+- Every resolved effort, and every honestly recorded unresolved loss, should improve the organization’s ability to estimate, route, govern, or decide about the next one.
 
 ## Editing rules
 
@@ -73,6 +82,9 @@ Keep these ideas intact:
 - Never imply that agent and employee costs represent equivalent productive capacity.
 - Keep the canonical employer-cost benchmark in `docs/03-reference/model-economics.md` and `data/economics-scenarios.csv`; other pages should link to it rather than invent a separate salary figure.
 - Call it an employer-cost benchmark, not a universal senior-engineer cost.
+- Use ranges, confidence, assumptions, data-quality notes, and forecast stages. Do not manufacture precision from sparse delivery history.
+- Keep human time and any monetary conversion separate. Prefer capability and team-level patterns over simplistic individual ranking or covert performance surveillance.
+- Distinguish delivery variance, resolution variance, and value variance. Efficient delivery does not prove the initiative was worth doing, and non-landing is neither automatically failure nor automatically learning.
 - End playbooks with a clear definition of done.
 - Keep reference files copyable and terse.
 
@@ -91,11 +103,13 @@ Before completing an edit, verify:
 
 - the core idea is easier to understand
 - the page gives the reader insight, a principle, or an action
-- terms and lifecycle states are consistent
+- terms, lifecycle states, dispositions, and landing/release flags are consistent
 - links resolve
 - ExecPlan and workpad locations are consistent
 - templates match the doctrine
-- no unnecessary process or buzzword was introduced.
+- Change, Run, Initiative, and Portfolio levels remain distinct
+- resource observability is staged rather than made mandatory at maximum sophistication
+- no unnecessary process, false precision, or buzzword was introduced.
 
 ## The test
 

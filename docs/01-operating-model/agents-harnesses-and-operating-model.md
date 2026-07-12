@@ -4,11 +4,11 @@ Agents are first-class participants in product delivery, but they are not the wh
 
 An **agent harness** is the technical system that lets an agent do useful work. It may include prompts, tools, context, permissions, workspaces, execution environments, browser access, logs, retries, validation, and stop conditions.
 
-The **operating model** is broader. It includes builders, Change Intents, `WORKFLOW.md`, workpads, gates, evidence, review, architecture rules, design standards, learning checkpoints, release policies, and the cultural norms for how work moves.
+The **operating model** is broader. It includes builders, initiatives, Change Intents, `WORKFLOW.md`, workpads, gates, evidence, resource policy, review, architecture rules, design standards, learning checkpoints, value reviews, release policies, and the cultural norms for how work moves.
 
 The harness lets agents act.
 
-The operating model decides what should be acted on, how quality is proven, where builder attention belongs, and how the system improves after each Change.
+The operating model decides what should be acted on, how quality is proven, how resource use is attributed and governed, where builder attention belongs, and how the system improves after each Change and initiative.
 
 ## Why the distinction matters
 
@@ -29,6 +29,6 @@ When an agent struggles, ask which layer failed:
 - Did the Change Intent fail to define the goal or constraints?
 - Did the workpad fail to capture live state?
 - Did a gate fail to make quality explicit?
-- Did the system fail to preserve the learning?
+- Did the system fail to preserve the resource record, outcome, or learning?
 
 Do not simply blame the model. Sometimes the model is the problem. Often the system is.

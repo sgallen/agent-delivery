@@ -20,7 +20,9 @@ Then identify:
 - the confusion or need being addressed
 - the concepts touched
 - the files likely to change
-- the evidence that the edit improved the repo
+- the evidence that the edit improved the repo or supported a decision not to make the proposed edit
+- whether the Change affects Run, Change, Initiative, or Portfolio concepts
+- the expected disposition and what would justify resolving without landing the proposed edit
 - the concrete “so what” or next action the reader should receive.
 
 ## Planning posture
@@ -49,7 +51,7 @@ For local-only work, a temporary file under `.agent/workpads/` is acceptable. Wh
 
 A good Change should make the repo clearer, more useful, or more actionable—not merely larger.
 
-Before proposing completion, check:
+Before proposing resolution, check:
 
 - the README still earns attention, reflects the lived origin of the thesis, and provides a clear path into action
 - The Case builds logically without avoidable repetition
@@ -57,11 +59,14 @@ Before proposing completion, check:
 - playbooks provide concrete steps and definitions of done
 - reference files and templates agree with one another
 - voice matches `VOICE.md`
-- lifecycle states and artifact locations are consistent
+- lifecycle states, resolution classes, dispositions, landing status, and artifact locations are consistent
+- productive non-landing is distinguished from unresolved loss
 - internal links resolve
 - claims are grounded in direct experience, cited references, or clearly presented as the author’s current thesis
 - volatile price claims are dated, sourced from providers, and consistent with `data/model-pricing.csv`
-- the edit does not add process that fails to improve intent, execution, proof, recovery, or learning.
+- resource use, estimates, gates, and value reviews remain proportionate to maturity and decision need
+- non-landed work is distinguished from unresolved loss and supported by evidence when called productive;
+- the edit does not add process that fails to improve intent, execution, proof, resource visibility, resolution, recovery, or learning.
 
 ## Evidence for documentation Changes
 
@@ -86,8 +91,8 @@ Stop and surface the issue when:
 
 ## Learning checkpoint
 
-End every meaningful Change by asking:
+End every meaningful resolved Change—and every explicit abandonment review—by asking:
 
-> Did this reveal anything that should make the next Change easier, safer, faster, or better?
+> Did this reveal anything that should make the next Change easier, safer, faster, less wasteful, easier to estimate, more likely to resolve cleanly, or more likely to create value?
 
 If yes, update a voice rule, workflow, template, reference, or playbook. Do not leave the lesson trapped in the chat.

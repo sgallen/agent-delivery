@@ -14,6 +14,7 @@ The Change produces:
 - passing required gates
 - evidence of the before and after behavior
 - a reviewable Change Record
+- the run and Change resource record, at the workflow's adopted maturity
 - any useful system learning.
 
 ## Step 1: Shape the Change Intent
@@ -27,7 +28,9 @@ Capture:
 - known logs, screenshots, traces, or examples
 - non-goals and forbidden changes
 - risk and reversibility
-- required validation.
+- required validation
+- parent initiative, when the bug affects a larger product investment
+- a resource forecast, likely range, confidence, and thresholds when the workflow uses them.
 
 Avoid turning the ticket into a theory about the implementation. Describe the outcome and the evidence. Let the investigation earn the diagnosis.
 
@@ -67,7 +70,8 @@ The agent should update the workpad with:
 - evidence supporting the diagnosis
 - intended fix
 - risks or ambiguities
-- validation plan.
+- validation plan
+- actual resource use to date and a revised completion forecast when the investigation changes the estimate.
 
 For a straightforward bug, a compact workpad is enough. Use an ExecPlan only if the investigation becomes genuinely complex.
 
@@ -108,6 +112,7 @@ The PR and workpad should make it easy to answer:
 - What proves the fix?
 - What proves unrelated behavior was respected?
 - Where is human judgment still needed?
+- What did the Change resolution consume, which failed or discarded attempts are included, and did a threshold require a decision?
 
 A reviewer should not have to reconstruct the bug from chat history or rerun the entire investigation to understand the claim.
 
@@ -130,6 +135,8 @@ Ask:
 - Should the regression test join a broader suite?
 - Did the agent repeat a known bad pattern?
 - Can this class of bug require less builder attention next time?
+- Was the selected model, skill, or environment economical for the delivered resolution—or for the evidence-backed decision if the proposed fix should not land?
+- Did the actual fall inside the forecast range, and what should change in the estimator?
 
 Promote only the learning that will be useful again.
 
@@ -143,6 +150,8 @@ The bug Change is complete when:
 - required gates are green or an accountable waiver is recorded
 - evidence supports the before and after claim
 - the workpad and PR tell the story without private context
+- resource actuals, failed attempts, and material variance are recorded when measured
+- the parent initiative is updated when one exists
 - the learning checkpoint is complete.
 
 The useful loop is simple:

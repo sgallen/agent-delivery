@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.2",
+  "repository": "",
+  "initiative_id": "",
+  "change_id": "",
+  "run_id": "",
+  "branch": "",
+  "commit": "",
+  "started_at": "",
+  "completed_at": "",
+  "agent": "",
+  "harness": "",
+  "workflow_version": "",
+  "gate_profile": "",
+  "activity": "",
+  "attempt": 1,
+  "model_usage": [
+    {
+      "event_id": "",
+      "occurred_at": "",
+      "provider_request_id": "",
+      "provider": "",
+      "requested_model": "",
+      "served_model": "",
+      "activity": "",
+      "pricing_snapshot_date": "",
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "cost_usd": 0,
+      "cost_basis": ""
+    }
+  ],
+  "tool_usage": [
+    {
+      "kind": "",
+      "provider": "",
+      "quantity": 0,
+      "unit": "call",
+      "cost_usd": 0,
+      "cost_basis": ""
+    }
+  ],
+  "environment_usage": [
+    {
+      "kind": "sandbox",
+      "quantity": 0,
+      "unit": "compute_hour",
+      "cost_usd": 0,
+      "cost_basis": ""
+    }
+  ],
+  "builder_minutes": {
+    "customer_discovery": 0,
+    "product_shaping": 0,
+    "design_judgment": 0,
+    "architecture": 0,
+    "agent_direction": 0,
+    "evidence_review": 0,
+    "specialist_review": 0,
+    "recovery": 0,
+    "release_operations": 0
+  },
+  "gate_result": "",
+  "failed_gates": [],
+  "run_outcome": {
+    "status": "",
+    "contribution": "",
+    "candidate_resolution_class": "",
+    "candidate_disposition": "",
+    "stop_reason": "",
+    "summary": ""
+  },
+  "data_quality": {
+    "usage_complete": false,
+    "direct_provider_calls_may_be_missing": true,
+    "subscription_usage_allocated_or_excluded": false,
+    "environment_cost_estimated": true,
+    "builder_time_estimated": true
+  },
+  "notes": ""
+}

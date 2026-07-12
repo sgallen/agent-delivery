@@ -1,6 +1,6 @@
 # Reference: ExecPlan Template
 
-Use this template when a Change is too complex to run from the workpad alone.
+Use this template when a Change is too complex, ambiguous, risky, or materially constrained to run from the workpad alone.
 
 Suggested location:
 
@@ -13,11 +13,15 @@ Follow the target repository’s `docs/PLANS.md` standard.
 ```markdown
 # <Short, action-oriented title>
 
-This ExecPlan is a living document. Keep it current as progress, discoveries, decisions, and validation change.
+This ExecPlan is a living document. Keep it current as progress, discoveries, decisions, forecasts, and validation change.
 
 ## Purpose and desired outcome
 
 Why this work matters and what should be observably true when it is complete.
+
+## Initiative and value context, if applicable
+
+Parent initiative, expected contribution, and any value assumption this Change tests.
 
 ## Context and orientation
 
@@ -35,9 +39,22 @@ What should exist after the Change.
 
 The concrete sequence and affected areas.
 
-## Validation and acceptance
+## Resource forecast and constraints
 
-How success will be proven, including commands, behavior, logs, screenshots, or other evidence.
+Forecast stage:
+Expected machine resources and likely range:
+Expected builder attention by capability and likely range:
+Elapsed-time range:
+Confidence and assumptions:
+Comparable Changes:
+Soft and hard thresholds:
+Likely bottleneck or scarce resource:
+
+Preserve earlier forecasts and add dated revisions when new information changes the plan.
+
+## Validation and resolution criteria
+
+State the delivered acceptance criteria, the evidence required for a useful non-landed decision, and any stop conditions. Explain how each path will be proven with commands, behavior, logs, screenshots, research, comparisons, or other evidence.
 
 ## Progress
 
@@ -47,23 +64,23 @@ How success will be proven, including commands, behavior, logs, screenshots, or 
 
 ## Discoveries and surprises
 
-Facts learned during the work that affect the plan.
+Facts learned during the work that affect the plan or forecast.
 
 ## Decision log
 
-Meaningful decisions, alternatives, and rationale.
+Meaningful decisions, alternatives, threshold decisions, and rationale.
 
 ## Idempotence, rollback, and recovery
 
-How to resume, retry, reverse, or clean up safely.
+How to resume, retry, reverse, or clean up safely. State what must be preserved if a resource limit stops execution.
 
 ## Artifacts and evidence
 
-Links to tests, logs, screenshots, traces, PRs, or reports.
+Links to tests, logs, screenshots, traces, resource records, PRs, or reports.
 
 ## Outcome and retrospective
 
-What shipped, what did not, what proved the result, and what the system should learn.
+Resolution status, class, disposition, landing and release state; what shipped or did not; which decision question was answered; what proved the result; forecast versus actual; material delivery and resolution variance; initiative implication; and what the system should learn.
 ```
 
 At completion, move the plan to:

@@ -1,70 +1,99 @@
 # Builder Engagement
 
-The goal is not maximum agent autonomy.
+The goal is not minimum human involvement.
 
 The goal is maximum leverage from builder attention.
 
-That means human engagement should be designed, not inherited from the old workflow. Builders should enter the Change where their context, taste, judgment, or accountability changes the outcome—not because every step historically required a person.
+Agents make implementation more elastic. Builders remain responsible for understanding customers, forming valuable demand, shaping intent, governing risk, judging evidence, allocating scarce resources, and deciding whether the result was worthwhile.
 
 ## The attention test
 
-Before deciding how a Change should run, ask:
+Before a Change or initiative begins, ask:
 
-1. **Ambiguity:** Is the desired outcome clear, or does it require product discovery or interpretation?
-2. **Consequence:** What happens if the system is wrong?
-3. **Reversibility:** Can the Change be rolled back cheaply and safely?
-4. **Observability:** Can the outcome be proven through tests, browser behavior, logs, or other evidence?
-5. **System history:** Has the system handled this class of Change successfully before?
-6. **Specialist judgment:** Does the work require product, design, engineering, security, legal, or domain expertise that is not yet encoded?
+- How ambiguous is the desired outcome?
+- What is the consequence of being wrong?
+- How reversible is the work?
+- How observable will the result be?
+- Does the system have useful history for this class of work?
+- Which human capabilities are scarce?
+- What resource or value uncertainty could change the decision?
 
 The answers determine where builder attention belongs.
 
+A low-risk, well-gated Change with strong history may run almost entirely through the system. A new product line may require substantial customer discovery, product judgment, staged investment, and value review even if agents perform most implementation.
+
 ## Engagement patterns
+
+### Form and test demand
+
+Builders talk to customers, inspect operations, understand the domain, and decide whether an opportunity deserves an initiative.
+
+This work becomes more important as implementation becomes abundant. A system with plenty of agent capacity and no pipeline of worthwhile, shaped work is not highly productive. It is idle in a more sophisticated way.
 
 ### Shape the intent
 
-Use when the problem or outcome is not yet clear.
+Builders clarify the outcome, boundaries, risk, evidence, value hypothesis, and resource posture before execution begins.
 
-A builder clarifies the customer need, tradeoffs, constraints, non-goals, and evidence expectations before the system acts.
+The system should not invent product strategy because the ticket was thin.
 
 ### Review the evidence
 
-Use when the Change is observable, reversible, and well-gated.
+A builder inspects the outcome, acceptance criteria, gates, scope, and material resource variance rather than replaying the entire implementation session.
 
-The system performs the work. A builder reviews the outcome and evidence rather than every implementation detail.
+Good evidence should reduce review reconstruction and focus attention on the real decision.
 
-### Make a judgment call
+### Make a judgment or investment call
 
-Use when the system reaches a real product, design, architecture, security, or business decision.
+Some moments require taste, context, accountability, or authority:
 
-The agent should present the options, evidence, and tradeoffs clearly. The builder decides.
+- product and design tradeoffs
+- architecture, security, legal, or operational decisions
+- approval to cross a resource threshold
+- narrowing or stopping an initiative
+- deciding whether realized value justifies more investment.
+
+The system should surface the decision, options, evidence, and consequence clearly.
 
 ### Collaborate during execution
 
-Use when the work is novel, high leverage, or difficult to specify upfront.
+A builder and agent work together when the problem is novel, the feedback loop is fast, or the builder’s evolving judgment materially changes the result.
 
-A builder and agents iterate together. The goal is not supervision for its own sake; it is to bring scarce context into the work at the moments it matters.
+Collaboration is not a failure of autonomy. It is a deliberate mode.
 
 ### Lead the work
 
-Use when risk is high, evidence is weak, or the system has not earned trust for the Change class.
-
-A builder leads and agents assist.
+High-consequence, deeply ambiguous, relationship-heavy, or poorly observable work may remain human-led. Agents can still investigate, implement bounded portions, gather evidence, and maintain the record.
 
 ### Let the system handle it
 
-Use when the intent is clear, the risk is bounded, the outcome is observable, the gates are strong, and the system has a good track record.
+For well-understood, reversible, strongly gated work, the system may execute and prove the Change without interrupting a builder unless a stop condition appears.
 
-The system completes the Change and records the evidence without interrupting a builder unless a gate fails or judgment is required.
+This is earned by the work class and operating system. It is not granted to “AI” in the abstract.
+
+## Humans are capabilities, not generic capacity
+
+Capacity planning should distinguish:
+
+- customer discovery
+- product shaping
+- design judgment
+- architecture
+- evidence and specialist review
+- recovery and exception handling
+- release and operational ownership.
+
+Ten hours of customer discovery does not substitute for ten hours of security review. Record the mix that an initiative needs.
+
+Use this information to improve staffing and system design, not to reduce people to utilization. A builder may create enormous leverage by preventing a bad initiative, strengthening a gate, or encoding judgment that removes hundreds of future review steps.
 
 ## The better question
 
 Do not ask:
 
-> How autonomous is the agent?
+> How do we keep a human in the loop?
 
 Ask:
 
-> Where does builder attention materially improve this Change?
+> Where does human judgment materially improve the value, safety, resource use, or outcome of this work?
 
-That keeps the product, the customer, and the risk at the center of the operating decision.
+Then design the system so that attention arrives with the context and evidence needed to make the decision well.

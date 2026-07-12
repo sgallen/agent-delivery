@@ -12,11 +12,20 @@ A team can write PRDs faster, break work into tickets faster, generate code fast
 
 Worse, shallow adoption can make the old system less pleasant.
 
-If code volume rises without stronger intent, gates, evidence, architecture rules, and reviewer automation, the predictable result is overloaded engineers, weak review, frustrated quality advocates, and a growing belief that “AI code” is the problem.
+If code volume rises without stronger intent, gates, evidence, architecture rules, resource attribution, and reviewer automation, the predictable result is overloaded engineers, weak review, frustrated quality advocates, unexplained spend, and a growing belief that “AI code” is the problem.
 
 The problem is not only the code.
 
-The system was not redesigned to handle the new capability.
+The system was not redesigned to handle the new capability. It still cannot answer what a Change consumed, whether it landed or resolved through a useful decision, whether additional agent capacity can be absorbed, or whether a large product initiative created the value used to justify it.
+
+A redesigned process should learn across both delivery and product decisions:
+
+```text
+Change forecast → actual delivery → better estimate
+Initiative value hypothesis → realized value → better investment decision
+```
+
+That feedback loop is part of the operating model, not a finance report attached after the work is over.
 
 ---
 

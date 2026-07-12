@@ -26,7 +26,7 @@ The question stopped being:
 
 It became:
 
-> If agents are core participants in product development, how should the work, team, repository, quality system, and human attention be organized?
+> If agents are core participants in product development, how should the work, team, repository, quality system, resource flow, and human attention be organized—and how should the organization learn whether the resulting investment was worthwhile?
 
 This playbook is an attempt to answer that question well enough to act on it.
 
@@ -46,7 +46,7 @@ Geoffrey Huntley’s [argument about the new economics of software development](
 
 These examples do not produce one tidy recipe. That is useful.
 
-One team can move quickly with almost no formal artifacts because five people are working in a high-bandwidth room. Another needs deeply structured repository knowledge because agents are working asynchronously across a large codebase. The principle is not “always write more docs” or “throw out all process.” The principle is to keep the minimum structure that makes intent, execution, proof, and learning clear enough for the work at hand.
+One team can move quickly with almost no formal artifacts because five people are working in a high-bandwidth room. Another needs deeply structured repository knowledge because agents are working asynchronously across a large codebase. The principle is not “always write more docs” or “throw out all process.” The principle is to keep the minimum structure that makes intent, execution, proof, resource use, recovery, and learning clear enough for the work at hand.
 
 ## The promise of this playbook
 

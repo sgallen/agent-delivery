@@ -18,6 +18,7 @@ That is one place taste becomes durable.
 | A repeatable procedure | Skill |
 | A pass/fail quality requirement | Gate |
 | Independent judgment on an output | Reviewer agent |
+| Resource and outcome history for estimation | Delivery records |
 | Deep plan for complex work | ExecPlan |
 
 This distinction prevents every useful idea from being stuffed into the same file.
@@ -49,7 +50,25 @@ A good skill states:
 - the expected output
 - the evidence to capture
 - common failure modes
-- the conditions that require builder judgment.
+- the conditions that require builder judgment
+- the resource or evidence signals worth recording when the procedure materially affects them.
+
+## Skills and observed economics
+
+When enough comparable history exists, a skill can carry observed operating guidance:
+
+```text
+Skill: dependency-upgrade
+Median recorded machine cost: $8.20
+First-pass gate success: 91%
+Median builder review: 12 minutes
+Recommended model class: standard coding
+Evidence cohort: 34 delivered Changes; 6 decision-resolved Changes
+```
+
+Treat this as dated evidence, not a permanent truth. Model capability, pricing, repository architecture, and the skill itself will change.
+
+Use skill history to improve routing, landing and decision forecasts, and resolution quality. Do not make a global model rule from one repository or a tiny sample.
 
 ## Skills and taste
 

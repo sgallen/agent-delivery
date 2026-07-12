@@ -1,59 +1,122 @@
 # Learning Checkpoints
 
-Every meaningful Change should end with a lightweight question:
+Every meaningful Change should improve more than the product.
 
-> Did this reveal anything that should make the next Change easier, safer, faster, or better?
+The learning checkpoint asks:
 
-Sometimes the answer is no.
+> Did this reveal anything that should make the next Change easier, safer, faster, less wasteful, easier to estimate, more likely to resolve cleanly, or more likely to create value?
 
-That is fine. Not every typo fix needs a philosophy retreat.
+An initiative adds a second question:
 
-When the answer is yes, the learning should not remain trapped in a chat, PR comment, or someone’s memory.
+> Did the expected customer, business, operational, strategic, or decision value appear, and what should that teach the next investment decision?
 
-## Look for friction in five places
+## Look for friction in eight places
 
-1. **Intent** — Was the Change underspecified or misleading?
-2. **Context** — Did the agent lack product, design, architecture, or domain knowledge?
-3. **Execution** — Was a tool, skill, environment, or workflow missing?
-4. **Proof** — Were the gates or evidence too weak, expensive, or unclear?
-5. **Engagement** — Was a builder pulled in too early, too late, or for the wrong reason?
+### Intent
+
+- Was the desired outcome or decision question unclear?
+- Were acceptance, non-landed resolution, or stop criteria missing?
+- Did the value hypothesis survive contact with customers?
+
+### Context and architecture
+
+- Did agents struggle to find the right boundaries or domain knowledge?
+- Did a subsystem make a modest Change unexpectedly expensive?
+
+### Execution and routing
+
+- Was the selected agent, model, skill, or environment appropriate?
+- Did a cheaper route create retries, rework, or heavy review?
+
+### Proof and review
+
+- Which evidence made the decision easy?
+- Which gate was noisy, missing, or too late?
+- Did reviewer demand become the bottleneck?
+
+### Resolution
+
+- Did the Change deliver, conclude with a useful work-derived decision, close administratively, or become unresolved loss?
+- For non-landed work, what uncertainty was actually reduced?
+- Did the evidence justify stopping, narrowing, replacing, or deferring?
+- Was a failed delivery attempt improperly relabeled as an experiment?
+- Was an administrative cancellation incorrectly presented as product learning?
+- Did the record preserve enough context to prevent rediscovery?
+
+### Resources and estimates
+
+- Did actual use fall inside the forecast range?
+- What caused material variance?
+- Which forecast stage reduced uncertainty?
+- Was the threshold policy useful?
+- Was any resource record incomplete or misleading?
+- Did the forecast account for the probability that some Changes would not land?
+
+### Capacity
+
+- Which human capability, agent budget, infrastructure, or operational resource constrained throughput?
+- Would the next investment be better spent adding capacity or improving leverage?
+- Was the team planning only for landed work while ignoring exploration and unresolved loss?
+
+### Value
+
+- Did the initiative produce the expected customer outcome?
+- If it concluded without release, did the decision evidence justify stopping further investment?
+- Did business or operational value appear on the expected horizon?
+- What continuing cost or unintended consequence emerged?
+- How confident is the attribution or counterfactual claim?
 
 ## Possible outcomes
 
-A learning checkpoint may produce:
+A learning checkpoint can result in:
 
-- a better Change Intent template
-- revised `WORKFLOW.md`
-- a new or sharper gate
-- a regression test
-- design guidance or an example
-- an architecture rule
-- a reviewer prompt update
-- a skill update
-- better browser, log, or trace access
-- a scheduled cleanup check
-- a different builder-engagement policy for the Change class.
+- no durable change;
+- clearer product, resolution, or architecture context;
+- a better issue or initiative template;
+- a new or improved skill;
+- a regression test or gate;
+- a routing or escalation rule;
+- a changed resource estimate, landing probability, or capacity ratio;
+- a narrower Change class;
+- a new follow-up Change;
+- an initiative decision to expand, adapt, hold, stop, or retire;
+- a correction to the disposition vocabulary or evidence bar.
+
+Do not create permanent machinery from one odd event. Do not let the same expensive correction happen six times because everyone remembers it informally.
+
+## Preserve the variance and the disposition
+
+Keep the original estimate, later forecasts, actual, proposed outcome, final disposition, and explanation.
+
+Do not overwrite history to make the result look obvious. The distance between the forecasts—and between the intended and actual resolution—is part of the learning.
+
+Useful estimator review includes:
+
+- actual versus expected;
+- whether actual fell inside the likely range;
+- calibration by confidence;
+- delivered, decision, administrative-closure, and unresolved-loss rates by Change class;
+- recurring underestimation by Change or initiative class;
+- changes in model, pricing, workflow, architecture, or team context.
 
 ## Human-governed, agent-assisted
 
-Agents can detect friction, suggest improvements, and open PRs to update docs, tests, gates, or skills.
+Agents can assemble the record, identify recurring patterns, find comparable Changes, detect disposition inconsistencies, and propose improvements.
 
-Builders govern whether those improvements are directionally right.
+Builders decide which learning is real, whether the evidence supports the resolution, which action is proportionate, and whether a product outcome justifies further investment.
 
-The system may improve itself operationally. It does not govern itself.
+Do not use resource telemetry to create automatic blame. The system is the unit being improved.
 
 ## Keep it lightweight
 
-The checkpoint should usually take minutes, not become a retrospective meeting with catering.
+For a routine delivered Change, one concise workpad section is enough.
 
-Record one of three outcomes:
+For a productive non-landed Change, record the decision question, evidence, disposition, and next action.
 
-```text
-no reusable learning
-learning promoted now
-follow-up Change created
-```
+For an unresolved loss, record why resolution failed and what should prevent recurrence.
 
-The compounding advantage does not come from one impressive agent run.
+For a recurring variance, add a short team review.
 
-It comes from the system getting better after many ordinary Changes.
+For a major initiative, schedule outcome reviews at the horizon promised in the original thesis—even when the initiative concluded without release.
+
+The checkpoint should change future behavior. A retrospective that produces no decision, no durable improvement, and no corrected assumption is a meeting-shaped artifact.

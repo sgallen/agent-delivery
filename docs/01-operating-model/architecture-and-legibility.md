@@ -32,6 +32,14 @@ If a module eventually needs to scale independently or move to a dedicated team,
 
 Do not buy distributed-systems problems before the business has earned them. They are available later. Usually with interest.
 
+## Cost can reveal architectural friction
+
+When comparable Changes in one subsystem repeatedly consume more agent attempts, builder review, or environment time, treat that as a design signal.
+
+The cause may be poor modularity, weak tests, hidden coupling, missing context, or a boundary that is expensive to change. Resource variance does not prove an architectural flaw, but it can show where to investigate.
+
+Use the pattern to improve the system. Do not simply raise every future estimate and accept the friction forever.
+
 ## Make boundaries executable
 
 Architecture guidance should not live only in prose.

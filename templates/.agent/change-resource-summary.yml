@@ -1,0 +1,118 @@
+schema_version: "1.2"
+repository: ""
+subsystem: ""
+initiative_id: ""
+change_id: ""
+change_type: ""
+risk: ""
+gate_profile: ""
+workflow_version: ""
+
+resolution_intent:
+  mode: ""
+  decision_question: ""
+  expected_resolution_class: ""
+  expected_disposition: ""
+  landing_expectation: ""
+  release_expectation: ""
+  landed_acceptance_criteria: []
+  non_landed_resolution_criteria: []
+  stop_conditions: []
+
+forecast:
+  stage: post_shaping
+  expected_machine_usd: 0
+  likely_range_machine_usd: [0, 0]
+  expected_builder_minutes: 0
+  likely_range_builder_minutes: [0, 0]
+  expected_builder_minutes_by_capability: {}
+  expected_elapsed_minutes: 0
+  likely_range_elapsed_minutes: [0, 0]
+  expected_resolution_distribution:
+    delivered: null
+    decision: null
+    administrative: null
+    unresolved_loss: null
+  confidence: low
+  comparable_changes: []
+  assumptions: []
+
+resource_policy:
+  soft_machine_limit_usd: null
+  hard_machine_limit_usd: null
+  soft_builder_minutes: null
+  hard_builder_minutes: null
+  soft_elapsed_minutes: null
+  hard_elapsed_minutes: null
+  other_constraints: []
+  on_soft_limit: checkpoint_and_reforecast
+  on_hard_limit: preserve_state_and_require_decision
+
+actual:
+  resolution_path_model_and_tool_usd: 0
+  resolution_path_environment_usd: 0
+  supporting_evidence_usd: 0
+  recovery_usd: 0
+  other_attempt_usd: 0
+  total_recorded_machine_usd: 0
+  cost_basis_breakdown_usd:
+    billed: 0
+    estimated_list_price: 0
+    allocated_subscription: 0
+    local_compute_estimate: 0
+    other: 0
+  builder_minutes_by_capability:
+    customer_discovery: 0
+    product_shaping: 0
+    design_judgment: 0
+    architecture: 0
+    agent_direction: 0
+    evidence_review: 0
+    specialist_review: 0
+    recovery: 0
+    release_operations: 0
+  total_builder_minutes: 0
+  elapsed_minutes: 0
+
+outcome:
+  resolution_status: ""
+  resolution_class: ""
+  disposition: ""
+  landed: null
+  released: null
+  resolution_quality: ""
+  reason_category: ""
+  summary: ""
+  criteria_result: ""
+  first_pass_gates: null
+  rework_or_rollback: null
+  decision:
+    owner: ""
+    decided_at: ""
+    basis: ""
+  evidence: []
+  learning:
+    value: ""
+    uncertainty_reduced: []
+    decisions_changed: []
+    reusable_artifacts: []
+  follow_up:
+    decision: ""
+    changes: []
+
+variance:
+  machine_usd_vs_expected: null
+  builder_minutes_vs_expected: null
+  actual_inside_likely_range: null
+  expected_vs_actual_resolution: ""
+  landing_variance: ""
+  explanation: ""
+
+data_quality:
+  run_records_complete: false
+  direct_provider_calls_may_be_missing: true
+  subscription_usage_allocated_or_excluded: false
+  environment_cost_estimated: true
+  builder_time_estimated: true
+  resolution_evidence_complete: false
+  notes: ""

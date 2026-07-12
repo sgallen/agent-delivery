@@ -1,13 +1,20 @@
 name: Change Intent
-description: Define an outcome for the agent-enabled product delivery workflow.
+description: Define an outcome or decision for the agent-enabled product delivery workflow.
 title: "[Change]: "
 labels: ["state:proposed"]
 body:
+  - type: input
+    id: initiative
+    attributes:
+      label: Parent initiative
+      description: Optional initiative ID or link when this Change contributes to a larger product investment.
+      placeholder: INIT-004 or docs/initiatives/INIT-004-audit-workflows.md
+
   - type: textarea
     id: outcome
     attributes:
-      label: Outcome
-      description: What should be observably true after this Change?
+      label: Outcome or decision
+      description: What should become observably true, or which decision should this Change enable?
     validations:
       required: true
 
@@ -15,10 +22,9 @@ body:
     id: context
     attributes:
       label: Why it matters
-      description: Customer, business, product, or technical context.
+      description: Customer, business, product, initiative, or technical context.
     validations:
       required: true
-
 
   - type: dropdown
     id: change_type
@@ -30,7 +36,33 @@ body:
         - improvement
         - refactor
         - documentation
-        - exploration
+        - experiment
+        - investigation
+    validations:
+      required: true
+
+  - type: dropdown
+    id: resolution_intent
+    attributes:
+      label: Resolution intent
+      description: Delivery aims to land an outcome. Experiments and investigations may resolve through evidence without a merge. Either allows the evidence to determine the path.
+      options:
+        - delivery
+        - experiment
+        - investigation
+        - either_based_on_evidence
+    validations:
+      required: true
+
+  - type: dropdown
+    id: landing_expectation
+    attributes:
+      label: Landing expectation
+      description: Is a durable product or system artifact expected, merely possible, or not required?
+      options:
+        - expected
+        - possible
+        - not_required
     validations:
       required: true
 
@@ -38,30 +70,60 @@ body:
     id: current_state
     attributes:
       label: Current behavior or starting state
-      description: For bugs, describe the failure signal and how it can be observed. For other Changes, describe the current state that should change.
+      description: For bugs, describe the failure signal. For other Changes, describe the current state or uncertainty that should change.
 
   - type: textarea
-    id: acceptance
+    id: decision_question
     attributes:
-      label: Acceptance criteria
-      description: What must be true for this Change to be accepted?
+      label: Decision question
+      description: Required for experiments, investigations, and either-based-on-evidence work. What decision must the evidence support?
+      placeholder: Should we continue, stop, narrow, replace, defer, or choose an alternative?
+
+  - type: textarea
+    id: landed_criteria
+    attributes:
+      label: Landed acceptance criteria
+      description: What must be true for a delivered resolution? Use "not applicable" when the Change is purely investigative.
       placeholder: |
         - [ ] ...
     validations:
       required: true
 
   - type: textarea
+    id: non_landed_criteria
+    attributes:
+      label: Useful non-landed resolution criteria
+      description: What evidence would support an experiment conclusion, hypothesis rejection, technical infeasibility, resource stop, supersession, or review rejection? Use "not applicable" only when no credible non-landed decision path exists.
+      placeholder: |
+        Decision or uncertainty:
+        Evidence required:
+        Minimum resolution quality:
+        Follow-up or stop action:
+    validations:
+      required: true
+
+  - type: textarea
+    id: stop_conditions
+    attributes:
+      label: Stop conditions
+      description: What should stop execution early and force a decision rather than more spend?
+      placeholder: |
+        - Hard resource threshold reached without new evidence
+        - Required constraint cannot be satisfied
+        - Customer evidence invalidates the premise
+
+  - type: textarea
     id: validation
     attributes:
       label: Validation and evidence
-      description: What proof must be produced? These items will be mirrored into the workpad.
+      description: What proof must be produced for delivery or a non-landed decision? These items will be mirrored into the workpad.
       placeholder: |
         - Reproduction signal for bugs:
-        - Targeted tests:
+        - Targeted tests or experiment checks:
         - Browser route or journey:
         - Screenshots or video:
-        - Logs or traces:
-        - Required specialist review:
+        - Research, logs, traces, or benchmarks:
+        - Required specialist or decision review:
     validations:
       required: true
 
@@ -85,7 +147,7 @@ body:
     id: affected
     attributes:
       label: Affected surfaces
-      description: Routes, modules, packages, data, docs, or workflows likely involved.
+      description: Routes, modules, packages, data, docs, workflows, or decision surfaces likely involved.
 
   - type: input
     id: gate_profile
@@ -108,15 +170,40 @@ body:
       required: true
 
   - type: textarea
+    id: resource_forecast
+    attributes:
+      label: Resource and resolution forecast
+      description: Optional at first. Record ranges, confidence, and expected resolution mix when this workflow estimates resource use.
+      placeholder: |
+        Forecast stage: opportunity / post-discovery / post-shaping
+        Expected resolution class and disposition:
+        Expected distribution: delivered / decision / administrative / unresolved_loss
+        Agent, tool, and environment spend: expected / likely range
+        Builder attention by capability: expected / likely range
+        Elapsed time: expected / likely range
+        Confidence, comparable Changes, and assumptions:
+
+  - type: textarea
+    id: resource_policy
+    attributes:
+      label: Resource thresholds and decision rules
+      description: Optional soft and hard limits. A threshold should name the action, not only the number.
+      placeholder: |
+        Soft threshold: checkpoint, explain variance, and reforecast
+        Hard threshold: preserve state and require builder decision
+        Valid resource-stop disposition and evidence:
+        Other scarce resource or capacity constraint:
+
+  - type: textarea
     id: engagement
     attributes:
       label: Expected builder engagement
       description: Where is human judgment expected, if known?
       placeholder: |
-        Intent shaping / evidence review / specialist decision / collaborative / human-led / system-handled
+        Customer discovery / shaping / design / architecture / evidence review / decision / recovery / release
 
   - type: textarea
     id: references
     attributes:
       label: References
-      description: Customer examples, designs, logs, related Changes, or prior decisions.
+      description: Customer examples, designs, logs, related Changes, initiative record, prior decisions, or comparable work.

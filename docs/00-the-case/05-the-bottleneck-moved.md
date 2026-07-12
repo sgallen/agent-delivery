@@ -18,11 +18,22 @@ The scarce resource becomes builder attention:
 - reviewing evidence
 - improving the system.
 
-The operating model should protect and amplify that attention.
+The constraint can move again as the team becomes more capable. A group may have abundant agent budget but too little customer discovery to form worthwhile demand. It may have a shaped backlog but not enough review capacity. It may have review capacity but weak environments, gates, release support, or operational ownership.
 
-It should not consume expert judgment on repetitive implementation and review steps simply because the old process had nowhere else to put the responsibility.
+Additional model spend only creates useful throughput when the surrounding system can absorb it.
+
+The operating model should therefore do two things:
+
+1. protect and amplify scarce builder judgment;
+2. make the complete resource flow visible enough to identify the current constraint.
+
+It should not consume expert judgment on repetitive implementation and review steps simply because the old process had nowhere else to put the responsibility. It should not add agent capacity upstream of a saturated human or technical bottleneck and call the growing queue progress.
 
 This is the practical test: if agent output rises but senior builders spend more time cleaning it up, the bottleneck did not disappear. It was fed.
+
+The better planning question is:
+
+> Which additional human capability, agent budget, infrastructure investment, or system improvement would increase trustworthy, worthwhile outcomes now?
 
 ---
 

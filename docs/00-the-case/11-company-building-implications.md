@@ -8,15 +8,25 @@ If smaller teams can create the same or greater product output, companies need f
 
 This does not mean every company becomes three people and a swarm of agents. It is a delightful sentence and an unreliable operating plan.
 
-Go-to-market still matters. Sales, trust, customer relationships, domain expertise, and human presence can remain decisive. The point is narrower: the traditional cost of building and evolving the product should change.
+Go-to-market still matters. Sales, trust, customer relationships, domain expertise, and human presence can remain decisive. Product discovery, shaping, judgment, review, release, and operational ownership may become the constraints that determine how much agent capacity the company can usefully absorb.
 
-That creates pressure in both directions.
+That changes planning. A company can begin to ask:
 
-New companies can begin with a lower cost base and a more integrated team. Existing companies may need to rethink headcount, roles, architecture, and the per-seat economics of the software they sell.
+- How much additional trustworthy delivery or evidence-backed decision work would another unit of agent spend support?
+- Which human capabilities would be required to shape, review, and release it?
+- Is product demand formation, review, infrastructure, or agent budget the current constraint?
+- Which initiative is likely to create enough value to justify the complete resource envelope?
+- Should the next dollar fund models, a builder, stronger gates, better infrastructure, or nothing yet?
+
+This creates a different view of people. Their value is not only the tasks they personally execute. It includes the useful agent work they can shape, the risk they can govern, the judgment they can make durable, and the system capacity they can unlock.
+
+It also creates a different view of capital allocation. The organization can compare forecast investment with actual delivery, then revisit whether the expected customer and business value appeared. Over time, it can improve both delivery estimation and product judgment.
+
+New companies can begin with a lower cost base and a more integrated team. Existing companies may need to rethink headcount, roles, architecture, investment review, and the per-seat economics of the software they sell.
 
 This is not only a tooling shift.
 
-It is a cost-structure shift, and eventually an organizational one.
+It is a cost-structure shift, an organizational shift, and eventually a better learning system for deciding what to build.
 
 ---
 

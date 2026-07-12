@@ -4,7 +4,7 @@ A worktree isolates code.
 
 An execution environment isolates the runtime world.
 
-Agent-enabled delivery needs both.
+Agent-enabled delivery needs both. The environment is also a measurable delivery resource, not an invisible side bill.
 
 ## Why a worktree is not enough
 
@@ -45,7 +45,8 @@ Every run should have an identity and known locations for:
 - browser profile and debug endpoint
 - log directory
 - evidence directory
-- startup and teardown commands.
+- startup and teardown commands
+- metering and cost-attribution records.
 
 ## Maturity path
 
@@ -69,7 +70,24 @@ A sandbox, VM, container, or hosted development environment per Change.
 
 ### Stage 5: Elastic orchestration
 
-A scheduler dispatches Changes to local or cloud runners based on risk, priority, cost, and resource needs.
+A scheduler dispatches Changes to local or cloud runners based on risk, priority, cost, resource needs, current capacity, and the Change’s authorized envelope.
+
+## Meter the environment
+
+Model spend is only part of machine cost. Capture material use of:
+
+- sandbox or VM compute
+- browser sessions
+- databases and dependent services
+- CI and test runners
+- preview deployments
+- storage, observability, and network services.
+
+Associate the record with the run and Change. Include units and whether the cost was measured, allocated, or estimated.
+
+Environment telemetry also supports capacity planning. A team may have shaped work and agent budget but lack enough browser-enabled sandboxes, test data, or CI throughput to execute it safely in parallel.
+
+Do not keep an expensive environment alive merely because teardown is inconvenient. Do not choose a fragile cheap environment when it makes the evidence untrustworthy.
 
 ## Environment gate
 
@@ -87,3 +105,5 @@ Before trusting evidence, confirm:
 No shared mutable runtime state between parallel Changes unless it is explicitly designed, namespaced, and observable.
 
 If the environment is contaminated, the evidence is not evidence. It is a rumor with a timestamp.
+
+The environment is part of both the quality system and the delivery economics.

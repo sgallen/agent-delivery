@@ -25,7 +25,13 @@ Be clear when something is:
 
 The playbook is opinionated and versioned. It should be confident enough to act on and honest enough to change.
 
-Economic claims should be concrete without pretending to be cleaner than they are. Use dated prices, visible assumptions, and plain caveats. Do not collapse a builder into a token budget or imply that cost similarity means capability equivalence. The point is that the marginal cost structure changed—not that judgment became a commodity.
+Economic claims should be concrete without pretending to be cleaner than they are. Use dated prices, visible assumptions, ranges, confidence, and plain caveats. Do not collapse a builder into a token budget or imply that cost similarity means capability equivalence. The point is that the marginal cost structure changed—and that delivery can become more observable—not that judgment became a commodity.
+
+Resource observability should sound like a way to improve the complete system, not a finance department discovering prompts. Preserve the difference between human capabilities, agent usage, infrastructure, elapsed time, disposition, delivery outcome, decision value, and realized product value. Do not use telemetry as a pretext for simplistic individual rankings.
+
+Do not imply that every planned Change should land. Treat evidence-backed non-landing as a legitimate resolution when it improves a decision, while distinguishing it clearly from abandoned work. Never award “learning value” merely because a branch failed or a bill exists.
+
+When discussing learned estimation, make precision earn its place. A calibrated range based on five comparable Changes is more credible than a six-digit point estimate produced by an impressive model.
 
 When comparing agent spend with employment cost, use the canonical, dated employer-cost benchmark from the economics reference. Do not scatter salary estimates across the prose or label one geography-specific benchmark as the universal cost of a senior engineer.
 
@@ -62,7 +68,10 @@ Use:
 - human-governed, agent-enabled delivery
 - gates make quality durable
 - evidence replaces handoff theater
-- every Change should make the product better; the best Changes also make the system better.
+- work-derived resolutions should improve the product or the decision; administrative closure and unresolved loss should still make the record and future planning more honest
+- make resource use observable where it can improve a decision
+- optimize for trustworthy resolution and worthwhile outcomes rather than any input, merge rate, or cost ratio in isolation
+- treat initiatives as value and investment hypotheses, then revisit what actually happened.
 
 Avoid defaulting to:
 
@@ -101,6 +110,6 @@ Use “agentic” only when it is the clearest word. It usually is not.
 
 The old process still works. That is part of why this is hard.
 
-Teams can bolt agents onto the old process and get some benefit. But the deeper advantage comes from redesigning the operating model: how intent is shaped, how agents work, how gates prove quality, how evidence is reviewed, and how each Change improves the system.
+Teams can bolt agents onto the old process and get some benefit. But the deeper advantage comes from redesigning the operating model: how intent is shaped, how agents work, how gates prove quality, how evidence is reviewed, how resource use is governed, how initiatives are judged against realized value, and how each effort improves the system.
 
 That is the argument. Keep it visible.
