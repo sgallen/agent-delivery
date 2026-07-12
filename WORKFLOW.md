@@ -12,6 +12,7 @@ Then name:
 
 - the reader and the confusion being addressed;
 - the one job this Change should do;
+- where it sits in the narrative hierarchy: shift, operating response, trust, learning, or advanced practice;
 - the concepts and files affected;
 - the evidence that would show the edit improved the package;
 - the practical consequence or next action the reader should receive;
@@ -45,13 +46,14 @@ A good Change makes the package clearer, more engaging, or more actionable—not
 
 Check the full path:
 
-- the README earns attention and gives a way in;
-- The Case builds without avoidable repetition;
+- the README leads with the changed capability and operating-model response before introducing the machinery;
+- the TL;DR still carries the whole argument;
+- The Case builds without avoidable repetition or letting advanced concepts take over the thesis;
 - operating-model pages explain the system without reading like schemas;
 - playbooks provide concrete steps and a definition of done;
 - reference pages and templates agree and remain copyable;
 - voice matches `VOICE.md`;
-- economics and resolution practices remain progressive rather than mandatory at maximum sophistication;
+- economics, initiative, and formal resolution practices remain progressive rather than mandatory at maximum sophistication;
 - useful non-landing remains distinct from administrative closure and unresolved loss.
 
 When adding a factual or price claim, verify and cite it. Keep dated values in the reference data rather than evergreen doctrine.

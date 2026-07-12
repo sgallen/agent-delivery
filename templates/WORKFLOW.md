@@ -4,19 +4,18 @@ This file is the repository’s standing delivery contract. Keep it short enough
 
 The default is simple: shape one Change, maintain one workpad, execute in isolation, prove the result, make an accountable decision, and fold useful learning back into the system.
 
-Delete or adapt anything that does not earn its keep in this repository.
+Delete or adapt anything that does not earn its keep here.
 
 ## The path
 
 ```text
 Proposed → Shaped → Ready → Running → Proving → Decision → Resolved
                     ↘ Blocked / Paused ───────────────↗
-                    ↘ Abandoned when the work ends unresolved
 ```
 
-A **Run** is one attempt. A **Change** carries the durable intent, state, evidence, resource use, and outcome across attempts. An **Initiative** groups Changes when the larger product bet deserves its own forecast and value review.
+A **Run** is one attempt. A **Change** carries the durable intent, state, evidence, and outcome across attempts.
 
-Landing and release are facts, not lifecycle states. Record them separately.
+Landing and release are facts, not proof that the Change was handled well.
 
 ## Ready means ready
 
@@ -27,13 +26,11 @@ A Change may enter `Ready` when it has:
 - scope, non-goals, and forbidden surfaces;
 - acceptance criteria or decision evidence;
 - risk and gate profile;
-- important stop conditions;
-- an initiative link when one exists;
-- a resource range or threshold when the work warrants one.
+- important stop conditions.
 
 For experiments and investigations, define the useful non-landed path before execution. Do not invent a learning objective after delivery becomes difficult.
 
-**Who may mark a Change ready:** <!-- name the role, owner, or automation -->
+**Who may mark a Change ready:** <!-- customize -->
 
 ## One workpad per Change
 
@@ -52,9 +49,7 @@ The workpad should show:
 - the current plan;
 - material discoveries, blockers, and builder questions;
 - gate state and evidence links;
-- resource status when measured;
-- the next decision;
-- final resolution and learning.
+- the next decision and final handoff.
 
 A local `.agent/workpads/<change>.md` may mirror the comment or serve as a fallback when no ticket exists.
 
@@ -65,7 +60,7 @@ Use the lightest artifact that keeps the work coherent.
 - Routine Change: workpad plan.
 - Complex, risky, long-running, or architecture-shaping Change: optional ExecPlan under `docs/exec-plans/active/`.
 
-An ExecPlan is a living execution document, not an approval form. Link it from the workpad and move it to `completed/` when the Change ends. Preserve it with an abandonment note when unresolved work must be handed off or recovered.
+An ExecPlan is a living execution document, not an approval form. Link it from the workpad and move it to `completed/` when the Change ends.
 
 ## Execution environment
 
@@ -94,21 +89,24 @@ A gate returns:
 pass | fail | not_applicable | blocked | waived
 ```
 
-A useful gate has a clear purpose, produces evidence, and tells the agent what to do when it fails. Loop on actionable failures while progress continues. Stop for judgment when:
+A useful gate has a clear purpose, produces evidence, and tells the agent what to do when it fails.
+
+Loop on actionable failures while progress continues. Stop for judgment when:
 
 - intent conflicts or important context is missing;
 - risk or scope changes materially;
 - a forbidden surface is touched;
 - the environment cannot produce credible proof;
 - the same failure repeats without progress;
-- a resource threshold requires a decision;
-- the evidence now supports stopping rather than spending more.
+- the evidence supports stopping rather than doing more work.
 
 The evidence should match the claim: tests for behavior, screenshots or video for UI, logs or traces for runtime work, research or benchmarks for investigations, and reviewer findings where independent judgment helps.
 
 ## Builder engagement
 
-Agents should not guess through consequential ambiguity. Engage the builder whose judgment the situation requires: product, design, architecture, security, specialist review, release, or resource allocation.
+Agents should not guess through consequential ambiguity.
+
+Engage the builder whose judgment the situation requires: product, design, architecture, security, specialist review, release, or ownership.
 
 Start conservatively. Reduce human review only after a class of work and its evidence path earn trust.
 
@@ -116,72 +114,46 @@ Start conservatively. Reduce human review only after a class of work and its evi
 
 ## Resolution
 
-A Change is complete when it reaches an explicit, evidence-backed disposition—not merely when a branch closes.
+A Change is complete when it reaches an explicit, evidence-backed outcome—not merely when a branch closes.
 
-Use these analytical classes:
+Most Changes will deliver something. Exploratory work may instead support a decision to stop, narrow, replace, or defer. Work closed for an external reason should say so plainly. Work that ends without enough evidence or accountable judgment should remain visible as unresolved.
 
-- **`delivered`** — the intended capability was accepted.
-- **`decision`** — the work produced evidence for a useful non-landed decision.
-- **`administrative`** — an accountable owner closed the work for an external priority, policy, funding, or ownership reason.
-- **`unresolved_loss`** — execution consumed resources without enough evidence or judgment to support another class.
+For non-landed work, record:
 
-Also record:
+- the question or uncertainty;
+- the evidence produced;
+- the decision it supports;
+- what remains unknown;
+- what happens next.
 
-```text
-resolution_status: resolved | unresolved
-specific disposition: <what actually happened>
-landed: true | false | not_applicable
-released: true | false | not_applicable
-```
+Use the formal resolution classes only when the project needs consistent reporting or analysis.
 
-A decision-class outcome should say what question was answered, what evidence changed the decision, what uncertainty remains, and what happens next. Administrative closure should not borrow the language of product learning. Unresolved loss should preserve cost, context, cause, and recovery ownership.
+**Who may resolve a Change:** <!-- customize -->
 
-**Who may resolve or abandon a Change:** <!-- customize -->
+## Optional advanced practices
 
-## Resource visibility
+Add these only when they improve a real decision.
 
-Adopt this progressively.
+### Resource visibility
 
-1. **Attribute:** connect runs, model or tool usage, environment activity, and material builder attention to the Change.
-2. **Compare:** record a range, confidence, and actual where the history supports it.
-3. **Govern:** add soft checkpoints and hard decision thresholds for material work.
-4. **Learn:** use the record to improve estimation, routing, capacity, and initiative choices.
+Associate runs and material machine or builder use with the Change. Add ranges, thresholds, routing analysis, and capacity planning progressively as the history becomes credible.
 
-Default record locations:
+At a threshold, preserve state, explain what changed, and ask for a decision. Do not hide failed attempts to make successful work look cheap.
 
-```text
-.agent/runs/<change>/<run>/resource-use.json
-.agent/changes/<change>/resource-summary.yml
-```
+### Initiatives
 
-At a soft threshold, preserve state, explain the variance, update the forecast, and present options. At a hard threshold, stop additional consumption until the named decision-maker chooses to continue, narrow, reroute, create a prerequisite, or stop.
+Create an initiative record when multiple Changes pursue a product bet large enough to deserve an explicit value thesis, investment range, stop conditions, and later value review.
 
-Do not require advanced economics for every small Change. Do not hide failed attempts to make successful work look cheap.
+Routine work does not need one.
 
-## Initiatives
+### Data stewardship
 
-Create an initiative record only when multiple Changes pursue a material product capability, feature set, product line, or investment hypothesis.
-
-The initiative should preserve:
-
-- the expected customer or business value;
-- staged investment ranges and important assumptions;
-- linked Change forecasts and actuals;
-- the final initiative decision;
-- later value reviews—or decision-value reviews when nothing releases.
-
-Efficient delivery does not prove that the product bet was good. A well-supported decision not to build can be valuable. An abandoned initiative is not automatically learning.
-
-## Data stewardship
-
-Resource and resolution data exists to improve the delivery system and its decisions. State what is measured, estimated, incomplete, or excluded. Keep raw human time separate from any optional monetary conversion. Prefer capability and team-level patterns over simplistic individual rankings.
-
-Do not turn delivery observability into covert personnel surveillance.
+State what is measured, estimated, incomplete, or excluded. Keep raw human time separate from any optional cost conversion. Use the data to improve the system, not to rank people by activity adjacent to a token counter.
 
 ## Learning checkpoint
 
 Before closing meaningful work, ask:
 
-> What should become easier, safer, faster, less wasteful, easier to estimate, or more likely to create value next time?
+> What should become easier, safer, faster, or easier to judge next time?
 
-Promote a real lesson into the smallest useful layer: context, example, skill, gate, test, workflow, routing rule, estimator, capacity decision, or product rule. Remove practices that do not help.
+Promote a real lesson into the smallest useful layer: context, example, skill, gate, test, workflow, or follow-up Change. Remove practices that do not help.

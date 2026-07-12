@@ -1,83 +1,84 @@
 # Resource Observability and Delivery Economics
 
-A provider bill tells you what the model cost. It does not tell you whether the work was worth it.
+A provider bill tells you what the model cost.
 
-That distinction matters. A $20 run might produce a clean fix that lands. It might also be the third failed attempt on a poorly shaped Change. The dollars are identical. The delivery outcome is not.
+It does not tell you whether the spend produced a clean fix, a useful product decision, three abandoned attempts, or two hours of senior review nobody planned for.
 
-Agent Delivery makes a more useful kind of visibility possible: connect the resources consumed to the work, the decision, and eventually the value that followed.
+That is the reason to connect resource use to delivery—not to turn product work into a finance exercise, but to give the system a memory of what work actually took.
 
-This is not an attempt to reduce every judgment to money or every builder to a utilization number. It is a way to give the delivery system a memory.
+This is an advanced operating capability. The first job is still to create a trustworthy path from intent to evidence and decision.
 
-## The Change is where cost gains meaning
+## Start where the meaning lives
 
-Use this hierarchy:
+Use a simple hierarchy:
 
 ```text
-Portfolio
-  Initiative
-    Change
-      Run
-        model, tool, and environment events
+Initiative, when there is a larger product bet
+  → Change
+      → Run
+          → model, tool, and environment events
 ```
 
-Each level answers a different question:
+A run tells you what happened during one attempt.
 
-- **Run:** What happened during this attempt?
-- **Change:** What did it take to reach this outcome?
-- **Initiative:** What did it take to test or create this product capability, and was the bet worthwhile?
-- **Portfolio:** Where should the next human hour, agent dollar, infrastructure dollar, or unit of attention go?
+A Change tells you what it took to reach an outcome.
 
-Do not start by building the portfolio layer. Start by giving every run a Change ID and every Change an explicit resolution.
+An initiative tells you what the larger bet consumed and, later, whether it was worthwhile.
 
-## Record the complete resource mix
+Do not start by building the portfolio layer. Start by giving each run a Change ID and each Change an honest ending.
 
-Tokens are useful. They are not the whole system.
+## Record enough to answer a real question
 
-For machine work, capture enough to reconstruct provider and model use, routing or fallback, billable usage, tools, execution environments, CI, retries, elapsed time, and failed attempts.
+For machine work, useful fields may include model and provider, tokens or billable usage, routing and fallback, tools, environment and CI use, elapsed time, retries, and failed attempts.
 
-For human work, record the kind of attention involved:
+For human work, record the kind of attention when it helps explain the result:
 
-- customer discovery and product shaping;
+- customer discovery or product shaping;
 - design or architecture judgment;
 - agent direction;
-- evidence and specialist review;
-- exception handling, recovery, release, and operational ownership.
+- evidence or specialist review;
+- recovery, release, or operational ownership.
 
-Keep raw time or effort separate from any monetary conversion. Cost assumptions change, and many teams will sensibly choose not to monetize human time at all.
+Keep raw time or effort separate from any monetary conversion. Many teams will sensibly choose not to monetize human time at all.
 
-Measure this to improve the system, not to rank individuals. A builder may create enormous leverage by preventing a bad initiative, clarifying one sentence of intent, or improving a gate that saves hundreds of later review hours. A row in a utilization report will miss the point.
-
-Finally, pair the resource record with the outcome: how the Change resolved, whether anything landed or released, what evidence passed, how much rework followed, what uncertainty was reduced, and which initiative the work served.
+Measure the system, not the person. A builder may create enormous leverage by preventing a bad initiative, clarifying one sentence of intent, or improving a gate that saves hundreds of later review hours. A utilization row will miss the point.
 
 ## Grow the practice in stages
 
-Resource observability is foundational. Financial control at maximum sophistication is not.
-
 ### 1. Attribute
 
-Associate agent, tool, environment, retry, and builder-attention data with a Change.
+Associate the run, agent, model, tools, environment, retries, and any meaningful builder involvement with a Change.
 
-That alone lets the team ask:
+That lets the team ask:
 
 > What did this work consume, and what did it produce?
 
+For many teams, this alone is a meaningful step forward.
+
 ### 2. Estimate
 
-Add a range, confidence, and assumptions when the estimate can influence a decision.
+Add a range, confidence, and assumptions when the estimate can improve a decision.
 
 ```text
 Agent and environment spend: $20–$55
 Builder attention: 45–90 minutes
-Likely outcome: deliver, with a bounded stop available
 Confidence: low
 Basis: four comparable Changes
 ```
 
 A range based on weak evidence is honest. A precise number based on weak evidence is theater.
 
+Preserve forecast stages rather than overwriting them:
+
+```text
+opportunity → post-discovery → post-shaping → in flight → final actual
+```
+
+The movement between those estimates can show which activities reduced uncertainty and which surprises changed the work.
+
 ### 3. Govern
 
-Turn thresholds into pause points:
+Use thresholds as decision points, not traps:
 
 ```text
 approaching limit → warn and update the forecast
@@ -85,107 +86,43 @@ soft limit        → explain the variance and replan
 hard limit        → preserve state and require a decision
 ```
 
-The result may be more budget, narrower scope, a stronger model, a prerequisite Change, or a decision to stop. A hard stop that destroys the context is not governance. It is an expensive way to forget.
+The answer may be more budget, narrower scope, a stronger model, a prerequisite Change, or a decision to stop.
 
 ### 4. Learn and route
 
-Compare similar Changes by work type, repository area, model, agent, skill, gate profile, environment, and outcome.
+Compare similar work by Change type, repository area, model, agent, skill, gate profile, environment, outcome, and review burden.
 
-A stronger model may cost more per request and less per trustworthy landed Change. A cheaper route may be right for a bounded investigation. The intended outcome determines the meaningful comparison.
+A stronger model may cost more per request and less per trustworthy outcome. A cheaper model may be ideal for narrow work with clear gates. The useful comparison includes retries, recovery, and human attention—not just the provider price.
 
-Use the history to improve decomposition, routing, escalation, context, skills, gates, environments, and estimates.
+Use the history to improve shaping, decomposition, context, routing, escalation, skills, gates, environments, and estimates.
 
 ### 5. Plan capacity and investment
 
-Roll Changes into initiatives. Forecast the mix of human attention, agent spend, infrastructure, elapsed time, and likely outcomes. Then identify the constraint before adding budget.
+Once the records are credible, roll Changes into initiatives and ask whether the surrounding system can absorb more agent capacity.
 
-This is advanced mode. It becomes credible only after the earlier records are consistent.
+The constraint may be customer discovery, product shaping, senior review, test infrastructure, release support, or operational ownership. Another $10,000 of model budget does not create useful throughput when the rest of the system is saturated.
 
-## Let forecasts change as knowledge improves
+That is when the question becomes:
 
-One frozen estimate hides the most interesting part of planning: how uncertainty changes.
+> Where should the next human hour, agent dollar, or infrastructure investment go?
 
-Preserve a few stages:
+## Use a few honest measures
 
-```text
-opportunity      rough order of magnitude
-post-discovery   updated after customer and domain learning
-post-shaping     updated after scope, architecture, and Change decomposition
-in flight        updated from actual progress and discovered complexity
-final actual     the complete resource and outcome record
-```
+No single number deserves to become the scoreboard.
 
-This shows not only whether the team estimated well, but which activities made the estimate better. Discovery or shaping may cost money while reducing the total expected investment. A small experiment may prevent a much larger commitment. Make that visible without pretending the counterfactual is certain.
+Useful measures may include total recorded cost per trustworthy delivered Change, cost per evidence-backed decision, builder attention, first-pass gate success, rework, rollback, resolution yield, and unresolved loss.
 
-## Use a small set of honest measures
+Keep different outcomes separate. Delivered work, exploratory decisions, administrative closure, and unresolved loss do not mean the same thing and should not be blended into a flattering average.
 
-The broad cost equation is:
+“Recorded” matters too. Subscription usage, local compute, direct-provider calls, and unmeasured human effort may be missing. Say what the data does not know.
 
-```text
-models and tools
-+ execution environments and CI
-+ failed and superseded attempts
-+ builder attention, when monetized
-= recorded delivery cost
-```
+## Let the estimator stay humble
 
-Pair it with quality and outcome. At minimum, keep these cohorts separate:
+With enough comparable history, the system can learn from work type, subsystem, risk, test surface, repository familiarity, Change quality, model and agent choice, environment, and human capability mix.
 
-- **Delivered work:** cost per trustworthy landed Change, first-pass gates, rework, rollback, and builder attention.
-- **Decision work:** cost per evidence-backed decision, uncertainty reduced, and whether the decision held up later.
-- **Administrative closure:** cost spent before an external priority or ownership decision closed the work.
-- **Unresolved loss:** cost consumed without a sufficient outcome or accountable decision.
+It should return ranges, confidence, and important unknowns—not a suspiciously exact number.
 
-Also watch the funnel:
-
-```text
-resolution yield = well-resolved Changes / Changes entering execution
-landing yield    = landed Changes / Changes entering execution
-decision yield   = evidence-backed non-landed decisions / Changes entering execution
-unresolved loss  = unresolved Changes / Changes entering execution
-```
-
-No one number deserves to become the scoreboard. A team can game merge rate, resolution yield, cost per Change, and almost anything else. Read the measures together with evidence quality, product value, and the nature of the work.
-
-“Recorded” matters too. Subscription use, local compute, work outside the workflow, and unmeasured human effort may be missing. Say what the record does not know.
-
-## More agent budget does not guarantee more throughput
-
-Another $10,000 of model spend is useful only if the surrounding system can turn it into good work.
-
-The real constraint may be:
-
-- not enough customer-informed demand;
-- weak product shaping;
-- senior review capacity;
-- poor automated gates;
-- environment or CI limits;
-- release and operational support;
-- too much unresolved work already in flight.
-
-The better question is:
-
-> Can the complete delivery system absorb more agent capacity and convert it into worthwhile outcomes?
-
-Sometimes the next dollar belongs in models. Sometimes it belongs in a product-oriented builder, a reviewer, test infrastructure, or a gate that lets the existing team supervise more work safely. Sometimes the honest answer is to spend nothing yet.
-
-## The system can learn to estimate
-
-With enough comparable history, the estimator can use work type, risk, subsystem, test surface, unfamiliar context, Change quality, model and agent choice, environment, human capability mix, and current queue constraints.
-
-It should return ranges, confidence, and likely outcome mix—not a suspiciously exact number.
-
-```text
-Expected execution starts: 14–17
-Expected landed Changes: 9–12
-Expected useful non-landed decisions: 2–4
-Expected unresolved loss: 0–2
-Expected total spend: $11,000–$17,000
-```
-
-Evaluate whether ranges contain the actuals, whether confidence is calibrated, where the system repeatedly underestimates, and whether model, workflow, architecture, or team changes have made old comparisons stale.
-
-Do not let a learned estimator turn yesterday’s friction into permanent truth.
+Old comparisons can also go stale as models, prices, architecture, workflows, and teams change. Do not let a learned estimator turn yesterday’s friction into permanent truth.
 
 ## Rule
 

@@ -2,9 +2,9 @@
 
 These pages describe the default GitHub-first implementation. The `templates/` directory contains the copyable files.
 
-Use them to get to a real experiment faster. They are not sacred.
+Use them to get to real work faster. They are not sacred.
 
-## Core setup
+## Start with the core
 
 1. [Repo structure](repo-structure.md)
 2. [`WORKFLOW.md`](workflow-md.md)
@@ -14,11 +14,15 @@ Use them to get to a real experiment faster. They are not sacred.
 6. [Pull request template](pr-template.md)
 7. [GitHub labels](github-labels.md)
 
-## Economics and initiatives
+The starter templates are deliberately lighter than the full reference model. Add fields when they improve a decision or protect the work.
+
+## Advanced records
 
 - [Delivery economics records](delivery-economics-records.md)
 - [Initiative template](initiative-template.md)
 - [Model economics](model-economics.md)
+
+These support attribution, forecasting, thresholds, capacity planning, and value review. They are not required for the first credible Change.
 
 ## Additional reference
 
@@ -29,4 +33,4 @@ Use them to get to a real experiment faster. They are not sacred.
 - [Glossary](../glossary.md)
 - [References and influences](../references.md)
 
-Begin with lightweight attribution. Add forecasts, thresholds, initiative records, and capacity planning only when they improve a real decision.
+Keep the operating principles. Simplify the implementation whenever the extra machinery stops earning its keep.

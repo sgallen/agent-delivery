@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.15 — Restore the larger argument
+
+This release puts the playbook's center of gravity back where it belongs: the capability changed, the assumptions behind product delivery did not, and teams now have an opportunity to design a better operating model. Changes, evidence, economics, and initiative records remain important, but they serve that argument instead of crowding it out.
+
+Key changes:
+
+- Restored a real TL;DR and rebuilt the README around the changed constraint, the limits of bolting agents onto the old process, and the case for human-governed, agent-enabled delivery.
+- Reworked the narrative spine across The Case, the operating-model overview, indexes, and navigation so the reader moves from the shift, to the operating response, to trust and learning, and only then to advanced economics and portfolio use.
+- Tightened the core operating-model chapters around builders, agents, Changes, workpads, environments, gates, evidence, engagement, and learning. The machinery now supports the idea instead of becoming the idea.
+- Re-seated delivery economics, initiative forecasting, capacity planning, and formal resolution records as progressive capabilities. They remain first-class where they improve a real decision, but they are no longer presented as the price of entry.
+- Rewrote the first experiment, first 30 days, greenfield, existing-team, GitHub, environment, gate, ExecPlan, recovery, and bug-fix paths so each begins with the smallest credible move and earns additional structure from observed need.
+- Simplified the starter `WORKFLOW.md`, `AGENTS.md`, issue form, workpad, pull-request template, gate manifest, ExecPlan, and skills so a team can start without pretending it already runs a mature delivery-economics system.
+- Made resource tracking opt-in in the starter runner. The default path preserves intent, run history, evidence, and handoff; initiative and resource records are added when the team is ready to use them.
+- Split GitHub label bootstrapping into a small default set and an explicit `--full` mode for teams using the extended resolution, risk, gate, resource, and initiative vocabulary.
+- Strengthened `VOICE.md`, `AGENTS.md`, and `WORKFLOW.md` with an explicit narrative hierarchy and editorial guardrails so future additions do not quietly become the new thesis.
+
 ## v0.14 — A clearer, more human playbook
 
 This release keeps the ambition of v0.12 and v0.13, but gets more of the machinery out of the reader’s way. The economics, initiative, and resolved-outcome ideas now arrive through a clearer narrative and a smaller practical starting point.

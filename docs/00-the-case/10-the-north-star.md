@@ -8,16 +8,15 @@ The builder’s work moves upward:
 
 - from performing every task to shaping worthwhile demand;
 - from carrying process in memory to making context, gates, and skills durable;
-- from reviewing every line to reviewing the evidence and the real decision;
-- from guessing at effort to learning from actual resource use;
-- from declaring an initiative complete at launch to asking whether the promised value appeared;
-- from fixing the same failure repeatedly to improving the system that allowed it.
+- from reviewing every line to judging the evidence and the real decision;
+- from fixing the same failure repeatedly to improving the system that allowed it;
+- from guarding a narrow role boundary to carrying an outcome further.
 
 The goal is not to keep a human in every loop.
 
 It is to make human judgment count.
 
-Done well, this should also create a better experience for the people doing the work: less waiting, less translation between silos, less fear of change, and more room to understand customers, solve hard problems, and build things they are proud of.
+Done well, this should create a better experience for the people doing the work: less waiting, less translation between silos, less fear of change, and more room to understand customers, solve hard problems, and build things they are proud of.
 
 A healthy system can explain:
 
@@ -25,15 +24,13 @@ A healthy system can explain:
 what it intended
 what it attempted
 what it proved
-what it consumed
-how it ended and whether anything landed
-what value or decision followed
+how it ended
 what it learned
 ```
 
-Delivered Changes should improve the product. Good exploratory Changes should improve the decision. Honest failures should improve the operating system rather than disappear from the record.
+With maturity, it can also explain what the work consumed and whether the expected value appeared. That history can improve estimates, routing, capacity decisions, and the next product bet.
 
-Every major initiative should make the organization better at deciding what is worth doing next.
+But the North Star remains the same: worthwhile outcomes produced by a system in which agents do more of the execution and humans apply judgment where it matters most.
 
 ---
 

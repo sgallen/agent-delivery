@@ -1,34 +1,58 @@
 # Agents, Harnesses, and the Operating Model
 
-Agents are first-class participants in product delivery, but they are not the whole system.
+Agents can participate directly in product delivery. They are not the delivery system.
 
-An **agent harness** is the technical system that lets an agent do useful work. It may include prompts, tools, context, permissions, workspaces, execution environments, browser access, logs, retries, validation, and stop conditions.
+An **agent harness** gives an agent the practical ability to work: context, tools, permissions, a workspace, an execution environment, browser access, logs, retries, validation, and stop conditions.
 
-The **operating model** is broader. It includes builders, initiatives, Change Intents, `WORKFLOW.md`, workpads, gates, evidence, resource policy, review, architecture rules, design standards, learning checkpoints, value reviews, release policies, and the cultural norms for how work moves.
+The **operating model** is the larger human and technical system around that harness. It decides which work matters, how intent is shaped, what agents may do, how quality is proven, where judgment belongs, how failures recover, and what the team learns afterward.
 
-The harness lets agents act.
+The harness lets an agent act.
 
-The operating model decides what should be acted on, how quality is proven, how resource use is attributed and governed, where builder attention belongs, and how the system improves after each Change and initiative.
+The operating model makes that action useful.
 
 ## Why the distinction matters
 
-A strong harness can produce a lot of activity.
+A capable harness can produce a great deal of activity. Activity is not the same thing as product progress.
 
-Without a strong operating model, that activity becomes noise.
+Without a clear operating model, agents amplify whatever already exists: good context and good judgment when the team has them; ambiguity, hidden coupling, weak proof, and review queues when it does not.
 
-The goal is not to give agents every tool and hope confidence emerges. Hope is not a control plane.
+The answer is not to keep adding tools until confidence appears. Hope is not a control plane.
 
-The goal is to give agents the right tools, context, and feedback, then surround their work with gates, evidence, review surfaces, and learning mechanisms that make the output useful.
+The answer is to give agents enough capability to attempt the work, then make the surrounding expectations explicit:
 
-## Practical rule
+- a clear Change Intent;
+- repository context and boundaries;
+- one live workpad;
+- an environment that can expose real behavior;
+- gates tied to the claim;
+- evidence a builder can judge;
+- stop and recovery rules;
+- an accountable outcome;
+- a learning checkpoint.
 
-When an agent struggles, ask which layer failed:
+## Diagnose the system, not only the model
 
-- Did the harness lack a tool, permission, context source, or runtime environment?
-- Did the workflow fail to explain how work should move?
-- Did the Change Intent fail to define the goal or constraints?
-- Did the workpad fail to capture live state?
-- Did a gate fail to make quality explicit?
-- Did the system fail to preserve the resource record, outcome, or learning?
+When a run struggles, ask which layer failed:
 
-Do not simply blame the model. Sometimes the model is the problem. Often the system is.
+- Was the goal or boundary unclear?
+- Was the repository missing context?
+- Did the harness lack a tool, permission, or runtime signal?
+- Did the environment make trustworthy proof impossible?
+- Did the workflow fail to explain retries, handoffs, or stopping?
+- Did a gate detect the problem too late?
+- Was builder judgment needed but never requested?
+- Was the selected model simply a poor fit?
+
+Sometimes the model is the problem. Often the system is giving it a bad job in a bad room with no useful way to know it is wrong.
+
+## What can come later
+
+Once the core path works, the operating model can grow to include model routing, resource attribution, spend thresholds, initiative forecasts, capacity planning, and value reviews.
+
+Those are meaningful extensions. They do not replace the basic obligation to turn intent into trustworthy evidence and an accountable decision.
+
+## Rule
+
+Build the smallest harness that can do the work and the smallest operating model that can make the result trustworthy.
+
+Then improve the layer that reality shows is weak.

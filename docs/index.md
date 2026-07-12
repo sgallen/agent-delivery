@@ -1,44 +1,58 @@
 # Playbook Map
 
-Read as deeply as the problem requires. The playbook has four layers, and you do not need all four to run a useful first experiment.
+You do not need the whole kit to begin.
 
-## 1. Understand the shift
+The playbook has a narrative path, a practical path, and an advanced path. Start with the question you are actually trying to answer.
 
-Start with [Why This Exists](00-the-case/00-why-this-exists.md), then follow [The Case](00-the-case/index.md).
+## 1. Understand what changed
 
-The shortest useful path is:
+Begin with [Why This Exists](00-the-case/00-why-this-exists.md), then read the short path through [The Case](00-the-case/index.md):
 
-1. [The Economics Changed](00-the-case/01-the-economics-changed.md)
+1. [Current Capability Is Enough](00-the-case/03-current-capability-is-enough.md)
 2. [The Bottleneck Moved](00-the-case/05-the-bottleneck-moved.md)
 3. [Invert the Default](00-the-case/06-invert-the-default.md)
 4. [The Purpose Is Outcomes](00-the-case/08-the-purpose-is-outcomes.md)
 5. [The North Star](00-the-case/10-the-north-star.md)
 
-Read [The Cost Curve Made Concrete](00-the-case/02-the-cost-curve-made-concrete.md) when you want the dated numbers rather than the thesis alone.
+Read [The Economics Changed](00-the-case/01-the-economics-changed.md) and [The Cost Curve Made Concrete](00-the-case/02-the-cost-curve-made-concrete.md) when you want the economic argument and dated numbers behind the shift.
 
-## 2. Understand the system
+## 2. Understand the operating model
 
 The [Operating Model](01-operating-model/index.md) explains how the pieces fit.
 
-Begin with:
+For the smallest credible version, read:
 
-1. [Changes](01-operating-model/changes.md)
-2. [`WORKFLOW.md` and Workpads](01-operating-model/workflow-and-workpads.md)
-3. [Gates](01-operating-model/gates.md)
-4. [Evidence](01-operating-model/evidence.md)
-5. [Builder Engagement](01-operating-model/builder-engagement.md)
+1. [Builders](01-operating-model/builders.md)
+2. [Changes](01-operating-model/changes.md)
+3. [`WORKFLOW.md` and Workpads](01-operating-model/workflow-and-workpads.md)
+4. [Execution Environments](01-operating-model/execution-environments.md)
+5. [Gates](01-operating-model/gates.md)
+6. [Evidence](01-operating-model/evidence.md)
+7. [Builder Engagement](01-operating-model/builder-engagement.md)
+8. [Learning Checkpoints](01-operating-model/learning-checkpoints.md)
 
-That is enough for a small experiment.
+That is enough to reason about and run a first experiment.
 
-Add [Resource Observability and Delivery Economics](01-operating-model/resource-observability-and-delivery-economics.md) when you want the system to learn what work consumes. Read [Not All Work Is Merge-Bound](01-operating-model/not-all-work-is-merge-bound.md) when experiments or investigations matter. Use [Initiatives and the Value Loop](01-operating-model/initiatives-and-value.md) when the investment and expected value deserve a durable record.
+## 3. Try it on real work
 
-## 3. Try it
+For one low-risk Change, use [Run the First Experiment](02-playbooks/first-experiment.md). For a concrete product defect, use [Fix a Bug with Proof](02-playbooks/fix-a-bug-with-proof.md).
 
-For one low-risk Change, use [Run the First Experiment](02-playbooks/first-experiment.md). For a concrete product bug, use [Fix a Bug with Proof](02-playbooks/fix-a-bug-with-proof.md).
+For an existing team, pair [Shift an Existing Team](02-playbooks/shift-existing-team.md) with [The First 30 Days](02-playbooks/first-30-days.md).
 
-For a team, start with [The First 30 Days](02-playbooks/first-30-days.md), then choose from the [Playbooks](02-playbooks/index.md).
+The full set is in [Playbooks](02-playbooks/index.md).
 
-## 4. Implement it
+## 4. Add advanced capabilities when they earn their place
+
+Once the basic path is producing trustworthy records:
+
+- use [Not All Work Is Merge-Bound](01-operating-model/not-all-work-is-merge-bound.md) for experiments and investigations;
+- use [Resource Observability and Delivery Economics](01-operating-model/resource-observability-and-delivery-economics.md) to learn what work consumes and improve estimates or routing;
+- use [Initiatives and the Value Loop](01-operating-model/initiatives-and-value.md) when a larger product bet deserves an explicit value thesis and later review;
+- use [Plan Delivery Capacity](02-playbooks/plan-delivery-capacity.md) when the question becomes where the next human hour, agent dollar, or infrastructure investment should go.
+
+These are extensions of the operating model, not prerequisites for trying it.
+
+## 5. Implement it
 
 Use the [Reference](03-reference/index.md) and `templates/` directory for GitHub-first starting points.
 

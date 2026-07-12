@@ -4,21 +4,20 @@ The goal is not minimum human involvement.
 
 It is maximum leverage from human judgment.
 
-Agents make implementation more elastic. Builders still understand customers, form worthwhile demand, shape intent, govern risk, judge evidence, allocate scarce resources, and decide whether the result was worth pursuing.
+Agents make implementation more elastic. Builders still understand customers, form worthwhile demand, shape intent, govern risk, judge evidence, and own the consequences.
 
 ## Decide where attention belongs
 
-Before a Change or initiative begins, ask:
+Before a Change begins, ask:
 
 - How ambiguous is the outcome?
 - What happens if we are wrong?
 - How reversible is the work?
 - How observable will the result be?
-- Does the system have credible history for this class of work?
-- Which human capability is scarce?
-- Which uncertainty could change the decision?
+- Has this class of work earned trust?
+- Which judgment cannot be delegated safely?
 
-A low-risk, well-gated Change with strong precedent may run almost entirely through the system. A new product line may need substantial customer discovery and product judgment even if agents perform most of the implementation.
+A low-risk, well-gated Change with strong precedent may run almost entirely through the system. A new product direction may need substantial customer discovery and product judgment even if agents perform most of the implementation.
 
 ## Common engagement modes
 
@@ -30,17 +29,17 @@ As implementation becomes more abundant, this work becomes more valuable. A syst
 
 ### Shape intent
 
-Builders clarify the outcome, boundaries, risk, evidence, value thesis, and resource posture before execution begins.
+Builders clarify the outcome, boundaries, risk, evidence, and stop conditions before execution begins.
 
 The system should not invent product strategy because the ticket was thin.
 
 ### Review evidence and decide
 
-Builders should inspect the outcome, gates, scope, and material variance—not replay the entire session.
+Builders should inspect the outcome, proof, scope, and consequences—not replay the entire session.
 
-Some decisions require taste, context, accountability, or authority: product and design tradeoffs, architecture, security, legal or operational risk, crossing a resource threshold, stopping an initiative, or deciding whether realized value justifies more investment.
+Some decisions require taste, context, authority, or accountability: product and design tradeoffs, architecture, security, legal or operational risk, and whether the evidence justifies continuing.
 
-The system should surface the options, evidence, and consequences cleanly.
+The system should surface the options and evidence cleanly.
 
 ### Collaborate or lead
 
@@ -54,13 +53,13 @@ For reversible, well-understood, strongly gated work, the system may execute and
 
 That trust is earned by the work class and operating system. It is not granted to “AI” in the abstract.
 
-## Humans are capabilities, not interchangeable hours
+## Human capability is not interchangeable
 
-Capacity planning should distinguish customer discovery, product shaping, design judgment, architecture, specialist review, recovery, release, and operational ownership.
+Customer discovery, product shaping, design judgment, architecture, specialist review, recovery, release, and operational ownership are different capabilities.
 
 Ten hours of customer discovery does not substitute for ten hours of security review.
 
-Use this information to improve staffing and system design, not to reduce people to utilization. A builder may create far more leverage by preventing a bad initiative or strengthening a gate than by personally touching every Change.
+Mature capacity planning can make that mix visible. Use it to improve staffing and system design, not to reduce people to utilization. A builder may create far more leverage by preventing a bad initiative or strengthening a gate than by personally touching every Change.
 
 ## The better question
 
@@ -70,6 +69,6 @@ Do not ask:
 
 Ask:
 
-> Where does human judgment materially improve the value, safety, resource use, or outcome of this work?
+> Where does human judgment materially improve the value, safety, or outcome of this work?
 
 Then make sure that judgment arrives with enough context and evidence to be useful.

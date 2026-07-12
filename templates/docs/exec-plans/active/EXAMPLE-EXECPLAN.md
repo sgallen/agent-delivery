@@ -6,11 +6,6 @@ This ExecPlan is a living example maintained according to `docs/PLANS.md`.
 
 Allow a user to enable or disable email notifications from Settings while preserving the existing page header and design-system behavior.
 
-## Initiative and value context
-
-- Parent initiative: `INIT-004: Reduce unwanted notification churn`
-- Expected contribution: give customers direct control over a common source of dissatisfaction.
-
 ## Context and orientation
 
 - Change Intent: GitHub Issue #123
@@ -24,41 +19,36 @@ The settings page displays notification status but does not provide an editable 
 
 ## Desired state
 
-The user can update the preference, receive visible confirmation, and reload the page with the saved state intact. No Copy Link, Share, or Export action appears in the header.
-
-## Resolution intent and criteria
-
-- Resolution intent: delivery
-- Landing expectation: expected
-- Delivered criteria: the preference can be changed, saved, and reloaded without regressions.
-- Useful non-landed criteria: a decision resolution is allowed only if evidence shows the existing preference API or product constraint makes the requested behavior unsafe or unjustified.
-- Stop conditions: stop and request a decision if the work requires a data migration, a new notification model, or more than the authorized resource envelope.
+The user can update the preference, receive visible confirmation, and reload the page with the saved state intact. No unrelated header action appears.
 
 ## Plan of work
 
 1. Inspect the existing preference API and nearby settings patterns.
 2. Add the control using the approved design-system component.
-3. Connect save and error behavior.
+3. Connect save, loading, and error behavior.
 4. Add targeted unit and browser tests.
 5. Capture browser and runtime evidence.
 
-## Resource forecast and constraints
+## Concrete steps
 
-- Forecast stage: post-shaping
-- Agent, tool, and environment spend: expected $18; likely range $10–$32
-- Builder attention: expected 30–60 minutes across product confirmation and evidence review
-- Confidence: medium, based on two comparable settings Changes
-- Soft threshold: $28, checkpoint and reforecast
-- Hard threshold: $40, preserve state and request a scope decision
-- Likely constraint: browser-proof reliability in the local environment
+```bash
+# inspect the relevant packages
+rg "notification" apps/web/settings packages/notifications
 
-## Validation and resolution criteria
+# run the targeted checks
+npm test -- settings-notifications
+npm run test:browser -- settings-notifications
+```
+
+## Validation and evidence
 
 - Targeted tests pass.
 - The browser journey toggles, saves, and reloads the preference.
 - No unexpected console or server errors occur.
-- Header regression assertion passes.
-- Before/after screenshots are attached.
+- The header regression check passes.
+- Before-and-after screenshots are attached.
+
+Stop and request a builder decision if the Change requires a data migration, a new notification model, or a product behavior not covered by the issue.
 
 ## Progress
 
@@ -78,7 +68,7 @@ The user can update the preference, receive visible confirmation, and reload the
 
 ## Idempotence, rollback, and recovery
 
-The Change is additive and can be reverted by removing the UI control and test additions. No data migration is required. At a resource stop, preserve the workpad, diff, gate results, and current forecast before ending the run.
+The Change is additive and can be reverted by removing the UI control and test additions. No data migration is expected. Preserve the workpad, current diff, and gate results before stopping or restarting.
 
 ## Artifacts and evidence
 
@@ -86,8 +76,11 @@ The Change is additive and can be reverted by removing the UI control and test a
 - Tests:
 - Screenshots:
 - Logs:
-- Resource summary:
+
+## Optional initiative or resource context
+
+Add a parent initiative, estimate range, or threshold here only when it affects the decision.
 
 ## Outcome and retrospective
 
-Complete at the end of the Change with resolution status, class, disposition, landing and release state; estimate versus actual; material delivery or resolution variance; evidence; learning; and any implication for the parent initiative.
+Complete this section with what happened, whether anything landed or released, the evidence behind the decision, remaining uncertainty, and one durable learning for the next similar Change.

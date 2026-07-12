@@ -4,7 +4,7 @@ Skills encode how builders want agents to perform important, repeatable steps.
 
 Tools give agents capability. Skills give them technique.
 
-A browser tool lets an agent inspect a page. A browser-validation skill tells the agent which route to exercise, what to capture, what errors to check, what evidence to produce, and when the result is good enough.
+A browser tool lets an agent inspect a page. A browser-validation skill tells the agent which route to exercise, what to capture, which errors to check, what evidence to produce, and when the result is good enough.
 
 That is one place taste becomes durable.
 
@@ -18,7 +18,6 @@ That is one place taste becomes durable.
 | A repeatable procedure | Skill |
 | A pass/fail quality requirement | Gate |
 | Independent judgment on an output | Reviewer agent |
-| Resource and outcome history for estimation | Delivery records |
 | Deep plan for complex work | ExecPlan |
 
 This distinction prevents every useful idea from being stuffed into the same file.
@@ -29,14 +28,14 @@ Create a skill when a procedure repeats and the way it is performed matters.
 
 Examples:
 
-- reproduce a UI bug
-- validate a visual Change
-- inspect logs after a failed run
-- update a workpad
-- prepare an evidence package
-- write a regression test
-- perform a scope review
-- promote learning into a gate.
+- reproduce a UI bug;
+- validate a visual Change;
+- inspect logs after a failed run;
+- update a workpad;
+- prepare an evidence package;
+- write a regression test;
+- perform a scope review;
+- promote a recurring lesson into the system.
 
 Do not create skills for every small instruction. That becomes a binder on a shelf, except the shelf now has YAML.
 
@@ -44,31 +43,21 @@ Do not create skills for every small instruction. That becomes a binder on a she
 
 A good skill states:
 
-- when to use it and when not to
-- the inputs and tools required
-- the procedure
-- the expected output
-- the evidence to capture
-- common failure modes
-- the conditions that require builder judgment
-- the resource or evidence signals worth recording when the procedure materially affects them.
+- when to use it and when not to;
+- the inputs and tools required;
+- the procedure;
+- the expected output;
+- the evidence to capture;
+- common failure modes;
+- the conditions that require builder judgment.
 
-## Skills and observed economics
+It should be specific enough to improve behavior and small enough to remain understandable.
 
-When enough comparable history exists, a skill can carry observed operating guidance:
+## Let observed history improve the skill
 
-```text
-Skill: dependency-upgrade
-Median recorded machine cost: $8.20
-First-pass gate success: 91%
-Median builder review: 12 minutes
-Recommended model class: standard coding
-Evidence cohort: 34 delivered Changes; 6 decision-resolved Changes
-```
+Once the team has comparable records, a skill may carry dated operating guidance: common failure modes, first-pass success, typical review burden, useful model classes, or known environment requirements.
 
-Treat this as dated evidence, not a permanent truth. Model capability, pricing, repository architecture, and the skill itself will change.
-
-Use skill history to improve routing, landing and decision forecasts, and resolution quality. Do not make a global model rule from one repository or a tiny sample.
+Treat that guidance as evidence, not scripture. Models, prices, architecture, and the skill itself will change. Do not make a global routing rule from one repository or a tiny sample.
 
 ## Skills and taste
 

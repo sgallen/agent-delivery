@@ -44,7 +44,7 @@ Before changing the path, capture a small baseline:
 - quality or regression signals;
 - work repeatedly blocked on scarce specialists;
 - current environment and observability gaps;
-- model, tool, and infrastructure cost when available.
+- model, tool, and infrastructure cost when it is easy to capture.
 
 Do not build a management dashboard with twelve gradients. You need enough truth to tell whether the new path reduces total burden or merely moves it.
 
@@ -74,8 +74,8 @@ After each Change, ask where the path was weak:
 - Could the agent observe the product?
 - Did the evidence help?
 - Where did a builder intervene, and was that intervention high leverage?
-- Did a model or tool look cheap but create expensive rework?
 - Did the Change resolve cleanly, including when nothing landed?
+- When resource data was available, did a model or tool look cheap but create expensive rework?
 - What should become durable context, a skill, a gate, or a better stop rule?
 
 Invite skeptics to inspect the evidence and failure modes. Skepticism is useful when it is allowed to meet reality.
@@ -88,7 +88,7 @@ Add another Change class only when the current one has a track record, its failu
 
 Trust belongs to a class of work inside a particular operating system. “We trust AI now” is not a useful policy.
 
-As the path matures, use the records to find the real constraint. More agent budget may help. Or the team may need stronger product shaping, better test infrastructure, more review capacity, or a builder who can turn customer understanding into ready work.
+As the path matures, the records can help reveal the real constraint. More agent capacity may help. Or the team may need stronger product shaping, better test infrastructure, more review capacity, or a builder who can turn customer understanding into ready work.
 
 ## 8. Let roles become higher leverage
 

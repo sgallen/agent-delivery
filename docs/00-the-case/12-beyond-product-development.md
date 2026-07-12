@@ -11,22 +11,15 @@ The same questions apply across customer success, sales, support, finance, secur
 - Where are decisions and evidence scattered across tools and private conversations?
 - Where could agents execute, inspect, summarize, route, or prepare work?
 - Where does human judgment create the most leverage?
-- What human, agent, infrastructure, and elapsed-time resources did the outcome consume?
-- Which capability or approval is limiting useful throughput?
-- How should each completed task improve the way the business estimates, routes, and handles the next one?
-- For larger initiatives, what value was expected and what value actually appeared?
+- How should each completed effort improve the way the business handles the next one?
 
 Companies have always tried to make judgment durable through policies, procedures, and standard operating documents.
 
-The opportunity now is more active. The operating model can participate in the work, produce evidence, preserve resource and outcome history, and improve through use rather than waiting in a binder for someone to remember it exists.
+The opportunity now is more active. The operating model can participate in the work, produce evidence, preserve context, and improve through use rather than waiting in a binder for someone to remember it exists.
 
-The same investment loop can apply beyond software:
+As the practice matures, the same system can also learn what work consumes, which capabilities limit throughput, and whether larger initiatives create the value expected.
 
-```text
-opportunity → expected value and resource range → execution → actual cost and outcome → learning
-```
-
-The measures and safeguards will differ by function. The principle remains: make the work observable at the level where the next decision can improve.
+The measures and safeguards will differ by function. The principle remains: let agents carry more of the repeatable work, preserve the evidence, and place human judgment where it changes the outcome.
 
 Product delivery is the first proving ground, not the boundary.
 

@@ -8,9 +8,9 @@ Before working on a Change:
 
 1. Read `WORKFLOW.md`.
 2. Read the Change Intent and current `## Agent Workpad`.
-3. Read the parent initiative when one exists.
-4. Follow the relevant product, design, architecture, regression, and skill links.
-5. Confirm the gate profile, environment, stop conditions, and intended decision path.
+3. Follow the relevant product, design, architecture, regression, and skill links.
+4. Confirm the gate profile, environment, boundaries, and stop conditions.
+5. Read the parent initiative only when one exists.
 
 ## How to work here
 
@@ -19,41 +19,28 @@ Before working on a Change:
 - Use an ExecPlan only when the workpad cannot hold the complexity safely.
 - Do not add unrequested behavior or touch forbidden surfaces.
 - Work in the isolated branch, worktree, and runtime environment defined by the workflow.
-- Run targeted checks early. Run the required gate profile before proposing a decision.
+- Run targeted checks early. Run the required gate profile before proposing an outcome.
 - Preserve evidence for behavior, UI, runtime, experiment, and investigation claims.
-- Keep failed, discarded, superseded, and recovery attempts visible when they materially affected the outcome.
-- Update the workpad when scope, risk, approach, forecast, blocker, evidence, or likely disposition changes.
+- Keep failed, discarded, superseded, and recovery attempts visible when they materially affect confidence or the final decision.
+- Update the workpad when scope, risk, approach, blocker, evidence, or next action changes.
 - Stop for builder judgment when intent conflicts, risk rises, ownership is unclear, a threshold is reached, or the same failure repeats without progress.
 
-## Resolution
+## Finish the Change honestly
 
-Do not equate a completed run, closed PR, or merged branch with a resolved Change.
+A completed run, closed PR, or merged branch does not by itself resolve the Change.
 
-Record:
+Most Changes should end with delivered work. When nothing should land, record the question, evidence, decision, remaining uncertainty, and next action. When work closes for an external reason, say so plainly. When it ends without enough evidence or accountable judgment, keep that visible rather than inventing a learning story.
 
-```text
-resolution_status: resolved | unresolved
-resolution_class: delivered | decision | administrative | unresolved_loss
-disposition: <what actually happened>
-landed: true | false | not_applicable
-released: true | false | not_applicable
-```
+Use the formal resolution classes only when the repository’s reporting or analysis requires them.
 
-A useful non-landed decision needs evidence that changed a decision or reduced material uncertainty. Administrative closure should name the external reason and owner without claiming product learning. Unresolved loss stays visible.
+## Resource records — when enabled
 
-## Resource records
+When this repository measures delivery economics, use the locations and fields defined in `WORKFLOW.md`.
 
-When this repository measures delivery economics, write records to:
-
-```text
-.agent/runs/<change>/<run>/resource-use.json
-.agent/changes/<change>/resource-summary.yml
-```
-
-State what is measured, estimated, missing, or excluded. Do not omit failed attempts to improve the apparent economics. Use human-contribution data to understand capability and system constraints, not to rank people by token-adjacent activity.
+State what is measured, estimated, missing, or excluded. Keep failed attempts in the record. Use human-contribution data to understand capability and system constraints, not to rank people by token-adjacent activity.
 
 ## Validation
 
 Project commands and gate profiles live in `WORKFLOW.md` and `.agent/gates/`.
 
-Passing commands is necessary. The final evidence must also support the Change Intent and the proposed resolution.
+Passing commands is necessary. The final evidence must also support the Change Intent and the proposed outcome.

@@ -2,6 +2,8 @@
 
 Provider price tables make the cost shift visible. Your own Change history makes it useful.
 
+Use this after the basic Change path is working and the team has enough comparable records to learn from.
+
 The purpose is not to minimize tokens, agent spend, or human involvement in isolation. It is to understand what the complete delivery system consumes, what it produces, and what should change next time.
 
 ## Outcome

@@ -1,40 +1,40 @@
 # Learning Checkpoints
 
-A Change should leave behind more than code, screenshots, or a receipt.
+A Change should leave behind more than code, screenshots, or a closed ticket.
 
 The learning checkpoint asks:
 
-> What did this work reveal that should make the next Change easier to shape, cheaper to run, safer to review, more likely to resolve well, or more likely to create value?
+> What did this work reveal that should make the next Change easier to shape, safer to run, easier to judge, or more likely to create value?
 
-For an initiative, add:
+The point is not to hold a retrospective for every diff. It is to stop paying for the same lesson.
 
-> Did the value we expected actually appear, and what should that change about the next investment?
-
-## Look in six places
+## Look where the friction appeared
 
 ### Intent and product judgment
 
-Was the outcome or decision question clear? Did customer evidence change the thesis? Were the landed, non-landed, and stop criteria useful?
+Was the outcome clear? Did the work answer the right question? Did customer evidence change the direction? Were the boundaries and stop conditions useful?
 
 ### Context and architecture
 
-Did the agent struggle to find the right boundaries? Did a modest Change become expensive because the system is hard to understand or modify?
+Did the agent struggle to find the right code or understand the system? Did a modest Change become difficult because the architecture is hard to reason about or modify?
 
-### Execution and routing
+### Execution
 
-Was the model, agent, skill, or environment a good fit? Did a cheaper route create expensive retries or review? Did a stronger route earn its cost?
+Did the agent have the right tools, environment, and feedback? Did it recover well? Was builder intervention necessary because of real judgment or because the system was missing something basic?
 
 ### Proof and review
 
-Which evidence made the decision easy? Which gate was missing, noisy, or late? Did reviewer attention become the constraint?
+Which evidence made the decision easy? Which gate was missing, noisy, or late? Did review keep rediscovering the same rule?
 
-### Resolution and resources
+### Outcome
 
-How did the Change actually resolve? If it did not land, what evidence changed a decision? Did actual resource use fall inside the forecast range? What caused the variance? Was anything missing from the record?
+Did the Change land, support a useful decision, close for an external reason, or fail to resolve well? When nothing landed, did the evidence actually change what happened next?
 
-### Capacity and value
+### Resources and value, when measured
 
-Which human or technical capability limited throughput? For initiatives, did the expected customer, business, operational, strategic, or decision value appear? What continuing cost or unintended consequence emerged?
+Did the work fall inside the forecast range? What caused the variance? Which human or technical capability became the constraint? For an initiative, did the expected value appear later?
+
+Those questions matter. They should not crowd out the simpler one: what should the system do differently next time?
 
 ## Turn the lesson into the right kind of change
 
@@ -42,11 +42,11 @@ A checkpoint may produce:
 
 - no durable action;
 - clearer product or architecture context;
-- a better issue, workpad, or initiative template;
+- a better issue or workpad;
 - a new test, gate, or skill;
 - a routing or escalation rule;
-- a changed resource range or capacity assumption;
-- a narrower Change class;
+- a narrower Change boundary;
+- a changed estimate or capacity assumption;
 - a follow-up Change;
 - an initiative decision to expand, adapt, hold, stop, or retire.
 
@@ -54,16 +54,18 @@ Do not create permanent machinery from one strange event. Do not let the same ex
 
 ## Preserve the surprise
 
-Keep the original forecast, later updates, actuals, intended outcome, final disposition, and explanation.
+Keep the original intent and material assumptions. When forecasts or decisions change, preserve the earlier view rather than rewriting history to make the result look obvious.
 
-Do not overwrite history to make the result look obvious. The distance between what the team believed and what happened is the useful part.
+The distance between what the team believed and what happened is often the useful part.
 
-Agents can assemble the record, find comparable Changes, and propose patterns. Builders decide which learning is real, which action is proportionate, and whether the evidence supports the conclusion.
+Agents can assemble the record, find comparable Changes, and propose patterns. Builders decide which learning is real and which response is proportionate.
 
-The system is the unit being improved. Resource telemetry is not an automatic blame machine.
+The system is the unit being improved. Telemetry is not an automatic blame machine.
 
 ## Keep it light
 
-A routine Change may need one concise workpad section. A productive non-landed Change needs the decision question, evidence, disposition, and next action. An unresolved loss needs the reason resolution failed and what should prevent recurrence. A major initiative needs scheduled value reviews at the horizon promised in the original thesis.
+A routine Change may need one concise workpad section. An experiment needs the question, evidence, decision, and next action. An unresolved failure needs the reason it failed to resolve and what should prevent a repeat. A major initiative may need scheduled value reviews.
 
-The checkpoint should change future behavior. A retrospective that produces no corrected assumption, no decision, and no durable improvement is a meeting-shaped artifact.
+The checkpoint is done when future behavior changes—or when the team has consciously decided that no durable change is warranted.
+
+A retrospective that produces no corrected assumption, no decision, and no improvement is a meeting-shaped artifact.

@@ -16,16 +16,15 @@ A builder should be able to inspect the Change and answer:
 2. **What now works differently, or what question was answered?**
 3. **What proves it?**
 4. **Were the boundaries respected?**
-5. **What did the work consume, and did a material variance change the decision?**
-6. **How did the Change resolve, and did anything land or release?**
+5. **How did the work end, and did anything land or release?**
 
 The builder should not need to reconstruct the story from private chats or replay the entire agent session.
 
 ## Useful evidence
 
-Depending on the Change, evidence may include targeted tests, a failing-before/passing-after reproduction, screenshots, short videos, browser traces, console and server-log summaries, API responses, accessibility snapshots, preview links, gate results, reviewer findings, scope summaries, resource actuals, and a concise variance explanation.
+Depending on the Change, evidence may include targeted tests, a failing-before/passing-after reproduction, screenshots, short videos, browser traces, console and server-log summaries, API responses, accessibility snapshots, preview links, gate results, reviewer findings, and a concise scope summary.
 
-For an investigation or experiment, the evidence must answer the decision question. For an administrative closure, it must identify the external reason and accountable owner. For unresolved loss, it must preserve what is known, what was consumed, and why the work could not be resolved well.
+For an investigation or experiment, the evidence must answer the decision question. For external closure, it should identify the reason and accountable owner. For work that did not resolve well, it should preserve what is known, what remains unknown, and why the system could not reach a defensible conclusion.
 
 ## A practical minimum
 
@@ -36,22 +35,22 @@ For an investigation or experiment, the evidence must answer the decision questi
 | UI behavior | Browser journey, screenshot or video, console check, targeted tests |
 | Bug fix | Reproduction before, regression proof after |
 | Refactor | Tests green, behavior unchanged, scope and architecture boundaries respected |
-| Exploration | Decision question, bounded evidence, conclusion, uncertainty reduced, next action |
-| Administrative closure | Accountable owner, external basis, preserved state, resumption condition if any |
-| Unresolved loss | Partial artifacts, resource record, unknowns, reason resolution failed, preventive follow-up |
+| Exploration | Decision question, bounded evidence, conclusion, remaining uncertainty, next action |
+| External closure | Accountable owner, reason, preserved state, resumption condition when any |
+| Unresolved work | Partial artifacts, unknowns, reason resolution failed, recovery or preventive follow-up |
 
 This is a starting point, not a compliance table for all of human history. Match the proof to the risk.
 
 ## Put evidence in the right place
 
 ```text
-Issue body       stable intent and expected proof
-Workpad          live status, concise gate summary, links
-PR, when useful  review package and criteria mapping
+Issue body        stable intent and expected proof
+Workpad           live status, concise gate summary, links
+PR, when useful   review package and criteria mapping
 CI/artifact store screenshots, traces, videos, reports, raw logs
-Run records      model, tool, environment, attempt, and data-quality detail
-Initiative       value thesis, rollup, and later outcome reviews
 ```
+
+Detailed run records and initiative rollups can join this structure when the project uses them.
 
 The workpad should summarize and link. It should not contain giant raw logs or every request event.
 
@@ -66,9 +65,9 @@ Good evidence is:
 - **repeatable** by CI or another builder when possible;
 - **fresh** from the current Change and environment;
 - **accessible** from the workpad or review package;
-- **honest** about gaps, estimates, missing usage, and attribution limits.
+- **honest** about gaps and uncertainty.
 
-When the evidence will support later estimation, preserve the model, pricing snapshot, workflow version, and comparable cohort. Otherwise the numbers age into folklore.
+When the project measures resource use or trains estimators, preserve the model, workflow version, cost basis, and data-quality limits beside those numbers. Otherwise the data ages into folklore.
 
 ## Make the product observable to agents
 
@@ -78,8 +77,8 @@ Agents should not depend on a human pasting screenshots or narrating a browser f
 
 ## Match proof to the outcome
 
-Delivered work needs proof that the intended behavior works and the artifact landed or released as recorded.
+Delivered work needs proof that the intended behavior works.
 
-A non-landed decision needs evidence that supports the stop, rejection, narrowing, replacement, or deferral. An administrative closure needs an accountable external basis. Unresolved loss needs an honest record of what remains unknown.
+A non-landed decision needs evidence that supports the stop, rejection, narrowing, replacement, or deferral. External closure needs an accountable reason. Unresolved work needs an honest record of what remains unknown.
 
 Evidence makes non-landing reviewable. It does not make every non-landing valuable.

@@ -1,5 +1,7 @@
 # Reference: Delivery Economics Records
 
+This is an advanced reference for teams that have chosen to measure delivery economics. It is not the minimum record for a first Change.
+
 This reference defines a small data model for connecting resource use to delivery resolution and initiative outcomes.
 
 Use the minimum fields that support a real decision. Add detail only when it improves estimation, governance, routing, capacity planning, resolution quality, or learning.

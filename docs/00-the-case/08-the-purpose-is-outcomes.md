@@ -6,25 +6,22 @@ Craft matters. Engineering quality, design, reliability, accessibility, security
 
 That should make us less precious about familiar mechanics and more demanding about the result.
 
-A beautiful implementation of the wrong idea is not a win. A fast Change that cannot be trusted is not a win. A perfectly executed initiative whose promised value never appears is not a win either.
+A beautiful implementation of the wrong idea is not a win. A fast Change that cannot be trusted is not a win. A large volume of agent activity is definitely not a win.
 
-The questions are straightforward:
+The useful questions are simpler:
 
 - Did we address the right problem?
 - Did the work produce something trustworthy—or enough evidence to make a better decision?
-- What did it consume?
-- Did the expected customer, business, operational, or strategic value appear?
-- What should the next Change or investment learn from the gap?
+- Did human judgment show up where it mattered?
+- What should the next Change learn from what happened?
 
-That requires honesty at three levels.
+Not every useful Change has to land. An experiment may disprove an assumption. An investigation may reveal that the architecture or economics make the proposed path unwise. That can be a good outcome when the question, evidence, and decision are explicit.
 
-**Delivery honesty:** compare what the team expected to spend with what the work actually consumed.
+A branch that simply lost momentum is different. Do not turn every failure into a learning story after the fact.
 
-**Resolution honesty:** distinguish shipped capability, a useful decision not to land, closure for an external reason, and work that simply failed to resolve.
+At greater maturity, the same honesty extends to delivery cost and product value: what did the work actually consume, and did the expected customer or business value appear later?
 
-**Product honesty:** revisit the original value thesis after release—or later test whether the decision to stop was sound.
-
-Agent-enabled delivery does not lower the bar. It gives us a chance to move the bar closer to what actually matters, then learn from the distance between what we believed and what happened.
+Agent-enabled delivery does not lower the bar. It gives us a chance to move the bar closer to what actually matters.
 
 ---
 

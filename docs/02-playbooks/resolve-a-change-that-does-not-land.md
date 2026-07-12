@@ -15,7 +15,8 @@ The Change ends with:
 - an explicit resolution and specific disposition;
 - a separate record of whether anything landed or released;
 - evidence that supports the decision—or an honest statement that it does not;
-- all material agent, environment, attempt, and builder resources preserved;
+- material work, attempts, and context preserved;
+- resource records preserved when the project measures them;
 - a clear next action;
 - the parent initiative updated when one exists.
 
@@ -37,7 +38,7 @@ If nobody can state the decision or the accountable closure reason, the Change i
 
 ## 2. Preserve state before stopping
 
-Update the workpad and save the branch, patch, prototype, logs, evidence, and run records that matter. Record actual resource use to date, the latest completion forecast, what remains unknown, and whether the work can be resumed.
+Update the workpad and save the branch, patch, prototype, logs, evidence, and run records that matter. Record what remains unknown and whether the work can be resumed. When a forecast or resource record exists, bring it current rather than leaving a flattering partial history.
 
 If a hard resource threshold fired, stop further consumption—but do not destroy the context needed to decide what the spend taught you.
 
@@ -85,11 +86,11 @@ Record the uncertainty reduced, the decision changed, and the next action.
 
 A retrospective paragraph is not enough. Effort spent is not proof of learning.
 
-## 6. Finalize the resource record
+## 6. Close the operational record
 
-Include every material run: failed, discarded, recovery, and superseded paths as well as the final one. Include model and tool cost, environments and CI, builder attention, elapsed time, forecast versus actual, and any data-quality gaps.
+Preserve every material path: failed, discarded, recovery, and superseded attempts as well as the final one. Another builder should be able to see what was tried and why the decision changed.
 
-This cost belongs to the Change and its parent initiative even though no product code landed.
+When delivery economics is enabled, include model and tool cost, environments and CI, builder attention, elapsed time, forecast versus actual, and data-quality gaps. Non-landed work still belongs to the Change and its parent initiative; it does not disappear because no product code merged.
 
 ## 7. Update the initiative and learning checkpoint
 
@@ -120,7 +121,7 @@ If those answers are missing, do not call the Change productively resolved.
 - [ ] landed and released status are recorded separately;
 - [ ] the evidence or administrative basis supports the conclusion;
 - [ ] uncertainty and confidence are stated honestly;
-- [ ] all material attempts and resource use remain attached;
+- [ ] all material attempts remain attached, with resource use when measured;
 - [ ] useful decision, administrative closure, and unresolved loss are not conflated;
 - [ ] the parent initiative is updated when relevant;
 - [ ] the next action and learning checkpoint are complete.

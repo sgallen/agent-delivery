@@ -2,6 +2,8 @@
 
 A major feature, platform capability, product line, or operating program is not merely a larger ticket. It is an investment hypothesis.
 
+Use it when the bet is large enough to span several Changes and important enough that the organization should later revisit whether it was worth the investment.
+
 This playbook connects the value the team expects, the resources likely to be required, the Changes that actually happen, and the value—or decision value—that appears later.
 
 Use the copyable [Initiative Template](../03-reference/initiative-template.md).

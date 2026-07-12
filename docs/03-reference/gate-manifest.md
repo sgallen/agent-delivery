@@ -1,71 +1,47 @@
 # Reference: Gate Manifest
 
-Example profile for a low-risk user-visible Change. It supports both a delivered resolution and an evidence-backed decision not to land the candidate work.
+A gate manifest turns a quality bar into something an agent, runner, and reviewer can all understand.
+
+Start with the proof needed for the Change. Add formal resolution or resource policy only when the repository actually uses it.
+
+The copyable starter is [`templates/.agent/gates/ui-change.yml`](../../templates/.agent/gates/ui-change.yml).
+
+## Core example
 
 ```yaml
 id: low-risk-ui
-summary: Prove a bounded user-visible Change or support a trustworthy decision not to land it.
+summary: Prove a bounded user-visible Change or support a well-evidenced decision not to land it.
 
 entry:
   required:
     - issue_has_outcome_or_decision
-    - issue_has_resolution_intent
-    - issue_has_landing_expectation
-    - issue_has_landed_criteria
-    - issue_has_non_landed_resolution_criteria
     - issue_has_validation_plan
     - issue_has_non_goals
     - issue_has_forbidden_changes
-    - issue_has_risk_label
-    - issue_has_gate_profile
+    - issue_has_risk
     - workpad_exists
-    - workpad_mirrors_resolution_intent_and_criteria
 
 required:
   - id: scope
-    purpose: Prevent unrelated or forbidden changes and unexplained exploration.
+    purpose: Prevent unrelated or forbidden changes.
     runner: pnpm gate:scope
-    evidence: changed-file, investigation-surface, and behavior summary
+    evidence: changed-file and behavior summary
     failure_action: repair_or_block
 
-  - id: run_and_resource_record
-    purpose: Preserve every material attempt and its contribution.
-    runner: pnpm gate:resource-record --change "${CHANGE_ID}"
-    evidence: normalized run and Change records
-
   - id: evidence_package
-    purpose: Make the proposed disposition reviewable whether or not code lands.
+    purpose: Make the proposed outcome reviewable.
     runner: pnpm gate:evidence --change "${CHANGE_ID}"
     evidence: Change evidence manifest
-
-  - id: resolution_record
-    purpose: Keep resolution status, class, disposition, landing, release, and learning consistent.
-    runner: pnpm gate:resolution --change "${CHANGE_ID}"
-    evidence: completed Change resolution record
+    failure_action: repair_or_request_judgment
 
 conditional:
-  - id: format
-    applies_when: code_or_configuration_changed
-    runner: pnpm format:check
-    evidence: command output
-
-  - id: lint
-    applies_when: code_or_configuration_changed
-    runner: pnpm lint
-    evidence: command output
-
-  - id: typecheck
-    applies_when: typed_code_changed
-    runner: pnpm typecheck
-    evidence: command output
-
   - id: targeted_tests
     applies_when: executable_behavior_changed_or_candidate_for_landing
     runner: pnpm test -- --related
     evidence: test report
 
   - id: behavior_proof
-    applies_when: candidate_resolution_class == delivered
+    applies_when: user_visible_behavior_is_candidate_for_landing
     runner: pnpm test:e2e -- --grep "@change-${CHANGE_ID}"
     evidence: browser report and screenshots
 
@@ -75,27 +51,9 @@ conditional:
     evidence: console and page-error summary
 
   - id: decision_evidence_review
-    applies_when: candidate_resolution_class == decision
+    applies_when: decision_question_present_and_nothing_should_land
     runner: agent:decision-evidence-reviewer
     evidence: evidence-sufficiency and decision-quality review
-
-  - id: administrative_basis
-    applies_when: candidate_resolution_class == administrative
-    runner: agent:resource-reviewer
-    evidence: accountable owner, external basis, preserved actuals, and next action
-
-  - id: unresolved_loss_record
-    applies_when: candidate_resolution_class == unresolved_loss
-    runner: agent:resource-reviewer
-    evidence: missing resolution evidence, preserved actuals, owner, and recovery action
-
-  - id: architecture_review
-    applies_when: architecture_boundaries_changed
-    runner: agent:architecture-reviewer
-
-  - id: execplan_current
-    applies_when: execplan_required
-    runner: docs/exec-plans/active/${CHANGE_ID}-*.md
 
 advisory:
   - id: code_review
@@ -106,16 +64,6 @@ advisory:
     applies_when: user_experience_changed_or_evaluated
     runner: agent:design-reviewer
 
-  - id: resource_review
-    applies_when: material_resource_policy_or_resolution_variance
-    runner: agent:resource-reviewer
-
-resource_policy:
-  record_usage: true
-  warning_at_percent: 80
-  soft_limit_action: checkpoint_and_reforecast
-  hard_limit_action: preserve_state_and_require_decision
-
 loop_policy:
   max_attempts: 3
   stop_if_same_gate_fails_twice: true
@@ -125,21 +73,47 @@ loop_policy:
     - intent_is_missing_or_conflicting
     - risk_increased
     - specialist_judgment_required
-    - material_resource_variance
-    - hard_resource_limit_reached
-    - evidence_supports_a_different_resolution_path
+    - evidence_supports_a_different_outcome
 ```
 
-## Interpret the profile by proposed disposition
+## What the profile should make clear
 
-A gate profile does not require every Change to produce a passing implementation.
+A useful profile says:
 
-For a `delivered` resolution, the implementation, behavior, and evidence gates required by the profile must pass. For a `decision` resolution, an implementation gate may be `not_applicable` or may fail when that result is material evidence, but the decision question, evidence bar, decision review, and resolution record still have to pass. Administrative closure requires an accountable owner and external basis. Unresolved loss requires an honest loss record and recovery action; it must not be converted into `decision` merely to improve the metrics.
+- what must be true before execution;
+- which checks always apply;
+- which checks depend on the kind of Change;
+- what evidence each check produces;
+- what the agent should repair;
+- what requires builder judgment;
+- when the loop must stop.
 
-A branch, run, or individual gate can fail while the Change still reaches a strong evidence-backed resolution. Conversely, stopping work is not itself proof that the Change resolved well.
+A gate profile does not require every Change to produce a passing implementation. An experiment may reach a sound decision because a bounded attempt failed in a revealing way. The decision question and evidence still have to pass review.
+
+Conversely, stopping work is not proof that the work resolved well.
+
+## Optional resource policy
+
+Repositories that measure resource use can add:
+
+```yaml
+resource_policy:
+  record_usage: true
+  warning_at_percent: 80
+  soft_limit_action: checkpoint_and_reforecast
+  hard_limit_action: preserve_state_and_require_decision
+```
+
+The threshold should trigger a decision, not erase context. Preserve the workpad, diff, evidence, and recovery path.
+
+## Optional formal outcome checks
+
+Teams using the full resolution taxonomy may add checks for delivered, decision, administrative, and unresolved outcomes. Keep those checks in the manifest only when the labels and records behind them are real.
+
+Do not make a low-risk UI fix satisfy an enterprise ontology merely because the reference page contains one.
 
 ## Rule
 
-A gate profile should tell the system what “done” means for each credible resolution path, how that conclusion is proven, and when the loop must stop.
+A gate profile should tell the system what “good enough to decide” means, how that conclusion is proven, and when another attempt would no longer be useful.
 
-If done is vague, the agent will discover exciting interpretations of it. If non-landing is vague, the team will discover flattering interpretations of learning.
+If done is vague, the agent will discover exciting interpretations of it.

@@ -1,22 +1,19 @@
 # Playbook: Define a Gate
 
-Use this when converting a concern, review comment, repeated failure, resource threshold, or quality expectation into a durable gate.
+Use this when a concern, review comment, repeated failure, or decision boundary deserves a durable check.
 
-The goal is not more process. It is to stop paying the same human, machine, or risk cost repeatedly.
+The goal is not more process. It is to stop paying for the same mistake—or the same avoidable debate—over and over.
 
-## Step 1: Name the failure or decision mode
+## Step 1: Name the failure or decision
 
 Examples:
 
 - The agent changes files outside the requested scope.
-- A UI Change adds an unrequested Copy Link action.
-- Code bypasses the service layer.
-- The page has console errors after the Change.
-- Review repeatedly catches missing regression tests.
-- UI work ignores design tokens.
-- Machine spend reaches the soft limit without a revised completion forecast.
-- A scarce environment remains idle past its lease.
-- An initiative crosses its authorized envelope without a scope decision.
+- A UI Change adds behavior nobody asked for.
+- Code bypasses an architectural boundary.
+- Tests pass while the browser console is failing.
+- Review repeatedly catches missing regression coverage.
+- The work has reached a point where continuing requires an accountable decision.
 
 If you cannot name the failure or decision clearly, it is probably not ready to become a hard gate.
 
@@ -24,22 +21,17 @@ If you cannot name the failure or decision clearly, it is probably not ready to 
 
 Options include:
 
-- documentation or example
-- skill
-- reviewer-agent rubric
-- advisory gate
-- resource warning
-- soft checkpoint
-- required gate
-- hard approval boundary
-- mechanical test or lint
-- scheduled cleanup check.
+- documentation or an example;
+- a skill;
+- a reviewer rubric;
+- an advisory check;
+- a required gate;
+- a human approval;
+- a mechanical test or lint.
 
 Use the least rigid form that makes the failure less likely or the decision more accountable.
 
-## Step 3: Write the gate contract
-
-A quality gate might be:
+## Step 3: Write the contract
 
 ```yaml
 id: scope
@@ -49,22 +41,10 @@ required: true
 runner: scripts/gates/scope
 pass_condition: All changed files and behaviors are within the Change Intent.
 evidence: changed-file report and reviewer summary
-failure_action: repair or block if forbidden scope was touched
+failure_action: repair, or block when forbidden scope was touched
 ```
 
-A resource gate might be:
-
-```yaml
-id: machine_budget
-purpose: Prevent unreviewed resource drift while preserving resumable state.
-applies_when: a Change has a machine-spend policy
-warning_at_percent: 80
-soft_limit_action: checkpoint, explain variance, and reforecast
-hard_limit_action: preserve state and require the named builder decision
-evidence: Change resource summary and current completion forecast
-```
-
-Use these result states for quality gates:
+Use a small result vocabulary:
 
 ```text
 pass
@@ -74,35 +54,26 @@ blocked
 waived
 ```
 
-For resource gates, also preserve threshold state:
-
-```text
-within
-approaching
-soft_reached
-hard_reached
-```
+`not_applicable` needs a reason. `waived` needs an accountable builder and a rationale.
 
 A gate that produces vibes is not a gate. It is a meeting with JSON.
 
-## Step 4: Define evidence
+## Step 4: Define the evidence
 
-Examples:
+Evidence may be:
 
-- command output
-- test report
-- screenshot
-- browser trace
-- reviewer finding
-- diff summary
-- architecture-check result
-- usage rollup
-- environment meter
-- forecast, range, confidence, and variance explanation.
+- command output;
+- a test report;
+- a screenshot or browser trace;
+- a reviewer finding;
+- a diff summary;
+- an architecture check;
+- a benchmark or experiment result;
+- an accountable decision record.
 
-A dollar amount without data-quality context is not complete evidence.
+The evidence should make the result independently understandable.
 
-## Step 5: Write a useful failure or checkpoint message
+## Step 5: Write a useful failure message
 
 Bad:
 
@@ -113,62 +84,44 @@ Architecture violation.
 Better:
 
 ```text
-UI code imported packages/billing/internal. Use packages/billing/public, or add an approved public API to the billing package and update the architecture contract.
+UI code imported packages/billing/internal. Use packages/billing/public, or add an approved public API and update the architecture contract.
 ```
 
-Bad:
+A good message says what failed, why it matters, where the evidence is, and what a reasonable repair looks like.
 
-```text
-Budget exceeded.
-```
+## Step 6: Define loop and stop behavior
 
-Better:
-
-```text
-Soft machine-spend threshold reached.
-Forecast: $25–$40. Actual to date: $38. Current completion forecast: $47–$61.
-Primary variance: the existing permission boundary cannot support the accepted behavior.
-Options: narrow scope, create a prerequisite Change, or authorize up to $65.
-```
-
-A gate is also a teaching and decision mechanism.
-
-## Step 6: Add loop, stop, and preservation behavior
-
-State when the implementation agent should repair and retry, when it should reforecast, and when the run must stop for builder judgment.
-
-At a resource stop, name the state that must survive:
-
-- workpad
-- diff and commit
-- run and Change resource records
-- gate evidence
-- environment or recovery instructions
-- current forecast and decision options.
+State when the agent should repair and retry, when it should ask for judgment, and what state must survive a stop.
 
 Do not let a gate create an infinite loop with a very determined model.
 
+When the gate is a resource checkpoint, use the same discipline:
+
+```text
+warning → update the forecast
+soft threshold → explain variance and propose options
+hard threshold → preserve state and require a decision
+```
+
+The workpad, diff, evidence, and recovery path should survive.
+
 ## Step 7: Wire it into the system
 
-Update the relevant:
+Update only what needs to know about the gate:
 
-- gate manifest
-- `WORKFLOW.md`
-- Change Intent and workpad
-- resource policy
-- skill
-- reviewer prompt
-- docs or examples
-- CI or orchestrator
-- PR evidence table
-- initiative record, when the gate controls initiative investment.
+- gate manifest;
+- `WORKFLOW.md`;
+- Change template or workpad;
+- skill or reviewer prompt;
+- CI or orchestrator;
+- PR evidence table.
 
 ## Step 8: Revisit it
 
-Gates can become noisy, overly strict, redundant, obsolete, or economically irrational.
+Gates can become noisy, overly strict, redundant, or obsolete.
 
-Keep gates that create trust or useful decisions. Fix or remove gates that create theater, false precision, or more cost than the failure they prevent.
+Keep gates that create trust or useful decisions. Fix or remove gates that create theater or more cost than the failure they prevent.
 
 ## Definition of done
 
-A gate is ready when its purpose, applicability, state model, evidence, failure or threshold action, preservation behavior, and owner are clear enough for another builder or agent to run it without interpretation.
+A gate is ready when another builder or agent can understand its purpose, applicability, evidence, failure action, and owner without interpretation.

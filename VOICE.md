@@ -33,6 +33,18 @@ Major claims must answer the quiet question: **So what should I do differently?*
 
 The reader should feel respected, better oriented, and more capable—not merely persuaded that the author has strong opinions.
 
+## The narrative hierarchy
+
+Protect the centre of gravity of the playbook.
+
+1. **The shift:** agents can now perform meaningful product-development work, and the old delivery assumptions no longer fit as neatly.
+2. **The operating response:** redesign the system so agents participate directly and human judgment is placed deliberately.
+3. **The trust layer:** intent, context, environments, gates, evidence, recovery, and accountable decisions make the work dependable.
+4. **The learning layer:** every Change should improve the next one and the system around it.
+5. **The advanced opportunity:** attribution, estimates, model routing, capacity planning, initiative economics, and value review become possible as the records mature.
+
+Do not let the newest concept become the thesis merely because it is the part most recently edited. The Change is how the idea becomes practical. Economics and initiative learning are what a mature system can unlock. Neither should obscure why the operating model exists.
+
 ## The posture
 
 Lead with the shift, not the machinery.
@@ -89,7 +101,7 @@ Use “agentic” only when it is genuinely the clearest word. It usually is not
 
 ## Content posture by section
 
-- **README:** earn attention, name the shift quickly, show the opportunity, and give the reader a clear way in.
+- **README:** earn attention, restore the full argument in a strong TL;DR, show the opportunity before the mechanics, and give the reader a clear way in.
 - **The Case:** persuade without hype. Build the logic in sequence and keep the emotional current visible.
 - **Operating Model:** explain the system clearly enough to reason with and adapt. Do not bury the reader in every field name.
 - **Playbooks:** help someone do the work. Inputs, steps, decisions, evidence, and completion criteria matter.

@@ -1,13 +1,13 @@
 name: Change Intent
-description: Define a bounded outcome or decision before execution begins.
+description: Define one bounded product outcome before execution begins.
 title: "[Change]: "
 labels: ["state:proposed"]
 body:
   - type: textarea
     id: outcome
     attributes:
-      label: Outcome or decision
-      description: What should become observably true, or which decision should this work enable?
+      label: Desired outcome
+      description: What should become observably true?
     validations:
       required: true
 
@@ -42,43 +42,14 @@ body:
     validations:
       required: true
 
-  - type: dropdown
-    id: resolution_intent
-    attributes:
-      label: Intended path
-      description: Choose "either" when the evidence should determine whether anything lands.
-      options:
-        - delivery
-        - experiment
-        - investigation
-        - either_based_on_evidence
-    validations:
-      required: true
-
-  - type: dropdown
-    id: landing_expectation
-    attributes:
-      label: Landing expectation
-      options:
-        - expected
-        - possible
-        - not_required
-    validations:
-      required: true
-
   - type: textarea
     id: criteria
     attributes:
       label: What would count as success?
-      description: State the delivered acceptance criteria and, when relevant, the evidence for a useful non-landed decision.
+      description: State the acceptance criteria in observable terms.
       placeholder: |
-        Delivered:
         - [ ] ...
-
-        Useful non-landed decision:
-        - Question or uncertainty:
-        - Evidence required:
-        - Follow-up or stop action:
+        - [ ] ...
     validations:
       required: true
 
@@ -104,10 +75,21 @@ body:
       required: true
 
   - type: textarea
+    id: exploration
+    attributes:
+      label: Exploration or decision path — optional
+      description: Use this when the evidence may correctly lead to no merge.
+      placeholder: |
+        Decision question:
+        Evidence needed:
+        What would justify stopping or changing course:
+        Useful non-landed outcome:
+
+  - type: textarea
     id: stop_conditions
     attributes:
-      label: Stop conditions
-      description: What should force a decision instead of more implementation or spend?
+      label: Stop conditions — optional
+      description: What should force a builder decision instead of more implementation?
 
   - type: input
     id: gate_profile
@@ -128,32 +110,32 @@ body:
     validations:
       required: true
 
+  - type: textarea
+    id: builder_engagement
+    attributes:
+      label: Expected builder judgment — optional
+      description: Where is product, design, architecture, security, specialist, or release judgment likely to matter?
+
   - type: input
     id: initiative
     attributes:
-      label: Parent initiative
-      description: Optional. Add an ID or link when this Change belongs to a larger product bet.
+      label: Parent initiative — optional
+      description: Add an ID or link when this Change belongs to a larger product bet.
       placeholder: INIT-004
 
   - type: textarea
     id: resource_posture
     attributes:
-      label: Resource posture — optional
-      description: Add a likely range, confidence, builder attention, or thresholds only when they will improve a decision.
+      label: Resource forecast or thresholds — optional
+      description: Add a range, confidence, or checkpoint only when it will improve a decision.
       placeholder: |
-        Forecast stage and range:
-        Confidence and comparables:
+        Likely range:
+        Confidence and basis:
         Soft checkpoint:
         Hard decision threshold:
 
   - type: textarea
-    id: builder_engagement
-    attributes:
-      label: Expected builder judgment — optional
-      description: Where is product, design, architecture, security, evidence, stop, or release judgment likely to matter?
-
-  - type: textarea
     id: references
     attributes:
-      label: References
+      label: References — optional
       description: Customer examples, designs, logs, prior Changes, decisions, or comparable work.

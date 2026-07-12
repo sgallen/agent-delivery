@@ -20,7 +20,7 @@ Capture:
 - useful logs, screenshots, traces, or examples;
 - non-goals and forbidden changes;
 - risk, reversibility, and required proof;
-- a parent initiative or resource range when either will improve the decision.
+- a parent initiative or resource range only when either will improve the decision.
 
 Describe the failure, not your preferred implementation theory. Let the investigation earn the diagnosis.
 
@@ -45,7 +45,7 @@ A fix without a credible failure signal is often just a plausible edit wearing c
 
 Work in the isolated environment. Give the agent the Change, workpad, reproduction, repository context, observability tools, gate profile, and scope boundaries.
 
-The workpad should show the likely cause, the evidence behind it, the intended fix, material uncertainty, and any change in the forecast.
+The workpad should show the likely cause, the evidence behind it, the intended fix, and material uncertainty. Update a forecast when the project uses one and the evidence changes it.
 
 The implementation should address the reproduced cause, preserve unrelated behavior, and avoid opportunistic product or architecture work. A worthwhile side discovery becomes another Change; it does not hitch a ride because the branch is open.
 
@@ -76,7 +76,7 @@ The issue, workpad, and PR should answer:
 - What proves the fix?
 - What proves the Change stayed in scope?
 - Where is human judgment still needed?
-- What did the work consume, including material failed attempts?
+- Which failed attempts or human interventions materially affected confidence?
 
 Low-risk, highly observable bugs may eventually need only evidence review. Higher-risk work may still need code, architecture, product, or security judgment.
 
@@ -92,10 +92,10 @@ Ask why the bug escaped and what would make the next one cheaper to understand:
 - Should the regression join a broader suite?
 - Did the agent repeat a known bad pattern?
 - Did the selected model, skill, or environment create avoidable recovery?
-- Did the actual resource use fall outside the expected range?
+- When resource data was captured, did it reveal an avoidable pattern?
 
 Promote only the learning likely to matter again: a better issue field, signal, test, skill, gate, routing rule, or repository explanation.
 
 ## Definition of done
 
-The Change is complete when the failure is credibly reproduced or explicitly documented as not reproducible, the fix is focused, the proof supports the before-and-after claim, required judgment is recorded, resource actuals are present or marked incomplete, and the next builder does not need private chat history to understand what happened.
+The Change is complete when the failure is credibly reproduced or explicitly documented as not reproducible, the fix is focused, the proof supports the before-and-after claim, required judgment is recorded, optional resource records are current when used, and the next builder does not need private chat history to understand what happened.

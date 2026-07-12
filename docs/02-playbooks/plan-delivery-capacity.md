@@ -4,7 +4,7 @@ Agent budget is not independently scalable.
 
 More model spend creates useful throughput only when the surrounding system can form worthwhile demand, shape the work, provide environments, review evidence, make stop decisions, release what lands, and operate what ships.
 
-Use this playbook before adding substantial agent budget or committing a large initiative.
+Use this after the team has enough delivery history to estimate real demand and human attention with at least directional honesty. It is most useful before adding substantial agent budget or committing a large initiative.
 
 ## Outcome
 

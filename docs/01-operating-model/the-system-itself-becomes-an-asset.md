@@ -2,48 +2,53 @@
 
 The product is not the only thing the team is building.
 
-The team is also building the system that makes product work increasingly legible, provable, recoverable, economical, and learnable.
+The team is also building the system that makes product work increasingly legible, provable, recoverable, and learnable.
 
 ## What compounds
 
-- repository context
-- architecture boundaries
-- execution environments
-- regression memory
-- gates
-- evidence patterns
-- skills
-- reviewer prompts
-- model and agent routing history
-- Change estimates and actuals
-- human-capability and capacity ratios
-- initiative forecasts and value outcomes
+- repository context;
+- architecture boundaries;
+- execution environments;
+- regression memory;
+- gates;
+- evidence patterns;
+- skills;
+- reviewer prompts;
+- recovery procedures;
 - learning checkpoints.
 
-Each useful addition can lower the cost or uncertainty of future work.
+Each useful addition can lower the cost, risk, or uncertainty of future work.
 
-A regression test prevents rediscovery. A stronger workpad makes interruption cheaper. A reusable skill improves consistency. A resource record shows what the Change actually consumed and how it resolved. A calibrated estimator makes future commitments more honest. An initiative value review improves what the organization chooses to build.
+A regression test prevents rediscovery. A stronger workpad makes interruption cheaper. A reusable skill improves consistency. A clearer architecture boundary lets both agents and builders reason with less effort. A good gate turns a repeated review comment into a durable rule.
 
-The compounding loop becomes:
+The loop is simple:
 
 ```text
 intent
-  → forecast
   → execution
   → proof
-  → actual resource use
-  → explicit resolution
-      ↘ delivered capability
-      ↘ work-derived decision
-      ↘ administrative closure
-      ↘ unresolved loss
-  → realized value or decision value
+  → decision
   → learning
-  → better system and decisions
+  → a better system for the next Change
 ```
 
 This is why system improvement is not secondary work. It is part of the product-development asset.
 
-The data itself is only useful when its meaning remains clear. Preserve context, model and workflow versions, confidence, missing-data flags, and the distinction between correlation and attribution. A large pile of telemetry without coherent Changes and outcomes is not organizational memory. It is storage.
+## The memory can deepen
 
-The strongest teams should become better not only at building software, but at estimating work, allocating human and machine resources, identifying constraints, and choosing investments whose value survives release.
+As the team accumulates trustworthy Change records, the system can learn more:
+
+- which models and agents fit which work;
+- what different Changes tend to consume;
+- where builder attention creates leverage;
+- where estimates repeatedly miss;
+- which constraints limit throughput;
+- which initiatives create value and which merely ship.
+
+That history can improve routing, forecasting, capacity planning, and product investment. It is a later layer of the same compounding loop, not the reason to burden the first Change with every possible field.
+
+Data is only useful when its meaning remains clear. Preserve context, model and workflow versions, confidence, missing-data flags, and the distinction between correlation and attribution.
+
+A large pile of telemetry without coherent Changes and outcomes is not organizational memory. It is storage.
+
+The strongest teams should become better not only at building software, but at building the system that helps them decide, execute, prove, recover, and learn.

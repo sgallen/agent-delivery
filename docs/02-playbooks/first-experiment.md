@@ -15,11 +15,11 @@ By the end, you should have:
 - one isolated place to work;
 - a small set of meaningful gates;
 - evidence a builder can judge without reconstructing the session;
-- an explicit resolution, whether the work lands or not;
-- a lightweight record of what the work consumed;
+- an explicit outcome, whether the work lands or not;
+- basic run attribution when it is easy to capture;
 - one improvement to make before the next run.
 
-That is enough. The first experiment does not need a dashboard, a learned estimator, or a committee.
+That is enough. The first experiment does not need a budget model, a resolution taxonomy, a dashboard, or a committee.
 
 ## Pick the right Change
 
@@ -60,7 +60,7 @@ Create one canonical comment headed:
 ## Agent Workpad
 ```
 
-Use it for the plan, discoveries, blockers, evidence, resource status, and final handoff. Keep the issue body stable; let the workpad carry the moving state.
+Use it for the plan, discoveries, blockers, evidence, and final handoff. Keep the issue body stable; let the workpad carry the moving state.
 
 Give the Change its own branch and worktree. Isolate mutable data, ports, browser state, logs, and artifacts when behavior depends on them. A worktree isolates code. An execution environment isolates reality. Do not confuse the two.
 
@@ -82,9 +82,9 @@ Review:
 - the diff or experiment artifact;
 - tests, screenshots, logs, traces, research, or benchmarks;
 - unrelated changes and known gaps;
-- failed or discarded attempts that materially affected cost or confidence;
+- failed or discarded attempts that materially affected confidence;
 - where builder judgment was needed;
-- what the agent and environment consumed, even if the numbers are incomplete.
+- basic agent or environment use when the project already makes it easy to capture.
 
 The evidence package should make the result easier to judge than the raw activity that produced it.
 
@@ -115,8 +115,9 @@ The experiment is complete when another builder can read the Change record and u
 - what the team meant to accomplish or learn;
 - what the agent did;
 - what evidence exists;
-- how the work resolved and whether anything landed;
-- what resources were consumed, with gaps made explicit;
+- how the work ended and whether anything landed;
 - what will change before the next run.
+
+When resource data was captured, the record should also make its limits clear.
 
 The first experiment has done its job when it leaves you with more than a demo. It should leave you with the first credible piece of evidence about how your delivery system needs to work.

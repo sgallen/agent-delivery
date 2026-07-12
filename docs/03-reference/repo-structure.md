@@ -4,6 +4,8 @@ A good agent-enabled repository is legible to humans and agents.
 
 The root should be a map, not a junk drawer.
 
+## A credible starting point
+
 ```text
 .
 ├── README.md
@@ -14,19 +16,11 @@ The root should be a map, not a junk drawer.
 │   ├── PRODUCT.md
 │   ├── DESIGN.md
 │   ├── REGRESSION_LEDGER.md
-│   ├── PLANS.md
-│   ├── INITIATIVE.md
-│   ├── initiatives/
-│   ├── decisions/
 │   └── exec-plans/
 │       ├── active/
 │       └── completed/
 ├── .agent/
-│   ├── run-resource-use.json
-│   ├── change-resource-summary.yml
 │   ├── gates/
-│   ├── runs/
-│   ├── changes/
 │   └── workpads/
 ├── .agents/
 │   └── skills/
@@ -34,16 +28,12 @@ The root should be a map, not a junk drawer.
 │   ├── ISSUE_TEMPLATE/
 │   ├── PULL_REQUEST_TEMPLATE.md
 │   └── workflows/
-├── data/
-│   ├── model-pricing.csv
-│   └── economics-scenarios.csv
-├── scripts/
-│   ├── agent/
-│   └── economics/
 ├── apps/
 ├── packages/
 └── tests/
 ```
+
+Not every project needs every directory. The point is to give stable context, live work, reusable procedures, and proof an obvious home.
 
 ## Root files
 
@@ -57,7 +47,7 @@ A short map for agents. Point to the right docs and repository rules. Do not tur
 
 ### `WORKFLOW.md`
 
-The repo-level operating contract: lifecycle, readiness, workpads, gates, evidence, resource policy, retry/stop behavior, review, and learning.
+The repo-level operating contract: readiness, workpads, environments, gates, evidence, stop behavior, review, resolution, and learning.
 
 ### `ARCHITECTURE.md`
 
@@ -67,41 +57,45 @@ The architectural map: modules, boundaries, dependency rules, and important desi
 
 Repository docs are part of the context system, not decoration.
 
-Use them for stable product, design, architecture, regression, decision, initiative, and optional ExecPlan context.
-
-Keep initiative records under `docs/initiatives/`. Preserve value hypotheses, staged forecasts, actual Change funnels and resolution classes, final initiative disposition, and later value or decision-value reviews in version control when they are appropriate for the repository. Sensitive financial or personnel detail may belong in a linked access-controlled system instead.
+Use them for stable product, design, architecture, regression, and optional ExecPlan context. Add `docs/initiatives/` and decision records when the project has product bets or durable decisions worth preserving.
 
 Keep active ExecPlans under `docs/exec-plans/active/` and move completed plans to `docs/exec-plans/completed/`.
 
 ## `.agent/`
 
-Runtime and orchestration material:
+Runtime and orchestration material may include:
 
-- gate manifests
-- run records and artifacts
-- normalized resource-use records
-- Change resource and resolution summaries
-- local workpad mirrors when useful
-- logs and evidence directories.
+- gate manifests;
+- local workpad mirrors;
+- run logs and artifacts;
+- resource-use records and Change summaries when measurement is enabled.
 
-Do not place durable ExecPlans or initiative theses here if they need to survive as versioned project knowledge.
+Do not place durable product theses or architecture decisions here if they need to survive as versioned project knowledge.
 
-Ignore run state such as `.agent/runs/`, `.agent/changes/`, `.agent/workpads/`, and `.agent/run.env` unless the project has a deliberate reason to version it. Persist or upload the resource summaries and evidence needed for the Change Record before teardown. Keep gate manifests versioned. The starter templates include a `.gitignore.agent-delivery` snippet.
+Ignore disposable run state unless the project has a reason to version it. Preserve the evidence needed for the Change Record before teardown.
 
-## `data/` and `scripts/economics/`
+## Advanced economics support
 
-Dated model pricing, editable workload assumptions, and a dependency-free calculator. Keep the doctrine evergreen; keep volatile prices here.
+Projects using delivery economics may add:
 
-A production implementation may store delivery events in a database rather than committed files. The repository should still define the schema, IDs, retention, and links needed to connect the data back to Changes and initiatives.
+```text
+.agent/
+├── run-resource-use.json
+├── change-resource-summary.yml
+├── runs/
+└── changes/
 
-## `.agents/skills/`
+data/
+├── model-pricing.csv
+└── economics-scenarios.csv
 
-Reusable procedures that teach agents how the team expects important steps to be performed.
+scripts/economics/
+```
+
+A production implementation may store events in a database rather than committed files. The repository should still define the IDs and links that connect those records back to Changes and initiatives.
 
 ## Rule
 
 If agents keep making the same mistake, the repository is probably missing context, a boundary, a gate, a useful procedure, or a decision rule.
-
-If comparable Changes keep costing more than expected, the repository may also be exposing architectural friction, weak observability, poor shaping, or a missing skill.
 
 Add the smallest durable structure that prevents the mistake or uncertainty from recurring.

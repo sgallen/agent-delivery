@@ -2,7 +2,7 @@
 
 ExecPlans are optional, living documents for complex, ambiguous, risky, or long-running Changes.
 
-The default execution surface is the workpad. Create an ExecPlan only when the workpad is not enough to hold the execution reasoning, credible resolution paths, decisions, recovery plan, resource forecast, and validation detail.
+The default execution surface is the workpad. Create an ExecPlan only when the workpad is no longer enough to hold the reasoning, decisions, recovery path, and validation detail another capable person or agent would need.
 
 ## Locations
 
@@ -11,17 +11,17 @@ docs/exec-plans/active/<change-id>-<short-name>.md
 docs/exec-plans/completed/<change-id>-<short-name>.md
 ```
 
-Link the active plan from the workpad. Move it to `completed/` when the Change resolves. If it ends as unresolved loss, preserve the final plan with an explicit abandonment note rather than deleting it.
+Link the active plan from the workpad. Move it to `completed/` when the Change ends. Preserve an honest final state even when the work does not land.
 
 ## Use an ExecPlan for
 
-- significant features or refactors
-- architecture-shaping work
-- complex migrations
-- ambiguous behavior with multiple viable paths
-- multi-hour investigations
-- work that another agent or builder may need to resume
-- work where the plan, investment, or threshold decision should be reviewed before implementation.
+- significant features or refactors;
+- architecture-shaping work;
+- complex migrations;
+- ambiguous behavior with several viable paths;
+- multi-hour investigations;
+- work another agent or builder may need to resume;
+- work whose plan should be reviewed before implementation.
 
 Do not create one for routine Changes merely to satisfy process.
 
@@ -29,21 +29,21 @@ Do not create one for routine Changes merely to satisfy process.
 
 Every ExecPlan must be:
 
-- self-contained
-- maintained as a living document
-- understandable without private chat history
-- focused on observable behavior and outcomes
-- explicit about resolution intent, delivered and non-landed criteria, validation, evidence, recovery, material resource assumptions, and important decisions.
+- self-contained;
+- maintained as a living document;
+- understandable without private chat history;
+- focused on observable behavior or a clear decision;
+- explicit about validation, recovery, and important choices.
 
 Keep these sections current:
 
-- Progress
-- Discoveries and surprises
-- Decision log
-- Resource forecast and constraints
-- Outcome and retrospective
+- Progress;
+- Discoveries and surprises;
+- Decision log;
+- Artifacts and evidence;
+- Outcome and retrospective.
 
-If the plan changes, update it. If a gate failure or resource threshold changes the approach, preserve the prior forecast and record the revised one.
+Add initiative context, forecasts, thresholds, or detailed actuals when they materially shape the work. Do not make them mandatory by habit.
 
 ## Skeleton
 
@@ -54,33 +54,17 @@ This ExecPlan is a living document maintained according to `docs/PLANS.md`.
 
 ## Purpose and desired outcome
 
-## Initiative and value context, if applicable
-
 ## Context and orientation
 
 ## Current state
 
 ## Desired state or decision question
 
-## Resolution paths and criteria
-
-Delivered criteria:
-Useful non-landed criteria:
-Stop conditions:
-
 ## Plan of work
 
 ## Concrete steps
 
-## Resource forecast and constraints
-
-Forecast stage:
-Expected and likely range:
-Confidence and assumptions:
-Soft and hard thresholds:
-Likely bottleneck or scarce resource:
-
-## Validation and resolution criteria
+## Validation and evidence
 
 ## Progress
 
@@ -94,6 +78,8 @@ Likely bottleneck or scarce resource:
 
 ## Artifacts and evidence
 
+## Optional initiative or resource context
+
 ## Outcome and retrospective
 ```
 
@@ -101,11 +87,9 @@ Likely bottleneck or scarce resource:
 
 At completion, record:
 
-- resolution status, class, specific disposition, landing state, and release state
-- what shipped, what did not, or which decision question was answered
-- the evidence that supports the delivered or non-landed resolution
-- original and final forecasts, actual resource use, and material variance when measured
-- remaining gaps, continuing obligations, or follow-up Changes
-- important decisions
-- the parent initiative update, when applicable
+- what happened and whether anything landed or released;
+- the evidence supporting the outcome;
+- important decisions and remaining uncertainty;
+- actual versus forecast when a forecast existed;
+- continuing obligations or follow-up Changes;
 - what the system should learn.

@@ -6,64 +6,51 @@ It should answer the questions an agent or builder needs during the work—not r
 
 The copyable starter is [`templates/WORKFLOW.md`](../../templates/WORKFLOW.md).
 
-## What belongs in it
+## The core contract
 
-### The path
+A useful `WORKFLOW.md` names:
 
-Name the local lifecycle and who may move work into consequential states such as `Ready`, `Decision`, `Resolved`, or `Abandoned`.
+- the local lifecycle and who may move work into consequential states;
+- what makes a Change ready;
+- the one canonical workpad location;
+- when an ExecPlan is warranted;
+- the execution-environment rules and commands;
+- the required gates and evidence;
+- the conditions that require builder judgment;
+- how work is resolved, including when nothing lands;
+- how learning is folded back into the repository.
 
-The default is:
+The default lifecycle is:
 
 ```text
 Proposed → Shaped → Ready → Running → Proving → Decision → Resolved
                     ↘ Blocked / Paused ───────────────↗
-                    ↘ Abandoned when the work ends unresolved
 ```
 
 Landing and release remain separate facts.
 
-### Readiness
+## Keep routine work routine
 
-State the minimum intent, scope, proof, risk, stop conditions, initiative context, and resource posture required before execution begins.
+The workflow should not force a small bug through the same machinery as a migration, architecture change, or product experiment.
 
-### Workpad and planning
+State the minimum intent, scope, proof, risk, and stop conditions needed for ordinary work. Add more structure only where the consequence warrants it.
 
-Define the one canonical workpad location and when an optional ExecPlan is warranted. Do not force routine work through a planning artifact designed for a migration or architecture change.
+For exploratory Changes, define the decision question and evidence for a useful non-landed outcome before execution begins.
 
-### Environment, gates, and evidence
+## Advanced policies are optional
 
-Name the startup, proof, and teardown commands. Explain the required isolation, gate results, retry behavior, evidence expectations, and conditions that require builder judgment.
+Add these when the repository has a real decision to improve:
 
-### Resolution
-
-Keep these separate:
-
-```text
-resolution status
-resolution class
-specific disposition
-landed state
-released state
-```
-
-Use the four analytical classes:
-
-- `delivered`
-- `decision`
-- `administrative`
-- `unresolved_loss`
-
-The workflow should make it difficult to confuse a useful non-landed decision with either an external cancellation or a branch that simply ran out of oxygen.
-
-### Resource policy
-
-Adopt this progressively. Start with Change and run attribution. Add ranges, actuals, thresholds, routing, and initiative rollups only when the history and consequence justify them.
+- formal resolution classes and reporting;
+- run and Change resource attribution;
+- estimate ranges and thresholds;
+- routing and escalation rules;
+- initiative records and later value review;
+- data-retention and access policy.
 
 A threshold should name the decision it triggers, not only the number.
 
-### Initiatives and data stewardship
-
-Explain when a larger product bet needs an initiative record and later value review. State what resource data is measured, estimated, missing, restricted, or excluded. Keep system learning separate from individual performance surveillance.
+State what resource data is measured, estimated, missing, restricted, or excluded. Keep system learning separate from individual performance surveillance.
 
 ## The test
 
@@ -75,8 +62,8 @@ What may continue?
 What must stop?
 Who decides?
 What proves the claim?
-How does the Change resolve when nothing lands?
+How does the work end when nothing lands?
 What should the system learn?
 ```
 
-Version material workflow changes so older Change and resource records remain interpretable.
+Version material workflow changes so older Change records remain interpretable.

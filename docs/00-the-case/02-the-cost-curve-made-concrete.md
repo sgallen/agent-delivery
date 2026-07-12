@@ -63,15 +63,15 @@ model usage
 
 ## The operating implication
 
-A cheap model is not cheap if it needs three attempts and consumes two hours of staff-engineer review. A premium model may be the economical choice if it completes a difficult Change cleanly in one pass. A smaller model may be ideal for narrow, well-gated work.
+A cheap model is not cheap if it needs three attempts and consumes two hours of staff-engineer review. A premium model may be the economical choice if it completes difficult work cleanly in one pass. A smaller model may be ideal for narrow, well-gated work.
 
-That is why a mature team uses a small metric set rather than one denominator: **cost per trustworthy landed Change** for delivery work, **cost per evidence-backed decision** for exploratory work, builder attention by resolution class, resolution and landing yield, and the resulting defect, rework, or unresolved-loss rate.
+That is why tokens or provider spend cannot be the scoreboard. The meaningful comparison includes the outcome, the proof, the failed attempts, the surrounding infrastructure, and the human attention required to make the result trustworthy.
 
-At the initiative level, cost is only half the question. The organization must later compare the complete investment with the customer, business, operational, or strategic value that appeared. Cheap delivery of an unhelpful capability is still a poor investment.
+At greater maturity, teams can separate the economics of delivered work from experiments and decisions, compare model routes by task type, and roll the full investment into later product-value reviews. Those are useful capabilities once the underlying Change records are credible.
 
-The numbers will move. The operating implication is already here.
+The numbers will move. The operating implication is already here: implementation capacity now sits inside a very different cost envelope, and the delivery system should be designed accordingly.
 
-See [Model Economics](../03-reference/model-economics.md) for the dated pricing table, assumptions, caveats, and calculator, then use [Measure Delivery Economics](../02-playbooks/measure-delivery-economics.md) to replace estimates with your own run data.
+See [Model Economics](../03-reference/model-economics.md) for the dated pricing table, assumptions, caveats, and calculator. Use [Measure Delivery Economics](../02-playbooks/measure-delivery-economics.md) when your team is ready to replace generic scenarios with its own delivery history.
 
 ## Sources for this snapshot
 

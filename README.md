@@ -1,46 +1,80 @@
 # Agent Delivery
 
-*A practical playbook for turning agent capability into trustworthy product outcomes—and making the delivery system better with every Change.*
+*A practical playbook for product teams adapting to a world where agents can participate directly in the work—and humans govern the system around them.*
 
-Software teams are about to make a very understandable mistake.
+The tools changed. Most delivery systems have not.
 
-They will use agents to produce more code, then feed that code into the same queues, handoffs, review rituals, and staffing assumptions they already have. Output will rise. So will review pressure. The people with the strongest judgment will become the cleanup layer.
+Agents can already inspect unfamiliar code, form a plan, edit files, run tests, use browsers and other tools, debug failures, gather evidence, and prepare meaningful work for review. This is no longer better autocomplete. It is a new operating capability.
 
-It will look like progress because, in one narrow sense, it is.
+Most teams will make the understandable first move: keep the existing process, add agents around the edges, and ask everyone to move faster.
 
-It will also leave most of the advantage on the table.
+It will help. It may also produce more queues, more review pressure, more half-trusted output, and more cleanup for the people with the strongest judgment. The new capability gets poured into a system designed around a different constraint.
 
-Current agents can already inspect a codebase, form a plan, edit files, run tools, debug failures, operate a browser, gather evidence, and prepare work for review. This is not better autocomplete. It is a new operating capability.
+That leaves the important question unanswered:
 
-The useful question is no longer:
-
-> How can AI help the existing process move faster?
-
-It is:
-
-> What should product delivery look like when agents can participate directly in the work?
+> What should product delivery look like now that agents can participate directly in the work?
 
 This playbook is my current answer.
 
-It grew out of using the tools, experimenting with orchestration, and watching a team adopt them in real product work. I saw the leverage. I also saw the failure mode: more code, more review burden, and the same old handoffs underneath. The tools had changed faster than the system around them.
+It grew out of using the tools, experimenting with orchestration, and watching a team adopt them in real product work. I saw the leverage. I also saw how quickly leverage turns into burden when the surrounding system does not change.
 
 Agent Delivery is an attempt to close that gap.
 
-## The idea in one page
+## TL;DR
 
-Start with a **Change**: a bounded piece of product work with a clear outcome, known constraints, and an honest idea of what would count as proof.
+- Agents can now perform meaningful product-development work, not merely generate code snippets.
+- Traditional delivery still works, but it was shaped around scarce human implementation capacity. That constraint has changed.
+- Bolting agents onto the old process can increase output without reducing handoffs, waiting, review burden, or uncertainty.
+- The stronger move is to redesign the operating model: let agents attempt more of the work, then place human judgment where it has the most leverage.
+- Builders remain responsible for intent, product judgment, architecture, taste, risk, and outcomes. Agents execute inside a system that makes the work legible, bounded, provable, and recoverable.
+- The practical unit is a **Change**, not a prompt or terminal session. A Change carries intent, execution state, evidence, an accountable decision, and learning.
+- Not every useful Change has to merge. Some deliver capability; some produce enough evidence to stop, narrow, or redirect. The distinction should be explicit.
+- As the system matures, attributable resource and outcome history can improve estimation, model routing, capacity planning, and product-investment decisions. That is an important consequence, not a prerequisite for the first experiment.
+- The approach is useful with current models. Better models would compound the advantage for teams that have already learned how to absorb them.
 
-Give the agent a legible repository, an isolated environment, and a standing workflow. Let it work through a persistent workpad. Use gates to make quality durable and evidence to make the result easy to judge. Bring builders in where product judgment, taste, risk, architecture, or accountability actually matter.
+## The constraint changed
 
-Then resolve the Change honestly.
+For most of software history, more product output required more human implementation capacity. More capacity brought more specialization, more coordination, more planning, more management, and more cost.
 
-Sometimes the work lands. Sometimes an experiment shows that it should not. Sometimes priorities change for reasons the work did not uncover. Sometimes the system simply loses the thread. Those are different outcomes, and the record should not flatten them into “merged” or “failed.”
+Much of modern product delivery evolved around protecting that scarce resource.
 
-At its smallest, the flow looks like this:
+Prioritize carefully. Specify before building. Queue the work. Hand it across functions. Review it. Release it. Repeat.
+
+That was not foolish. It was a rational response to the economics and capabilities of the time.
+
+Current agents alter the equation. They can make an idea concrete before a team spends days debating whether it deserves scarce engineering capacity. They can investigate a customer issue, attempt a fix, compare approaches, produce a prototype, run validation, and return with evidence.
+
+The default question changes with them.
+
+**Old question:** Is this worth assigning to a developer?
+
+**New question:** Can the system make this concrete enough that builders can judge it with evidence?
+
+Small wording change. Large organizational consequence.
+
+## Adapt the operating model
+
+The point is not to automate the old process step by step.
+
+Start with a harder thought experiment:
+
+> If the agent-enabled system attempted the work by default, where would it fail—and where would human judgment materially improve the outcome?
+
+Then design around the answer.
+
+Builders shape worthwhile intent, resolve ambiguity, make high-consequence tradeoffs, encode taste and standards, govern risk, and own the result. Agents investigate, implement, test, inspect, repair, and prepare evidence. The repository, execution environment, workflow, gates, and review system make that collaboration trustworthy.
+
+This is **human-governed, agent-enabled delivery**.
+
+The goal is not maximum autonomy. It is maximum leverage from scarce human judgment.
+
+## What it looks like in practice
+
+A Change is the practical unit that carries the larger idea into daily work.
 
 ```text
 clear Change Intent
-  + repo-level WORKFLOW.md
+  + a legible repository and standing workflow
   → one persistent workpad
   → isolated execution
   → agent work
@@ -50,58 +84,50 @@ clear Change Intent
   → learning folded back into the system
 ```
 
-The operating principles are simple:
+The core pieces are straightforward:
 
-- **Shape intent before prompting.** The agent needs a useful problem, not a longer incantation.
-- **Manage Changes, not terminal sessions.** The work should survive a model switch, a failed run, or a human handoff.
-- **Put human judgment where it has leverage.** Builders own outcomes, risk, taste, and the operating model; they do not need to touch every keystroke.
-- **Make proof part of the work.** Tests, screenshots, logs, traces, and review evidence are not paperwork added at the end.
-- **Resolve work honestly.** A good non-landed decision can be valuable. A dead branch with a bill is not automatically learning.
-- **Make resource use visible.** Connect agent spend, infrastructure, retries, elapsed time, and builder attention to the Change that consumed them.
-- **Let every effort improve the next one.** Better context, gates, skills, estimates, routing, and product decisions are part of the output.
+- **Builders** own outcomes, judgment, taste, risk, and the operating model itself.
+- **Changes** preserve the work across runs, model switches, failures, and human handoffs.
+- **`WORKFLOW.md`** carries the standing repository contract so the process is not trapped in private memory.
+- **Workpads** hold the live plan, discoveries, blockers, validation state, and handoff.
+- **Execution environments** give agents a safe place to run and observe the product.
+- **Gates** make important quality and risk rules durable.
+- **Evidence** makes the result easier to judge than the activity that produced it.
+- **Learning checkpoints** turn repeated friction into better context, tests, skills, gates, and workflows.
 
-## Why the economics belong in the workflow
+The machinery should make good judgment easier to apply. If it becomes a new ceremony layer, it has lost the plot.
 
-The cost curve matters, but a provider bill does not tell you much about delivery.
+## Why the advantage compounds
 
-A model dashboard can show tokens and dollars. It cannot tell you whether that spend produced a trustworthy capability, a useful decision not to continue, or three abandoned attempts that nobody wants to discuss.
+There are two improvement curves.
 
-The Change is where cost meets outcome.
+The first is external: models, tools, and harnesses may continue to improve.
 
-Once runs, environments, retries, and builder attention are attributable to a Change, the team can begin to answer better questions:
+The second is internal: the team gets better at using them. Repository context becomes clearer. Environments become more reliable. Gates get sharper. Repeated corrections become tests and skills. Builders learn which work to shape, where to intervene, and which classes of Change the system can handle safely.
 
-- What did this kind of work actually cost?
-- Which models or agents were economical after review and rework—not merely cheap per call?
-- Why did a $40 estimate become $120?
-- How much human shaping and review does another $10,000 of agent spend require?
-- Is agent budget the constraint, or is the team short on customer discovery, product shaping, review, test infrastructure, or release capacity?
+A team that only swaps in a better model receives an incremental benefit.
 
-Start with attribution, not a finance platform. A run ID, a Change ID, a few machine totals, the kind of builder attention involved, and an explicit outcome are enough to create the first useful record.
+A team that has also redesigned the operating model can absorb that improvement across the whole delivery system.
 
-With history, estimates can become ranges instead of guesses. Resource thresholds can become deliberate pause points. Routing can improve by task type. Capacity plans can show which human or technical constraint is preventing useful throughput.
+This is why the case does not depend on future model magic. Current capability is enough to justify learning how to work differently. Future capability would make that learning more valuable.
 
-That is the deeper opportunity: not cheaper code, but a delivery system that remembers what work consumed, what it produced, and what should change next time.
+## What maturity unlocks
 
-## From Changes to product bets
+Once work is attributable to a Change and paired with a real outcome, the delivery system starts to develop a useful memory.
 
-A major feature, platform capability, or new product line is not just a larger ticket. It is an investment hypothesis.
+It can learn what different kinds of work tend to consume, which models and agents perform well after review and rework, where human attention becomes the bottleneck, and why estimates miss. At the initiative level, it can compare the value the team expected with what the work actually cost and what value appeared later.
 
-Before committing, preserve the expected customer or business value, the evidence behind that belief, the likely human and machine investment, the important unknowns, and the conditions that would cause the team to stop or change course.
+That opens the door to better estimation, deliberate spend thresholds, model routing, capacity planning, and more honest product-investment reviews.
 
-During delivery, roll the actual Changes into the initiative. Some will land. Some will produce a useful decision. Some will close for external reasons. Some may become unresolved loss. Keep the distinctions visible.
+Those capabilities matter. They should be earned progressively.
 
-Afterward, ask two separate questions:
+Do not build a finance platform, routing layer, learned estimator, and portfolio dashboard before one useful Change can move through the system end to end. Start with enough attribution to learn. Add machinery when a real decision needs it.
 
-1. What did it actually take to deliver or reach the decision?
-2. Did the expected value appear?
+## Start with one credible Change
 
-A team can build the wrong thing efficiently. It can also spend a modest amount learning not to make a much larger mistake. Delivery quality and product judgment both deserve a feedback loop.
+Pick a low-risk bug, bounded improvement, or explicit feasibility question.
 
-## Start smaller than your enthusiasm
-
-You do not need a routing platform, a forecasting model, or a portfolio dashboard to begin. Please do not build all three before running one Change.
-
-Pick a low-risk bug or bounded improvement. Write the intent. Create one workpad. Give the agent an isolated place to work. Require a few meaningful gates and enough evidence to judge the result. Record what it consumed and how it resolved. Then improve the system from what actually happened.
+Shape the intent. Give the agent enough context and an isolated place to work. Require a few meaningful gates and enough evidence to judge the result. Resolve it honestly. Then improve one part of the system before the next Change.
 
 Choose the path that matches where you are:
 
@@ -109,30 +135,29 @@ Choose the path that matches where you are:
 - **Run one useful experiment:** use [Run the First Experiment](docs/02-playbooks/first-experiment.md).
 - **Fix a real bug with proof:** follow [Fix a Bug with Proof](docs/02-playbooks/fix-a-bug-with-proof.md).
 - **Shift an existing team:** start with [Shift an Existing Team](docs/02-playbooks/shift-existing-team.md) and [The First 30 Days](docs/02-playbooks/first-30-days.md).
-- **Measure the economics:** use [Measure Delivery Economics](docs/02-playbooks/measure-delivery-economics.md).
-- **Plan a larger product bet:** use [Forecast and Review an Initiative](docs/02-playbooks/forecast-and-review-an-initiative.md) with [Plan Delivery Capacity](docs/02-playbooks/plan-delivery-capacity.md).
+- **Go further once the basics work:** explore [Delivery Economics](docs/01-operating-model/resource-observability-and-delivery-economics.md), [Initiatives and the Value Loop](docs/01-operating-model/initiatives-and-value.md), and [Delivery Capacity](docs/02-playbooks/plan-delivery-capacity.md).
 
 ## What is in the kit
 
-- [**The Case**](docs/00-the-case/index.md) explains why the constraint changed and why the old process, while still useful, is no longer enough.
-- [**The Operating Model**](docs/01-operating-model/index.md) connects Changes, builders, workflows, workpads, gates, evidence, resource use, initiatives, and learning.
-- [**Playbooks**](docs/02-playbooks/index.md) help you run the first experiment, shift a team, measure real delivery economics, resolve work that does not land, and plan initiatives and capacity.
+- [**The Case**](docs/00-the-case/index.md) explains what changed, why the old assumptions no longer fit as well, and what a stronger response looks like.
+- [**The Operating Model**](docs/01-operating-model/index.md) connects builders, agents, Changes, workflows, workpads, environments, gates, evidence, review, recovery, and learning.
+- [**Playbooks**](docs/02-playbooks/index.md) help you run a first experiment, shift a team, prove a bug fix, improve the system, and adopt advanced practices when they earn their place.
 - [**Reference and templates**](docs/03-reference/index.md) provide copyable GitHub-first starting points rather than one sacred implementation.
 
 The complete map is in [`docs/index.md`](docs/index.md).
 
 ## What this is not
 
-This is not an argument that engineers, product managers, designers, QA, security, or operators matter less. Their judgment matters more when execution becomes abundant. The work is to apply that judgment where it changes the outcome.
+This is not an argument that engineers, product managers, designers, QA, security, or operators matter less. Their judgment matters more when implementation becomes more abundant. The work is to apply that judgment where it changes the outcome.
 
 It is not permission for sloppy speed. Reliability, security, accessibility, architecture, and taste do not become optional because a model wrote the code. Move faster because the system is better, not because the standards are lower.
 
-It is not a people-ranking system wearing an observability badge. Measure capability mix and system behavior to improve decisions. Keep raw human effort separate from cost assumptions, preserve uncertainty, and do not turn telemetry into covert surveillance.
+It is not a headcount-reduction thesis or a people-ranking system wearing an observability badge. Measure the system to improve decisions. Do not confuse telemetry with judgment.
 
-And it is not finished doctrine. Some of this will be wrong. The models will change, the tools will change, and teams will find better patterns. The point is to start from a serious position, run real work, preserve the evidence, and improve from reality rather than enthusiasm.
+And it is not finished doctrine. Some of this will be wrong. The models will change, the tools will change, and teams will discover better patterns. The point is to start from a serious position, run real work, preserve the evidence, and improve from reality rather than enthusiasm.
 
 ## Where the thinking came from
 
 The thesis is grounded in direct use and team experience. A few outside examples gave sharper language to things I was already seeing: [Gusto’s use of Claude Code](https://youtu.be/5FKBkUCaLa8), OpenAI’s work on [harness engineering](https://openai.com/index/harness-engineering/), [Symphony](https://openai.com/index/open-source-codex-orchestration-symphony/), [Codex ExecPlans](https://developers.openai.com/cookbook/articles/codex_exec_plans), and Geoffrey Huntley’s deliberately stark argument about [the new economics of software development](https://ghuntley.com/real/).
 
-They do not add up to one universal process. They do reinforce the same conclusion: the capability is real, the operating model matters, and the only useful next step is to build, measure, and learn. The fuller notes are in [References and Influences](docs/references.md).
+They do not add up to one universal process. They reinforce the same conclusion: the capability is real, the operating model matters, and the useful next step is to build, inspect, and learn.

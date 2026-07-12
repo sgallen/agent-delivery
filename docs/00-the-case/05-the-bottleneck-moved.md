@@ -6,34 +6,29 @@ Even when a developer knew exactly what to build, they could only move so quickl
 
 Those practices were responses to a real constraint.
 
-When agents can perform meaningful product development work, the constraint moves.
+When agents can perform meaningful product-development work, the constraint moves.
 
 The scarce resource becomes builder attention:
 
-- understanding customers
-- deciding what matters
-- applying taste
-- reasoning about risk and architecture
-- resolving ambiguity
-- reviewing evidence
+- understanding customers;
+- deciding what matters;
+- applying taste;
+- reasoning about risk and architecture;
+- resolving ambiguity;
+- judging evidence;
 - improving the system.
 
-The constraint can move again as the team becomes more capable. A group may have abundant agent budget but too little customer discovery to form worthwhile demand. It may have a shaped backlog but not enough review capacity. It may have review capacity but weak environments, gates, release support, or operational ownership.
+That attention should not be spent correcting the same avoidable failure, reconstructing context from a terminal transcript, or reviewing large volumes of plausible-looking work that arrived without proof.
 
-Additional model spend only creates useful throughput when the surrounding system can absorb it.
+The operating model should protect and amplify it.
 
-The operating model should therefore do two things:
+The constraint may move again as the team improves. A group may have abundant agent capacity but too little customer discovery to form worthwhile demand. It may have shaped work but not enough review capacity. It may have reviewers but weak environments, gates, release support, or operational ownership.
 
-1. protect and amplify scarce builder judgment;
-2. make the complete resource flow visible enough to identify the current constraint.
-
-It should not consume expert judgment on repetitive implementation and review steps simply because the old process had nowhere else to put the responsibility. It should not add agent capacity upstream of a saturated human or technical bottleneck and call the growing queue progress.
+More agent output is useful only when the surrounding system can absorb it.
 
 This is the practical test: if agent output rises but senior builders spend more time cleaning it up, the bottleneck did not disappear. It was fed.
 
-The better planning question is:
-
-> Which additional human capability, agent budget, infrastructure investment, or system improvement would increase trustworthy, worthwhile outcomes now?
+A mature team can make the full resource flow visible and ask where the next investment belongs. The first job is more immediate: stop treating human implementation as the only scarce thing in the room.
 
 ---
 

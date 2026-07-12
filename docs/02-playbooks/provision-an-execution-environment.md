@@ -4,23 +4,20 @@ Use this when an agent needs to build, run, inspect, or prove a Change without i
 
 ## Goal
 
-Give each Active Change an isolated enough runtime world to produce trustworthy evidence and attributable resource use.
+Give the Change a runtime world that another agent can start, observe, trust, and tear down.
 
-## Step 1: Assign a run identity
+## Step 1: Assign an identity
 
 Record:
 
-- initiative ID, when present
-- Change ID
-- run ID
-- branch and commit
-- worktree path
-- runner identity
-- environment class
-- start time
-- resource-record path.
+- Change ID;
+- run ID;
+- branch and commit;
+- worktree path;
+- environment class;
+- start time.
 
-Use the identity to namespace ports, services, logs, browser profiles, artifacts, and metering events.
+Use the identity to namespace ports, services, logs, browser profiles, mutable data, and artifacts.
 
 ## Step 2: Choose the isolation level
 
@@ -30,10 +27,9 @@ Use the identity to namespace ports, services, logs, browser profiles, artifacts
 worktree
 unique ports
 per-run environment file
-namespaced database/cache
+namespaced database or cache
 isolated browser profile
 Change-specific logs and evidence
-estimated local resource use when material
 ```
 
 ### Milestone 2: Container isolation
@@ -43,7 +39,6 @@ Docker Compose or devcontainer per Change
 dedicated network and service names
 isolated volumes or test data
 central artifact collection
-container runtime and storage metering
 ```
 
 ### Milestone 3: Cloud sandbox
@@ -51,76 +46,75 @@ container runtime and storage metering
 ```text
 one sandbox per Change
 preconfigured dependencies
-browser/debug access
+browser and debug access
 scoped identity and secrets
 artifact upload
-resource limits, metering, and teardown policy
+limits and teardown policy
 ```
 
-Move up only when collisions, resource needs, security, attribution, or parallelism justify it.
+Move up only when collisions, security, parallelism, recovery, or evidence quality justify it.
 
-The cheapest environment per minute is not automatically the cheapest environment per trustworthy resolution. Slow startup, flaky state, or missing observability can create much larger model and builder costs—and can prevent an experiment or investigation from reaching a useful decision at all.
+The cheapest environment per minute is not always the cheapest way to reach a trustworthy result. Slow startup, flaky state, and missing observability create their own bill, usually paid in human attention.
 
 ## Step 3: Make startup deterministic
 
 The environment should have one documented command that:
 
-- installs or verifies dependencies
-- starts required services
-- creates test data
-- launches the app
-- reports the endpoints
-- confirms health
-- prints the run and resource identity.
+- installs or verifies dependencies;
+- starts required services;
+- creates or loads test data;
+- launches the product;
+- reports endpoints;
+- confirms health;
+- prints the run identity and artifact paths.
 
 The agent should not need local folklore to boot the product.
 
-## Step 4: Connect observability and metering
+## Step 4: Expose the right signals
 
-Expose:
+Provide:
 
-- application logs
-- browser console and network activity
-- traces or metrics when relevant
-- health checks
-- artifact paths
-- environment start, stop, and retained-state events
-- measured or estimated compute, storage, database, browser, CI, and preview cost when useful.
+- application and service logs;
+- browser console and network activity;
+- traces or metrics when relevant;
+- health checks;
+- artifact paths;
+- the exact commit and configuration under test.
 
-Keep raw units as well as cost. Pricing changes; compute hours and storage quantities remain useful for reconciliation.
+The agent needs feedback from the running system, not only the compiler.
 
-The agent needs feedback from the running system, not only the compiler. The delivery record needs enough attribution to distinguish model spend from environment friction.
+## Step 5: Define teardown and recovery
 
-## Step 5: Set resource and teardown policy
+State:
 
-Define:
+- idle timeout;
+- maximum lifetime when one is needed;
+- who can extend it;
+- what survives teardown;
+- how a stopped run resumes.
 
-- idle timeout
-- maximum lifetime or spend
-- warning and hard-stop behavior
-- who can extend the lease
-- which artifacts survive teardown
-- how a stopped run can resume.
-
-At a hard threshold, preserve workpad state, logs, artifacts, and the current forecast before ending the environment.
-
-Provide one command that stops processes, removes or preserves temporary state according to policy, releases ports, closes the resource record, and records what was retained for investigation.
+Provide one command that stops processes, releases ports, closes browser sessions, and removes or preserves temporary state according to policy.
 
 Unbounded containers and browser processes are not a scaling strategy.
 
+## Step 6: Add metering when it matters
+
+When environment cost or capacity affects decisions, capture the material compute, storage, database, browser, CI, preview, and observability use. Keep raw units as well as cost, and associate them with the run and Change.
+
+Do not make this mandatory for a local first experiment. Do not ignore it once environments become a meaningful constraint.
+
 ## Environment checklist
 
-- [ ] Correct initiative, Change, run, branch, and commit identity
+- [ ] Correct Change, run, branch, and commit identity
 - [ ] Unique service namespaces and ports
 - [ ] Isolated mutable data
-- [ ] Isolated browser profile
+- [ ] Isolated browser profile when needed
 - [ ] Healthy required services
 - [ ] Logs and artifacts stored by run ID
-- [ ] Resource events attributable to the run
-- [ ] Limits, idle timeout, and extension rule defined
 - [ ] Secrets scoped appropriately
 - [ ] Teardown and recovery tested
+- [ ] Resource events attributable when metering is enabled
 
 ## Definition of done
 
-The environment is ready when another agent can start it, exercise the Change, collect evidence, attribute its resource use, and tear it down without depending on hidden local state or interfering with another run.
+The environment is ready when another agent can start it, exercise the Change, collect trustworthy evidence, and tear it down without hidden local state or interference from another run.

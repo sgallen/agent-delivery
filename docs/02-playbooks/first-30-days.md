@@ -13,8 +13,8 @@ You should have:
 - two to five builders who have used the path themselves;
 - three to five completed Change records;
 - a working issue, workflow, workpad, environment, gate, and evidence pattern;
-- a small baseline for cycle time, human attention, quality, rework, and machine cost;
-- at least one estimate-versus-actual comparison;
+- a small baseline for cycle time, human attention, quality, and rework;
+- basic machine-cost or run data when it is readily available;
 - a few system improvements already applied;
 - an explicit next decision.
 
@@ -26,7 +26,7 @@ Keep the scope deliberately small.
 
 Use real product work, not a theatrical side project. Keep the quality bar. Give the pilot group permission to remove ceremony that does not help meet it. Do not reorganize the company, buy a large platform, or build a general-purpose orchestrator before the first useful Change can move end to end.
 
-Start with attribution, not accounting perfection. A Change ID, run ID, basic model and environment usage, broad builder-attention categories, and an explicit outcome are enough to begin.
+Do not let measurement become the pilot. A Change ID and run ID are useful. Basic model, environment, or builder-attention data is worth capturing when it comes cheaply. The core evidence is still whether the path produced trustworthy work with a manageable human burden.
 
 ## Week 1: Build the smallest credible path
 
@@ -45,7 +45,7 @@ Name the improvement you expect. For example:
 - improve the percentage of Changes arriving with credible behavior evidence;
 - let product-facing builders move a narrow class of work further without waiting in an implementation queue.
 
-Capture only the baseline needed to judge that claim: elapsed time, active builder time, review time, rework, quality signals, interventions, and recorded machine cost. Precision is less important than an honest comparison.
+Capture only the baseline needed to judge that claim: elapsed time, active builder time, review time, rework, quality signals, interventions, and machine cost when it is readily available. Precision is less important than an honest comparison.
 
 ### Add the minimum operating system
 
@@ -57,8 +57,9 @@ Create:
 - one persistent workpad pattern;
 - one gate profile;
 - one evidence checklist;
-- one lightweight resource record;
 - one learning checkpoint.
+
+Add a lightweight resource record only when the project can capture it without making the first workflow harder to understand.
 
 Make the environment usable: dedicated worktrees, reproducible setup, isolated mutable state, visible logs, and one obvious way to run the local proof set.
 
@@ -69,13 +70,12 @@ If a builder cannot understand the workflow before the coffee gets cold, the fir
 For each Change:
 
 1. Shape the intent, proof, risk, and stop conditions.
-2. Add a rough range or mark the estimate `not set`.
-3. Create the workpad and isolated environment.
-4. Let the agent investigate, execute, test, and gather evidence.
-5. Bring in a builder where judgment or a true blocker requires it.
-6. Resolve the work explicitly and record whether anything landed.
-7. Compare estimate and actual where possible.
-8. Capture one lesson about the system.
+2. Create the workpad and isolated environment.
+3. Let the agent investigate, execute, test, and gather evidence.
+4. Bring in a builder where judgment or a true blocker requires it.
+5. Resolve the work explicitly and record whether anything landed.
+6. Capture one lesson about the system.
+7. When you made a forecast or captured resource data, compare it with what happened.
 
 Do not quietly rescue every rough run. That hides the very information the pilot exists to find.
 
@@ -110,7 +110,7 @@ Ask:
 - Did the evidence make review easier?
 - Which failures repeated?
 - Where was builder judgment genuinely valuable?
-- Did the resource records expose a constraint—shaping, review, environment, release capacity, or something else?
+- What became the practical constraint—shaping, review, environment, release capacity, or something else?
 - Is this path ready for another class of work?
 
 Choose one answer:
@@ -137,8 +137,8 @@ Keep the review short enough that people will read it. Record:
 - the Changes run and how they resolved;
 - what landed;
 - baseline and current measures;
-- machine, environment, and builder-attention data, with known gaps;
-- estimate-versus-actual observations;
+- machine, environment, and builder-attention data when measured, with known gaps;
+- estimate-versus-actual observations when a useful forecast existed;
 - the current constraint;
 - improvements already made;
 - the expand, hold, or redesign decision;

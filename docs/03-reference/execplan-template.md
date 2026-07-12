@@ -1,6 +1,6 @@
 # Reference: ExecPlan Template
 
-Use this template when a Change is too complex, ambiguous, risky, or materially constrained to run from the workpad alone.
+Use this template when a Change is too complex, ambiguous, risky, or long-running to run from the workpad alone.
 
 Suggested location:
 
@@ -13,15 +13,11 @@ Follow the target repository’s `docs/PLANS.md` standard.
 ```markdown
 # <Short, action-oriented title>
 
-This ExecPlan is a living document. Keep it current as progress, discoveries, decisions, forecasts, and validation change.
+This ExecPlan is a living document. Keep it current as progress, discoveries, decisions, and validation change.
 
 ## Purpose and desired outcome
 
-Why this work matters and what should be observably true when it is complete.
-
-## Initiative and value context, if applicable
-
-Parent initiative, expected contribution, and any value assumption this Change tests.
+Why this work matters and what should be observably true—or what decision should be possible—when it is complete.
 
 ## Context and orientation
 
@@ -31,30 +27,21 @@ What a capable agent or builder needs to know before working.
 
 What exists now.
 
-## Desired state
+## Desired state or decision question
 
-What should exist after the Change.
+What should exist after the Change, or what uncertainty the work must resolve.
 
 ## Plan of work
 
-The concrete sequence and affected areas.
+The sequence, affected areas, and important boundaries.
 
-## Resource forecast and constraints
+## Concrete steps
 
-Forecast stage:
-Expected machine resources and likely range:
-Expected builder attention by capability and likely range:
-Elapsed-time range:
-Confidence and assumptions:
-Comparable Changes:
-Soft and hard thresholds:
-Likely bottleneck or scarce resource:
+Commands or actions another capable agent can follow.
 
-Preserve earlier forecasts and add dated revisions when new information changes the plan.
+## Validation and evidence
 
-## Validation and resolution criteria
-
-State the delivered acceptance criteria, the evidence required for a useful non-landed decision, and any stop conditions. Explain how each path will be proven with commands, behavior, logs, screenshots, research, comparisons, or other evidence.
+How the outcome or decision will be proven with tests, behavior, logs, screenshots, research, comparisons, or other evidence.
 
 ## Progress
 
@@ -64,23 +51,27 @@ State the delivered acceptance criteria, the evidence required for a useful non-
 
 ## Discoveries and surprises
 
-Facts learned during the work that affect the plan or forecast.
+Facts learned during the work that affect the plan.
 
 ## Decision log
 
-Meaningful decisions, alternatives, threshold decisions, and rationale.
+Meaningful decisions, alternatives, and rationale.
 
 ## Idempotence, rollback, and recovery
 
-How to resume, retry, reverse, or clean up safely. State what must be preserved if a resource limit stops execution.
+How to resume, retry, reverse, or clean up safely.
 
 ## Artifacts and evidence
 
-Links to tests, logs, screenshots, traces, resource records, PRs, or reports.
+Links to tests, logs, screenshots, traces, PRs, or reports.
+
+## Optional initiative or resource context
+
+Add value context, forecast stages, ranges, thresholds, or actuals only when they materially affect the work.
 
 ## Outcome and retrospective
 
-Resolution status, class, disposition, landing and release state; what shipped or did not; which decision question was answered; what proved the result; forecast versus actual; material delivery and resolution variance; initiative implication; and what the system should learn.
+What happened, what landed or released, what evidence supports the decision, what remains uncertain, and what the system should learn.
 ```
 
 At completion, move the plan to:

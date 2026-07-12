@@ -8,24 +8,25 @@ That model is proven and familiar. It was also designed for a world where implem
 
 Left unchanged, it cannot fully exploit agents.
 
-A team can write PRDs faster, break work into tickets faster, generate code faster, and open pull requests faster while preserving every existing queue and handoff. That is an improvement. It is not the full shift.
+A team can write requirements faster, break work into tickets faster, generate code faster, and open pull requests faster while preserving every existing queue and handoff. That is an improvement. It is not the full shift.
 
 Worse, shallow adoption can make the old system less pleasant.
 
-If code volume rises without stronger intent, gates, evidence, architecture rules, resource attribution, and reviewer automation, the predictable result is overloaded engineers, weak review, frustrated quality advocates, unexplained spend, and a growing belief that “AI code” is the problem.
+If code volume rises without clearer intent, stronger environments, durable gates, useful evidence, and better review support, the predictable result is overloaded engineers, weak review, frustrated quality advocates, and a growing belief that “AI code” is the problem.
 
 The problem is not only the code.
 
-The system was not redesigned to handle the new capability. It still cannot answer what a Change consumed, whether it landed or resolved through a useful decision, whether additional agent capacity can be absorbed, or whether a large product initiative created the value used to justify it.
+The surrounding system was never redesigned to handle the capability. It still carries context in people’s heads, treats the interactive session as the work, waits until review to discover what “good” meant, and makes recovery depend on whoever happened to be watching.
 
-A redesigned process should learn across both delivery and product decisions:
+Agent Delivery changes the unit and the flow:
 
 ```text
-Change forecast → actual delivery → better estimate
-Initiative value hypothesis → realized value → better investment decision
+intent → agent execution → proof → accountable judgment → learning
 ```
 
-That feedback loop is part of the operating model, not a finance report attached after the work is over.
+Once that path is coherent, the team can also learn what work consumes, where estimates fail, which capacity is scarce, and whether larger product bets create the value used to justify them.
+
+But first the operating model has to make the work trustworthy.
 
 ---
 

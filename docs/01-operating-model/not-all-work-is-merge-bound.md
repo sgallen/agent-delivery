@@ -8,37 +8,35 @@ The code may merge. It may be rebuilt. It may be thrown away.
 
 That is not automatically waste. Working software can be a decision artifact.
 
-## Resolved does not mean merged
-
-A Change may end as delivered work, a useful work-derived decision, an accountable administrative closure, or unresolved loss. [Changes](changes.md) defines those classes in detail.
-
-The important distinction is not simply **merged versus not merged**. It is whether the work improved the product, improved the decision, closed responsibly for an external reason, or vanished without enough evidence and judgment.
-
-A prototype that disproves an assumption can be valuable. A dead branch with a retrospective paragraph is not automatically an experiment.
-
-## Define the decision before execution
+## Define the decision before the work
 
 Exploratory work is easier to judge when the Change Intent states:
 
 ```text
 decision question   What do we need to know or decide?
+evidence bar        What would distinguish the options?
 resource envelope   How much are we willing to spend?
-evaluation criteria What evidence will distinguish the options?
 stop conditions     What should end the work early?
 resolution criteria What is enough to conclude without merging?
 ```
 
 This prevents a failed delivery attempt from being relabeled as successful learning after the fact.
 
-A useful non-landed outcome should leave behind the evidence, uncertainty reduced, decision made, reusable findings, and next action. An administrative closure should name the external reason and accountable owner. Unresolved loss should remain visible with the consumed resources and the system improvement needed to prevent a repeat.
+A useful non-landed outcome should leave behind the evidence, the uncertainty reduced, the decision made, reusable findings, and the next action.
 
-## Preserve the full cost
+A branch that disappeared because nobody decided what to do with it is different.
 
-Do not make the winning path look cheap by hiding the branches, retries, prototypes, and review effort that led to it.
+## Resolve does not mean merge
 
-Keep delivered spend, decision spend, administrative spend, and unresolved loss visible. They answer different questions and should not be blended into one flattering average.
+The important distinction is not simply **merged versus not merged**. It is whether the work improved the product, improved the decision, closed responsibly for an external reason, or consumed resources without reaching a defensible conclusion.
 
-A $200 prototype that prevents a $100,000 mistake may be excellent work. Treat the avoided investment as an uncertain counterfactual, not booked value.
+[Changes](changes.md) defines the formal resolution classes for teams that need them. Most daily work only needs the plain-language distinction.
+
+## Preserve the real path
+
+Do not make the winning option look cheap by hiding the prototypes, retries, review effort, or discarded approaches that led to it.
+
+A small experiment that prevents a much larger mistake may be excellent work. Treat the avoided investment as an uncertain counterfactual, not booked value.
 
 ## A simple pattern
 
@@ -47,7 +45,7 @@ A $200 prototype that prevents a $100,000 mistake may be excellent work. Treat t
 3. Ask agents to produce working behavior and evidence, not code volume.
 4. Compare the outcomes.
 5. Land the best path, combine ideas, narrow the initiative, or discard them all.
-6. Record the decision, actual resource use, and what happens next.
+6. Record the decision, what the work consumed when useful, and what happens next.
 
 Do not build a large exploration framework until this pattern stops working.
 
@@ -61,4 +59,4 @@ Please do not call that innovation.
 
 ## Principle
 
-> A Change is complete when it produces an explicit, adequately evidenced disposition—not only when code lands.
+> A Change is complete when it produces an explicit, adequately evidenced outcome—not only when code lands.

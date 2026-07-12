@@ -1,21 +1,12 @@
 ## Change
 
 - Issue / Change:
-- Parent initiative:
 - Workpad:
+- Parent initiative, when any:
 
-## What happened
+## Outcome
 
-What became observably true, or what decision does the evidence support?
-
-## Resolution proposal
-
-- Class: delivered / decision / administrative / unresolved_loss
-- Disposition:
-- Landed: true / false / not_applicable
-- Released: true / false / not_applicable
-
-A PR is a review package, not proof that the Change must merge.
+What became observably true? When this PR carries experiment or investigation evidence, what decision does it support?
 
 ## Criteria, gates, and evidence
 
@@ -23,7 +14,7 @@ A PR is a review package, not proof that the Change must merge.
 | --- | --- | --- |
 |  |  |  |
 
-- Tests / experiment output:
+- Tests or experiment output:
 - UI, runtime, research, logs, traces, or benchmarks:
 - Reviewer findings:
 - Known gaps or waivers:
@@ -36,13 +27,6 @@ A PR is a review package, not proof that the Change must merge.
 - Rollback:
 - Continuing obligations:
 
-## Resource summary — when measured
-
-- Forecast and actual:
-- Failed or discarded attempts included:
-- Material variance or threshold decision:
-- Data gaps:
-
 ## Decision evidence — when nothing should land
 
 - Question answered:
@@ -50,7 +34,23 @@ A PR is a review package, not proof that the Change must merge.
 - Decision owner:
 - Follow-up or explicit stop:
 
+A PR can be a review package for a decision. Its existence does not mean the branch should merge.
+
+## Resource summary — when measured
+
+- Forecast and actual:
+- Failed or discarded attempts included:
+- Material variance or threshold decision:
+- Data gaps:
+
+## Final resolution — when formal reporting is enabled
+
+- Class: delivered / decision / administrative / unresolved_loss
+- Disposition:
+- Landed: true / false / not_applicable
+- Released: true / false / not_applicable
+
 ## Learning
 
 - What should change in the product or delivery system?
-- Initiative updated:
+- Initiative updated, when applicable:

@@ -8,33 +8,40 @@ The copyable GitHub Issue Form is [`templates/.github/ISSUE_TEMPLATE/change_inte
 
 A useful Change Intent answers:
 
-- What outcome or decision matters?
+- What should become observably true?
 - Why does it matter?
 - What is true today?
-- Is the path delivery, experiment, investigation, or evidence-dependent?
-- Is landing expected, possible, or unnecessary?
-- What would count as a delivered result?
-- What evidence would support a useful non-landed decision?
-- What is out of scope or forbidden?
+- What would count as success?
+- What is in and out of scope?
 - What proof is required?
-- What should stop execution and force a decision?
 - What risk and gate profile apply?
+- Where is builder judgment likely to matter?
 
-For exploratory work, define the decision question and evidence bar before execution. This prevents a failed feature from being relabeled as a successful experiment after the fact.
+That is enough for most routine Changes.
+
+## When the work may not land
+
+Add a decision path for experiments and investigations:
+
+- What question or uncertainty are we trying to resolve?
+- What evidence would distinguish the options?
+- What should stop the work early?
+- What would count as a useful conclusion without a merge?
+
+Define that before execution. It prevents a failed feature from being relabeled as a successful experiment after the fact.
 
 ## Optional maturity fields
 
-Add these when they improve the decision:
+Add these when they improve a real decision:
 
 - parent initiative;
 - likely resource range and confidence;
-- builder attention by capability;
 - soft checkpoint and hard decision threshold;
-- expected resolution mix;
 - comparable Changes;
-- expected product, design, architecture, security, or release judgment.
+- expected specialist or release judgment;
+- formal resolution intent for reporting.
 
-Do not require advanced economics for every small bug. Do not omit them from material or uncertain work merely because the team has not yet made the habit comfortable.
+Do not require advanced economics for every small bug. Do not omit it from material or uncertain work merely because the habit is new.
 
 ## Readiness is still a judgment
 

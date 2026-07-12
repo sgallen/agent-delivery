@@ -22,14 +22,11 @@ Create the minimum repo structure:
 │   ├── PRODUCT.md
 │   ├── DESIGN.md
 │   ├── REGRESSION_LEDGER.md
-│   ├── initiatives/
-│   ├── decisions/
 │   └── exec-plans/
 │       ├── active/
 │       └── completed/
 ├── .agent/
 │   ├── gates/
-│   ├── runs/
 │   └── workpads/
 ├── .agents/
 │   └── skills/
@@ -52,8 +49,9 @@ Start with:
 - `WORKFLOW.md` for the standing process
 - one persistent workpad issue comment per orchestrated Change
 - GitHub Actions for remote gates
-- browser proof for user-visible work
-- one small run-resource schema that attributes usage and attempts to the Change.
+- browser proof for user-visible work.
+
+Add `docs/initiatives/`, `.agent/runs/`, and resource records when the project has enough work or investment decisions to make them useful.
 
 Use an architectural bias toward a modular monolith: simple deployment, explicit module boundaries, and room to split later when the business earns the complexity.
 
@@ -73,7 +71,9 @@ Define:
 - what evidence is expected
 - which conditions engage a builder
 - what blocks or stops a run
-- which resource use is recorded and whether any default thresholds apply.
+- how the final outcome and learning are recorded.
+
+Add resource thresholds only for work where crossing one should genuinely change the decision.
 
 ## Phase 4: Create one gate profile
 
@@ -98,7 +98,7 @@ Choose a small, observable, reversible Change and use the [First Experiment](fir
 The point is to exercise the whole path:
 
 ```text
-intent → forecast → workpad → environment → agent → gates → evidence → actuals → decision → resolution → learning
+intent → workpad → environment → agent → gates → evidence → decision → learning
 ```
 
 Do not optimize for an impressive first Change. Optimize for a complete, inspectable one.
@@ -114,9 +114,8 @@ After three runs, review the system rather than only the output:
 - Where did the environment collide or drift?
 - Which builder engagement was unnecessary?
 - Which repeated procedure belongs in a skill?
-- Which run or Change costs were surprising?
-- Did the estimate range become more useful?
 - Which capability or environment is becoming the first constraint?
+- When resource data or forecasts were captured, what surprised you?
 
 Then make the smallest durable improvements.
 
@@ -129,8 +128,7 @@ The greenfield foundation is ready when:
 - the runtime is isolated enough to trust the result
 - the required gates are explicit
 - the workpad tells the live story
-- run resource use can be attributed to a Change
-- the first estimate-versus-actual lesson has been considered
-- the first learning has been promoted into the system.
+- the first learning has been promoted into the system
+- run attribution or resource records have been added only when they improve a real decision.
 
 That is enough to begin. The operating model should grow with the product, not arrive fully armored before the first customer.

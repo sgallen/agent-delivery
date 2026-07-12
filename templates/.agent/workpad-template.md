@@ -5,28 +5,19 @@
 ```text
 state:
 last_updated:
-initiative_id:
-runner:
 run_id:
 branch:
 commit:
 worktree:
 environment:
 gate_profile:
-activity:
-resolution_intent:
-decision_question:
-expected_resolution_class:
-landing_expectation:
-release_expectation:
-candidate_resolution_class:
-candidate_disposition:
 ```
 
-### Outcome or decision
+### Outcome
 
-<!-- Restate the intent in a few lines. Link the stable issue rather than duplicating it. -->
+<!-- Restate the observable outcome or decision question in a few lines. Link the stable issue rather than duplicating it. -->
 
+- Important boundaries:
 - Stop conditions:
 
 ### Plan
@@ -36,7 +27,7 @@ candidate_disposition:
 ### Current state
 
 - Progress:
-- Material discovery or decision:
+- Material discovery:
 - Scope, risk, or approach change:
 - Blocker or builder question:
 - Next action:
@@ -47,34 +38,14 @@ candidate_disposition:
 | --- | --- | --- | --- |
 |  |  |  |  |
 
-- Tests / experiment output:
+- Tests or experiment output:
 - UI, runtime, research, or benchmark evidence:
 - Reviewer findings:
 - Known gaps:
 
-### Resource status — optional
-
-<!-- Use only the fields that improve a decision. Keep measured, estimated, and missing data distinct. -->
-
-- Forecast stage and likely range:
-- Actual to date:
-- Builder attention by capability:
-- Threshold state and action:
-- Material variance:
-- Run record:
-- Change summary:
-- Data gaps:
-
-### Run history
-
-| Run | Contribution | Outcome | Resource use |
-| --- | --- | --- | ---: |
-|  |  |  |  |
-
 ### Decision and handoff
 
-- Proposed resolution class: delivered / decision / administrative / unresolved_loss
-- Disposition:
+- Outcome: delivered / evidence-backed decision / external closure / unresolved
 - Landed: true / false / not_applicable
 - Released: true / false / not_applicable
 - Evidence basis:
@@ -82,10 +53,28 @@ candidate_disposition:
 - Remaining uncertainty:
 - Final summary:
 - Follow-up:
-- Initiative updated:
+
+<!-- When formal reporting is enabled, also record resolution class and specific disposition. -->
+
+### Resource status — optional
+
+<!-- Use only the fields that improve a decision. Keep measured, estimated, and missing data distinct. -->
+
+- Forecast and confidence:
+- Actual to date:
+- Threshold state and action:
+- Material variance:
+- Run record:
+- Data gaps:
+
+### Run history — optional
+
+| Run | Contribution | Outcome |
+| --- | --- | --- |
+|  |  |  |
 
 ### Learning checkpoint
 
-> What should become easier, safer, faster, less wasteful, easier to estimate, or more valuable next time?
+> What should become easier, safer, faster, or easier to judge next time?
 
 - Durable improvement:
