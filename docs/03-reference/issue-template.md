@@ -1,90 +1,43 @@
 # Reference: Change Intent Issue Template
 
-The issue body is the stable statement of intent. It should describe the outcome or decision, boundaries, proof, original resource posture, and credible resolution paths without becoming a live progress log.
+The issue body holds stable intent. Live execution belongs in the workpad.
 
-The copyable GitHub Issue Form lives at:
+The copyable GitHub Issue Form is [`templates/.github/ISSUE_TEMPLATE/change_intent.yml`](../../templates/.github/ISSUE_TEMPLATE/change_intent.yml).
 
-```text
-templates/.github/ISSUE_TEMPLATE/change_intent.yml
-```
+## Core fields
 
-## Required information
+A useful Change Intent answers:
 
-### Parent initiative
+- What outcome or decision matters?
+- Why does it matter?
+- What is true today?
+- Is the path delivery, experiment, investigation, or evidence-dependent?
+- Is landing expected, possible, or unnecessary?
+- What would count as a delivered result?
+- What evidence would support a useful non-landed decision?
+- What is out of scope or forbidden?
+- What proof is required?
+- What should stop execution and force a decision?
+- What risk and gate profile apply?
 
-Link the initiative when the Change contributes to a larger product investment. Routine independent work may leave this blank.
+For exploratory work, define the decision question and evidence bar before execution. This prevents a failed feature from being relabeled as a successful experiment after the fact.
 
-### Outcome or decision
+## Optional maturity fields
 
-State what should become observably true or which decision the work should enable.
+Add these when they improve the decision:
 
-### Why it matters
+- parent initiative;
+- likely resource range and confidence;
+- builder attention by capability;
+- soft checkpoint and hard decision threshold;
+- expected resolution mix;
+- comparable Changes;
+- expected product, design, architecture, security, or release judgment.
 
-Give the customer, business, product, initiative, or technical context.
+Do not require advanced economics for every small bug. Do not omit them from material or uncertain work merely because the team has not yet made the habit comfortable.
 
-### Change type, resolution intent, and landing expectation
+## Readiness is still a judgment
 
-The type describes the work. The resolution intent describes the path the work is allowed to take:
+A form can require fields. It cannot determine whether the outcome is coherent, the scope is honest, or the evidence would prove anything useful.
 
-```text
-delivery
-experiment
-investigation
-either_based_on_evidence
-```
-
-Record whether landing is `expected`, `possible`, or `not_required`. This prevents an investigation from being judged like a failed feature and prevents a failed feature from being relabeled as an experiment after the fact.
-
-### Current state
-
-Describe the existing behavior, failure signal, or uncertainty.
-
-### Decision question
-
-Experiments, investigations, and either-based-on-evidence Changes should state the decision the evidence must support.
-
-### Landed acceptance criteria
-
-Define what must be true for a `delivered` resolution.
-
-### Useful non-landed resolution criteria
-
-Define what evidence would support a `decision` resolution such as `experiment_concluded`, `hypothesis_rejected`, `technically_infeasible`, `stopped_at_resource_gate`, `superseded`, or `rejected_at_review`.
-
-A useful non-landed path should name the uncertainty, evidence, minimum quality, and follow-up or stop action. It should not be invented after implementation becomes difficult.
-
-### Stop conditions
-
-State what should end execution early and force a decision. Examples include a hard resource threshold without new evidence, an invalidated product premise, or a constraint that cannot be satisfied.
-
-### Validation and evidence
-
-Name the proof required for either delivery or decision: tests, reproduction signals, browser journeys, research, logs, traces, screenshots, benchmarks, specialist review, or comparison evidence.
-
-### Non-goals and forbidden changes
-
-Protect scope and make unsafe or distracting changes explicit.
-
-### Affected surfaces
-
-Name the likely code, data, product, or decision surfaces.
-
-### Gate profile and risk
-
-Choose the local workflow’s gate profile and risk class.
-
-### Resource and resolution forecast
-
-When useful, preserve expected resource ranges, confidence, assumptions, expected resolution class or distribution, and landing expectation.
-
-### Resource thresholds
-
-Name the action at a soft and hard threshold. A resource gate should preserve state and lead to an explicit decision rather than an unexplained termination.
-
-### Expected builder engagement
-
-Name where customer, product, design, architecture, evidence, specialist, stop, or release judgment is likely to enter.
-
-## Readiness rule
-
-The issue form can require fields. It cannot determine whether the criteria are coherent, whether the non-landed path is honest, or whether the evidence would support the claimed resolution. `Ready` remains an accountable workflow decision.
+`Ready` should remain an accountable decision.

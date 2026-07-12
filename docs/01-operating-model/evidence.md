@@ -2,120 +2,84 @@
 
 Evidence is the new handoff.
 
-Traditional workflows often rely on explanation: product explains the desired behavior, design explains the intent, engineering explains the implementation, QA explains the failure, and reviewers explain what remains.
+Traditional delivery often moves through explanation: product explains the need, design explains the intent, engineering explains the implementation, QA explains the failure, and reviewers explain what remains.
 
-Some explanation will always be necessary. But the system should make more of the outcome directly inspectable.
+Some explanation will always matter. But the result should be directly inspectable wherever possible.
 
 Evidence creates shared reality.
 
-## Good evidence answers six questions
+## What good evidence answers
 
-1. **Intent:** What was this Change supposed to accomplish?
-2. **Outcome or decision:** What now behaves differently, or which question was answered?
-3. **Quality:** Which required gates passed, failed, or became not applicable—and what do those results prove?
-4. **Scope:** What did not change, and were the boundaries respected?
-5. **Resources:** What did the Change consume, how complete is the record, and did variance change a decision?
-6. **Resolution:** What class and disposition were selected, did anything land or release, and why is that conclusion justified?
+A builder should be able to inspect the Change and answer:
 
-A builder should be able to inspect the Change and understand why the system believes it is ready for a decision or adequately resolved without reconstructing the story from private chats.
+1. **What was intended?**
+2. **What now works differently, or what question was answered?**
+3. **What proves it?**
+4. **Were the boundaries respected?**
+5. **What did the work consume, and did a material variance change the decision?**
+6. **How did the Change resolve, and did anything land or release?**
 
-## Evidence examples
+The builder should not need to reconstruct the story from private chats or replay the entire agent session.
 
-Useful evidence may include:
+## Useful evidence
 
-- targeted test results
-- screenshots and visual comparisons
-- short videos for interaction-heavy behavior
-- browser traces
-- console and server-log summaries
-- API responses or contract checks
-- accessibility snapshots
-- deployment or preview links
-- reviewer-agent findings
-- gate summaries
-- diff and scope summaries
-- model, tool, environment, retry, elapsed-time, and builder-attention telemetry
-- original estimate, latest forecast, actual, threshold decisions, and variance explanation when economics are being measured
-- resolution status, class, disposition, landing and release state, resolution quality, and learning value
-- initiative link and later value or decision-value evidence when the Change serves a larger product bet.
+Depending on the Change, evidence may include targeted tests, a failing-before/passing-after reproduction, screenshots, short videos, browser traces, console and server-log summaries, API responses, accessibility snapshots, preview links, gate results, reviewer findings, scope summaries, resource actuals, and a concise variance explanation.
 
-## Minimum evidence by Change type
+For an investigation or experiment, the evidence must answer the decision question. For an administrative closure, it must identify the external reason and accountable owner. For unresolved loss, it must preserve what is known, what was consumed, and why the work could not be resolved well.
 
-| Change type | Minimum useful evidence |
+## A practical minimum
+
+| Change type | Minimum useful proof |
 | --- | --- |
-| Documentation | Link check, rendered preview when relevant, changed-file summary |
-| Backend behavior | Targeted tests, relevant logs, API/contract proof, migration proof if applicable |
+| Documentation | Link check, changed-file summary, rendered preview when useful |
+| Backend behavior | Targeted tests, relevant logs, contract or migration proof |
 | UI behavior | Browser journey, screenshot or video, console check, targeted tests |
-| Bug fix | Reproduction before, regression proof after, targeted test |
-| Refactor | Behavior unchanged, tests green, architecture/scope evidence |
-| Exploration or investigation | Working artifact or prototype when useful, bounded comparison or research evidence, decision question, conclusion, uncertainty reduced, and next recommendation |
-| Administrative closure after execution | Accountable owner, external basis, date, effect on linked work, preserved state, and resumption condition when one exists |
-| Unresolved loss | Preserved partial artifacts and resource record, explicit reason resolution failed, unknowns, ownership gap, and preventive follow-up |
+| Bug fix | Reproduction before, regression proof after |
+| Refactor | Tests green, behavior unchanged, scope and architecture boundaries respected |
+| Exploration | Decision question, bounded evidence, conclusion, uncertainty reduced, next action |
+| Administrative closure | Accountable owner, external basis, preserved state, resumption condition if any |
+| Unresolved loss | Partial artifacts, resource record, unknowns, reason resolution failed, preventive follow-up |
 
-This is a starting point, not a compliance table for all of human history. Adapt it to the risk.
+This is a starting point, not a compliance table for all of human history. Match the proof to the risk.
 
-## Where evidence lives
-
-Use the right surface for the right material:
+## Put evidence in the right place
 
 ```text
-Issue body
-  Stable intent and validation expectations.
-
-Workpad
-  Live status, concise gate summary, and evidence links.
-
-PR body, when one exists
-  Review package and delivered or decision-criteria mapping.
-
-CI / artifact store
-  Screenshots, traces, videos, logs, reports, and raw gate output.
-
-Run resource store
-  Provider usage, environment events, attempts, builder-attention records, and data-quality flags.
-
-Initiative record
-  Value hypothesis, resolution funnel, investment rollup, delivery and resolution variance, and later value or decision-value reviews.
+Issue body       stable intent and expected proof
+Workpad          live status, concise gate summary, links
+PR, when useful  review package and criteria mapping
+CI/artifact store screenshots, traces, videos, reports, raw logs
+Run records      model, tool, environment, attempt, and data-quality detail
+Initiative       value thesis, rollup, and later outcome reviews
 ```
 
-The workpad should summarize and link. It should not contain giant raw logs or every model request. Resource telemetry should live with the run artifacts or observability store and be linked from the Change when it informs a decision.
+The workpad should summarize and link. It should not contain giant raw logs or every request event.
 
 No one becomes wiser because a 2,000-line test log was pasted into a ticket comment. They become older.
 
 ## Evidence quality
 
-Evidence should be:
+Good evidence is:
 
-- **relevant** — tied to the delivered or non-landed resolution criteria and risk
-- **specific** — clear about what passed and what was observed
-- **repeatable** — reproducible by CI or another builder when possible
-- **fresh** — produced from the current Change and environment
-- **accessible** — linked from the workpad and PR
-- **honest** — known gaps, estimated values, missing usage, attribution limits, and uncertain results are visible
-- **comparable** — the model, pricing snapshot, workflow version, and cohort are preserved when the evidence will support later estimation.
+- **relevant** to the outcome, decision, and risk;
+- **specific** about what passed and what was observed;
+- **repeatable** by CI or another builder when possible;
+- **fresh** from the current Change and environment;
+- **accessible** from the workpad or review package;
+- **honest** about gaps, estimates, missing usage, and attribution limits.
+
+When the evidence will support later estimation, preserve the model, pricing snapshot, workflow version, and comparable cohort. Otherwise the numbers age into folklore.
 
 ## Make the product observable to agents
 
-For UI and runtime work, the harness should expose the running product directly:
+For UI and runtime work, expose the running product directly: app instance, browser access, DOM or accessibility snapshots, screenshots, console and network errors, server logs, traces, and metrics where relevant.
 
-- app instance
-- browser access
-- DOM or accessibility snapshots
-- screenshots
-- console and network errors
-- server logs
-- traces and metrics when relevant.
+Agents should not depend on a human pasting screenshots or narrating a browser failure. Tools provide visibility. Skills teach the system how the team expects that visibility to be used.
 
-Agents should not need humans to paste screenshots or narrate browser failures. Tools provide visibility. Skills teach the agent how the team expects that visibility to be used.
+## Match proof to the outcome
 
+Delivered work needs proof that the intended behavior works and the artifact landed or released as recorded.
 
-## Match evidence to the resolution class
-
-Do not ask every Change to prove the same thing.
-
-- A `delivered` resolution needs evidence that the intended behavior works, quality is acceptable, and the artifact landed or released as recorded.
-- A `decision` resolution needs work-derived evidence that supports the stop, reject, narrow, replace, defer, or supersede decision.
-- An `administrative` resolution needs an accountable external basis and must state which product or technical questions remain unanswered.
-- An `unresolved_loss` record preserves what is known, what was consumed, why resolution failed, and what should prevent recurrence.
+A non-landed decision needs evidence that supports the stop, rejection, narrowing, replacement, or deferral. An administrative closure needs an accountable external basis. Unresolved loss needs an honest record of what remains unknown.
 
 Evidence makes non-landing reviewable. It does not make every non-landing valuable.

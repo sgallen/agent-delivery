@@ -1,225 +1,151 @@
 # Playbook: The First 30 Days
 
-Use this when the case makes sense and you need to turn it into a real operating experiment.
+A month is long enough to learn something real and short enough to resist turning the experiment into a transformation program.
 
-This is not a plan to transform the whole company in a month. It is a plan to establish one credible, repeatable path for agent-enabled delivery and learn enough to decide what deserves to expand.
+The aim is modest: establish one credible path for a narrow class of Changes, run enough work through it to expose the weak points, and decide whether to expand, hold, or redesign.
 
-## Outcome
+## What good looks like after 30 days
 
-By the end of 30 days, you should have:
+You should have:
 
-- one clearly defined class of Changes moving through the new path
-- a small group of builders who have run the system themselves
-- three to five Changes with explicit delivered, decision, administrative, or unresolved outcomes
-- a working issue, workflow, workpad, environment, gate, and evidence pattern
-- baseline data on cycle time, human attention, quality, rework, and recorded machine cost
-- one simple estimate-versus-actual comparison for the selected Change class
-- a short list of system improvements already applied
-- an explicit decision to expand, hold, or redesign the experiment.
+- one product or repository in scope;
+- one safe, observable class of Changes;
+- two to five builders who have used the path themselves;
+- three to five completed Change records;
+- a working issue, workflow, workpad, environment, gate, and evidence pattern;
+- a small baseline for cycle time, human attention, quality, rework, and machine cost;
+- at least one estimate-versus-actual comparison;
+- a few system improvements already applied;
+- an explicit next decision.
+
+Do not ask the first month to prove every future use case. Ask it to prove that one bounded path can become trustworthy and improve.
 
 ## Ground rules
 
-Keep the first month bounded.
+Keep the scope deliberately small.
 
-- Use one product or repository.
-- Choose one safe, observable, reversible Change class.
-- Give a small cross-functional group explicit permission to work differently.
-- Keep the quality bar. Remove ceremony that does not help meet it.
-- Do not reorganize the company, buy a platform, or build a general-purpose orchestrator first.
-- Treat the pilot as product work, not an innovation theatre side quest.
-- Start with attribution. Do not require initiative forecasting, hard budgets, or a learned estimator before the first credible Change records exist.
+Use real product work, not a theatrical side project. Keep the quality bar. Give the pilot group permission to remove ceremony that does not help meet it. Do not reorganize the company, buy a large platform, or build a general-purpose orchestrator before the first useful Change can move end to end.
 
-A useful pilot group is two to five builders with enough product, design, and engineering judgment to act without recreating every old handoff inside the experiment.
+Start with attribution, not accounting perfection. A Change ID, run ID, basic model and environment usage, broad builder-attention categories, and an explicit outcome are enough to begin.
 
-## Week 1: Establish the smallest credible system
+## Week 1: Build the smallest credible path
 
-### 1. Choose the Change class
+### Choose one Change class
 
-Good starting points:
+Good starting points include customer-reported bugs with a reliable reproduction, small UI behavior fixes, regression tests, documentation maintenance, or narrow internal tooling.
 
-- low-risk customer-reported bugs
-- small UI behavior fixes
-- documentation maintenance
-- regression-test additions
-- narrow internal tooling
-- evidence generation for existing work.
+Avoid migrations, billing, sensitive security paths, and broad architecture work. Trust is easier to build where the result is observable and reversible.
 
-Avoid migrations, billing, security-sensitive workflows, broad architecture changes, or anything whose failure would require an uncomfortable call with legal.
+### State the experiment
 
-### 2. Define the outcome
+Name the improvement you expect. For example:
 
-Write down what the experiment is meant to improve.
+- reduce the time from a reported bug to reviewable proof;
+- reduce senior review minutes for a safe UI Change;
+- improve the percentage of Changes arriving with credible behavior evidence;
+- let product-facing builders move a narrow class of work further without waiting in an implementation queue.
 
-Examples:
+Capture only the baseline needed to judge that claim: elapsed time, active builder time, review time, rework, quality signals, interventions, and recorded machine cost. Precision is less important than an honest comparison.
 
-- reduce time from a customer-reported bug to a reviewable fix
-- reduce senior-engineer review minutes for low-risk UI Changes
-- let product or customer-facing builders move a narrow class of issues toward proof
-- improve the percentage of Changes that arrive at review with credible behavior evidence.
+### Add the minimum operating system
 
-### 3. Capture a baseline
+Create:
 
-Use a small set of measures:
+- a clear Change Intent template;
+- a short repository map in `AGENTS.md`;
+- a repo-owned `WORKFLOW.md`;
+- one persistent workpad pattern;
+- one gate profile;
+- one evidence checklist;
+- one lightweight resource record;
+- one learning checkpoint.
 
-- cycle time from ready to review
-- waiting time before implementation starts
-- active builder time
-- reviewer time
-- first-pass gate success
-- rework or regression rate
-- number of human interventions and why they happened
-- model, tool, and environment cost per trustworthy landed Change
-- model, tool, and environment cost per evidence-backed decision
-- builder minutes by resolution class
-- resolution, landing, decision, administrative-closure, and unresolved-loss counts.
+Make the environment usable: dedicated worktrees, reproducible setup, isolated mutable state, visible logs, and one obvious way to run the local proof set.
 
-Precision is less important than having an honest comparison.
+If a builder cannot understand the workflow before the coffee gets cold, the first version is too large.
 
-### 4. Create the minimum artifacts
-
-Add:
-
-- a Change Intent issue template
-- a short `AGENTS.md` that maps the repo
-- a repo-owned `WORKFLOW.md`
-- one persistent workpad pattern
-- one gate profile for the selected Change class
-- one evidence checklist
-- one learning checkpoint
-- one normalized run-resource record and a place to summarize Change actuals.
-
-Do not write the encyclopedia. The first workflow should be small enough that a builder can read it before coffee gets cold.
-
-### 5. Make the environment usable
-
-At minimum:
-
-- dedicated branch and worktree
-- reproducible setup command
-- unique ports and runtime state
-- isolated browser profile for UI work
-- Change-specific logs and artifacts
-- one command that runs the local proof set.
-
-If the agent cannot run and observe the product, it cannot reliably own the work.
-
-## Week 2: Run real Changes
-
-Run three Changes through the system.
+## Week 2: Run three real Changes
 
 For each Change:
 
-1. Write the intent, validation expectations, and a simple resource estimate or explicit `not set`.
-2. Create the workpad with a resource-status section.
-3. Let the agent investigate and plan.
-4. For a bug, reproduce the failure before changing the implementation.
-5. Let the agent implement, run gates, repair failures, and gather evidence.
-6. Engage a builder only where judgment or a true blocker requires it.
-7. Review the proposed resolution class, disposition, evidence, and actual resource record, not only the diff.
-8. Compare estimate and actual when an estimate existed.
-9. Complete the learning checkpoint.
+1. Shape the intent, proof, risk, and stop conditions.
+2. Add a rough range or mark the estimate `not set`.
+3. Create the workpad and isolated environment.
+4. Let the agent investigate, execute, test, and gather evidence.
+5. Bring in a builder where judgment or a true blocker requires it.
+6. Resolve the work explicitly and record whether anything landed.
+7. Compare estimate and actual where possible.
+8. Capture one lesson about the system.
 
-Do not quietly rescue every rough run. The rough edges are the information you need.
+Do not quietly rescue every rough run. That hides the very information the pilot exists to find.
 
-Do not let a broken run wander indefinitely either. Stop when the system is not making progress, record why, and improve the relevant part of the workflow.
+Do not let a broken run wander forever either. Stop when it is no longer making progress, preserve the state, and make the failure legible.
 
-## Week 3: Improve the system, not just the Changes
+## Week 3: Improve the path
 
-Review the first runs and look for repeated friction.
+Review the first runs together. Look for repeated friction rather than isolated annoyance.
 
-Typical findings:
+You may find that the issue lacked context, the agent could not observe the product, a gate produced useless feedback, review kept rediscovering the same rule, a cheap model created expensive recovery, or the workpad asked for more maintenance than value.
 
-- the issue did not contain enough context
-- the agent could not reproduce the problem
-- browser or log access was weak
-- the gate failure gave no useful remediation
-- a reviewer repeatedly flagged the same design or architecture issue
-- the workpad became noisy
-- a builder was interrupted for a decision the system should have handled
-- the system handled something safely that no longer needs the same review
-- a model or environment appeared cheap but created expensive retries or review
-- the same class of work repeatedly exceeded the expected range
-- product shaping, review, or infrastructure rather than agent budget became the constraint.
+Fix two or three of those things in the system:
 
-Promote the learning:
+- improve a template or repository guide;
+- add a reusable skill or regression check;
+- make a gate message actionable;
+- expose a missing log, trace, or browser signal;
+- narrow the Change boundary;
+- adjust the routing or stop rule;
+- remove an artifact that did not earn its keep.
 
-- improve the issue template
-- add or refine a skill
-- make a gate message more actionable
-- add a regression test
-- expose another runtime signal
-- tighten an architecture boundary
-- improve the evidence package
-- remove an artifact or step that did not earn its keep
-- adjust an estimate range, resource threshold, or routing rule.
+A backlog of possible improvements is not the same as an improved system.
 
-Aim to make two or three concrete system improvements during the week. A backlog of fifty ideas is not the same thing.
+## Week 4: Run again and decide
 
-## Week 4: Evaluate and decide
+Put one or two more Changes through the revised path. Then hold a short operating review.
 
-Run one or two more Changes through the improved system.
+Ask:
 
-Then hold a short operating review. Answer:
+- Did the class of work move faster?
+- Did total human attention fall, rise, or merely move downstream?
+- Did the evidence make review easier?
+- Which failures repeated?
+- Where was builder judgment genuinely valuable?
+- Did the resource records expose a constraint—shaping, review, environment, release capacity, or something else?
+- Is this path ready for another class of work?
 
-- Did the selected Change class move faster?
-- Did total human attention go down, move, or increase?
-- Did evidence improve confidence?
-- Did review become easier or merely later?
-- What failures repeated?
-- Which builder interventions were genuinely high leverage?
-- Did the experience create more agency and creative energy, or more cleanup?
-- Did the simple estimates become more honest after three to five Changes?
-- Which capability or resource currently constrains useful throughput?
-- Is the system ready for another Change class?
-
-Choose one outcome:
+Choose one answer:
 
 ### Expand
 
-Add one adjacent Change class because the current path has credible evidence and manageable failure modes.
+Add one adjacent Change class because the current path has earned trust.
 
 ### Hold
 
-Keep the scope stable and improve the system before increasing volume or risk.
+Keep the scope stable and improve the system before adding volume or risk.
 
 ### Redesign
 
-The experiment exposed a weak assumption, environment, gate, or ownership model. Change it and run another bounded month.
+A weak assumption, environment, gate, or ownership model needs another bounded experiment.
 
-None of these outcomes is failure. Pretending the system works when the evidence says otherwise is failure, just with better branding.
+None of those answers is embarrassing. Pretending the path works when the evidence says otherwise is the embarrassing part.
 
-## The 30-day review artifact
+## The 30-day review
 
-Record:
+Keep the review short enough that people will read it. Record:
 
-- the original hypothesis
-- the selected Change class
-- Changes entering execution, their resolution classes and dispositions, and what landed or released
-- baseline and current measures
-- machine, environment, validation, and builder-attention economics
-- estimate-versus-actual results and data-quality gaps
-- the current capacity constraint, if one is visible
-- human interventions by category
-- quality or regression findings
-- system improvements made
-- remaining risks
-- the expand, hold, or redesign decision
+- the original hypothesis and Change class;
+- the Changes run and how they resolved;
+- what landed;
+- baseline and current measures;
+- machine, environment, and builder-attention data, with known gaps;
+- estimate-versus-actual observations;
+- the current constraint;
+- improvements already made;
+- the expand, hold, or redesign decision;
 - the next experiment.
-
-Keep this short enough that another builder will actually read it.
 
 ## Definition of done
 
-The first 30 days are complete when:
+The month is complete when the team can explain the path without private context, point to evidence about its effect, name at least one thing the system learned, and make a clear decision about what happens next.
 
-- at least three real Changes have gone through the system
-- the team can explain the workflow without private context
-- evidence exists for speed, quality, human-attention, and recorded-cost effects
-- the team can explain what the resource records do and do not include
-- at least one repeated lesson has been encoded into the system
-- unnecessary process has been removed rather than quietly accumulated
-- the next decision is explicit.
-
-The goal of the first month is not to prove that every product team should work this way.
-
-It is to build the first version of the system, learn where it breaks, and leave the organization more capable than it was 30 days earlier.
+The goal was never to prove the doctrine in 30 days. It was to leave the organization more capable—and a little less dependent on guesswork—than it was a month earlier.

@@ -2,89 +2,65 @@
 
 The goal is not minimum human involvement.
 
-The goal is maximum leverage from builder attention.
+It is maximum leverage from human judgment.
 
-Agents make implementation more elastic. Builders remain responsible for understanding customers, forming valuable demand, shaping intent, governing risk, judging evidence, allocating scarce resources, and deciding whether the result was worthwhile.
+Agents make implementation more elastic. Builders still understand customers, form worthwhile demand, shape intent, govern risk, judge evidence, allocate scarce resources, and decide whether the result was worth pursuing.
 
-## The attention test
+## Decide where attention belongs
 
 Before a Change or initiative begins, ask:
 
-- How ambiguous is the desired outcome?
-- What is the consequence of being wrong?
+- How ambiguous is the outcome?
+- What happens if we are wrong?
 - How reversible is the work?
 - How observable will the result be?
-- Does the system have useful history for this class of work?
-- Which human capabilities are scarce?
-- What resource or value uncertainty could change the decision?
+- Does the system have credible history for this class of work?
+- Which human capability is scarce?
+- Which uncertainty could change the decision?
 
-The answers determine where builder attention belongs.
+A low-risk, well-gated Change with strong precedent may run almost entirely through the system. A new product line may need substantial customer discovery and product judgment even if agents perform most of the implementation.
 
-A low-risk, well-gated Change with strong history may run almost entirely through the system. A new product line may require substantial customer discovery, product judgment, staged investment, and value review even if agents perform most implementation.
+## Common engagement modes
 
-## Engagement patterns
+### Form demand
 
-### Form and test demand
+Builders talk to customers, inspect operations, understand the domain, and decide which opportunities deserve attention.
 
-Builders talk to customers, inspect operations, understand the domain, and decide whether an opportunity deserves an initiative.
+As implementation becomes more abundant, this work becomes more valuable. A system with plenty of agent capacity and no pipeline of worthwhile, shaped work is not highly productive. It is idle in a more sophisticated way.
 
-This work becomes more important as implementation becomes abundant. A system with plenty of agent capacity and no pipeline of worthwhile, shaped work is not highly productive. It is idle in a more sophisticated way.
+### Shape intent
 
-### Shape the intent
-
-Builders clarify the outcome, boundaries, risk, evidence, value hypothesis, and resource posture before execution begins.
+Builders clarify the outcome, boundaries, risk, evidence, value thesis, and resource posture before execution begins.
 
 The system should not invent product strategy because the ticket was thin.
 
-### Review the evidence
+### Review evidence and decide
 
-A builder inspects the outcome, acceptance criteria, gates, scope, and material resource variance rather than replaying the entire implementation session.
+Builders should inspect the outcome, gates, scope, and material variance—not replay the entire session.
 
-Good evidence should reduce review reconstruction and focus attention on the real decision.
+Some decisions require taste, context, accountability, or authority: product and design tradeoffs, architecture, security, legal or operational risk, crossing a resource threshold, stopping an initiative, or deciding whether realized value justifies more investment.
 
-### Make a judgment or investment call
+The system should surface the options, evidence, and consequences cleanly.
 
-Some moments require taste, context, accountability, or authority:
+### Collaborate or lead
 
-- product and design tradeoffs
-- architecture, security, legal, or operational decisions
-- approval to cross a resource threshold
-- narrowing or stopping an initiative
-- deciding whether realized value justifies more investment.
+A builder and agent may work together when the problem is novel or the feedback loop is fast. High-consequence, relationship-heavy, deeply ambiguous, or poorly observable work may remain human-led.
 
-The system should surface the decision, options, evidence, and consequence clearly.
-
-### Collaborate during execution
-
-A builder and agent work together when the problem is novel, the feedback loop is fast, or the builder’s evolving judgment materially changes the result.
-
-Collaboration is not a failure of autonomy. It is a deliberate mode.
-
-### Lead the work
-
-High-consequence, deeply ambiguous, relationship-heavy, or poorly observable work may remain human-led. Agents can still investigate, implement bounded portions, gather evidence, and maintain the record.
+Collaboration is not a failure of autonomy. Autonomy is not the product.
 
 ### Let the system handle it
 
-For well-understood, reversible, strongly gated work, the system may execute and prove the Change without interrupting a builder unless a stop condition appears.
+For reversible, well-understood, strongly gated work, the system may execute and prove the Change without interrupting a builder unless a stop condition appears.
 
-This is earned by the work class and operating system. It is not granted to “AI” in the abstract.
+That trust is earned by the work class and operating system. It is not granted to “AI” in the abstract.
 
-## Humans are capabilities, not generic capacity
+## Humans are capabilities, not interchangeable hours
 
-Capacity planning should distinguish:
+Capacity planning should distinguish customer discovery, product shaping, design judgment, architecture, specialist review, recovery, release, and operational ownership.
 
-- customer discovery
-- product shaping
-- design judgment
-- architecture
-- evidence and specialist review
-- recovery and exception handling
-- release and operational ownership.
+Ten hours of customer discovery does not substitute for ten hours of security review.
 
-Ten hours of customer discovery does not substitute for ten hours of security review. Record the mix that an initiative needs.
-
-Use this information to improve staffing and system design, not to reduce people to utilization. A builder may create enormous leverage by preventing a bad initiative, strengthening a gate, or encoding judgment that removes hundreds of future review steps.
+Use this information to improve staffing and system design, not to reduce people to utilization. A builder may create far more leverage by preventing a bad initiative or strengthening a gate than by personally touching every Change.
 
 ## The better question
 
@@ -96,4 +72,4 @@ Ask:
 
 > Where does human judgment materially improve the value, safety, resource use, or outcome of this work?
 
-Then design the system so that attention arrives with the context and evidence needed to make the decision well.
+Then make sure that judgment arrives with enough context and evidence to be useful.

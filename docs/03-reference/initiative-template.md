@@ -1,102 +1,37 @@
 # Reference: Initiative Template
 
-An initiative is an investment hypothesis, not a collection of tickets.
+An initiative is the record for a material product bet. It preserves the original value thesis, the staged investment forecast, the Changes that actually happened, the final decision, and the later value review.
 
-The copyable starter lives at:
+The starter is [`templates/docs/INITIATIVE.md`](../../templates/docs/INITIATIVE.md).
 
-```text
-templates/docs/INITIATIVE.md
-```
+## Use one when
 
-It preserves the original value thesis, staged resource and Change-funnel forecasts, linked Change resolutions, final initiative decision, and later value or decision-value reviews.
+Multiple Changes pursue a meaningful feature set, platform capability, product line, or operating program and the team will later need to ask:
 
-## Status vocabulary
+- What did we believe this would create?
+- What did we expect it to consume?
+- What did delivery actually take?
+- Which work landed, produced a decision, closed externally, or became unresolved?
+- Did the expected value appear?
 
-```text
-Proposed
-Investigating
-Shaped
-Committed
-Delivering
-Decision
-Released
-Concluded without release
-Administratively closed
-Value review
-Decision-value review
-Closed
-```
+Routine maintenance does not need initiative theatre.
 
-An initiative can conclude responsibly without releasing a capability. The record should show why, what it consumed, what uncertainty changed, and whether the decision remained sound. An initiative may also close administratively; that should not be presented as product learning.
+## The record
 
-## Required sections
+Keep five things distinct:
 
-### Opportunity and value hypothesis
+1. **Opportunity and value hypothesis** — customer problem, expected value, evidence, assumptions, alternatives, and horizon.
+2. **Staged forecast** — opportunity, post-discovery, post-shaping, and in-flight ranges. Do not overwrite the earlier view.
+3. **Linked Change actuals** — forecast and actual resolution, landing state, resource use, and evidence.
+4. **Initiative decision** — release, narrow, pivot, conclude without release, close administratively, or remain unresolved.
+5. **Later review** — realized value after release, or decision value when the initiative stopped without one.
 
-State the customer problem, baseline, expected customer and organizational value, evidence, uncertainty, horizon, and alternatives.
+Forecast a funnel rather than assuming every proposed Change will land. Use ranges and confidence. Separate human capability, agent spend, environment cost, elapsed time, and continuing obligations.
 
-### Decisions and stop conditions
+## The important distinction
 
-Name the decisions discovery and delivery must enable. State what evidence would justify commitment, narrowing, pivoting, superseding, or concluding without release. Record external conditions that could cause administrative closure separately.
+Delivery variance asks whether the work took what you expected.
 
-### Staged investment forecast
+Value variance asks whether the product bet created what you expected.
 
-Preserve opportunity, post-discovery, post-shaping, and in-flight resource forecasts rather than overwriting them.
-
-### Change-funnel forecast
-
-Estimate ranges for:
-
-```text
-proposed
-shaped
-entering execution
-resolved
-  delivered
-  decision
-  administrative
-unresolved_loss
-landed
-released capability
-```
-
-The funnel is a forecast, not a quota. Include expected spend and builder attention by resolution class where the history supports it.
-
-### Commitment and resource gates
-
-Record the authorized envelope, thresholds, required evidence, and stop, narrow, replace, or pivot conditions.
-
-### Linked Changes
-
-Roll up resolution intent, expected and actual resolution class, specific disposition, landed state, forecast, actual, and learning. The underlying Change Records remain the evidence.
-
-### Initiative decision
-
-Choose an explicit disposition:
-
-```text
-released
-concluded_without_release
-narrowed
-pivoted
-administratively_closed
-unresolved
-```
-
-Record actual resources, Change-funnel actuals, delivery variance, resolution variance, continuing obligations, and decision evidence.
-
-### Value reviews
-
-For released initiatives, compare adoption, customer outcome, business or operational result, continuing cost, and attribution confidence with the original thesis.
-
-### Decision-value reviews
-
-For initiatives concluded without release, revisit whether evidence remained valid, investment was avoided or redirected, artifacts were reused, and the team stopped at the right time.
-
-### Learning
-
-Update future value, resolution-distribution, resource, discovery, routing, gate, ownership, and capacity assumptions.
-
-## Copyable template
-
-Use [`templates/docs/INITIATIVE.md`](../../templates/docs/INITIATIVE.md).
+A team can build the wrong thing efficiently. It can also spend a modest amount learning not to make a much larger mistake. The initiative record should make both visible without confusing them.

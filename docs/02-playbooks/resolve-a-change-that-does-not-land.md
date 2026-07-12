@@ -1,352 +1,126 @@
-# Resolve a Change That Does Not Land
+# Playbook: Resolve a Change That Does Not Land
 
 Not every Change should end in a merge.
 
-An experiment may invalidate the hypothesis. A technical investigation may expose a hard constraint. A resource checkpoint may show that the remaining investment is not justified. Another path may supersede the work. A portfolio decision may remove the need altogether.
+An experiment may weaken the product thesis. A technical investigation may expose a hard constraint. A resource checkpoint may show that the remaining investment is not justified. Another path may simply be better.
 
-The goal is not to force the branch across the finish line. It is to reach the most honest resolution the evidence supports, preserve the full economics, and make the next decision better.
+The goal is not to drag the branch across the finish line. It is to reach the most honest conclusion the evidence supports, preserve what the work consumed, and make the next decision better.
 
-Use this playbook when a Change entered execution but the likely correct outcome is now something other than landing the proposed implementation.
+Use this playbook after execution has begun and landing is no longer the likely or sensible outcome.
 
 ## Outcome
 
-At the end:
+The Change ends with:
 
-- resolution status, class, and specific disposition are explicit;
-- `landed` and `released` are recorded separately;
-- a decision-class resolution is supported by reviewable work-derived evidence;
-- an administrative closure is not mislabeled as product learning;
-- unresolved loss is recorded honestly when the evidence or accountability is insufficient;
-- all material run, environment, and builder resources remain attached to the Change;
-- uncertainty reduced, decisions changed, and reusable artifacts are named where they exist;
-- the parent initiative reflects the actual outcome and forecast impact;
-- the learning checkpoint improves the system or explicitly records that no durable change is warranted.
+- an explicit resolution and specific disposition;
+- a separate record of whether anything landed or released;
+- evidence that supports the decision—or an honest statement that it does not;
+- all material agent, environment, attempt, and builder resources preserved;
+- a clear next action;
+- the parent initiative updated when one exists.
 
-## Inputs
+## 1. Restate the decision
 
-You need:
-
-- the Change Intent;
-- the current workpad;
-- the parent initiative, when one exists;
-- run and resource records;
-- gate results and evidence;
-- the accountable builder or owner for the final decision.
-
-## Procedure
-
-### 1. Restate the decision now required
-
-Write the decision the work must support.
+Write the decision the work now needs to support.
 
 Examples:
 
 ```text
-Should this workflow be built for the next release?
+Should this workflow proceed to full delivery?
 Can this provider meet the latency and privacy constraints?
-Is the remaining scope worth another $4,000 of agent and review capacity?
+Is the remaining scope worth another $4,000 and 30 review hours?
 Which implementation path should continue?
-Has an external portfolio decision removed the reason to continue?
+Did an external portfolio decision remove the reason to proceed?
 ```
 
-If no decision question or accountable closure reason can be stated, the Change may not be ready to conclude.
+If nobody can state the decision or the accountable closure reason, the Change is probably not ready to end.
 
-### 2. Preserve current state before stopping
+## 2. Preserve state before stopping
 
-Before ending execution:
+Update the workpad and save the branch, patch, prototype, logs, evidence, and run records that matter. Record actual resource use to date, the latest completion forecast, what remains unknown, and whether the work can be resumed.
 
-- update the workpad;
-- preserve the branch, patch, prototype, logs, and evidence that matter;
-- finalize current run records and mark each run’s status and contribution;
-- record actual-to-date and the latest completion or decision forecast;
-- identify what remains unknown;
-- make the work resumable when practical;
-- stop additional consumption if a hard resource gate was reached.
+If a hard resource threshold fired, stop further consumption—but do not destroy the context needed to decide what the spend taught you.
 
-A resource gate that deletes context creates a second failure on top of the first.
+## 3. Choose the honest outcome class
 
-### 3. Select the resolution class before the disposition
+Use [Changes](../01-operating-model/changes.md) for the full model. For a non-landed Change, the likely classes are:
 
-Choose the broad class first:
+- **Decision:** the work produced evidence for a useful stop, narrow, replace, defer, or alternative path.
+- **Administrative:** an external priority, owner, policy, or funding decision closed the work without claiming product learning.
+- **Unresolved loss:** execution ended without enough evidence, preserved context, ownership, or judgment to conclude well.
 
-| Resolution class | Use when |
-| --- | --- |
-| `decision` | Work-derived evidence supports a useful non-landed decision |
-| `administrative` | An external priority, ownership, policy, or funding decision closes the work without claiming material work-derived learning |
-| `unresolved_loss` | Execution ended without enough evidence, preserved context, ownership, or judgment to support an adequate conclusion |
+Then add the specific disposition: `experiment_concluded`, `hypothesis_rejected`, `technically_infeasible`, `stopped_at_resource_gate`, `superseded`, `deprioritized`, `rejected_at_review`, `cancelled_external`, or `abandoned_without_resolution`.
 
-`delivered` is not normally the path for this playbook, although a supporting artifact may still have landed.
+The words matter because future planning will treat these outcomes differently.
 
-Then choose the most specific disposition the evidence supports:
+## 4. Match the evidence to the claim
 
-```text
-experiment_concluded
-hypothesis_rejected
-technically_infeasible
-stopped_at_resource_gate
-superseded
-deprioritized
-rejected_at_review
-cancelled_external
-abandoned_without_resolution
-```
+For a decision resolution, show why the evidence supports the conclusion:
 
-Typical mappings are:
+- customer research or prototype evaluation for a product thesis;
+- a reproducible constraint or benchmark for technical infeasibility;
+- actual-to-date, completion range, remaining scope, and expected value for a resource stop;
+- a bounded comparison for supersession;
+- explicit unmet criteria for a final review rejection.
 
-| Disposition | Usual class |
-| --- | --- |
-| `experiment_concluded` | `decision` |
-| `hypothesis_rejected` | `decision` |
-| `technically_infeasible` | `decision` |
-| `stopped_at_resource_gate` | `decision` when the stop is evidence-backed; otherwise possibly `unresolved_loss` |
-| `superseded` | `decision` when comparison evidence chose a better path; `administrative` when an external decision replaced it |
-| `deprioritized` | `decision` when work-derived evidence changed priority; otherwise `administrative` |
-| `rejected_at_review` | `decision` when the review evidence supports a final stop or redesign; otherwise the Change may remain open or unresolved |
-| `cancelled_external` | `administrative` |
-| `abandoned_without_resolution` | `unresolved_loss` |
+For an administrative closure, record the accountable owner, external reason, effective date, effect on linked work, and any resumption condition. Do not claim uncertainty reduction the work did not produce.
 
-The disposition describes how the Change ended. The resolution class explains what kind of outcome that ending represents.
+For unresolved loss, record why resolution failed, what was consumed, what state remains, whether recovery is possible, and what ownership or workflow change should prevent a repeat.
 
-### 4. Prove the conclusion appropriate to its class
+Closing the issue does not improve the class of the outcome.
 
-#### Decision resolution
+## 5. Test whether the non-landing was actually productive
 
-Match the evidence to the claim:
+A useful decision-class outcome should have at least one material effect:
 
-- Product hypothesis: customer research, experiment results, adoption signal, or prototype evaluation.
-- Technical infeasibility: reproducible constraint, benchmark, integration result, or architecture analysis.
-- Resource stop: actual-to-date, updated completion forecast, threshold history, remaining scope, and expected-value comparison.
-- Supersession: bounded comparison and a link to the replacing path.
-- Review rejection: explicit unmet criteria, gate findings, or accountable judgment.
-
-A decision resolution does not require every implementation gate to pass. It requires the evidence and decision gates needed to support the conclusion.
-
-#### Administrative resolution
-
-Record:
-
-- the accountable owner;
-- the external reason;
-- the effective date;
-- the effect on linked work and committed resources;
-- any condition under which the Change should be reconsidered.
-
-Do not claim uncertainty reduction or product learning that the work did not create.
-
-#### Unresolved loss
-
-Record:
-
-- why resolution failed;
-- resources consumed;
-- what state or evidence remains;
-- whether the work can be recovered;
-- the ownership, recovery, or workflow change intended to prevent recurrence.
-
-Closing an issue does not convert unresolved loss into an administrative resolution.
-
-### 5. Assess resolution quality
-
-For `decision` and `administrative` resolutions, classify the basis as:
-
-- **strong** — the evidence or accountable external basis directly supports the decision and material alternatives were considered;
-- **sufficient** — the decision is reasonable and reviewable, but some uncertainty remains;
-- **weak** — the conclusion rests mostly on assumption, incomplete evidence, or unavailable ownership;
-- **not assessed** — use for unresolved loss or migrated records that cannot be reconstructed responsibly.
-
-A weak resolution may still be the best available decision. It should not be presented as high-confidence learning.
-
-### 6. Apply the productive non-landing test
-
-Do not set a checkbox. Productive non-landing is derived when the final record is a decision-class resolution with adequate evidence and at least one material effect:
-
-- a consequential uncertainty was reduced;
+- important uncertainty was reduced;
 - a costly mistaken investment was credibly avoided or redirected;
-- a better alternative was selected;
+- a better path was selected;
 - a product, architecture, or operating assumption changed;
-- reusable evidence or artifacts were created;
-- a future Change or initiative can now be shaped more accurately;
+- reusable evidence or artifacts were preserved;
+- a future Change can now be shaped more accurately;
 - a system failure was diagnosed well enough to change the workflow.
 
-Record the uncertainty reduced, decision changed, and next action.
+Record the uncertainty reduced, the decision changed, and the next action.
 
-A retrospective alone is not enough. Effort spent is not proof of learning. Interesting observations inside unresolved work do not automatically make the Change productively resolved.
+A retrospective paragraph is not enough. Effort spent is not proof of learning.
 
-### 7. Finalize the Change resource record
+## 6. Finalize the resource record
 
-Include:
+Include every material run: failed, discarded, recovery, and superseded paths as well as the final one. Include model and tool cost, environments and CI, builder attention, elapsed time, forecast versus actual, and any data-quality gaps.
 
-- all runs, including failed, discarded, recovery, and superseded paths;
-- model, tool, environment, and validation cost;
-- builder attention by capability;
-- elapsed time;
-- forecast versus actual;
-- resources that materially supported the final resolution;
-- supporting evidence cost;
-- other attempts that did not contribute materially;
-- data-quality gaps.
+This cost belongs to the Change and its parent initiative even though no product code landed.
 
-This resource use belongs to the Change and parent initiative. It should not disappear because no product code landed.
+## 7. Update the initiative and learning checkpoint
 
-### 8. Record the final Change outcome
+When a parent initiative exists, update its Change funnel, actual investment, remaining forecast, and value thesis. Several non-landed Changes may be a signal that the initiative itself needs a decision.
 
-A decision-class example:
+Then ask what should change in product discovery, shaping, architecture, context, routing, skills, gates, thresholds, ownership, or stop conditions.
 
-```yaml
-outcome:
-  resolution_status: resolved
-  resolution_class: decision
-  disposition: hypothesis_rejected
-  landed: false
-  released: false
-  resolution_quality: strong
-  reason_category: customer_evidence
-  summary: >
-    Customer testing showed that the proposed workflow did not address
-    the highest-priority problem.
-  criteria_result: non_landed_resolution_criteria_met
-  decision:
-    owner: product-builder
-    decided_at: 2026-07-12T01:15:00Z
-    basis: prototype and customer-test evidence
-  evidence:
-    - research-summary.md
-    - prototype-evaluation.md
-  learning:
-    value: high
-    uncertainty_reduced:
-      - customer workflow fit
-    decisions_changed:
-      - pursue the alternative workflow before implementation
-    reusable_artifacts:
-      - prototype
-      - interview synthesis
-  follow_up:
-    decision: pursue_alternative
-    changes:
-      - CHANGE-184
-```
-
-An administrative example:
-
-```yaml
-outcome:
-  resolution_status: resolved
-  resolution_class: administrative
-  disposition: cancelled_external
-  landed: false
-  released: false
-  resolution_quality: sufficient
-  reason_category: portfolio_reallocation
-  summary: Funding moved to a regulatory commitment before the experiment completed.
-  decision:
-    owner: portfolio-owner
-    decided_at: 2026-07-12T01:15:00Z
-    basis: approved portfolio decision
-  evidence:
-    - portfolio-decision-2026-q3.md
-  learning:
-    value: none
-    uncertainty_reduced: []
-    decisions_changed: []
-    reusable_artifacts: []
-  follow_up:
-    decision: reconsider_if_funding_returns
-    changes: []
-```
-
-An unresolved-loss example:
-
-```yaml
-outcome:
-  resolution_status: unresolved
-  resolution_class: unresolved_loss
-  disposition: abandoned_without_resolution
-  landed: false
-  released: false
-  resolution_quality: not_assessed
-  reason_category: ownership_lost
-  summary: Work stopped after ownership changed; evidence is insufficient to decide whether to continue.
-  evidence:
-    - partial-prototype.md
-  learning:
-    value: low
-    uncertainty_reduced: []
-    decisions_changed: []
-    reusable_artifacts:
-      - partial prototype
-  follow_up:
-    decision: recover_or_archive
-    changes: []
-```
-
-A PR can carry the decision when the branch itself is the proposal or evidence. A PR is not required merely to close an investigation.
-
-### 9. Update the parent initiative
-
-Roll up:
-
-- resolution status, class, and disposition;
-- landed and released state;
-- actual resource use;
-- effect on the expected Change funnel and remaining investment forecast;
-- value-hypothesis evidence;
-- scope, stop, pivot, reallocation, or recovery decision;
-- any credible avoided-cost estimate and its confidence.
-
-Keep `decision`, `administrative`, and `unresolved_loss` counts and spend separate. If several Changes conclude without landing, revisit whether the initiative itself should continue.
-
-### 10. Complete the learning checkpoint
-
-Ask what should change in:
-
-- future Change shaping;
-- product discovery;
-- architecture or repository context;
-- model routing;
-- skills and prompts;
-- gate profiles;
-- resource thresholds;
-- estimator features and resolution probabilities;
-- recovery and ownership rules;
-- initiative selection and stop conditions.
-
-Create the smallest durable improvement that prevents rediscovery. For an administrative closure, it may be correct to record that no work-derived system change is warranted. For unresolved loss, require an ownership or recovery lesson even when product learning is absent.
+Create the smallest durable improvement. For an administrative closure, “no work-derived system change” may be the honest answer. For unresolved loss, an ownership or recovery improvement is usually required.
 
 ## Reviewer test
 
 A reviewer should be able to answer:
 
 ```text
-What class of resolution is this?
-What specific decision or closure occurred?
+What decision or closure occurred?
 What evidence or accountable basis supports it?
 What did the work consume?
-What uncertainty or forecast changed, if any?
-What landed or released, if anything?
+What remains uncertain?
+Did anything land or release?
 What happens next?
-Would another builder understand why the Change did not land?
 ```
 
 If those answers are missing, do not call the Change productively resolved.
 
 ## Definition of done
 
-- [ ] resolution status, class, disposition, and reason are explicit;
-- [ ] `landed` and `released` are recorded separately;
-- [ ] decision evidence or administrative basis supports the conclusion;
-- [ ] resolution quality is stated without false confidence;
-- [ ] all material resource use and attempts are included;
-- [ ] decision resolution, administrative closure, and unresolved loss are not conflated;
-- [ ] productive non-landing is derivable from the evidence rather than asserted;
-- [ ] uncertainty reduced, decisions changed, reusable artifacts, and follow-up are recorded where applicable;
-- [ ] the parent initiative and its forecast are updated when one exists;
-- [ ] the learning checkpoint changes future behavior or explicitly records that no durable change is warranted.
-
-## Related material
-
-- [Changes](../01-operating-model/changes.md)
-- [Not All Work Is Merge-Bound](../01-operating-model/not-all-work-is-merge-bound.md)
-- [Resource Observability and Delivery Economics](../01-operating-model/resource-observability-and-delivery-economics.md)
-- [Delivery Economics Records](../03-reference/delivery-economics-records.md)
-
+- [ ] the outcome class, disposition, and reason are explicit;
+- [ ] landed and released status are recorded separately;
+- [ ] the evidence or administrative basis supports the conclusion;
+- [ ] uncertainty and confidence are stated honestly;
+- [ ] all material attempts and resource use remain attached;
+- [ ] useful decision, administrative closure, and unresolved loss are not conflated;
+- [ ] the parent initiative is updated when relevant;
+- [ ] the next action and learning checkpoint are complete.

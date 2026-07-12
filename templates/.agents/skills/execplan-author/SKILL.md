@@ -18,9 +18,9 @@ Create a self-contained, living plan that another agent or builder can follow wi
 5. Create or update `docs/exec-plans/active/<change-id>-<short-name>.md`.
 6. Define delivered and non-landed resolution criteria before deep execution.
 7. Define observable validation and decision evidence.
-8. Record forecast stage, expected range, confidence, expected resolution distribution, assumptions, thresholds, stop conditions, and likely constraint.
+8. Record the forecast range, confidence, assumptions, thresholds, stop conditions, and likely constraint when they are material to the decision.
 9. Link the plan from the workpad.
-10. Maintain progress, discoveries, revised forecasts, candidate dispositions, decisions, recovery notes, and evidence as work proceeds.
+10. Maintain progress, discoveries, revised forecasts, decisions, recovery notes, and evidence as work proceeds.
 11. Request builder review when the plan includes a material product, architecture, security, migration, resource, capacity, stop, or irreversible decision.
 12. At terminal state, record actuals, final class and disposition, landing and release state, evidence, variance, unresolved context when any, and initiative impact.
 13. Move the plan to `docs/exec-plans/completed/` for resolved work. For unresolved loss, preserve it according to the repository’s abandonment policy rather than deleting it.

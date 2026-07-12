@@ -1,337 +1,164 @@
-# Forecast and Review an Initiative
+# Playbook: Forecast and Review an Initiative
 
-A major feature, product line, platform capability, or operating program is not merely a larger ticket. It is an investment hypothesis with a delivery and resolution funnel.
+A major feature, platform capability, product line, or operating program is not merely a larger ticket. It is an investment hypothesis.
 
-This playbook connects the expected value to the complete resource envelope, the likely Change funnel, actual delivery dispositions, and later value or decision-value reviews.
-
-## Outcome
-
-At the end, the initiative has:
-
-- an explicit value hypothesis and baseline;
-- staged investment forecasts with ranges, confidence, and assumptions;
-- an expected delivery funnel rather than an assumption that every Change will land;
-- resource and decision gates;
-- linked Change forecasts, actuals, and dispositions;
-- an outcome review that can release, narrow, pivot, or conclude without release;
-- scheduled value or decision-value reviews;
-- lessons for future product judgment and estimation.
+This playbook connects the value the team expects, the resources likely to be required, the Changes that actually happen, and the value—or decision value—that appears later.
 
 Use the copyable [Initiative Template](../03-reference/initiative-template.md).
 
-## Procedure
+## Outcome
 
-### 1. Define the opportunity
+The initiative has:
 
-Write:
+- a clear value thesis and baseline;
+- staged resource ranges with confidence and assumptions;
+- an expected Change funnel that admits not all work will land;
+- commitment, stop, and reforecast points;
+- linked Change actuals and outcomes;
+- an explicit release, pivot, narrowing, or conclusion decision;
+- a later review of realized value or the quality of the stop decision.
 
-- who has the problem or opportunity;
-- the current baseline;
-- what happens if the organization does nothing;
-- the evidence that makes the opportunity worth investigating;
-- important alternatives, including non-build options.
+## 1. Name the opportunity
 
-Do not begin with a backlog of presumed features. Begin with the outcome and the belief that it is worth pursuing.
+Write who has the problem, the current baseline, what happens if the organization does nothing, and the evidence that makes the opportunity worth investigating.
 
-### 2. State the value hypothesis
+Include alternatives. “Build the feature we already imagined” is not the same thing as defining the opportunity.
+
+## 2. State the value hypothesis
 
 Separate customer value from business, operational, or strategic value.
 
 For each, record:
 
 ```text
-expected result
-likely range
+expected result and likely range
+baseline
 confidence
-supporting evidence
-invalidating evidence
+supporting and invalidating evidence
 review horizon
 attribution type
 ```
 
-Value may be revenue, retention, customer time saved, risk reduced, operating cost avoided, reliability, compliance, market access, reduced uncertainty, or a reusable capability.
+Value may be revenue, retention, customer time saved, risk reduced, lower operating cost, reliability, compliance, market access, reduced uncertainty, or a reusable capability.
 
-Name the value. Do not force false precision.
+Name what should change. Do not force false precision, and do not hide behind “strategic.”
 
-### 3. Define the decisions and stop conditions
+## 3. Define the decisions and stop conditions
 
-State what discovery and early Changes need to decide.
-
-Examples:
+State what discovery and early Changes must decide.
 
 ```text
-Is the problem painful enough to change customer behavior?
-Can the architecture satisfy the required privacy boundary?
+Is the problem painful enough to change behavior?
+Can the architecture satisfy the privacy boundary?
 Does the expected value justify the continuing support cost?
-Which workflow should proceed to full delivery?
+Which workflow, if any, should proceed?
 ```
 
-Also state:
+Write the evidence required to commit, narrow, pivot, or conclude without release. A stop condition is part of responsible investment, not pessimism wearing a project-plan badge.
 
-- what evidence would justify commitment;
-- what evidence would justify narrowing or pivoting;
-- what would justify concluding without release;
-- which assumptions would invalidate the thesis.
+## 4. Create the opportunity range and Change funnel
 
-A stop condition is part of responsible investment, not pessimism wearing a project-plan badge.
+Before detailed discovery, estimate the rough range for customer investigation, shaping, architecture, agent and environment spend, builder review and recovery, rollout, continuing cost, and elapsed time.
 
-### 4. Create the opportunity estimate
-
-Before detailed discovery, record a rough range for:
-
-- customer and domain investigation;
-- product and design shaping;
-- architecture and technical work;
-- agent, tool, and environment spend;
-- builder review and recovery;
-- rollout and operations;
-- elapsed time;
-- expected continuing cost.
-
-Label confidence and major unknowns. The opportunity estimate exists to decide how much investigation is justified, not to become a contractual promise.
-
-### 5. Forecast the Change funnel
-
-Do not assume every proposed Change will enter execution or land.
-
-Estimate ranges for:
+Then forecast the funnel:
 
 ```text
-Changes proposed
-Changes shaped
-Changes entering execution
-Changes resolved
-Delivered Changes
-Work-derived decision resolutions
-Administrative closures
-Unresolved losses
-Released capabilities
+proposed Changes
+shaped Changes
+execution starts
+landed Changes
+useful non-landed decisions
+administrative closures
+unresolved loss
+released capabilities
 ```
 
-For example:
+Early ranges may be wide and low confidence. Preserve them anyway. The purpose is to decide how much investigation is justified and later learn what the team misunderstood.
 
-```text
-Proposed:                   30–40
-Enter execution:            20–28
-Delivered:                  14–20
-Decision-resolved:           3–6
-Administrative closure:      0–2
-Unresolved loss:             0–2
-```
+## 5. Use discovery to reduce the expensive uncertainty
 
-Explain the basis. Early estimates may be low confidence. Preserve them anyway so the system can learn how the funnel changes after discovery and shaping.
+Run customer research, prototypes, technical investigations, and bounded experiments against the assumptions most likely to change the investment decision.
 
-### 6. Run discovery and update the forecast
+After discovery, record what was spent, what landed, what did not, which beliefs strengthened or weakened, and the revised value, resource, and Change-funnel ranges.
 
-Use customer research, prototypes, technical investigations, and bounded experiments to reduce the most consequential uncertainty.
+Discovery that stops an initiative can be a good outcome when the evidence is strong and the larger commitment is genuinely avoided.
 
-Record:
+## 6. Shape the investment and find the constraint
 
-- resources consumed;
-- Changes and experiments resolved;
-- what landed and what did not;
-- hypotheses strengthened or weakened;
-- updated value range;
-- updated investment and funnel forecast;
-- whether commitment is still justified.
+Once scope, architecture, proof strategy, and Change decomposition are clearer, build a capacity view:
 
-Discovery that stops an initiative can be a successful outcome when the evidence is strong and the avoided investment is material.
-
-### 7. Produce the post-shaping forecast
-
-After scope, architecture, proof strategy, and Change decomposition are clearer, forecast the complete resource mix:
-
-| Resource | Expected | Likely range | Available | Constraint |
+| Resource | Expected | Likely range | Available | Constraint? |
 | --- | ---: | ---: | ---: | --- |
 | Customer discovery |  |  |  |  |
 | Product and design shaping |  |  |  |  |
 | Architecture |  |  |  |  |
 | Agent and tool spend |  |  |  |  |
-| Builder review and recovery |  |  |  |  |
+| Review and recovery |  |  |  |  |
 | Environment and CI |  |  |  |  |
 | Rollout and operations |  |  |  |  |
-| Elapsed time |  |  |  |  |
 
-Update the Change funnel and identify the binding constraint.
+Consider staged release, narrower scope, platform work first, buy or partner options, or doing nothing.
 
-Record alternatives such as:
+Set the initial authorized envelope, soft and hard thresholds, evidence required for the next stage, and the person accountable for crossing the limit.
 
-- staged release;
-- narrower capability;
-- prototype before commitment;
-- platform investment first;
-- buy, partner, or do nothing;
-- different agent routing or environment posture.
+## 7. Roll Changes up and reforecast
 
-### 8. Set commitment and resource gates
+Each linked Change should carry its intended role, forecast, actual resource use, final outcome, landing and release status, evidence, and effect on the initiative thesis.
 
-Define:
-
-- initial authorized envelope;
-- soft threshold and checkpoint behavior;
-- hard threshold and accountable decision-maker;
-- evidence required for the next stage;
-- stop, narrow, or pivot conditions;
-- allowed variance before a new investment decision.
-
-A hard threshold should preserve state and force a decision. It should not erase the evidence needed to make one.
-
-### 9. Link Changes and preserve dispositions
-
-Every linked Change should carry:
-
-- its role in the initiative;
-- resolution intent: delivery, experiment, investigation, or either based on evidence;
-- forecast and actual resource use;
-- resolution status, class, and disposition;
-- landed and released state;
-- resolution quality and learning value;
-- uncertainty reduced or reusable artifacts;
-- effect on the initiative thesis and forecast.
-
-Use a table such as:
-
-| Change | Intended role | Resolution class | Disposition | Landed | Forecast | Actual | Learning / evidence |
-| --- | --- | --- | --- | --- | ---: | ---: | --- |
-|  |  |  |  |  |  |  |
-
-Do not hide discarded paths or rejected work merely because a later Change succeeded.
-
-### 10. Reforecast in flight
+Do not hide discarded or rejected paths because a later Change succeeded.
 
 At meaningful checkpoints, compare:
 
 ```text
-original investment forecast
-latest investment forecast
-actual to date
-
-expected Change funnel
-actual dispositions to date
-latest funnel forecast
-
-expected value
-latest value range
+original forecast ↔ latest forecast ↔ actual to date
+expected funnel   ↔ actual outcomes  ↔ remaining funnel
+expected value    ↔ latest evidence  ↔ current value range
 ```
 
-Record the cause of material variance and the decision it triggered.
+Explain material variance and the decision it triggered: continue, add resource, narrow, stage, change approach, create a prerequisite, pivot, or stop.
 
-Useful decisions include:
+## 8. Make the initiative decision
 
-- continue within the current envelope;
-- authorize additional resource;
-- narrow or stage scope;
-- change model, gate, or environment strategy;
-- create a prerequisite capability;
-- pivot the thesis;
-- conclude without release.
+At the decision point, record one clear outcome:
 
-### 11. Hold the initiative outcome review
+- **Released:** what reached users, the complete actual investment, continuing obligations, and scheduled value reviews.
+- **Concluded without release:** the evidence, uncertainty reduced, actual investment, reusable artifacts, redirected work, and date to revisit the decision if appropriate.
+- **Narrowed or pivoted:** what stopped, what remains, and whether a new initiative record is cleaner.
+- **Administrative closure or unresolved loss:** the external basis or the failure to reach a sufficient decision, without decorating either as product learning.
 
-When delivery or investigation reaches a decision point, choose an explicit initiative outcome.
+## 9. Review value at the promised horizon
 
-#### Released
+For released initiatives, compare adoption, customer outcome, business or operational result, continuing cost, and unintended effects with the original thesis.
 
-Record:
+For initiatives concluded without release, ask whether later evidence supported the stop, whether the investment was actually avoided or merely delayed, and whether the learning or artifacts were reused.
 
-- released capability;
-- linked delivered, decision-resolved, administratively closed, and unresolved Changes;
-- actual human, agent, infrastructure, and elapsed-time use;
-- continuing obligations;
-- delivery and resolution variance;
-- planned value-review dates.
+Keep direct attribution, influenced outcomes, proxies, and counterfactual estimates separate.
 
-#### Concluded without release
+Finally, review three variances:
 
-Record:
+```text
+Delivery:   What did it consume compared with the forecast?
+Resolution: How did the work conclude compared with the expected funnel?
+Value:      What appeared compared with the thesis?
+```
 
-- final decision and reason;
-- evidence supporting the decision;
-- linked Change dispositions;
-- actual resource use;
-- uncertainty reduced;
-- reusable artifacts;
-- redirected work or follow-up;
-- credible avoided-cost estimate, if any, with assumptions and confidence;
-- decision-value review date when the decision should be revisited.
+A team can estimate delivery well and choose a weak product bet. It can underestimate delivery and still create exceptional value. Do not collapse those lessons.
 
-#### Narrowed or pivoted
+## 10. Promote the learning
 
-Record what remains, what stopped, which forecast changed, and whether a new initiative record is warranted.
+Update only what the evidence earns: value assumptions, Change-funnel priors, discovery practice, estimates, routing, architecture, gates, thresholds, capacity plans, or initiative-selection criteria.
 
-### 12. Review realized value
-
-For released initiatives, review at the horizon promised in the original thesis.
-
-Capture:
-
-- adoption and usage;
-- customer outcome versus baseline;
-- business, operational, or strategic result;
-- continuing cost;
-- unintended effects;
-- attribution confidence;
-- decision to expand, adapt, hold, stop, or retire.
-
-For initiatives concluded without release, review decision value:
-
-- Did later evidence confirm or weaken the stop decision?
-- Was investment actually avoided or merely delayed?
-- Were artifacts or learning reused?
-- Did another initiative solve the need?
-- Did the organization stop at the right time?
-
-### 13. Compare three forms of variance
-
-#### Delivery variance
-
-What did the initiative consume compared with the forecast?
-
-#### Resolution variance
-
-How did the actual Change funnel and initiative outcome differ from expectation?
-
-#### Value variance
-
-What customer, business, operational, strategic, or decision value appeared compared with the hypothesis?
-
-Do not collapse them. A team can estimate delivery well and choose a weak product bet. It can underestimate delivery and still create exceptional value. It can also spend modestly to discover that a promising initiative should not proceed.
-
-### 14. Promote the learning
-
-Update what the evidence earns:
-
-- value-forecast assumptions;
-- Change-funnel priors;
-- discovery practices;
-- delivery estimates;
-- routing rules;
-- architecture;
-- gates and skills;
-- resource thresholds;
-- capacity plans;
-- initiative selection criteria.
-
-Every initiative should leave the organization better able to decide about the next one.
+Every initiative should make the organization better at deciding about the next one.
 
 ## Definition of done
 
-- [ ] the original value hypothesis, baseline, horizon, and confidence are preserved;
-- [ ] commitment, stop, and pivot criteria are explicit;
-- [ ] opportunity, post-discovery, post-shaping, and in-flight forecasts remain distinguishable;
-- [ ] the forecast includes an expected Change funnel;
-- [ ] linked Changes roll up resource use, disposition, landed state, and learning;
-- [ ] actual delivered, decision, administrative, and unresolved outcomes are visible;
-- [ ] the initiative has an explicit released, concluded-without-release, narrowed, pivoted, administratively closed, or unresolved outcome;
-- [ ] delivery, resolution, and value variance are separate;
+- [ ] the original value thesis, baseline, horizon, and confidence remain visible;
+- [ ] commitment, stop, and pivot conditions are explicit;
+- [ ] staged forecasts are preserved rather than overwritten;
+- [ ] the expected and actual Change funnels are visible;
+- [ ] linked Changes roll up actual resources and outcomes;
+- [ ] the initiative has an explicit final decision;
+- [ ] delivery, resolution, and value variance remain separate;
 - [ ] continuing cost is included when material;
-- [ ] value or decision-value reviews are scheduled and completed at the appropriate horizon;
-- [ ] future forecasts or investment decisions changed because of what was learned.
-
-## Related material
-
-- [Initiatives and the Value Loop](../01-operating-model/initiatives-and-value.md)
-- [Resource Observability and Delivery Economics](../01-operating-model/resource-observability-and-delivery-economics.md)
-- [Plan Delivery Capacity](plan-delivery-capacity.md)
-- [Resolve a Change That Does Not Land](resolve-a-change-that-does-not-land.md)
-- [Initiative Template](../03-reference/initiative-template.md)
+- [ ] a value or decision-value review is scheduled and completed at the appropriate horizon;
+- [ ] a future forecast or investment decision changed because of the evidence.

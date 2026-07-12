@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.14 — A clearer, more human playbook
+
+This release keeps the ambition of v0.12 and v0.13, but gets more of the machinery out of the reader’s way. The economics, initiative, and resolved-outcome ideas now arrive through a clearer narrative and a smaller practical starting point.
+
+Key changes:
+
+- Rebuilt the README around the shift teams can already feel: agents can create more work than the old delivery system can responsibly absorb.
+- Rewrote `VOICE.md` and the repository editing guidance so future changes preserve a thoughtful, incisive, lived-in voice rather than drifting toward policy language or framework theater.
+- Tightened the narrative spine across The Case, the operating model, playbooks, and indexes; removed repeated explanations and let each page do one main job.
+- Kept delivery economics, initiatives, resource gates, and honest non-landed resolution first-class while presenting them as capabilities a team earns into, not paperwork required on day one.
+- Simplified the first experiment, first 30 days, GitHub workflow, bug-fix, team-shift, and learning playbooks into a more natural progression from one useful Change to a repeatable operating model.
+- Reduced the starter `WORKFLOW.md`, issue form, workpad, PR template, initiative record, and agent guidance so they are practical on Tuesday morning. Detailed schemas remain in Reference for teams that need them.
+- Updated the starter runner to match the leaner workpad while preserving run attribution, resource records, initiative context, and accountable resolution state across retries.
+
 ## v0.13 — Resolved outcomes and productive non-landing
 
 This release strengthens the operating model for planned work that does not land. A Change now completes through an explicit resolution decision rather than through merge or release alone, and the economics and learning of non-landed work remain visible.

@@ -1,122 +1,69 @@
 # Learning Checkpoints
 
-Every meaningful Change should improve more than the product.
+A Change should leave behind more than code, screenshots, or a receipt.
 
 The learning checkpoint asks:
 
-> Did this reveal anything that should make the next Change easier, safer, faster, less wasteful, easier to estimate, more likely to resolve cleanly, or more likely to create value?
+> What did this work reveal that should make the next Change easier to shape, cheaper to run, safer to review, more likely to resolve well, or more likely to create value?
 
-An initiative adds a second question:
+For an initiative, add:
 
-> Did the expected customer, business, operational, strategic, or decision value appear, and what should that teach the next investment decision?
+> Did the value we expected actually appear, and what should that change about the next investment?
 
-## Look for friction in eight places
+## Look in six places
 
-### Intent
+### Intent and product judgment
 
-- Was the desired outcome or decision question unclear?
-- Were acceptance, non-landed resolution, or stop criteria missing?
-- Did the value hypothesis survive contact with customers?
+Was the outcome or decision question clear? Did customer evidence change the thesis? Were the landed, non-landed, and stop criteria useful?
 
 ### Context and architecture
 
-- Did agents struggle to find the right boundaries or domain knowledge?
-- Did a subsystem make a modest Change unexpectedly expensive?
+Did the agent struggle to find the right boundaries? Did a modest Change become expensive because the system is hard to understand or modify?
 
 ### Execution and routing
 
-- Was the selected agent, model, skill, or environment appropriate?
-- Did a cheaper route create retries, rework, or heavy review?
+Was the model, agent, skill, or environment a good fit? Did a cheaper route create expensive retries or review? Did a stronger route earn its cost?
 
 ### Proof and review
 
-- Which evidence made the decision easy?
-- Which gate was noisy, missing, or too late?
-- Did reviewer demand become the bottleneck?
+Which evidence made the decision easy? Which gate was missing, noisy, or late? Did reviewer attention become the constraint?
 
-### Resolution
+### Resolution and resources
 
-- Did the Change deliver, conclude with a useful work-derived decision, close administratively, or become unresolved loss?
-- For non-landed work, what uncertainty was actually reduced?
-- Did the evidence justify stopping, narrowing, replacing, or deferring?
-- Was a failed delivery attempt improperly relabeled as an experiment?
-- Was an administrative cancellation incorrectly presented as product learning?
-- Did the record preserve enough context to prevent rediscovery?
+How did the Change actually resolve? If it did not land, what evidence changed a decision? Did actual resource use fall inside the forecast range? What caused the variance? Was anything missing from the record?
 
-### Resources and estimates
+### Capacity and value
 
-- Did actual use fall inside the forecast range?
-- What caused material variance?
-- Which forecast stage reduced uncertainty?
-- Was the threshold policy useful?
-- Was any resource record incomplete or misleading?
-- Did the forecast account for the probability that some Changes would not land?
+Which human or technical capability limited throughput? For initiatives, did the expected customer, business, operational, strategic, or decision value appear? What continuing cost or unintended consequence emerged?
 
-### Capacity
+## Turn the lesson into the right kind of change
 
-- Which human capability, agent budget, infrastructure, or operational resource constrained throughput?
-- Would the next investment be better spent adding capacity or improving leverage?
-- Was the team planning only for landed work while ignoring exploration and unresolved loss?
+A checkpoint may produce:
 
-### Value
-
-- Did the initiative produce the expected customer outcome?
-- If it concluded without release, did the decision evidence justify stopping further investment?
-- Did business or operational value appear on the expected horizon?
-- What continuing cost or unintended consequence emerged?
-- How confident is the attribution or counterfactual claim?
-
-## Possible outcomes
-
-A learning checkpoint can result in:
-
-- no durable change;
-- clearer product, resolution, or architecture context;
-- a better issue or initiative template;
-- a new or improved skill;
-- a regression test or gate;
+- no durable action;
+- clearer product or architecture context;
+- a better issue, workpad, or initiative template;
+- a new test, gate, or skill;
 - a routing or escalation rule;
-- a changed resource estimate, landing probability, or capacity ratio;
+- a changed resource range or capacity assumption;
 - a narrower Change class;
-- a new follow-up Change;
-- an initiative decision to expand, adapt, hold, stop, or retire;
-- a correction to the disposition vocabulary or evidence bar.
+- a follow-up Change;
+- an initiative decision to expand, adapt, hold, stop, or retire.
 
-Do not create permanent machinery from one odd event. Do not let the same expensive correction happen six times because everyone remembers it informally.
+Do not create permanent machinery from one strange event. Do not let the same expensive correction happen six times because everyone remembers it informally.
 
-## Preserve the variance and the disposition
+## Preserve the surprise
 
-Keep the original estimate, later forecasts, actual, proposed outcome, final disposition, and explanation.
+Keep the original forecast, later updates, actuals, intended outcome, final disposition, and explanation.
 
-Do not overwrite history to make the result look obvious. The distance between the forecasts—and between the intended and actual resolution—is part of the learning.
+Do not overwrite history to make the result look obvious. The distance between what the team believed and what happened is the useful part.
 
-Useful estimator review includes:
+Agents can assemble the record, find comparable Changes, and propose patterns. Builders decide which learning is real, which action is proportionate, and whether the evidence supports the conclusion.
 
-- actual versus expected;
-- whether actual fell inside the likely range;
-- calibration by confidence;
-- delivered, decision, administrative-closure, and unresolved-loss rates by Change class;
-- recurring underestimation by Change or initiative class;
-- changes in model, pricing, workflow, architecture, or team context.
+The system is the unit being improved. Resource telemetry is not an automatic blame machine.
 
-## Human-governed, agent-assisted
+## Keep it light
 
-Agents can assemble the record, identify recurring patterns, find comparable Changes, detect disposition inconsistencies, and propose improvements.
+A routine Change may need one concise workpad section. A productive non-landed Change needs the decision question, evidence, disposition, and next action. An unresolved loss needs the reason resolution failed and what should prevent recurrence. A major initiative needs scheduled value reviews at the horizon promised in the original thesis.
 
-Builders decide which learning is real, whether the evidence supports the resolution, which action is proportionate, and whether a product outcome justifies further investment.
-
-Do not use resource telemetry to create automatic blame. The system is the unit being improved.
-
-## Keep it lightweight
-
-For a routine delivered Change, one concise workpad section is enough.
-
-For a productive non-landed Change, record the decision question, evidence, disposition, and next action.
-
-For an unresolved loss, record why resolution failed and what should prevent recurrence.
-
-For a recurring variance, add a short team review.
-
-For a major initiative, schedule outcome reviews at the horizon promised in the original thesis—even when the initiative concluded without release.
-
-The checkpoint should change future behavior. A retrospective that produces no decision, no durable improvement, and no corrected assumption is a meeting-shaped artifact.
+The checkpoint should change future behavior. A retrospective that produces no corrected assumption, no decision, and no durable improvement is a meeting-shaped artifact.

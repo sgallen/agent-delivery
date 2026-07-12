@@ -14,7 +14,7 @@ An initiative record should preserve:
 
 - value hypothesis and baseline;
 - decisions and stop conditions;
-- staged resource and delivery-funnel forecasts;
+- staged resource and Change-funnel forecasts;
 - linked Change dispositions, landing states, and actuals;
 - released or non-release outcome;
 - delivery, resolution, and value variance;

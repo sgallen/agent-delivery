@@ -1,118 +1,82 @@
 # Reference: `WORKFLOW.md`
 
-`WORKFLOW.md` is the repository’s standing operating contract.
+`WORKFLOW.md` is the repository’s standing delivery contract.
 
-The copyable starter lives at:
+It should answer the questions an agent or builder needs during the work—not retell the entire playbook. Keep it short enough to read before execution and specific enough to remove avoidable guesswork.
 
-```text
-templates/WORKFLOW.md
-```
+The copyable starter is [`templates/WORKFLOW.md`](../../templates/WORKFLOW.md).
 
-It should be concrete enough for agents and builders to execute, but short enough that they will actually read it.
+## What belongs in it
 
-## It should define
+### The path
 
-### Delivery hierarchy
-
-Clarify the relationship among portfolio, initiative, Change, run, and resource events. A run is an attempt. A Change is the unit of execution and resolution. An initiative is the unit of investment and value learning.
-
-### Change lifecycle
+Name the local lifecycle and who may move work into consequential states such as `Ready`, `Decision`, `Resolved`, or `Abandoned`.
 
 The default is:
 
 ```text
 Proposed → Shaped → Ready → Running → Proving → Decision → Resolved
                     ↘ Blocked / Paused ───────────────↗
-                    ↘ Abandoned, as an unresolved exception
+                    ↘ Abandoned when the work ends unresolved
 ```
 
-Name who or what may move work into `Ready`, `Decision`, `Resolved`, or `Abandoned`.
+Landing and release remain separate facts.
 
-### Resolution model
+### Readiness
 
-Define four separate concepts:
+State the minimum intent, scope, proof, risk, stop conditions, initiative context, and resource posture required before execution begins.
+
+### Workpad and planning
+
+Define the one canonical workpad location and when an optional ExecPlan is warranted. Do not force routine work through a planning artifact designed for a migration or architecture change.
+
+### Environment, gates, and evidence
+
+Name the startup, proof, and teardown commands. Explain the required isolation, gate results, retry behavior, evidence expectations, and conditions that require builder judgment.
+
+### Resolution
+
+Keep these separate:
 
 ```text
 resolution status
 resolution class
 specific disposition
-landed and released state
+landed state
+released state
 ```
 
-Use the analytical classes:
+Use the four analytical classes:
 
-```text
-delivered
-decision
-administrative
-unresolved_loss
-```
+- `delivered`
+- `decision`
+- `administrative`
+- `unresolved_loss`
 
-Use a stable disposition vocabulary such as:
-
-```text
-accepted
-experiment_concluded
-hypothesis_rejected
-technically_infeasible
-stopped_at_resource_gate
-superseded
-deprioritized
-rejected_at_review
-cancelled_external
-abandoned_without_resolution
-```
-
-Explain that productive non-landing is derived from a decision-class resolution with adequate evidence. Do not implement it as a self-awarded checkbox.
-
-### Readiness
-
-Specify the outcome or decision, resolution intent, landing expectation, delivered and non-landed criteria, scope boundaries, risk, gate profile, evidence, initiative link, stop conditions, and resource posture.
-
-### Workpad
-
-Define the canonical location and required sections, including run contribution, current candidate resolution class, decision evidence, and resource state.
+The workflow should make it difficult to confuse a useful non-landed decision with either an external cancellation or a branch that simply ran out of oxygen.
 
 ### Resource policy
 
-State what is attributed, where records live, which thresholds apply, and what decisions occur at warnings, soft limits, and hard limits.
+Adopt this progressively. Start with Change and run attribution. Add ranges, actuals, thresholds, routing, and initiative rollups only when the history and consequence justify them.
 
-### Gates and evidence
+A threshold should name the decision it triggers, not only the number.
 
-Define gate results, retry behavior, builder stop conditions, and evidence requirements for both delivered and non-landed resolutions. Failed implementation gates may be valid evidence for a decision resolution; decision and evidence gates still need to be satisfied.
+### Initiatives and data stewardship
 
-### Decision and review
+Explain when a larger product bet needs an initiative record and later value review. State what resource data is measured, estimated, missing, restricted, or excluded. Keep system learning separate from individual performance surveillance.
 
-Explain when a PR is required, which builder judgments are needed, and how a final class and disposition are approved.
+## The test
 
-### Resolution and abandonment
-
-A Change should not be called resolved merely because a branch or issue closed. Require explicit class, disposition, landing and release state, evidence, resource actuals, learning, and initiative rollup when applicable.
-
-When execution ends without sufficient evidence or accountable judgment, record `resolution_status: unresolved`, `resolution_class: unresolved_loss`, and a specific reason such as `abandoned_without_resolution`.
-
-### Initiatives and capacity
-
-Explain how linked Changes roll up, how class distributions are forecast, and how released, concluded, administratively closed, and unresolved initiatives are reviewed.
-
-### Data stewardship
-
-State access, retention, estimation limits, and protections against personnel surveillance or casual “productive learning” labels.
-
-## Rule
-
-`WORKFLOW.md` should make these questions answerable:
+A useful `WORKFLOW.md` makes these questions answerable:
 
 ```text
 What can start?
 What may continue?
 What must stop?
 Who decides?
-What proves delivery?
-What proves a useful non-landed decision?
-When is the Change resolved?
-When is it unresolved loss?
-What is learned when nothing lands?
+What proves the claim?
+How does the Change resolve when nothing lands?
+What should the system learn?
 ```
 
-When the workflow changes, version it so historical resource and outcome records remain interpretable.
+Version material workflow changes so older Change and resource records remain interpretable.

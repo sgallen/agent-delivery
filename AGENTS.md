@@ -2,115 +2,74 @@
 
 This repository is a Markdown-first playbook for human-governed, agent-enabled product delivery.
 
-It is not a generic AI tooling guide. It is an operating doctrine and a set of practical playbooks for turning customer intent into evidence-backed product change.
+The job is not to add more doctrine. It is to make the shift easier to understand, easier to challenge, and easier to try.
 
-## Read first
+## Read before editing
 
-Before making substantive edits, read:
+Start with:
 
 1. `README.md`
 2. `VOICE.md`
 3. `docs/00-the-case/00-why-this-exists.md`
-4. `docs/00-the-case/index.md`
-5. `docs/00-the-case/06-invert-the-default.md`
-6. `docs/01-operating-model/index.md`
-7. `docs/01-operating-model/resource-observability-and-delivery-economics.md`
-8. `docs/01-operating-model/initiatives-and-value.md` when the Change touches product investment or value realization
-9. the pages directly related to the requested Change
+4. `docs/01-operating-model/index.md`
+5. the pages, references, and templates directly touched by the Change
 
-For implementation-oriented edits, also read:
+For economics, initiative, or non-landed-work edits, also read:
 
-- `docs/02-playbooks/first-experiment.md`
-- `docs/02-playbooks/fix-a-bug-with-proof.md` for bug-workflow edits
-- `docs/02-playbooks/run-a-change-with-github.md`
-- `docs/02-playbooks/first-30-days.md` when changing adoption guidance
-- the relevant reference and template files
+- `docs/01-operating-model/resource-observability-and-delivery-economics.md`
+- `docs/01-operating-model/initiatives-and-value.md`
+- `docs/01-operating-model/not-all-work-is-merge-bound.md`
 
-## Preserve the voice
+## Preserve the shape of the argument
 
-The tone is thoughtful, direct, grounded, and human.
+The core position is:
 
-Do not make the docs sound like:
+- Current agents can perform meaningful product-development work.
+- The old process was built around scarcer human implementation capacity.
+- The goal is not maximum autonomy. It is greater leverage from human judgment.
+- A Change, not a prompt or session, is the durable unit of delivery.
+- `WORKFLOW.md`, workpads, environments, gates, and evidence make the work governable.
+- A Change may deliver capability, support a useful decision not to land, close for an external reason, or become unresolved loss. Those outcomes must remain distinct.
+- Resource use belongs with the outcome that consumed it. Start with attribution; add estimates, thresholds, routing, and capacity planning as the history earns them.
+- An initiative is an investment hypothesis. Delivery actuals and later value both matter.
+- Every effort should improve the next decision, the next Change, or the system itself.
 
-- venture hype
-- academic prose
-- process theater
-- a vendor whitepaper
-- a cult pamphlet with Markdown headings.
+Do not imply that quality matters less, that specialists are obsolete, or that agent spend and human cost are interchangeable forms of productive capacity.
 
-The intended reader is a serious builder: a founder, CTO, senior or staff engineer, product leader, designer, or operator who has lived through real delivery friction.
+## Write in the repo’s voice
 
-They should feel respected, better oriented, and able to act.
+Follow `VOICE.md`.
 
-## Core doctrine
+Lead with the consequence the reader can feel. Explain the idea before the taxonomy. Prefer short paragraphs, concrete verbs, and one main job per page. Use lists when they help someone scan or act—not when prose would carry the thought better.
 
-Keep these ideas intact:
+Keep the edge in the clarity. Avoid vendor language, process theater, academic distance, and a machine explaining its own ontology.
 
-- The thesis comes from direct use and team adoption, not tool hype.
-- Current agents can perform meaningful product development work.
-- Future model improvement is upside, not a dependency.
-- The bottleneck is shifting from implementation capacity to builder attention.
-- The goal is not maximum autonomy. It is maximum leverage from human judgment.
-- Builders govern intent, risk, taste, accountability, and the operating model.
-- Agents execute inside a harness and repo-defined workflow.
-- Gates make quality durable.
-- Evidence makes outcomes reviewable.
-- `WORKFLOW.md` is the standing repo process.
-- The workpad is the live per-Change execution surface.
-- ExecPlans are optional, durable artifacts for complex work.
-- A Change is complete when it reaches an explicit, evidence-backed disposition; landing and release are separate facts.
-- Productive non-landing must be distinguished from accountable administrative closure and unresolved loss.
-- Work-derived resolutions should improve the product or the decision. Administrative closure and unresolved loss should still improve the record and future planning; do not present them as equivalent outcomes.
-- A Change is both a unit of execution and resolution and a natural unit of resource attribution.
-- Resource use includes builder attention, agent and tool usage, execution infrastructure, elapsed time, retries, and failed attempts.
-- Major initiatives are investment hypotheses. Preserve expected value and investment, actual delivery, realized value, and uncertainty.
-- Optimize the complete system for trustworthy resolution and worthwhile outcomes—not tokens, generated code, merge rate, raw autonomy, or one input cost in isolation.
-- Every resolved effort, and every honestly recorded unresolved loss, should improve the organization’s ability to estimate, route, govern, or decide about the next one.
+The reader should leave with a sharper way to see the problem and a practical next move.
 
-## Editing rules
+## Keep the package coherent
 
-- Lead with why the idea matters, then explain the mechanism and the practical consequence.
-- Prefer clarity over cleverness and concrete language over buzzwords.
-- Keep paragraphs short and bullets natural.
-- Avoid repeating the same thesis across adjacent pages unless the repetition adds a new consequence.
-- Do not imply that engineers, PMs, designers, QA, security, or operations are obsolete.
-- Do not imply quality standards are lower because agents are involved.
-- Explain concepts before naming them.
-- Add examples when they help a reader apply the idea. Distinguish the author’s experience from external examples and current inference.
-- Major claims should answer “so what should the reader do differently?”
-- Keep volatile model prices out of evergreen doctrine. Date them, cite official sources, expose assumptions, and update `data/model-pricing.csv`.
-- Never imply that agent and employee costs represent equivalent productive capacity.
-- Keep the canonical employer-cost benchmark in `docs/03-reference/model-economics.md` and `data/economics-scenarios.csv`; other pages should link to it rather than invent a separate salary figure.
-- Call it an employer-cost benchmark, not a universal senior-engineer cost.
-- Use ranges, confidence, assumptions, data-quality notes, and forecast stages. Do not manufacture precision from sparse delivery history.
-- Keep human time and any monetary conversion separate. Prefer capability and team-level patterns over simplistic individual ranking or covert performance surveillance.
-- Distinguish delivery variance, resolution variance, and value variance. Efficient delivery does not prove the initiative was worth doing, and non-landing is neither automatically failure nor automatically learning.
-- End playbooks with a clear definition of done.
-- Keep reference files copyable and terse.
+- Let the README invite and orient; do not make it carry the full reference model.
+- Let The Case persuade in sequence.
+- Let the operating model explain how the pieces fit.
+- Let playbooks tell someone what to do.
+- Let reference pages and templates stay terse, exact, and copyable.
+- Keep taxonomy in its natural home. Link rather than re-teaching it on every page.
+- Keep templates useful on Tuesday morning. Advanced fields should be optional unless the consequence makes them necessary.
+- Preserve the distinction among Run, Change, Initiative, and Portfolio.
+- Use ranges, confidence, assumptions, and data-quality notes. Do not manufacture precision from sparse history.
+- Keep volatile model prices dated, sourced, and consistent with `data/model-pricing.csv`.
+- Keep human time separate from any optional monetary conversion. Prefer team and capability patterns over individual surveillance.
 
-## Section expectations
+## Before resolving an edit
 
-- `README.md` should earn attention, establish the thesis quickly, and give the reader a clear next step.
-- `docs/00-the-case/` should build the argument in a coherent sequence.
-- `docs/01-operating-model/` should define the system clearly enough to reason with and adapt.
-- `docs/02-playbooks/` should specify inputs, steps, evidence, and completion criteria.
-- `docs/03-reference/` should provide practical starting points.
-- `templates/` should remain internally consistent and implementation-ready.
+Check that:
 
-## Quality checks
+- the argument is clearer or the action is easier;
+- repetition fell rather than moved;
+- links and artifact paths resolve;
+- terms and lifecycle states remain consistent;
+- templates still match the doctrine;
+- code fences, YAML, JSON, CSV, shell, and Python still validate where touched;
+- the Change did not add structure that fails to improve intent, execution, proof, resource visibility, resolution, recovery, or learning.
 
-Before completing an edit, verify:
-
-- the core idea is easier to understand
-- the page gives the reader insight, a principle, or an action
-- terms, lifecycle states, dispositions, and landing/release flags are consistent
-- links resolve
-- ExecPlan and workpad locations are consistent
-- templates match the doctrine
-- Change, Run, Initiative, and Portfolio levels remain distinct
-- resource observability is staged rather than made mandatory at maximum sophistication
-- no unnecessary process, false precision, or buzzword was introduced.
-
-## The test
-
-A senior or staff engineer should be able to read the README, nod at the problem, understand the proposed shift, and know what to try next—even if they disagree with parts of the conclusion.
+The standing test is simple: a serious builder should be able to read the page, recognize the problem, and know what to try next.

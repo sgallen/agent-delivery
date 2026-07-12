@@ -1,210 +1,123 @@
 # <Initiative ID>: <Outcome-oriented title>
 
-This initiative is an investment hypothesis. Preserve each forecast, linked Change resolution, final initiative outcome, and later value or decision-value review.
+An initiative is an investment hypothesis. This record should preserve what we believed, what we spent, what happened, and whether the value appeared.
+
+Use only the sections that help the decision. Keep earlier forecasts instead of polishing history after the fact.
 
 ## Status
 
-Proposed / Investigating / Shaped / Committed / Delivering / Decision / Released / Concluded without release / Administratively closed / Value review / Decision-value review / Closed
+- Status: Proposed / Investigating / Shaped / Committed / Delivering / Decision / Released / Concluded without release / Administratively closed / Closed
+- Owner:
+- Decision date:
+- Value horizon:
+- Next review:
 
-Owner:
-Decision date:
-Value horizon:
-Next review:
+## Opportunity and value hypothesis
 
-## Opportunity
-
-Who has what problem or opportunity? What evidence makes it worth considering? What happens if we do nothing?
-
-## Value hypothesis
-
-### Customer outcome
-
-Baseline:
-Expected result:
-Likely range:
-Confidence:
-Review horizon:
-
-### Business, operational, strategic, or decision value
-
-Expected result:
-Likely range:
-Confidence:
-Attribution type: direct / influenced / proxy / counterfactual
-
-### Evidence and assumptions
-
-- Supporting evidence:
-- Invalidating assumptions:
-- Alternatives, including non-build options:
+- Who has what problem or opportunity?
+- What evidence makes it worth pursuing?
+- What happens if we do nothing?
+- Expected customer outcome:
+- Expected business, operational, strategic, or decision value:
+- Likely range and confidence:
+- Important assumptions:
+- Alternatives, including not building:
 
 ## Decisions and stop conditions
 
-Decision questions discovery or delivery must answer:
-
-Evidence required to commit:
-
-Evidence that would justify narrowing, pivoting, superseding, or concluding without release:
-
-External conditions that would justify administrative closure:
-
-Assumptions that would invalidate the thesis:
+- Questions discovery or delivery must answer:
+- Evidence required to commit:
+- Evidence that would justify narrowing, pivoting, replacing, or stopping:
+- External conditions that could close the initiative administratively:
 
 ## Investment forecast
 
-### Opportunity estimate
+Preserve each meaningful stage rather than overwriting it.
 
-Date:
-Expected resource envelope:
-Likely range:
-Confidence:
-Major unknowns:
+| Stage | Date | Expected range | Confidence | Main unknown or change |
+| --- | --- | ---: | --- | --- |
+| Opportunity |  |  |  |  |
+| Post-discovery |  |  |  |  |
+| Post-shaping |  |  |  |  |
+| In flight |  |  |  |  |
 
-### Post-discovery estimate
+### Post-shaping resource view
 
-Date:
-Expected resource envelope:
-Likely range:
-Confidence:
-What changed:
-
-### Post-shaping estimate
-
-Date:
-
-| Resource | Expected | Likely range | Available | Constraint |
-| --- | ---: | ---: | ---: | --- |
-| Customer discovery |  |  |  |  |
-| Product and design shaping |  |  |  |  |
-| Architecture |  |  |  |  |
-| Agent and tool spend |  |  |  |  |
-| Builder review and recovery |  |  |  |  |
-| Product / stop-decision judgment |  |  |  |  |
-| Environment and CI |  |  |  |  |
-| Rollout and operations |  |  |  |  |
-| Elapsed time |  |  |  |  |
-
-Continuing cost expected:
-Binding constraint:
-
-## Change-funnel forecast
-
-| Stage / resolution | Expected | Likely range | Confidence / basis |
+| Resource | Expected / range | Available | Constraint or assumption |
 | --- | ---: | ---: | --- |
-| Changes proposed |  |  |  |
-| Changes shaped |  |  |  |
-| Changes entering execution |  |  |  |
-| Changes resolved |  |  |  |
-| `delivered` resolutions |  |  |  |
-| `decision` resolutions |  |  |  |
-| `administrative` resolutions |  |  |  |
-| `unresolved_loss` |  |  |  |
-| Landed Changes |  |  |  |
-| Released capabilities |  |  |  |
+| Customer discovery |  |  |  |
+| Product and design shaping |  |  |  |
+| Architecture |  |  |  |
+| Agent and tool spend |  |  |  |
+| Builder review and recovery |  |  |  |
+| Environment and CI |  |  |  |
+| Rollout and operations |  |  |  |
+| Elapsed time |  |  |  |
 
-Expected spend and builder attention by resolution class:
+- Continuing cost expected:
+- Current binding constraint:
+- Soft checkpoint and action:
+- Hard decision threshold and owner:
 
-## Commitment and resource gates
+## Change forecast and actuals
 
-Initial authorized envelope:
-Soft threshold and action:
-Hard threshold and action:
-Evidence required for next stage:
-Stop, narrow, replace, or pivot conditions:
+Do not assume every Change entering execution will land.
 
-## Linked Changes
+| Change | Intent | Forecast | Actual resolution | Landed | Resource actual | Evidence / learning |
+| --- | --- | --- | --- | --- | ---: | --- |
+|  |  |  |  |  |  |  |
 
-| Change | Resolution intent | Forecast class | Actual class | Disposition | Landed | Forecast | Actual | Evidence / learning |
-| --- | --- | --- | --- | --- | --- | ---: | ---: | --- |
-|  |  |  |  |  |  |  |  |  |
+### Funnel summary — optional
 
-## In-flight forecast
-
-Date:
-Delivered capability to date:
-Decision-resolved work to date:
-Administrative closures to date:
-Unresolved loss to date:
-Current completion or initiative-decision forecast:
-Current resource forecast:
-Current Change-funnel forecast:
-Current constraint:
-Material variance and decision:
+| Outcome | Forecast range | Actual |
+| --- | ---: | ---: |
+| Changes entering execution |  |  |
+| Delivered resolutions |  |  |
+| Evidence-backed decisions |  |  |
+| Administrative closures |  |  |
+| Unresolved loss |  |  |
+| Landed Changes |  |  |
+| Released capabilities |  |  |
 
 ## Initiative decision
 
-Date:
-Initiative disposition: released / concluded_without_release / narrowed / pivoted / administratively_closed / unresolved
-Decision quality: weak / sufficient / strong / not_assessed
-Decision owner:
-Decision and reason:
+- Date:
+- Disposition: released / concluded_without_release / narrowed / pivoted / administratively_closed / unresolved
+- Decision owner:
+- Decision and reason:
+- Capability released, if any:
+- Evidence-backed non-landed decisions:
+- Administrative closures:
+- Unresolved work and recovery:
+- Actual human, agent, environment, and elapsed-time investment:
+- Continuing obligations:
 
-### Delivery and resolution actual
+### Variance and learning
 
-Released capability, if any:
-Evidence-backed non-landed decisions:
-Administrative closures and external reasons:
-Unresolved work and recovery action:
-Human resource use by capability:
-Agent and tool spend:
-Environment and CI spend:
-Elapsed time:
-Continuing obligations:
+- What did delivery take compared with the forecast?
+- How did the resolution mix differ?
+- Which assumptions were wrong?
+- What should change in discovery, shaping, architecture, gates, routing, estimates, ownership, or capacity?
 
-### Actual Change funnel
+## Value review
 
-| Stage / resolution | Actual | Forecast comparison | Notes |
-| --- | ---: | ---: | --- |
-| Changes proposed |  |  |  |
-| Changes shaped |  |  |  |
-| Changes entering execution |  |  |  |
-| Changes resolved |  |  |  |
-| `delivered` resolutions |  |  |  |
-| `decision` resolutions |  |  |  |
-| `administrative` resolutions |  |  |  |
-| `unresolved_loss` |  |  |  |
-| Landed Changes |  |  |  |
-| Released capabilities |  |  |  |
+Complete at the horizon named above when something releases.
 
-Delivery variance:
-Resolution variance:
-Lessons:
+- Adoption or usage:
+- Customer outcome versus baseline:
+- Business, operational, or strategic result:
+- Continuing cost:
+- Attribution confidence:
+- Unintended effects:
+- Decision: expand / adapt / hold / stop / retire
 
-### Decision value when nothing released
+## Decision-value review
 
-Uncertainty reduced:
-Decisions improved:
-Reusable artifacts:
-Investment avoided or redirected:
-Counterfactual assumptions and confidence:
-Follow-up or replacement initiative:
+Use this when the initiative concludes without release.
 
-## Value reviews
-
-### <Review date / horizon>
-
-Adoption or usage:
-Customer outcome versus baseline:
-Business, operational, or strategic result:
-Continuing cost:
-Attribution confidence:
-Unintended effects:
-Decision: expand / adapt / hold / stop / retire
-
-## Decision-value reviews
-
-### <Review date / horizon>
-
-Did later evidence confirm or weaken the non-release decision?
-Was investment actually avoided or redirected?
-Were artifacts or learning reused?
-Did another initiative solve the underlying need?
-Did the team stop too early or too late?
-Decision: maintain / reopen / replace / close
-
-## Learning
-
-- What should change in future value forecasts?
-- What should change in Change-funnel and resolution-distribution forecasts?
-- What should change in resource estimates?
-- What should change in product discovery, architecture, gates, skills, routing, resolution, ownership, or capacity planning?
+- Did later evidence confirm or weaken the decision?
+- Was investment actually avoided or redirected?
+- Were findings or artifacts reused?
+- Did another initiative solve the underlying need?
+- Did we stop too early or too late?
+- Decision: maintain / reopen / replace / close

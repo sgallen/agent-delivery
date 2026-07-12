@@ -1,115 +1,105 @@
 # Voice and Positioning
 
-This repo should sound like a serious builder explaining a real shift, not a hype deck trying to sell one.
+This repo should sound like a capable builder explaining a real shift after living through enough software delivery to distrust easy answers.
 
-The voice is:
+The voice is thoughtful, incisive, and distinctly human. It is technically sharp without being cold; confident without pretending the unresolved parts are settled. There is warmth in the honesty, some edge in the refusal to indulge process theater, and enough dry humor to remind the reader that this is still software.
 
-- thoughtful, but not academic
-- direct, but not performative
-- opinionated, but not cultish
-- practical, but not small-minded
-- human, with enough dry humor to remind us this is still software.
+The reader should feel that the author has built things, led through ambiguity, watched good people get trapped in bad systems, and come away with stronger judgment rather than louder certainty.
 
 ## The source of authority
 
 The playbook should sound lived, not borrowed.
 
-The argument grew from using the tools, seeing a team adopt them, and encountering both the leverage and the failure modes. External examples sharpen the thinking and provide evidence; they should not replace the author’s own judgment or make the repo read like a literature review.
+The argument grew from using the tools, experimenting with orchestration, and watching a team adopt them in real work. External sources can sharpen the thinking and support a claim. They should not replace the author’s judgment or turn the repo into a literature review.
 
-Be clear when something is:
+Be clear about whether something is:
 
-- an observed experience
-- an inference or current thesis
-- a practice demonstrated by another team
-- a concrete recommendation to test.
+- observed experience;
+- a current thesis or inference;
+- a practice demonstrated elsewhere;
+- a recommendation worth testing.
 
 The playbook is opinionated and versioned. It should be confident enough to act on and honest enough to change.
 
-Economic claims should be concrete without pretending to be cleaner than they are. Use dated prices, visible assumptions, ranges, confidence, and plain caveats. Do not collapse a builder into a token budget or imply that cost similarity means capability equivalence. The point is that the marginal cost structure changed—and that delivery can become more observable—not that judgment became a commodity.
-
-Resource observability should sound like a way to improve the complete system, not a finance department discovering prompts. Preserve the difference between human capabilities, agent usage, infrastructure, elapsed time, disposition, delivery outcome, decision value, and realized product value. Do not use telemetry as a pretext for simplistic individual rankings.
-
-Do not imply that every planned Change should land. Treat evidence-backed non-landing as a legitimate resolution when it improves a decision, while distinguishing it clearly from abandoned work. Never award “learning value” merely because a branch failed or a bill exists.
-
-When discussing learned estimation, make precision earn its place. A calibrated range based on five comparable Changes is more credible than a six-digit point estimate produced by an impressive model.
-
-When comparing agent spend with employment cost, use the canonical, dated employer-cost benchmark from the economics reference. Do not scatter salary estimates across the prose or label one geography-specific benchmark as the universal cost of a senior engineer.
-
 ## The reader promise
 
-Every page should give the reader at least one of three things:
+Every page should leave the reader with at least one of these:
 
-1. a clearer way to think about the shift;
+1. a clearer way to see the problem;
 2. a useful operating principle;
 3. a concrete next action.
 
-Major claims should answer the quiet reader question: “So what should I do differently?”
+Major claims must answer the quiet question: **So what should I do differently?**
 
-The reader should leave feeling respected, better oriented, and more capable of trying the approach—not merely persuaded that the author has strong opinions.
+The reader should feel respected, better oriented, and more capable—not merely persuaded that the author has strong opinions.
 
-## What we are trying to convey
+## The posture
 
-The core message is not “AI is cool.”
+Lead with the shift, not the machinery.
 
-The economics and operating model of product delivery have changed. Current agents can do meaningful product development work. That creates an opportunity to redesign how builders turn customer intent into shipped value.
+Respect existing practice before explaining why it is no longer sufficient. The old process produced enormous value. It was built around different constraints.
 
-This should feel credible to a senior or staff engineer who has seen process theater, review bottlenecks, brittle architecture, PM/design/engineering handoff pain, and the first wave of AI-generated slop.
+Be precise about risk. This is not sloppy speed, maximum autonomy, or a headcount-reduction pitch. Builders still own judgment, taste, risk, accountability, and value. Agents change how those scarce capabilities should be applied.
 
-They should not feel like they are being pitched magic.
+Resource observability should sound like a way to improve the complete delivery system, not a finance team discovering prompts. Keep human capabilities, agent usage, infrastructure, elapsed time, delivery outcome, decision value, and product value distinct. Never use telemetry as a pretext for simplistic individual rankings.
 
-They should feel like someone named the thing they have been watching happen, then gave them a practical way to respond.
+Not every planned Change should land. Treat a well-evidenced decision to stop, narrow, or redirect as a legitimate outcome. Do not call a failed branch “learning” merely because it consumed money.
+
+When discussing estimation, make precision earn its place. A range based on five comparable Changes is more credible than a six-digit point estimate from an impressive model.
 
 ## Preferred language
 
-Use:
+Use language such as:
 
-- agents can perform meaningful product development work
-- builder attention is the bottleneck
-- human-governed, agent-enabled delivery
-- gates make quality durable
-- evidence replaces handoff theater
-- work-derived resolutions should improve the product or the decision; administrative closure and unresolved loss should still make the record and future planning more honest
-- make resource use observable where it can improve a decision
-- optimize for trustworthy resolution and worthwhile outcomes rather than any input, merge rate, or cost ratio in isolation
-- treat initiatives as value and investment hypotheses, then revisit what actually happened.
+- agents can perform meaningful product development work;
+- builder attention is the bottleneck;
+- human-governed, agent-enabled delivery;
+- manage Changes, not sessions;
+- gates make quality durable;
+- evidence makes the result easier to judge;
+- resolve work honestly, whether it lands or not;
+- make resource use visible where it can improve a decision;
+- treat initiatives as investment hypotheses;
+- optimize for worthwhile outcomes, not activity.
 
 Avoid defaulting to:
 
-- AI revolution
-- autonomous agents everywhere
-- humans out of the loop
-- 10x everything
-- software engineers are obsolete
-- vibes-based shipping
+- AI revolution;
+- autonomous agents everywhere;
+- humans out of the loop;
+- 10x everything;
+- software engineers are obsolete;
+- vibes-based shipping;
 - agentic transformation.
 
-Use “agentic” only when it is the clearest word. It usually is not.
+Use “agentic” only when it is genuinely the clearest word. It usually is not.
 
 ## Writing rules
 
-1. Lead with the shift, not the machinery.
-2. Respect existing practice before explaining why it is insufficient.
-3. Explain the practical consequence of an idea. Do not stop at the insight or make the reader invent the implementation path.
-4. Do not dunk on product, design, engineering, QA, security, or operations. The point is not that these roles are obsolete. Their judgment must be applied differently.
-5. Be precise about risk. This is not sloppy speed.
-6. Prefer short paragraphs. The reader is busy and has probably been in enough meetings.
-7. Explain concepts in plain language before naming them.
-8. Use examples when an abstract point can be made concrete.
-9. Let the edge come from clarity, not volume.
-10. End procedural pages with a definition of done or a next step.
+1. Open with the consequence the reader can feel.
+2. Prefer short paragraphs and concrete verbs.
+3. Explain the idea in plain language before naming the framework around it.
+4. Let one page do one main job. Link rather than re-teaching the whole doctrine.
+5. Use lists when they help someone scan or act, not to avoid writing a coherent paragraph.
+6. Keep taxonomy in its natural home. Narrative pages should not read like schemas.
+7. Use examples where abstraction becomes slippery.
+8. Let the edge come from clarity, not volume.
+9. Admit uncertainty without becoming timid.
+10. End procedural pages with a definition of done or an immediate next step.
 
 ## Content posture by section
 
-- **README:** earn attention, establish that the argument comes from real use, explain the shift quickly, and give the reader a clear path into action.
-- **The Case:** persuade without hype. Build the logic in sequence.
-- **Operating Model:** define the system clearly enough to reason with and adapt.
-- **Playbooks:** help someone do the work. Steps, inputs, outputs, and completion criteria matter.
-- **Reference:** stay terse, copyable, and implementation-oriented.
+- **README:** earn attention, name the shift quickly, show the opportunity, and give the reader a clear way in.
+- **The Case:** persuade without hype. Build the logic in sequence and keep the emotional current visible.
+- **Operating Model:** explain the system clearly enough to reason with and adapt. Do not bury the reader in every field name.
+- **Playbooks:** help someone do the work. Inputs, steps, decisions, evidence, and completion criteria matter.
+- **Reference:** stay terse, exact, and copyable.
+- **Templates:** be useful on Tuesday morning, not merely comprehensive on paper.
 
-## The standing posture
+## The standing test
 
-The old process still works. That is part of why this is hard.
+A senior or staff engineer should be able to read a page and think:
 
-Teams can bolt agents onto the old process and get some benefit. But the deeper advantage comes from redesigning the operating model: how intent is shaped, how agents work, how gates prove quality, how evidence is reviewed, how resource use is governed, how initiatives are judged against realized value, and how each effort improves the system.
+> Someone named the thing I have been watching happen, treated the hard parts seriously, and gave me a practical way to move.
 
-That is the argument. Keep it visible.
+If the page instead sounds like a vendor whitepaper, a policy memo, or a machine explaining its own ontology, rewrite it.

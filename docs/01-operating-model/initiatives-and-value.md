@@ -1,260 +1,154 @@
 # Initiatives and the Value Loop
 
-At the Change level, the system learns what work costs and how it resolves.
+A Change tells you what one piece of work took.
 
-At the initiative level, it learns whether the investment was worth making—and whether stopping, narrowing, or changing course was the right decision.
+An initiative asks the harder question: **was the larger bet worth making?**
 
-An **initiative** is a meaningful product investment: a large feature, a new product line, a platform capability, a reliability program, or another coherent bet that may require many Changes.
+An initiative is a meaningful product investment—a major feature, a platform capability, a reliability program, a new product line, or another coherent bet that will likely require several Changes and enough resources to deserve an explicit thesis.
 
-The Change remains the unit of execution and resolution. The initiative is the unit of investment and product learning.
+Not every Change needs one. Routine maintenance should not require a miniature investment committee.
 
-## Close the complete loop
+## Close the loop
 
 ```text
-Opportunity
+opportunity
   → value hypothesis
-  → investment and resolution forecast
-  → delivery, experiments, and decisions
-  → actual resource use
-  → initiative disposition
-      ↘ release and value realization
-      ↘ evidence-backed conclusion without release
+  → investment range and stop conditions
+  → discovery, delivery, experiments, and decisions
+  → actual resource use and Change outcomes
+  → release or evidence-backed conclusion
+  → later value review
   → learning and reallocation
 ```
 
-Delivery completion is an important milestone. It is not the final answer.
+Delivery completion is a milestone. It is not the final answer.
 
-A team can deliver the wrong thing cheaply and on time. It can also spend a modest amount proving that a promising initiative should not continue. Both the delivered capability and the decision not to invest further should be examined against the original thesis.
+A team can build the wrong thing cheaply and on time. It can also spend a modest amount proving that a promising idea should not continue. The operating model needs to recognize both.
 
-## Initiative lifecycle
+## Start with a value hypothesis
 
-A practical initiative lifecycle is:
-
-```text
-Proposed → Investigating → Shaped → Committed → Delivering → Decision
-                                                             ↙      ↘
-                                                        Released   Concluded
-                                                             ↓      ↓
-                                                        Outcome review
-                                                             ↓
-                                            Expand / Adapt / Hold / Stop / Close
-```
-
-- **Proposed** — an opportunity or problem is worth considering.
-- **Investigating** — customer, market, operational, and technical evidence is being gathered.
-- **Shaped** — the value hypothesis, scope, risks, proof, Change funnel, and investment range are clear enough to decide.
-- **Committed** — the organization has allocated the initial resource envelope.
-- **Delivering** — Changes are being executed and rolled up.
-- **Decision** — evidence supports releasing, continuing, narrowing, replacing, deferring, or stopping the initiative.
-- **Released** — the capability is available to its intended users or operators.
-- **Concluded** — the initiative stopped without release through an explicit, evidence-backed decision.
-- **Outcome review** — actual customer, business, operational, strategic, or decision outcomes are compared with the original thesis.
-
-Not every Change needs a parent initiative. Routine maintenance and small independent improvements can stand alone. Use an initiative when the product decision, resource commitment, or value horizon deserves a durable record.
-
-## Begin with a value hypothesis
-
-Before committing significant resources, state:
+Before committing meaningful resources, write down:
 
 - the problem or opportunity;
 - who should benefit;
-- the customer outcome expected;
-- the business, operational, or strategic value expected;
-- the evidence supporting the belief;
-- the baseline;
-- the indicators that would confirm or weaken it;
-- the time horizon in which value should appear;
+- what customer, business, operational, or strategic value is expected;
+- the evidence supporting that belief;
+- the baseline and the indicators that should move;
+- when the value should appear;
 - confidence and major unknowns;
-- what evidence would justify stopping or changing course before release.
+- what evidence would cause the team to stop, narrow, or change course.
 
-Value may include:
+Value does not have to mean immediate revenue. It may be retention, customer time saved, lower risk, lower operating cost, reliability, market access, strategic learning, or a reusable platform capability.
 
-- new revenue or expansion;
-- retention;
-- customer time saved;
-- customer risk reduced;
-- operating cost reduced;
-- reliability, security, or compliance improvement;
-- access to a market or strategic capability;
-- reduced uncertainty;
-- a reusable platform capability.
+Avoid two equal and opposite mistakes: forcing every initiative into a dubious revenue number, or writing “strategic value” and hoping nobody asks what that means.
 
-Do not force everything into immediate revenue. Do not hide behind vague value language either. Name what should change and how the team expects to recognize it.
+## Forecast the complete investment
 
-## Forecast the complete investment and Change funnel
-
-The initiative forecast should include the resource mix required to test the thesis and, when warranted, turn it into an observable outcome:
+The forecast should include the resources required to test the thesis and, when warranted, deliver it:
 
 ```text
 customer discovery
 + product and design shaping
 + architecture and technical direction
 + agent execution
-+ builder review and exception handling
++ builder and specialist review
 + execution infrastructure
 + rollout and operational support
 + continuing ownership
 ```
 
-It should also account for the fact that not every planned Change will land:
+It should also admit that not every planned Change will land:
 
 ```text
-Changes proposed
-→ Changes shaped
-→ Changes entering execution
-→ Changes resolved
-   ↘ delivered and landed
-   ↘ work-derived decision without landing
-   ↘ administrative closure
-   ↘ unresolved loss
+proposed Changes
+  → shaped Changes
+  → execution starts
+  → delivered work
+  → useful non-landed decisions
+  → administrative closure
+  → unresolved loss
 ```
 
-Use ranges, confidence, and assumptions. A useful forecast may include:
+Use ranges, confidence, assumptions, and a likely outcome mix. Preserve the opportunity, post-discovery, post-shaping, and in-flight forecasts rather than overwriting them. The gaps are where the learning lives.
 
-- expected number and classes of proposed Changes;
-- expected execution starts;
-- expected landed Changes;
-- expected productive non-landed Changes;
-- expected administrative closures;
-- expected unresolved-loss range;
-- builder hours by capability;
-- agent, tool, and environment spend by resolution class;
-- elapsed time;
-- expected review and recovery load;
-- likely operating and maintenance cost;
-- current capacity constraints;
-- meaningful alternatives or staged investment options.
+A useful initiative forecast answers:
 
-The forecast should evolve after discovery, shaping, and early delivery. Preserve each version so the team can learn which stage reduced uncertainty, which assumptions were wrong, and whether it forecast the resolution mix honestly.
+- How much human attention is required, and of what kind?
+- How much agent and infrastructure spend can the team usefully absorb?
+- What review and recovery load should we expect?
+- Which constraint is most likely to slow or limit the work?
+- What would justify another tranche of investment?
+- What would tell us to stop?
 
-## Roll actual delivery and decisions into the initiative
+## Roll actual work into the initiative
 
-Every linked Change contributes:
+Each linked Change contributes its actual resource use, resolution, landing and release status, evidence, rework, uncertainty reduced, and material variance.
 
-- resolution status, class, disposition, landing status, and release status;
-- model, tool, and environment use;
-- builder attention by activity;
-- elapsed time;
-- retries, rework, and recovery;
-- gate and evidence results;
-- uncertainty reduced and decisions changed;
-- estimate variance;
-- new risks or assumptions.
+The initiative record should summarize rather than duplicate every run. The Change Records remain the evidence.
 
-The initiative record should summarize rather than duplicate the run data. The underlying Change Records remain the evidence.
-
-At an initiative checkpoint, compare:
+At each checkpoint, compare:
 
 ```text
-forecast investment
-versus
-actual investment to date
-
-forecast Change funnel
-versus
-actual landed, decision-resolved, administratively closed, and unresolved Changes
-
-forecast capability and decision evidence
-versus
-actual delivered capability and uncertainty reduced
-
-forecast constraints
-versus
-constraints that actually limited progress
+forecast investment      ↔ actual investment
+forecast Change funnel   ↔ actual outcomes
+forecast capability      ↔ delivered capability or decision evidence
+forecast constraint      ↔ the constraint that actually appeared
 ```
 
-A material variance should produce an explanation and a decision, not merely a red number.
+A material variance should lead to an explanation and a decision, not merely a red number in a dashboard.
 
-## Treat productive non-landing as initiative evidence
+## Stopping can be the right outcome
 
-An initiative may correctly conclude without release because:
+An initiative may conclude without release because customer evidence weakened the thesis, a prototype exposed a bad workflow, technical investigation found an unacceptable constraint, the economics stopped making sense, or a better alternative appeared.
 
-- customer evidence weakens the value hypothesis;
-- a prototype shows the workflow is not useful;
-- technical investigation exposes an unacceptable constraint;
-- economics no longer justify the expected value;
-- a better non-build alternative appears;
-- a resource gate shows that further investment is not warranted;
-- another initiative supersedes it.
+That can be a good investment in clarity.
 
-Record the evidence, uncertainty reduced, actual spend, and decision. Do not claim that every stop created value. Distinguish evidence-backed conclusion from unresolved loss.
+It only earns that description when the evidence is preserved, the uncertainty is named, the decision is explicit, and the work changes what happens next. A half-finished initiative that loses sponsorship is an administrative closure. One that simply fades out is unresolved loss. Do not make them sound more noble than they were.
 
-A counterfactual such as “this experiment avoided $500,000 of future spend” can be informative, but it is an estimate. Preserve the assumptions and confidence rather than booking hypothetical savings as realized value.
+Counterfactuals can still be useful. “This experiment probably avoided a $500,000 commitment” may be directionally important. Keep the assumptions and confidence attached; do not book hypothetical savings as realized value.
 
-## Revisit outcomes after release or conclusion
+## Revisit value after the work ends
 
-Choose review points that match the value and decision horizon: perhaps 30, 90, 180, and 365 days, or initiative-specific milestones.
+Choose review points that fit the promised horizon—perhaps 30, 90, 180, and 365 days, or something specific to the product.
 
-For released initiatives, record:
+For released initiatives, ask:
 
-- adoption or usage;
-- customer outcome against baseline;
-- business or operational result;
-- continuing human, agent, and infrastructure cost;
-- unintended consequences;
-- confidence in attribution;
-- whether the thesis should be expanded, adapted, held, stopped, or retired.
+- Did people adopt it?
+- Did the customer outcome move from the baseline?
+- Did business or operational value appear?
+- What continuing human, agent, and infrastructure cost emerged?
+- What unintended consequences showed up?
+- How confident are we that the initiative caused the result?
+- Should we expand, adapt, hold, stop, or retire it?
 
-For initiatives concluded without release, record:
+For initiatives concluded without release, ask whether later evidence supported the stop or redirection, whether the avoided commitment was actually avoided, whether the same uncertainty was rediscovered elsewhere, and whether the preserved artifacts proved useful.
 
-- whether later evidence supports the stop or redirection;
-- whether the avoided or deferred commitment was actually avoided;
-- whether the same uncertainty was rediscovered elsewhere;
-- whether reusable artifacts or platform learning paid off;
-- whether the conclusion should be revisited.
+Keep direct attribution, influenced outcomes, proxies, and counterfactual estimates separate. Product value is often delayed and noisy. Honest uncertainty is more useful than a clean fiction.
 
-Separate evidence types:
-
-- **directly attributable** — the initiative has a credible causal link to the result;
-- **influenced** — the initiative contributed alongside other factors;
-- **proxy** — an early indicator used because the ultimate value has not appeared yet;
-- **counterfactual estimate** — a reasoned estimate of avoided cost or risk, with explicit uncertainty.
-
-Product value and decision value are often noisy and delayed. Preserve uncertainty rather than manufacturing clean attribution.
-
-## Learn from three variances
-
-There are three distinct questions:
+## Learn from three different variances
 
 ```text
 Delivery variance
   What did the initiative consume compared with the forecast?
 
 Resolution variance
-  How did its Changes and the initiative itself resolve compared with the expected funnel?
+  How did its Changes and the initiative itself conclude compared with the expected funnel?
 
 Value variance
-  What did the initiative produce compared with the hypothesis?
+  What value appeared compared with the original thesis?
 ```
 
-For released initiatives, the familiar delivery/value matrix remains useful:
+These reveal different strengths and failures.
 
-| Delivery | Value | Interpretation |
-| --- | --- | --- |
-| Less expensive than expected | More valuable than expected | Expand, reuse, and study what worked |
-| More expensive than expected | More valuable than expected | Product thesis may be strong; improve the delivery model |
-| Less expensive than expected | Less valuable than expected | Efficient execution of an insufficient idea |
-| More expensive than expected | Less valuable than expected | Reconsider the thesis, approach, or continuation |
+A team may estimate delivery well and choose weak opportunities. Another may identify valuable opportunities and repeatedly underestimate the cost of pursuing them. A third may deliver cheaply because it avoids the hard parts that would have created value.
 
-For initiatives concluded without release, ask whether the evidence was strong enough, the decision arrived early enough, and the learning changed future investment. This prevents a team from confusing “nothing shipped” with “nothing was accomplished”—or from calling every abandoned effort a valuable experiment.
+Do not let “on time and on budget” end the conversation.
 
-## Include continuing cost
+## Include the cost of owning the result
 
-The cost of an initiative does not stop at launch.
+Launch is not the end of the investment.
 
-Track, where material:
-
-- ongoing model and agent maintenance;
-- cloud and data infrastructure;
-- human operational ownership;
-- support and customer-success load;
-- compliance and security obligations;
-- incident risk;
-- future migration or retirement cost.
-
-A feature that creates meaningful revenue while consuming nearly as much ongoing support and infrastructure is a different investment from one that produces the same revenue with a light operational footprint.
-
-The full lifecycle may include:
+Where material, include model and agent maintenance, cloud and data infrastructure, support load, operational ownership, compliance and security obligations, incident risk, migration, and retirement.
 
 ```text
 cost to discover
@@ -262,33 +156,14 @@ cost to decide
 cost to create
 cost to launch
 cost to operate
-cost to maintain and evolve
+cost to evolve
 cost to retire
 ```
 
-## Improve product judgment, not only estimation
-
-Over time, initiative records can help answer:
-
-- Which customer signals predict adoption?
-- Which experiments predict a useful stop or pivot?
-- Which kinds of initiatives create the most durable value?
-- Where are value forecasts systematically optimistic or timid?
-- Where are landing rates lower than forecast, and why?
-- Which discovery activities reduce expensive product rework?
-- Which platform investments make later Changes cheaper?
-- Which initiatives create hidden support or operating cost?
-- Which constraints repeatedly prevent useful agent spend from being absorbed?
-- Which non-landed efforts produced durable learning, and which merely disappeared?
-
-Historical delivery and resolution evidence improves cost and funnel forecasts.
-
-Historical product outcomes improve value forecasts.
-
-Together they improve investment decisions.
+A feature that creates revenue while consuming nearly as much ongoing support is a different product bet from one with a light operational footprint.
 
 ## Rule
 
-Treat an initiative as an investment hypothesis, not a collection of tickets.
+Treat an initiative as an investment hypothesis, not a folder full of tickets.
 
-State the value expected, forecast the complete resource envelope and Change funnel, roll up actual delivery, non-landed decisions, administrative closures, and unresolved loss, revisit outcomes after release or conclusion, and use all three forms of variance to improve what the organization chooses and how it delivers.
+Preserve what the team expected, what it spent, how the work resolved, what value later appeared, and what the next decision should learn from the difference.

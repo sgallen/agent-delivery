@@ -1,76 +1,56 @@
 ## Change
 
-Issue / Change:
-Parent initiative:
+- Issue / Change:
+- Parent initiative:
+- Workpad:
+
+## What happened
+
+What became observably true, or what decision does the evidence support?
 
 ## Resolution proposal
 
-- Resolution status: resolved / unresolved
-- Resolution class: delivered / decision / administrative / unresolved_loss
+- Class: delivered / decision / administrative / unresolved_loss
 - Disposition:
 - Landed: true / false / not_applicable
 - Released: true / false / not_applicable
-- Resolution quality: weak / sufficient / strong / not_assessed
 
-A PR is a review package, not proof that the Change must merge. Use it for a landing candidate or when the branch itself is useful decision evidence.
+A PR is a review package, not proof that the Change must merge.
 
-## Outcome or decision
+## Criteria, gates, and evidence
 
-What became observably true, or what decision should the evidence support?
-
-## Summary
-
-What changed, what was tested or investigated, and why?
-
-## Criteria
-
-### Landed acceptance criteria
-
-- [ ]
-
-### Useful non-landed resolution criteria
-
-- [ ]
-
-## Gates and evidence
-
-| Gate or criterion | Result | Evidence |
+| Claim or gate | Result | Evidence |
 | --- | --- | --- |
 |  |  |  |
 
-- Tests or experiment output:
-- Screenshots, video, logs, traces, benchmarks, or research:
-- Reviewer-agent findings:
-- Preview or deployment:
+- Tests / experiment output:
+- UI, runtime, research, logs, traces, or benchmarks:
+- Reviewer findings:
 - Known gaps or waivers:
 
-## Resource and variance summary
+## Scope and risk
 
-- Forecast stage and range:
-- Actual model, tool, and environment cost:
-- Builder attention:
-- Failed, discarded, recovery, or superseded attempts included:
-- Threshold decisions:
-- Forecast variance and explanation:
-- Data-quality limits:
+- Non-goals and forbidden surfaces respected:
+- Risk:
+- Rollout / release:
+- Rollback:
+- Continuing obligations:
 
-## Decision evidence when nothing should land
+## Resource summary — when measured
 
-- Decision question:
-- Evidence supporting the disposition:
-- Uncertainty reduced:
-- Alternatives considered:
+- Forecast and actual:
+- Failed or discarded attempts included:
+- Material variance or threshold decision:
+- Data gaps:
+
+## Decision evidence — when nothing should land
+
+- Question answered:
+- Evidence and uncertainty reduced:
 - Decision owner:
 - Follow-up or explicit stop:
 
-## Risk, rollout, and continuing obligations
+## Learning
 
-- Risk:
-- Rollout or release plan:
-- Rollback plan:
-- Continuing human, agent, infrastructure, support, security, or compliance cost:
-
-## Learning checkpoint
-
-- What should change in the product, estimate, workflow, gate, test, skill, routing, architecture, ownership, or initiative forecast?
-- Parent initiative updated:
+- What should change in the product or delivery system?
+- Initiative updated:

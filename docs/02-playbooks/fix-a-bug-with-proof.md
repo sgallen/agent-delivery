@@ -1,168 +1,101 @@
 # Playbook: Fix a Bug with Proof
 
-Use this for a low- or medium-risk bug reported by a customer, support, monitoring, or another builder.
+A bug is one of the best places to begin because reality has already supplied a test: something that should work does not.
 
-This is a strong first Change class because the desired outcome is usually concrete: reproduce the failure, make the smallest credible fix, and prove the behavior changed without introducing something else.
+Use this for low- or medium-risk defects reported by customers, support, monitoring, or another builder. The path is simple:
 
-## Outcome
+```text
+report → reproduce → fix → prove → review by risk → learn
+```
 
-The Change produces:
+The hard part is resisting the temptation to skip the reproduction and trust a plausible edit.
 
-- a deterministic reproduction signal
-- a focused fix
-- a regression test or eval when practical
-- passing required gates
-- evidence of the before and after behavior
-- a reviewable Change Record
-- the run and Change resource record, at the workflow's adopted maturity
-- any useful system learning.
-
-## Step 1: Shape the Change Intent
+## 1. Shape the Change
 
 Capture:
 
-- who or what observed the problem
-- expected behavior
-- actual behavior
-- affected route, workflow, service, or customer class
-- known logs, screenshots, traces, or examples
-- non-goals and forbidden changes
-- risk and reversibility
-- required validation
-- parent initiative, when the bug affects a larger product investment
-- a resource forecast, likely range, confidence, and thresholds when the workflow uses them.
+- who or what observed the problem;
+- expected and actual behavior;
+- the affected route, workflow, service, or customer group;
+- useful logs, screenshots, traces, or examples;
+- non-goals and forbidden changes;
+- risk, reversibility, and required proof;
+- a parent initiative or resource range when either will improve the decision.
 
-Avoid turning the ticket into a theory about the implementation. Describe the outcome and the evidence. Let the investigation earn the diagnosis.
+Describe the failure, not your preferred implementation theory. Let the investigation earn the diagnosis.
 
-## Step 2: Reproduce before fixing
+## 2. Reproduce before fixing
 
-The first behavioral gate is reproduction.
+Ask the agent for one stable failure signal:
 
-Ask the agent to produce one of:
+- a failing unit or integration test;
+- a failing eval;
+- a deterministic browser journey;
+- a log or trace query;
+- a minimal reproduction script;
+- a clear before-state screenshot or video.
 
-- a failing unit or integration test
-- a failing eval
-- a deterministic browser journey
-- a log or trace query that exposes the failure
-- a minimal reproduction script
-- a stable before-state screenshot or video.
+Put the signal in the workpad.
 
-Record the reproduction signal in the workpad.
-
-If the agent cannot reproduce the issue with reasonable effort, do not let it guess at a fix. Reclassify the Change as an investigation, improve the context, or engage a builder.
+When the issue cannot be reproduced with reasonable effort, do not let the agent guess its way into the codebase. Improve the context, engage a builder, or resolve the work as an investigation with an honest evidence record.
 
 A fix without a credible failure signal is often just a plausible edit wearing confidence as a hat.
 
-## Step 3: Investigate in an isolated environment
+## 3. Investigate and make the smallest credible fix
 
-Give the agent:
+Work in the isolated environment. Give the agent the Change, workpad, reproduction, repository context, observability tools, gate profile, and scope boundaries.
 
-- the issue and workpad
-- the relevant repository context
-- the failing signal
-- browser, logs, metrics, or traces when applicable
-- the gate profile
-- the scope boundaries.
+The workpad should show the likely cause, the evidence behind it, the intended fix, material uncertainty, and any change in the forecast.
 
-The agent should update the workpad with:
+The implementation should address the reproduced cause, preserve unrelated behavior, and avoid opportunistic product or architecture work. A worthwhile side discovery becomes another Change; it does not hitch a ride because the branch is open.
 
-- likely cause
-- evidence supporting the diagnosis
-- intended fix
-- risks or ambiguities
-- validation plan
-- actual resource use to date and a revised completion forecast when the investigation changes the estimate.
+Use an ExecPlan only if the investigation becomes genuinely complex.
 
-For a straightforward bug, a compact workpad is enough. Use an ExecPlan only if the investigation becomes genuinely complex.
+## 4. Prove the behavior changed
 
-## Step 4: Implement the smallest credible fix
+Run the proof in this order:
 
-The implementation should:
-
-- address the reproduced cause
-- stay within the stated scope
-- avoid opportunistic product or architecture changes
-- add or retain the regression proof
-- preserve unrelated behavior.
-
-If the agent finds a worthwhile out-of-scope improvement, create another Change Intent. Do not smuggle it into the current diff because the branch was already open.
-
-## Step 5: Prove the fix
-
-Run validation in this order:
-
-1. The original reproduction now passes or no longer occurs.
-2. The new regression test or eval passes.
-3. Targeted tests for the affected surface pass.
+1. The original reproduction no longer fails.
+2. A regression test or eval passes when practical.
+3. Targeted checks for the affected surface pass.
 4. Required mechanical gates pass.
-5. Relevant browser, log, trace, accessibility, design, or architecture checks pass.
-6. Scope and forbidden-change checks pass.
+5. Browser, runtime, accessibility, design, architecture, or security checks pass where relevant.
+6. Scope and forbidden-surface checks pass.
 
-For user-facing bugs, capture before and after evidence when doing so adds real confidence.
+For user-facing bugs, capture before and after evidence when it adds confidence. For runtime bugs, show the relevant log or trace signal before and after.
 
-For runtime bugs, include the relevant log or trace signal before and after the fix.
+The point is not to collect artifacts. It is to make the claim easy to judge.
 
-## Step 6: Prepare the review package
+## 5. Prepare review around risk
 
-The PR and workpad should make it easy to answer:
+The issue, workpad, and PR should answer:
 
 - What was broken?
 - How was it reproduced?
 - What changed?
 - What proves the fix?
-- What proves unrelated behavior was respected?
+- What proves the Change stayed in scope?
 - Where is human judgment still needed?
-- What did the Change resolution consume, which failed or discarded attempts are included, and did a threshold require a decision?
+- What did the work consume, including material failed attempts?
 
-A reviewer should not have to reconstruct the bug from chat history or rerun the entire investigation to understand the claim.
+Low-risk, highly observable bugs may eventually need only evidence review. Higher-risk work may still need code, architecture, product, or security judgment.
 
-## Step 7: Apply risk-appropriate review
+The goal is not to remove review. It is to stop charging every Change the same human toll regardless of consequence or proof.
 
-Low-risk and highly observable bugs may need only evidence review once the system has earned trust for that class.
+## 6. Improve the system
 
-Higher-risk bugs may still require code, architecture, security, or product review.
+Ask why the bug escaped and what would make the next one cheaper to understand:
 
-The goal is not to eliminate review. It is to match review to the risk and uncertainty rather than applying the same human tollbooth to every Change.
-
-## Step 8: Complete the learning checkpoint
-
-Ask:
-
-- Why did the bug escape existing gates?
-- Was the issue easy for the agent to understand?
+- Was the failure hard to observe?
 - Was reproduction too manual?
-- Did the environment expose the right signals?
-- Should the regression test join a broader suite?
+- Did the repository lack context?
+- Should the regression join a broader suite?
 - Did the agent repeat a known bad pattern?
-- Can this class of bug require less builder attention next time?
-- Was the selected model, skill, or environment economical for the delivered resolution—or for the evidence-backed decision if the proposed fix should not land?
-- Did the actual fall inside the forecast range, and what should change in the estimator?
+- Did the selected model, skill, or environment create avoidable recovery?
+- Did the actual resource use fall outside the expected range?
 
-Promote only the learning that will be useful again.
+Promote only the learning likely to matter again: a better issue field, signal, test, skill, gate, routing rule, or repository explanation.
 
 ## Definition of done
 
-The bug Change is complete when:
-
-- the original failure is reproducible or explicitly documented as not reproducible
-- the fix is focused and within scope
-- the regression proof passes
-- required gates are green or an accountable waiver is recorded
-- evidence supports the before and after claim
-- the workpad and PR tell the story without private context
-- resource actuals, failed attempts, and material variance are recorded when measured
-- the parent initiative is updated when one exists
-- the learning checkpoint is complete.
-
-The useful loop is simple:
-
-```text
-report
-  → reproduce
-  → fix
-  → prove
-  → review by risk
-  → learn
-```
-
-Do that well enough, and a customer-reported bug can move from signal to reviewable resolution without waiting in line for someone to manually carry every step.
+The Change is complete when the failure is credibly reproduced or explicitly documented as not reproducible, the fix is focused, the proof supports the before-and-after claim, required judgment is recorded, resource actuals are present or marked incomplete, and the next builder does not need private chat history to understand what happened.

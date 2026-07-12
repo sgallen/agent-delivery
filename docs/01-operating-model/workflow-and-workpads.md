@@ -1,116 +1,80 @@
 # `WORKFLOW.md` and Workpads
 
-`WORKFLOW.md` and the workpad solve different problems.
+Three artifacts answer three different questions:
 
-The ticket says what this Change should achieve.
+- the **Change Intent** says what this work should achieve;
+- **`WORKFLOW.md`** says how this repository handles work;
+- the **workpad** says what is happening now.
 
-`WORKFLOW.md` says how this repository handles work.
+An initiative record, when one exists, explains why the larger bet is worth considering and when its value will be revisited.
 
-The workpad says what is happening right now.
+## Manage Changes, not sessions
 
-An initiative record, when one exists, says why the larger investment was worth considering and how its value will be revisited.
+An agent session is an implementation detail. The Change is the thing the team is responsible for.
 
-## Manage Changes, not agent sessions
+That means an agent can stop, restart, compact context, switch models, or hand the work to another agent without losing the desired outcome or the state of the decision.
 
-A coding session is an implementation detail. The Change is the unit that matters.
+The system should make it easy to see which Changes are ready, running, proving, blocked, approaching a resource threshold, waiting for judgment, or resolved. It should not require a builder to supervise a row of terminal tabs and remember which one was doing something important.
 
-This is one of the useful shifts in [Symphony](https://openai.com/index/open-source-codex-orchestration-symphony/): the issue tracker becomes the control plane, and the orchestrator is responsible for keeping eligible work moving. An agent can stop, restart, compact context, change models, or hand work to another agent without changing the desired outcome.
+That is not orchestration. It is a new kind of babysitting.
 
-The system should answer:
+## `WORKFLOW.md`: the standing contract
 
-- Which Changes are ready?
-- Which are actively progressing?
-- Which are proving their outcome?
-- Which are approaching or beyond a resource threshold?
-- Which are blocked, and why?
-- Which need builder judgment?
-- Which are ready for a decision?
-- Which are resolved as delivered, decision, administrative, or unresolved loss?
-- Which initiatives are consuming more or creating less value than forecast?
+`WORKFLOW.md` should answer the questions that recur across Changes:
 
-It should not require a builder to supervise a row of terminal tabs and remember which one was doing something important. That is not orchestration. It is a new kind of babysitting.
-
-## `WORKFLOW.md`
-
-`WORKFLOW.md` is the standing operating contract for the repository. It should answer:
-
-- What lifecycle states does a Change move through?
+- What states does work move through?
 - What makes a Change ready?
-- Where must agents record progress?
+- Where do agents record live state?
 - Which gate profiles exist?
-- What evidence is expected by Change type?
-- How should failed gates be handled?
-- Which resource use is captured?
-- Which default warnings, soft limits, hard limits, or approval rules apply?
-- What must happen before a run pauses for resource reasons?
-- When should a builder be engaged?
-- When is work ready for a decision, and what permits each resolution class?
-- How are landing and release recorded separately?
-- What should happen at the learning checkpoint?
-- How do Changes link to initiatives when the repository uses them?
+- What evidence is expected?
+- How are failed gates and retries handled?
+- Which resources are recorded, and what do thresholds do?
+- When must a builder be engaged?
+- What is required before a Change can resolve?
+- How do Changes link to initiatives and later value reviews?
 
 Keep it concrete enough to execute and short enough to follow.
 
-If `WORKFLOW.md` becomes a novella, agents and humans will both skim it. The novella will then become the real source of truth only during incidents, which is not a compliment.
+If `WORKFLOW.md` becomes a novella, agents and humans will both skim it. The novella will then become the source of truth only during incidents, which is not a compliment.
 
-## Workpads
+## Workpads: the live surface
 
-Every orchestrated Change should have exactly one workpad.
+Every orchestrated Change should have one canonical workpad.
 
-In the default GitHub implementation, the workpad is a single persistent issue comment headed:
+In the default GitHub implementation, it is a single persistent issue comment headed:
 
 ```md
 ## Agent Workpad
 ```
 
-The agent finds or creates that comment and updates it in place throughout the Change.
+Update that comment in place. Do not scatter status across a sequence of progress comments, private chats, local notes, and a PR body that was last accurate three hours ago.
 
-The workpad is not:
+The workpad should contain only what another builder or agent needs to resume or judge the work:
 
-- the issue body
-- the initiative record
-- the PR body
-- a private chat transcript
-- a thread of progress comments
-- an ephemeral local scratch file
-- a dumping ground for raw logs or request events.
-
-It should contain the live state a builder or another agent needs to resume or review the work:
-
-- current status, run identity, and environment
-- parent initiative, when any
-- resolution intent, decision question, and expected resolution
-- plan and checklist
-- mirrored delivered and non-landed resolution criteria
-- validation and gate state
-- discoveries and decisions that affect execution
-- blockers and builder questions
-- resource estimate, actual to date, completion forecast, and threshold status when used
-- evidence links
-- candidate resolution class and disposition, landing, release, quality, and learning value
-- handoff summary
+- current status, run identity, branch, and environment;
+- parent initiative when relevant;
+- outcome or decision sought;
+- current plan and checklist;
+- gate and validation state;
+- discoveries, blockers, and decisions;
+- resource actuals, forecast, and threshold status when used;
+- evidence links;
+- proposed outcome and handoff;
 - learning checkpoint.
 
-Large artifacts and raw usage events belong in CI, the run directory, or an observability store. The workpad should summarize and link.
+Large artifacts and raw request events belong in CI, the run directory, or an observability store. Summarize and link.
 
-## Resource updates belong with execution state
+## Update the forecast only when it matters
 
-A forecast is useful only when it can change a decision.
+A forecast is useful when it can change a decision.
 
-Update the workpad when:
+Update the workpad when discovery changes the expected work, spend approaches a threshold, a failed path changes the completion range, a different model or environment is needed, scope must narrow, or a builder authorizes more resource.
 
-- discovery materially changes the expected work
-- spend or builder attention approaches a threshold
-- a failed approach changes the completion forecast
-- the required model, reviewer, or environment class changes
-- scope must be narrowed or a prerequisite Change created
-- a builder authorizes more resource.
-
-Record the cause and decision, not merely the new number.
+Record the cause and the decision, not merely the new number:
 
 ```text
 Variance:
-The existing permission abstraction cannot support the required boundary.
+The existing permission layer cannot support the required boundary.
 
 Options:
 1. Continue current scope: $52–$65
@@ -123,28 +87,23 @@ Narrow scope; follow-up Change created.
 
 ## When no ticket exists
 
-For local exploration, a file under `.agent/workpads/` is acceptable.
+For local exploration, a file under `.agent/workpads/` is fine.
 
-When a ticket exists, the persistent ticket comment is the canonical workpad. A local file may mirror it for tooling convenience, but it should not become a conflicting source of truth.
+When a ticket exists, its persistent workpad comment is canonical. A local file may mirror it for tooling convenience, but it should not become a competing truth.
 
-Exploration should still preserve run attribution and an explicit resolution when the economics or learning matter. Administrative stops and unresolved losses should remain distinct from work-derived decisions.
+Even informal exploration should keep attribution and an explicit outcome when the spend or learning matters.
 
-## Why this matters
-
-Traditional work often scatters truth across tickets, chat, design files, branches, provider dashboards, and people’s memories.
-
-The split is deliberate:
+## The separation is deliberate
 
 | Artifact | Holds |
 | --- | --- |
-| Initiative record | Value hypothesis, investment forecast, rollup, and later value reviews |
-| Issue body | Stable Change Intent and original resource posture |
-| `WORKFLOW.md` | Standing repo process and resource policy |
-| Workpad | Live plan, proof, forecast, threshold status, and handoff |
-| Run records | Detailed provider, tool, environment, attempt, and builder-attention data |
-| PR, when one exists | Review package for a delivered or decision proposal |
+| Initiative record | Value thesis, investment range, rollup, later reviews |
+| Issue body | Stable Change Intent and original assumptions |
+| `WORKFLOW.md` | Standing repository process |
+| Workpad | Live plan, proof, forecast, decisions, handoff |
+| Run records | Detailed provider, tool, environment, attempt, and human-attention data |
+| PR, when one exists | Review package for work that may land or support a decision |
 | Artifact store | Large evidence and raw logs |
-| Resolution record | Status, class, disposition, landing, release, evidence, actuals, and follow-up |
-| Learning checkpoint | What should improve next |
+| Change Record | Final outcome, actuals, and learning |
 
-That separation makes interruption, handoff, recovery, and later analysis possible without making one document carry the entire history of software development.
+The split makes interruption, handoff, recovery, and later analysis possible without forcing one document to carry the entire history of software development.

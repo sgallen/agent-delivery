@@ -1,10 +1,12 @@
 # Changes
 
-The practical unit of product work is a **Change**.
+A model call is not a unit of delivery. Neither is an agent session, a branch, or even a pull request.
 
-A ticket is a useful starting surface because teams already understand tickets and tools like GitHub Issues provide shared visibility. But the Change is larger than the ticket. It carries the work from intent through execution, proof, resource use, decision, resolution, and learning.
+The practical unit is a **Change**: one bounded piece of product work carried from intent through execution, proof, decision, resource use, and learning.
 
-A Change may stand alone or belong to a larger [initiative](initiatives-and-value.md). The Change is the unit of execution and resolution. The initiative is the unit of product investment and value learning.
+A Change may be a bug fix, a feature, an investigation, an experiment, a migration, or an operational improvement. It may stand alone or belong to a larger [initiative](initiatives-and-value.md).
+
+The Change is where the work becomes governable. It is also where cost finally has context.
 
 ## Lifecycle
 
@@ -13,128 +15,70 @@ Proposed → Shaped → Ready → Running → Proving → Decision → Resolved
                     ↘ Blocked ────────────────────────↗
 ```
 
-- **Proposed** — a problem, opportunity, or desired outcome has been identified.
-- **Shaped** — the intent, constraints, risk, likely proof, resolution intent, and any material resource assumptions are clear enough to evaluate.
-- **Ready** — the Change has a gate profile, an authorized resource posture when required, and enough context for the system to begin.
+- **Proposed** — someone has named a problem, opportunity, or outcome.
+- **Shaped** — the intent, constraints, risk, likely proof, and important stop conditions are clear enough to judge.
+- **Ready** — the repository, environment, gate profile, and any required resource authority are in place.
 - **Running** — an agent or builder-agent pair is implementing, investigating, or experimenting.
-- **Proving** — the required gates, evidence, decision criteria, and completion forecast are being resolved.
-- **Decision** — the evidence is ready for accountable judgment about whether to land, continue, narrow, replace, defer, or stop the work.
-- **Resolved** — the Change has an explicit disposition, sufficient evidence for that disposition, final resource actuals, and a learning checkpoint.
-- **Blocked** — progress is temporarily paused. A blocker is not a final disposition unless a later decision resolves the Change as technically infeasible, deprioritized, stopped, or otherwise concluded.
+- **Proving** — the system is gathering the evidence needed to judge the result.
+- **Decision** — the work is ready for an accountable call: land it, continue, narrow, replace, defer, or stop.
+- **Resolved** — the disposition is explicit, the evidence supports it, the resource record is complete enough, and the learning checkpoint is closed.
+- **Blocked** — progress is paused, not finished. A blocker becomes a final outcome only when someone makes that decision.
 
-A Change does not need to merge or release to become resolved.
+## A Change can resolve without landing
 
-```text
-Decision
-  → accepted and landed or released
-  → experiment concluded
-  → hypothesis rejected
-  → technically infeasible
-  → stopped at a resource gate
-  → superseded or deprioritized
-  → rejected at review
-```
+Merge status is one fact. It is not the whole outcome.
 
-The important distinction is not simply **merged versus not merged**. It is whether the Change produced delivered capability, a work-derived decision, an accountable administrative closure, or unresolved loss.
+Use four broad resolution classes:
 
-## Resolution, landing, and learning are separate
+| Class | What happened |
+| --- | --- |
+| `delivered` | The intended capability was accepted and landed or released according to policy. |
+| `decision` | Work-derived evidence supported a useful decision to stop, narrow, replace, defer, or take another path. |
+| `administrative` | An accountable owner closed the work for an external priority, ownership, policy, or funding reason. |
+| `unresolved_loss` | Work entered execution but ended without enough evidence, preserved context, or accountable judgment to resolve it well. |
 
-Record at least four aspects of the outcome:
+Keep the specific disposition separate—`accepted`, `experiment_concluded`, `hypothesis_rejected`, `technically_infeasible`, `superseded`, `cancelled_external`, and so on. Also record whether anything **landed** and whether it was **released**. Those facts answer different questions.
 
-```text
-resolution status
-  resolved / unresolved
+This may feel fussy until a team tries to learn from a quarter of work and discovers that “closed” means five different things.
 
-resolution class
-  delivered / decision / administrative / unresolved_loss
+## Productive non-landing has to earn the name
 
-disposition
-  the specific conclusion
+A prototype that disproves a product assumption can be a good Change. A branch that disappeared because nobody decided what to do with it is not the same thing.
 
-landed
-  true / false / not_applicable
+A useful non-landed resolution should show:
 
-released
-  true / false / not_applicable
-```
-
-- A **delivered resolution** means the intended product or system change was accepted and landed or released according to policy.
-- A **decision resolution** means work-derived evidence produced a useful non-landed decision: stop, narrow, replace, defer, or pursue a different path.
-- An **administrative resolution** means the Change was explicitly closed for an external priority, ownership, policy, or funding reason without claiming material learning from the work.
-- An **unresolved loss** means work entered execution and ended without enough evidence, preserved context, or explicit judgment to support delivery, decision, or accountable closure.
-
-These classes should not be blended into one success rate. They answer different questions.
-
-A recommended disposition vocabulary is:
-
-```text
-accepted
-experiment_concluded
-hypothesis_rejected
-technically_infeasible
-stopped_at_resource_gate
-superseded
-deprioritized
-rejected_at_review
-cancelled_external
-abandoned_without_resolution
-```
-
-Repositories may adapt the vocabulary, but they should preserve the distinction among delivered work, work-derived decisions, accountable administrative closure, and unresolved loss.
-
-## Productive non-landing has a bar
-
-Do not label every failed attempt “learning.” A non-landed Change is productively resolved when the record makes clear:
-
-- what decision or uncertainty the work was meant to address;
-- what resource envelope or stop condition bounded it;
-- what evidence was produced;
-- why the evidence supports the disposition;
+- the decision or uncertainty the work was meant to address;
+- the resource envelope or stop condition;
+- the evidence produced;
+- why that evidence supports the decision;
 - what assumption, forecast, or next action changed;
-- which artifacts or findings are reusable;
-- which follow-up Change, initiative decision, or explicit stop follows.
+- what should be reused, followed up, or deliberately left alone.
 
-A prototype that disproves a product assumption can be successful. A branch that disappears because nobody decided what to do with it is not the same outcome.
+Do not award “learning value” after the fact because a run failed expensively. The evidence has to change a decision.
 
-## Artifacts
+See [Not All Work Is Merge-Bound](not-all-work-is-merge-bound.md) for the operating principle and [Resolve a Change That Does Not Land](../02-playbooks/resolve-a-change-that-does-not-land.md) for the procedure.
 
-```text
-Change Intent
-  + WORKFLOW.md
-  + optional Initiative
-  → Workpad
-  → Active Change and Run records
-  → Gates / evidence / resource checkpoints / decision
-  → Change Record and explicit disposition
-  → Initiative rollup, when applicable
-  → Learning Checkpoint
-```
+## The three durable artifacts
 
-### Change Intent
+A Change needs three kinds of record.
 
-The Change Intent is the stable request. In the default GitHub implementation, it lives in the issue body.
+### 1. Change Intent
 
-It should capture:
+The issue body is the stable request. It should make clear:
 
-- the desired outcome;
+- the outcome or decision sought;
 - why it matters;
-- customer, business, or technical context;
-- parent initiative, when one exists;
-- resolution intent: deliver, experiment, investigate, or either depending on evidence;
-- the decision question when the work is exploratory;
-- acceptance criteria for a landed outcome;
-- criteria for a useful non-landed resolution when relevant;
-- non-goals and forbidden changes;
-- risk level;
-- gate profile;
-- validation and evidence expectations;
-- stop conditions;
-- expected builder engagement;
-- an optional resource forecast, range, confidence, and threshold policy when the decision warrants it.
+- the relevant customer, business, and technical context;
+- the parent initiative, when one exists;
+- landed acceptance criteria;
+- useful non-landed criteria when the work is exploratory;
+- non-goals, risks, forbidden changes, and stop conditions;
+- the expected proof and builder involvement;
+- an optional resource range and threshold policy when the decision warrants it.
 
-The issue body should not be rewritten continuously as the work unfolds. It is the original intent and forecast, not the scratchpad.
+Do not continuously rewrite the issue as the work unfolds. Preserve the original intent and forecast so the team can later see what it misunderstood.
 
-### Workpad
+### 2. Workpad
 
 The workpad is the live execution surface. In the default GitHub implementation, it is one persistent issue comment headed:
 
@@ -142,116 +86,77 @@ The workpad is the live execution surface. In the default GitHub implementation,
 ## Agent Workpad
 ```
 
-It holds the current plan, checklist, validation state, blockers, discoveries, evidence links, resource status, updated forecast, proposed disposition, and decision state.
+It holds the current plan, checklist, validation state, discoveries, blockers, evidence links, resource status, forecast changes, and proposed disposition.
 
-A small Change may only need:
+A small Change may need little more than:
 
 ```text
-resolution intent: deliver
-estimate: not set
-spent: recorded automatically
-threshold: none
+intent: deliver
+plan: reproduce → fix → prove
+resource posture: record actuals; no threshold
+current decision: continue
 ```
 
-A governed Change may show:
+A governed Change may show a range, current spend, forecast at completion, soft and hard limits, and the options available if the forecast moves.
+
+The workpad is a decision surface, not decorative accounting.
+
+### 3. Change Record
+
+At the end, the issue, workpad, PR when one exists, run records, and linked artifacts should make it possible to reconstruct:
+
+- what the team intended;
+- what the system attempted;
+- what evidence it produced;
+- how the Change resolved and whether anything landed or released;
+- what it consumed across agents, tools, environments, time, retries, and builder attention;
+- which attempts failed, were discarded, or were superseded;
+- what the team learned and what happens next.
+
+Not every Change needs monetized human cost. Raw effort, capability type, assumptions, and data-quality notes are often enough.
+
+## Resource checkpoints
+
+A threshold should create a useful decision, not merely turn the agent off.
 
 ```text
-resolution intent: deliver or stop with evidence
-forecast: $25–$45, medium confidence
-spent: $31
-current completion forecast: $39–$52
-soft limit: $50
-hard limit: $75
-status: approaching soft limit
-current decision: continue within scope
-```
-
-The point is a useful decision surface, not decorative accounting.
-
-### Active Change
-
-The Active Change is the work in motion. It normally has:
-
-- a branch and worktree;
-- an isolated execution environment;
-- one or more agent runs;
-- normalized run-resource records;
-- logs and artifacts;
-- browser/debug access when relevant;
-- gate results;
-- a PR when the likely disposition is to land the work.
-
-Each run should be attributable to the Change even when the agent, model, provider, or environment changes. A run is an attempt. It is not the final Change outcome.
-
-### Resource checkpoints
-
-A resource threshold should trigger an explicit behavior:
-
-```text
-warning
-  → update forecast
+approaching threshold
+  → update the forecast and warn
 
 soft limit
-  → checkpoint, explain variance, and propose options
+  → explain the variance and propose options
 
 hard limit
-  → preserve state, stop additional consumption, and request a decision
+  → preserve state, stop further consumption, and ask for a decision
 ```
 
-The builder may approve more resource, narrow scope, change the route, create a prerequisite Change, conclude the experiment, or stop. The checkpoint should leave the work resumable and capable of becoming an evidence-backed decision resolution.
+The decision may be to continue, narrow scope, change models, create a prerequisite Change, conclude the experiment, or stop. Whatever happens, leave the work resumable and the evidence intact.
 
-### Decision and Change Record
+## Source of truth
 
-At decision time, the team or authorized automation should select a disposition and verify that the evidence supports it.
-
-At resolution, the issue, workpad, PR when one exists, run records, and linked artifacts should form a durable record of:
-
-- the original intent and resolution criteria;
-- the original and later forecasts, when used;
-- resolution status, class, disposition, and landing and release status;
-- the implementation, experiment, or investigation summary;
-- the gates that passed, failed, or became not applicable;
-- the evidence supporting delivery or non-landing;
-- the review and resource decisions;
-- actual agent, tool, environment, elapsed-time, and builder-attention use;
-- failed, discarded, and superseded attempts;
-- resolution quality, learning value, and material uncertainty reduced;
-- reusable artifacts and follow-up Changes;
-- release or deployment notes when work landed;
-- rework, rollback, or later defect when known;
-- the learning checkpoint;
-- the parent initiative rollup when one exists.
-
-Not every Change needs a monetized human-cost calculation. Preserve the raw resource use and data-quality notes so later analysis can remain honest.
-
-## Source of truth by concern
-
-| Concern | Default source of truth |
+| Concern | Default home |
 | --- | --- |
-| Initiative value thesis and investment | Initiative record |
-| Desired outcome, decision question, and constraints | Issue body / Change Intent |
-| Original Change forecast and policy | Issue body or linked resource summary |
-| Standing repo process | `WORKFLOW.md` |
-| Live plan, spend, forecast, and status | Persistent workpad comment |
+| Desired outcome, constraints, original forecast | Issue body / Change Intent |
+| Standing repository process | `WORKFLOW.md` |
+| Live plan, status, forecast, and decision | Persistent workpad |
 | Code and implementation | Branch / worktree / PR |
-| Raw run resource use | Per-run resource record |
-| Gate results and large evidence | CI and artifact store |
-| Resolution decision | Workpad, PR when present, and required reviews |
-| Completed Change actuals and disposition | Change Record / resource summary |
-| Durable history | Linked record across initiative, issue, workpad, PR, run data, and artifacts |
+| Raw run and environment use | Per-run resource record |
+| Tests, gate results, and large artifacts | CI and artifact store |
+| Final disposition and actuals | Change Record / resource summary |
+| Initiative thesis and value review | Initiative record |
 
 ## Rule
 
-Keep the Change coherent enough that another builder or agent can answer:
+Another capable builder or agent should be able to answer:
 
 ```text
 What were we trying to achieve or learn?
 What happened?
 What proved it?
 What did it consume?
-Did it land? If not, why was stopping useful or not useful?
+How did it resolve, and did anything land?
 What decision changed?
-What should the next similar Change learn from this one?
+What should the next similar Change know?
 ```
 
-If the answer requires private chat history, the operating record is incomplete.
+If the answer depends on private chat history, the Change record is not finished.

@@ -19,8 +19,8 @@ Create a concise decision package so builders can evaluate what happened, what p
 6. Gather browser, log, trace, API, benchmark, customer, or migration evidence as relevant.
 7. Summarize reviewer-agent findings and contradictory evidence.
 8. Confirm non-goals and forbidden surfaces were respected.
-9. Link the Change resource summary and verify that it includes failed, discarded, superseded, evidence-producing, and recovery attempts.
-10. Record forecast, actual, thresholds, variance, and data-quality gaps when measured.
+9. When resource use is measured, link the Change summary and confirm that material failed, discarded, superseded, and recovery attempts remain included.
+10. Record forecast, actual, thresholds, variance, and data gaps when they matter to the decision.
 11. State the proposed resolution status, class, disposition, landed state, released state, quality, decision owner, and basis.
 12. For decision-class work, state what uncertainty was reduced and what decision or next action changed.
 13. For administrative closure, state the external reason without claiming work-derived learning.

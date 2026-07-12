@@ -1,10 +1,10 @@
 # Reference
 
-Reference pages explain the default GitHub-first implementation. The `templates/` directory contains copyable starting files.
+These pages describe the default GitHub-first implementation. The `templates/` directory contains the copyable files.
 
-They are not sacred. Keep the operating principle; adapt the mechanism when the project teaches you something better.
+Use them to get to a real experiment faster. They are not sacred.
 
-## Start with
+## Core setup
 
 1. [Repo structure](repo-structure.md)
 2. [`WORKFLOW.md`](workflow-md.md)
@@ -13,9 +13,12 @@ They are not sacred. Keep the operating principle; adapt the mechanism when the 
 5. [Gate manifest](gate-manifest.md)
 6. [Pull request template](pr-template.md)
 7. [GitHub labels](github-labels.md)
-8. [Delivery economics records](delivery-economics-records.md)
-9. [Initiative template](initiative-template.md)
-10. [Model economics](model-economics.md)
+
+## Economics and initiatives
+
+- [Delivery economics records](delivery-economics-records.md)
+- [Initiative template](initiative-template.md)
+- [Model economics](model-economics.md)
 
 ## Additional reference
 
@@ -23,11 +26,7 @@ They are not sacred. Keep the operating principle; adapt the mechanism when the 
 - [Agent harness](agent-harness.md)
 - [ExecPlan template](execplan-template.md)
 - [Skills template](skills-template.md)
+- [Glossary](../glossary.md)
+- [References and influences](../references.md)
 
-## Use with judgment
-
-Use these files to get to the first real experiment faster.
-
-Begin with attribution and a small resource record. Add forecasts, thresholds, initiatives, and capacity planning when they support a real decision.
-
-Then change the templates when evidence, failure, or better judgment earns the change.
+Begin with lightweight attribution. Add forecasts, thresholds, initiative records, and capacity planning only when they improve a real decision.

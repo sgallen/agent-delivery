@@ -38,7 +38,9 @@ The old model often assigned responsibility by lane:
 
 The agent-enabled model still needs those skills, but the lanes become less rigid.
 
-A product builder should be able to move a customer problem toward a working result and evidence. A design builder should be able to encode taste into examples, components, skills, and gates. An engineering builder should be able to improve the harness, architecture, and validation so safe classes of work no longer require an engineer at every step. Product-oriented builders should be able to form and shape enough worthwhile demand for the system to execute. Reviewers should make judgment durable so their capacity unlocks more work rather than becoming the permanent queue.
+A product builder should be able to move a customer problem toward a working result and evidence. A design builder should be able to encode taste into examples, components, skills, and gates. An engineering builder should be able to improve the harness, architecture, and validation so safe classes of work no longer require an engineer at every step.
+
+Product-oriented builders should form and shape enough worthwhile demand for the system to execute. Reviewers should make judgment durable so their capacity unlocks more work rather than becoming the permanent queue.
 
 ## The human outcome
 

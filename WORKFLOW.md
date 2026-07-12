@@ -2,97 +2,83 @@
 
 This repository uses its own operating model while developing the playbook.
 
-The goal is not documentation volume. The goal is a coherent, useful artifact that helps readers understand the shift and act on it.
+The outcome is not documentation volume. It is a coherent, useful package that helps capable readers see the shift and act on it.
 
-## Before starting a Change
+## Before a Change
 
-Read:
+Read `README.md`, `VOICE.md`, `AGENTS.md`, and the pages or templates directly involved.
 
-1. `README.md`
-2. `VOICE.md`
-3. `docs/00-the-case/00-why-this-exists.md`
-4. `AGENTS.md`
-5. the pages and templates directly related to the requested Change
+Then name:
 
-Then identify:
+- the reader and the confusion being addressed;
+- the one job this Change should do;
+- the concepts and files affected;
+- the evidence that would show the edit improved the package;
+- the practical consequence or next action the reader should receive;
+- any credible reason the proposed edit should not land.
 
-- the intended reader
-- the confusion or need being addressed
-- the concepts touched
-- the files likely to change
-- the evidence that the edit improved the repo or supported a decision not to make the proposed edit
-- whether the Change affects Run, Change, Initiative, or Portfolio concepts
-- the expected disposition and what would justify resolving without landing the proposed edit
-- the concrete “so what” or next action the reader should receive.
+## Plan lightly
 
-## Planning posture
+Use the smallest planning artifact that protects coherence.
 
-Use the lightest planning artifact that keeps the work coherent.
+- Small copy or link edit: a short checklist.
+- Multi-file conceptual edit: a workpad and explicit plan.
+- Deep reorganization or unsettled doctrine: an optional ExecPlan.
 
-- Small copy or link edit: short checklist.
-- Multi-file conceptual edit: workpad plus explicit plan.
-- Deep reorganization or ambiguous doctrine Change: optional ExecPlan.
+The plan should prevent drift, not justify ceremony.
 
-The plan should protect coherence, not justify ceremony.
+## Keep one workpad
 
-## Workpad expectation
-
-Every orchestrated Change should maintain one workpad.
-
-In the default GitHub implementation, it is a single persistent issue comment headed:
+For orchestrated work, maintain one canonical workpad. In GitHub, use a single Issue comment headed:
 
 ```md
 ## Agent Workpad
 ```
 
-For local-only work, a temporary file under `.agent/workpads/` is acceptable. When a ticket exists, the ticket comment is canonical.
+For local-only work, `.agent/workpads/<id>.md` is acceptable.
 
-## Quality bar
+The workpad should carry the plan, material discoveries, changed assumptions, evidence, resource status when measured, and final handoff. Do not turn it into a transcript.
 
-A good Change should make the repo clearer, more useful, or more actionable—not merely larger.
+## Edit for the reader
 
-Before proposing resolution, check:
+A good Change makes the package clearer, more engaging, or more actionable—not merely larger.
 
-- the README still earns attention, reflects the lived origin of the thesis, and provides a clear path into action
-- The Case builds logically without avoidable repetition
-- operating-model pages answer “how does this work?”
-- playbooks provide concrete steps and definitions of done
-- reference files and templates agree with one another
-- voice matches `VOICE.md`
-- lifecycle states, resolution classes, dispositions, landing status, and artifact locations are consistent
-- productive non-landing is distinguished from unresolved loss
-- internal links resolve
-- claims are grounded in direct experience, cited references, or clearly presented as the author’s current thesis
-- volatile price claims are dated, sourced from providers, and consistent with `data/model-pricing.csv`
-- resource use, estimates, gates, and value reviews remain proportionate to maturity and decision need
-- non-landed work is distinguished from unresolved loss and supported by evidence when called productive;
-- the edit does not add process that fails to improve intent, execution, proof, resource visibility, resolution, recovery, or learning.
+Check the full path:
 
-## Evidence for documentation Changes
+- the README earns attention and gives a way in;
+- The Case builds without avoidable repetition;
+- operating-model pages explain the system without reading like schemas;
+- playbooks provide concrete steps and a definition of done;
+- reference pages and templates agree and remain copyable;
+- voice matches `VOICE.md`;
+- economics and resolution practices remain progressive rather than mandatory at maximum sophistication;
+- useful non-landing remains distinct from administrative closure and unresolved loss.
 
-Useful evidence includes:
+When adding a factual or price claim, verify and cite it. Keep dated values in the reference data rather than evergreen doctrine.
 
-- changed-file list
-- before/after excerpts for important prose
-- link-check output
-- search results for outdated terms or paths
-- table-of-contents review
-- notes on remaining open questions.
+## Evidence
+
+For documentation Changes, useful proof includes:
+
+- changed-file and word-count summaries;
+- before-and-after excerpts for important prose;
+- link and code-fence checks;
+- YAML, JSON, CSV, shell, and Python validation;
+- searches for outdated terms, paths, or repeated explanations;
+- a review of the reader path from README to first action.
 
 ## Stop conditions
 
-Stop and surface the issue when:
+Stop and surface the issue when the requested edit conflicts with settled doctrine, required context is missing, terminology needs a larger decision, or a factual claim cannot be verified.
 
-- a requested edit conflicts with settled doctrine
-- terminology cannot be made consistent without a larger decision
-- the source package is missing required context
-- a factual claim requires verification that is not available
-- a broad rewrite would reduce usefulness without a clear replacement.
+Do not keep writing merely because more text is possible.
 
-## Learning checkpoint
+## Resolution and learning
 
-End every meaningful resolved Change—and every explicit abandonment review—by asking:
+Before resolving, ask:
 
-> Did this reveal anything that should make the next Change easier, safer, faster, less wasteful, easier to estimate, more likely to resolve cleanly, or more likely to create value?
+> Did this make the core idea easier to grasp, the next action easier to take, or the system easier to improve?
 
-If yes, update a voice rule, workflow, template, reference, or playbook. Do not leave the lesson trapped in the chat.
+If not, narrow, revise, or do not land it.
+
+End meaningful work by asking what should change in the voice rules, workflow, template, reference, or playbook so the next edit is better. Do not leave the lesson trapped in the chat.

@@ -2,42 +2,38 @@
 
 The North Star is **human-governed, agent-enabled product delivery**.
 
-Builders create, govern, and improve systems that turn customer intent into shipped product value with increasing speed, quality, evidence, economic visibility, and learning.
+Builders create and improve systems that turn customer intent into trustworthy product outcomes. Agents make implementation and knowledge more abundant. Human attention becomes the scarce resource: customer context, judgment, taste, creativity, risk awareness, and accountability.
 
-Agents make implementation and knowledge more abundant. Builder attention becomes the scarce resource: customer context, taste, judgment, creativity, risk awareness, curation, and accountability.
+The builder’s work moves upward:
 
-The work of builders moves upward:
-
-- from doing every task
-- to understanding customers and forming valuable demand
-- to defining outcomes and investment hypotheses
-- to designing the environment, skills, and gates
-- to reviewing evidence and resource variance
-- to resolving the decisions that genuinely require human judgment
-- to comparing delivered capabilities with realized value
-- to improving the system after each Change and initiative.
+- from performing every task to shaping worthwhile demand;
+- from carrying process in memory to making context, gates, and skills durable;
+- from reviewing every line to reviewing the evidence and the real decision;
+- from guessing at effort to learning from actual resource use;
+- from declaring an initiative complete at launch to asking whether the promised value appeared;
+- from fixing the same failure repeatedly to improving the system that allowed it.
 
 The goal is not to keep a human in every loop.
 
-The goal is to make human judgment count. Done well, the system should also create more agency and creative energy: less waiting, less fear of change, more room to solve problems, help customers, and do work people are proud of.
+It is to make human judgment count.
 
-A mature system can explain:
+Done well, this should also create a better experience for the people doing the work: less waiting, less translation between silos, less fear of change, and more room to understand customers, solve hard problems, and build things they are proud of.
+
+A healthy system can explain:
 
 ```text
 what it intended
 what it attempted
 what it proved
 what it consumed
-how it resolved and whether it landed
+how it ended and whether anything landed
 what value or decision followed
 what it learned
 ```
 
-Every Change should leave the product, the decision, or the system better informed—even when the honest result is administrative closure or unresolved loss.
+Delivered Changes should improve the product. Good exploratory Changes should improve the decision. Honest failures should improve the operating system rather than disappear from the record.
 
-Delivered Changes should make the product better. Productive non-landed Changes should improve the decision. The best Changes also make the system better.
-
-Every major initiative should improve the organization’s ability to decide what is worth doing next.
+Every major initiative should make the organization better at deciding what is worth doing next.
 
 ---
 

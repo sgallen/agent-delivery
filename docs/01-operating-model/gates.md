@@ -1,174 +1,116 @@
 # Gates
 
-Gates are how quality becomes durable.
+Gates are how quality stops depending on who happens to be reviewing that afternoon.
 
-A gate is a reusable expression of team judgment with a clear result and evidence. It may be a command, test, browser journey, reviewer-agent assessment, or human approval. What matters is that the system knows what it is checking, what counts as pass or fail, and what to do next.
+A gate is a reusable expression of team judgment with a clear result and evidence. It may be a test, command, browser journey, reviewer-agent assessment, resource checkpoint, or human approval. What matters is that the system knows what it is checking, what counts as enough, and what should happen next.
 
-If agents can produce more work, the team needs a better answer to “Is this ready?” than “Ask the senior engineer who usually knows.”
+If agents can produce more work, “ask the senior engineer who usually knows” does not scale particularly well.
 
-## Gate types
+## Four useful kinds of gate
 
-### Mechanical gates
+### Mechanical
 
-Objective checks that should usually be automated:
+Objective checks that should usually be automated: format, lint, typecheck, build, tests, dependency rules, architecture boundaries, forbidden imports, and similar constraints.
 
-- format
-- lint
-- typecheck
-- build
-- unit and integration tests
-- dependency checks
-- architecture boundaries
-- forbidden imports
-- coverage rules.
+### Behavioral
 
-### Behavioral gates
+Proof that the product does what the Change claimed:
 
-Proof that the product behaves as intended:
+- acceptance criteria mapped to tests or observable behavior;
+- a browser journey that passes;
+- clean console, server, or network signals where relevant;
+- screenshots, video, logs, or traces that show the result;
+- accessibility and compatibility checks appropriate to the risk.
 
-- acceptance criteria mapped to tests or observable behavior
-- browser journey passes
-- no unexpected console or server errors
-- relevant logs and traces are clean
-- screenshots or video show the expected outcome
-- accessibility checks pass.
+For a bug fix, reproduction should usually be the first gate. Produce a failing test, browser path, log query, or other stable signal before changing the implementation. Then prove the same signal is clean afterward.
 
-For a bug fix, the first behavioral gate should usually be reproduction. This is the useful core of the eval-first bug workflow demonstrated in the [Gusto CTO example](https://youtu.be/5FKBkUCaLa8). Produce a failing test, eval, browser path, log query, or other deterministic signal before changing the implementation. Then prove that the same signal is clean after the fix.
+That is more useful than asking an agent for a plausible patch and admiring its confidence.
 
-This failing-before, passing-after pattern is more useful than asking an agent for a plausible patch and admiring its confidence.
+### Judgment
 
-### Judgment gates
+Structured review for concerns that require taste, context, or tradeoffs: code, architecture, design, product, security, privacy, operations, or test sufficiency.
 
-Structured review for concerns that require taste, context, or tradeoff evaluation:
+A builder, a reviewer agent, or both may perform the gate. The risk and nature of the Change determine who must decide.
 
-- code review
-- architecture review
-- design review
-- product review
-- security review
-- test sufficiency review.
+### Decision and resource
 
-Judgment gates may be performed by a builder, a reviewer agent, or both. The required reviewer depends on risk and the class of Change.
+Some gates do not prove that the implementation is good. They determine whether the work should continue or how it may resolve.
 
-### Decision and resolution gates
+Examples include:
 
-Proof that the evidence supports the proposed disposition:
-
-- delivered acceptance criteria are met;
-- a product or technical hypothesis is supported or rejected;
 - an experiment answered its decision question;
-- a stop, narrow, replace, defer, or supersede decision has an adequate basis;
-- an administrative closure names an accountable owner and external reason;
-- unresolved loss is classified honestly rather than dressed up as learning.
+- evidence supports stopping, narrowing, replacing, or deferring;
+- an accountable owner is closing the work for an external reason;
+- model, environment, elapsed-time, or review capacity has reached a threshold;
+- another tranche of initiative investment requires approval.
 
-A failed implementation gate can be valid evidence for a decision resolution. It is not automatically permission to close the Change. The decision gate still needs to establish what the failure means.
+A failed implementation check can be useful evidence. It does not automatically prove what the team should do next. The decision still needs an accountable basis.
 
-### Resource gates
-
-Decision points that govern a constrained resource:
-
-- model and tool spend
-- environment or CI spend
-- elapsed time
-- builder or specialist attention
-- use of a scarce test environment
-- initiative-stage investment.
-
-A resource gate does not prove quality. It prevents the system from silently consuming beyond an authorized or sensible envelope.
-
-Use progressive behavior:
+Resource gates should be progressive:
 
 ```text
-warning threshold
-  → update the completion forecast
-
-soft threshold
-  → checkpoint, explain variance, and propose options
-
-hard threshold
-  → preserve state and require an explicit decision
+warning → update the forecast
+soft limit → explain the variance and propose options
+hard limit → preserve state and require a decision
 ```
 
-The decision may be to continue, reroute, narrow, split, defer, or stop. Never design a budget stop that discards the workpad, evidence, run records, or recovery path.
+Never design a budget stop that destroys the workpad, evidence, or recovery path.
 
 ## A gate contract
 
-Every gate should define:
+Every gate should say:
 
-| Field | Meaning |
+| Field | Question |
 | --- | --- |
-| `id` | Stable name for the gate |
-| `purpose` | The failure mode or quality concern it protects against |
-| `applies_when` | Which Changes require it |
-| `required` | Whether failure blocks progress |
-| `runner` | Command, reviewer agent, or human role that executes it |
-| `pass_condition` | What must be true |
-| `evidence` | What proves the result |
-| `failure_action` | Repair, retry, checkpoint, block, escalate, or move to an accountable decision |
-| `resource_action` | Warn, reforecast, preserve state, or require approval when a threshold applies |
+| `id` | What stable name identifies it? |
+| `purpose` | Which failure or decision does it protect against? |
+| `applies_when` | Which Changes require it? |
+| `runner` | What command, agent, or human role performs it? |
+| `pass_condition` | What must be true? |
+| `evidence` | What proves the result? |
+| `failure_action` | Repair, retry, checkpoint, block, escalate, or decide? |
 
 Use a small result vocabulary:
 
 ```text
-pass
-fail
-not_applicable
-blocked
-waived
+pass | fail | not_applicable | blocked | waived
 ```
 
-`not_applicable` needs a reason. `waived` needs an accountable builder and a recorded rationale. “Probably fine” is not a status.
+`not_applicable` needs a reason. `waived` needs an accountable builder and a rationale. “Probably fine” remains available as a feeling, not a gate status.
 
-## Gate sets should match the risk
+## Match the gate set to the risk
 
-The goal is not to run every possible gate on every Change.
+A documentation edit, a UI polish Change, a schema migration, and an authentication boundary should not carry the same proof burden.
 
-A documentation edit, a low-risk UI fix, a schema migration, and an authentication change should not all carry the same proof burden.
+Define a few gate profiles by Change class and risk. Keep the blocking set small enough to give fast feedback and strong enough to justify the next state transition. Run broader checks as advisory gates, scheduled scans, post-release monitors, or recurring cleanup.
 
-Define gate profiles by Change class and risk. Keep the blocking set small enough to provide fast feedback and strong enough to justify the next state transition.
+A gate system can recreate the old bottleneck under a more technical name. Twelve generic reviewers waiting in sequence are still a queue.
 
-Use other checks as:
+## Know when to loop and when to stop
 
-- advisory gates
-- scheduled scans
-- post-merge monitors
-- recurring cleanup work.
+Let the agent keep working when the failure is actionable, the Change remains in scope, progress is visible, and the resource policy still authorizes another attempt.
 
-This matters because gate systems can recreate the old bottleneck under a more technical name. A Change that waits an hour for twelve generic reviewers is not obviously better than a Change that waited for a meeting.
+Engage a builder when:
 
-## When the agent should keep working
+- intent is missing or contradictory;
+- the same failure repeats without progress;
+- repair requires product, design, architecture, security, or business judgment;
+- the environment cannot produce trustworthy evidence;
+- the agent crosses a forbidden boundary;
+- risk leaves the approved Change class;
+- a hard resource threshold is reached;
+- the evidence supports a different outcome than the one originally expected.
 
-The orchestrator should loop when:
+A useful failure message explains what failed, where the evidence lives, and what kind of repair or decision is required. Gates are part of the feedback system, not merely traffic lights.
 
-- a required gate fails
-- the failure is actionable
-- the Change remains within scope
-- the run is still making progress
-- the current resource policy still authorizes continued work.
+## Make repeated judgment durable
 
-It should stop and engage a builder when:
-
-- the same failure repeats without progress
-- the gate exposes missing or conflicting intent
-- repair requires a product, design, architecture, security, or business decision
-- the environment cannot produce trustworthy evidence
-- the agent changes forbidden or unrelated surfaces
-- the risk is outside the approved Change class
-- a hard resource threshold is reached
-- the completion forecast materially exceeds the authorized range and requires a scope or investment decision
-- the evidence now supports a non-landed resolution
-- ownership is insufficient to reach an accountable disposition.
-
-A useful failure message should tell the next agent what failed, where the evidence is, and what kind of repair is expected. Gates are part of the feedback system, not merely traffic lights.
-
-## Gate maturity
-
-A useful progression is:
+A sensible progression is:
 
 ```text
 human observation
   → review comment
-  → documented principle or example
+  → documented example or skill
   → reviewer-agent rubric
   → advisory gate
   → required gate
@@ -177,15 +119,8 @@ human observation
 
 Do not automate vague judgment too early. That creates brittle process with a green checkmark.
 
-Do not leave repeated judgment trapped in people’s heads. That creates human bottlenecks.
+Do not leave the same costly judgment trapped in one person’s head forever either.
 
-## The promotion rule
+## Rule
 
-- One-off issue: review comment.
-- Repeated issue: documentation, example, or skill.
-- Costly repeated issue: gate, regression test, lint, reviewer rule, routing rule, or estimate adjustment.
-- Broad drift: scheduled cleanup agent or architecture check.
-
-The goal is not a wall of gates.
-
-The goal is a system that can move quickly because “ready,” “within bounds,” “worth continuing,” and “adequately resolved” are increasingly explicit, observable, and trustworthy.
+The goal is not a wall of gates. It is a system that can move quickly because “ready,” “within bounds,” and “good enough to decide” have become increasingly explicit and trustworthy.

@@ -49,14 +49,16 @@ runner: local-run-change
 run_id: ${RUN_ID}
 branch: ${BRANCH}
 commit:
+worktree: ${WORKTREE}
 environment:
+gate_profile: ${GATE_PROFILE}
 activity: ${ACTIVITY}
 resolution_intent: ${RESOLUTION_INTENT}
 decision_question: ${DECISION_QUESTION}
 expected_resolution_class: ${EXPECTED_RESOLUTION_CLASS}
 landing_expectation: ${LANDING_EXPECTATION}
 release_expectation: ${RELEASE_EXPECTATION}
-candidate_resolution_class:
+candidate_resolution_class: ${EXPECTED_RESOLUTION_CLASS}
 candidate_disposition: ${EXPECTED_DISPOSITION}
 \`\`\`
 
@@ -64,107 +66,73 @@ candidate_disposition: ${EXPECTED_DISPOSITION}
 
 Copy the observable outcome or decision question from issue #${ISSUE}.
 
-### Resolution criteria
-
-#### Delivered outcome
-
-- [ ] Copy delivered-outcome acceptance criteria from the issue.
-
-#### Useful non-landed decision, when applicable
-
-- [ ] Copy the decision evidence, uncertainty, and stop conditions from the issue.
+- Stop conditions: copy from the issue
 
 ### Plan
 
 - [ ] Read the Change Intent, parent initiative when present, and repository guidance.
-- [ ] Mirror delivered and non-landed resolution criteria, validation requirements, and resource policy here.
+- [ ] Confirm scope, proof, stop conditions, and the intended decision path.
 - [ ] Decide whether an ExecPlan is warranted.
 - [ ] Implement, investigate, or experiment within scope.
 - [ ] Run required gates and repair actionable failures.
-- [ ] Prepare evidence, final resource summary, proposed resolution class and disposition, and review package when one is useful.
+- [ ] Prepare the evidence, resource summary, and proposed disposition.
 
-### Validation and gates
+### Current state
 
-- [ ] Scope
-- [ ] Lint / typecheck / build, when applicable
-- [ ] Targeted tests or experiment checks
-- [ ] Behavior or decision proof
-- [ ] Browser or runtime check, if applicable
-- [ ] Resource gate or threshold decision, if defined
-- [ ] Evidence package
+- Progress: starting
+- Material discovery or decision:
+- Scope, risk, or approach change:
+- Blocker or builder question:
+- Next action: inspect the Change and repository context
 
-### Resource status
+### Gates and evidence
 
-- forecast stage: not estimated / opportunity / post-discovery / post-shaping / in-flight
-- current activity: ${ACTIVITY}
-- resolution intent: ${RESOLUTION_INTENT}
-- expected resolution class and disposition: ${EXPECTED_RESOLUTION_CLASS} / ${EXPECTED_DISPOSITION}
-- original machine forecast and likely range:
-- current completion forecast and likely range:
-- actual machine use to date:
-- builder attention by capability:
-- elapsed time:
-- confidence and assumptions:
-- soft / hard threshold:
-- threshold state: none / approaching / soft / hard
-- expected resolution distribution, when used:
-- material variance or constraint:
-- proposed decision:
-- run record: \`${RUN_RESOURCE_RECORD}\`
+| Gate or criterion | Result | Evidence | Next action |
+| --- | --- | --- | --- |
+| Scope | pending |  |  |
+| Targeted proof | pending |  |  |
+| Required gate profile | pending |  |  |
+
+- Tests / experiment output:
+- UI, runtime, research, or benchmark evidence:
+- Reviewer findings:
+- Known gaps:
+
+### Resource status — optional
+
+- Forecast stage and likely range:
+- Actual to date:
+- Builder attention by capability:
+- Threshold state and action:
+- Material variance:
+- Run record: \`${RUN_RESOURCE_RECORD}\`
 - Change summary: \`${CHANGE_RESOURCE_SUMMARY}\`
-- data quality or unattributed use:
+- Data gaps:
 
-### Discoveries and decisions
+### Run history
 
--
+| Run | Contribution | Outcome | Resource use |
+| --- | --- | --- | ---: |
+| ${RUN_ID} | in progress |  |  |
 
-### Blockers / builder judgment
+### Decision and handoff
 
--
-
-### Evidence
-
-- PR, when any:
-- CI:
-- screenshots / video:
-- logs / traces:
-- research / experiment results:
-- preview / deployment:
-- resource summary:
-
-### Resolution candidate
-
-- candidate resolution status: resolved / unresolved
-- resolution class: delivered / decision / administrative / unresolved_loss
-- disposition: accepted / experiment_concluded / hypothesis_rejected / technically_infeasible / stopped_at_resource_gate / superseded / deprioritized / rejected_at_review / cancelled_external / abandoned_without_resolution
-- landed: true / false / not_applicable / unknown
-- released: true / false / not_applicable / unknown
-- resolution quality: weak / sufficient / strong / not_assessed
-- learning value: none / low / material / high
-- reason category:
-- decision owner and basis:
-- criteria result:
-- uncertainty reduced:
-- decisions changed:
-- reusable artifacts:
-- follow-up decision or Changes:
-
-### Handoff
-
-- current outcome or decision:
-- remaining work or uncertainty:
-- known gaps:
-- resource state and forecast:
-- candidate disposition:
-- recommended reviewer or decision owner:
+- Proposed resolution class: delivered / decision / administrative / unresolved_loss
+- Disposition:
+- Landed: true / false / not_applicable
+- Released: true / false / not_applicable
+- Evidence basis:
+- Decision owner:
+- Remaining uncertainty:
+- Final summary:
+- Follow-up:
+- Initiative updated:
 
 ### Learning checkpoint
 
-- estimate versus actual:
-- delivery and resolution variance:
-- expected versus actual resolution class, disposition, landing, and release:
-- no reusable learning / improvement included / follow-up Change:
-- initiative rollup or value-review implication, if applicable:
+> What should become easier, safer, faster, less wasteful, easier to estimate, or more valuable next time?
+
+- Durable improvement:
 EOF2
 
 WORKPAD_ID="$(gh api "repos/${REPO}/issues/${ISSUE}/comments" --paginate --jq '.[] | select(.body | startswith("## Agent Workpad")) | .id' | head -n 1 || true)"
@@ -176,116 +144,118 @@ else
   echo "Reusing Agent Workpad comment ${WORKPAD_ID}."
   gh api "repos/${REPO}/issues/comments/${WORKPAD_ID}" --jq '.body' > "$TMP_WORKPAD"
 
-  python - "$TMP_WORKPAD" "$STARTED_AT" "$INITIATIVE_ID" "$RUN_ID" "$BRANCH" "$RUN_RESOURCE_RECORD" "$CHANGE_RESOURCE_SUMMARY" "$ACTIVITY" "$RESOLUTION_INTENT" "$DECISION_QUESTION" "$EXPECTED_RESOLUTION_CLASS" "$EXPECTED_DISPOSITION" "$LANDING_EXPECTATION" "$RELEASE_EXPECTATION" <<'PY2'
+  python - "$TMP_WORKPAD" "$STARTED_AT" "$INITIATIVE_ID" "$RUN_ID" "$BRANCH" "$RUN_RESOURCE_RECORD" "$CHANGE_RESOURCE_SUMMARY" "$ACTIVITY" "$RESOLUTION_INTENT" "$DECISION_QUESTION" "$EXPECTED_RESOLUTION_CLASS" "$EXPECTED_DISPOSITION" "$LANDING_EXPECTATION" "$RELEASE_EXPECTATION" "$WORKTREE" "$GATE_PROFILE" <<'PY2'
 import re
-import json
 import sys
 from pathlib import Path
 
 path = Path(sys.argv[1])
 text = path.read_text()
-initiative_id = sys.argv[3]
-run_record = sys.argv[6]
-change_summary = sys.argv[7]
-activity = sys.argv[8]
-resolution_mode = sys.argv[9]
-decision_question = sys.argv[10]
-expected_resolution_class = sys.argv[11]
-expected_disposition = sys.argv[12]
-landing_expectation = sys.argv[13]
-release_expectation = sys.argv[14]
-fields = {
+status = {
     "state": "running",
     "last_updated": sys.argv[2],
+    "initiative_id": sys.argv[3],
     "runner": "local-run-change",
     "run_id": sys.argv[4],
     "branch": sys.argv[5],
     "commit": "",
-    "environment": "",
-    "activity": activity,
-    "resolution_intent": resolution_mode,
-    "decision_question": decision_question,
-    "expected_resolution_class": expected_resolution_class,
-    "landing_expectation": landing_expectation,
-    "release_expectation": release_expectation,
-    "candidate_resolution_class": "",
-    "candidate_disposition": expected_disposition,
+    "worktree": sys.argv[15],
+    "gate_profile": sys.argv[16],
+    "activity": sys.argv[8],
+    "resolution_intent": sys.argv[9],
+    "decision_question": sys.argv[10],
+    "expected_resolution_class": sys.argv[11],
+    "landing_expectation": sys.argv[13],
+    "release_expectation": sys.argv[14],
+    "candidate_resolution_class": sys.argv[11],
+    "candidate_disposition": sys.argv[12],
 }
-if initiative_id:
-    if re.search(r"(?m)^initiative_id:.*$", text):
-        fields["initiative_id"] = initiative_id
-    elif re.search(r"(?m)^initiative:.*$", text):
-        text = re.sub(r"(?m)^initiative:.*$", f"initiative: {initiative_id}", text, count=1)
+run_record = sys.argv[6]
+change_summary = sys.argv[7]
+run_id = sys.argv[4]
 
-for key, value in fields.items():
-    pattern = rf"(?m)^{re.escape(key)}:.*$"
-    replacement = f"{key}: {value}".rstrip()
-    if re.search(pattern, text):
-        text = re.sub(pattern, replacement, text, count=1)
+status_pattern = re.compile(r"(?ms)^### Status\s*\n\s*```text\s*\n(.*?)\n```\s*")
+match = status_pattern.search(text)
+if match:
+    existing = []
+    seen = set()
+    for line in match.group(1).splitlines():
+        if ":" not in line:
+            existing.append(line)
+            continue
+        key, current_value = line.split(":", 1)
+        key = key.strip()
+        current_value = current_value.strip()
+        if key in status:
+            # A later run may update the forecast, but it should not erase an
+            # accountable resolution candidate already recorded by the Change.
+            if key in {"candidate_resolution_class", "candidate_disposition"} and current_value:
+                existing.append(line)
+            else:
+                existing.append(f"{key}: {status[key]}".rstrip())
+            seen.add(key)
+        else:
+            existing.append(line)
+    for key, value in status.items():
+        if key not in seen:
+            existing.append(f"{key}: {value}".rstrip())
+    replacement = "### Status\n\n```text\n" + "\n".join(existing) + "\n```\n\n"
+    text = status_pattern.sub(replacement, text, count=1)
+else:
+    block = "### Status\n\n```text\n" + "\n".join(
+        f"{key}: {value}".rstrip() for key, value in status.items()
+    ) + "\n```\n\n"
+    marker = "## Agent Workpad\n"
+    text = text.replace(marker, marker + "\n" + block, 1) if marker in text else marker + "\n" + block + text
 
-resource_section = f'''### Resource status
+if not re.search(r"(?m)^### Resource status(?:\s+—.*)?\s*$", text):
+    section = f'''### Resource status — optional
 
-- forecast stage: not estimated / opportunity / post-discovery / post-shaping / in-flight
-- current activity: {activity}
-- resolution intent: {resolution_mode}
-- expected resolution class and disposition: {expected_resolution_class} / {expected_disposition}
-- original machine forecast and likely range:
-- current completion forecast and likely range:
-- actual machine use to date:
-- builder attention by capability:
-- elapsed time:
-- confidence and assumptions:
-- soft / hard threshold:
-- threshold state: none / approaching / soft / hard
-- expected resolution distribution, when used:
-- material variance or constraint:
-- proposed decision:
-- run record: `{run_record}`
+- Forecast stage and likely range:
+- Actual to date:
+- Builder attention by capability:
+- Threshold state and action:
+- Material variance:
+- Run record: `{run_record}`
 - Change summary: `{change_summary}`
-- data quality or unattributed use:
+- Data gaps:
+
 '''
-
-resolution_section = '''### Resolution candidate
-
-- candidate resolution status: resolved / unresolved
-- resolution class: delivered / decision / administrative / unresolved_loss
-- disposition: accepted / experiment_concluded / hypothesis_rejected / technically_infeasible / stopped_at_resource_gate / superseded / deprioritized / rejected_at_review / cancelled_external / abandoned_without_resolution
-- landed: true / false / not_applicable / unknown
-- released: true / false / not_applicable / unknown
-- resolution quality: weak / sufficient / strong / not_assessed
-- learning value: none / low / material / high
-- reason category:
-- decision owner and basis:
-- criteria result:
-- uncertainty reduced:
-- decisions changed:
-- reusable artifacts:
-- follow-up decision or Changes:
-'''
-
-if "### Resource status" not in text:
-    legacy = re.compile(r"(?ms)^### Run economics\n.*?(?=^### |\Z)")
-    if legacy.search(text):
-        text = legacy.sub(resource_section + "\n", text, count=1)
-    elif "### Discoveries and decisions" in text:
-        text = text.replace("### Discoveries and decisions", resource_section + "\n### Discoveries and decisions", 1)
+    for marker in ("### Run history", "### Decision and handoff", "### Learning checkpoint"):
+        if marker in text:
+            text = text.replace(marker, section + marker, 1)
+            break
     else:
-        text += "\n" + resource_section
+        text += "\n" + section
 
-if "### Resolution candidate" not in text:
-    if "### Handoff" in text:
-        text = text.replace("### Handoff", resolution_section + "\n### Handoff", 1)
-    else:
-        text += "\n" + resolution_section
-
-for label, value in (
-    ("run record", run_record),
-    ("Change summary", change_summary),
-):
-    pattern = rf"(?m)^- {re.escape(label)}:.*$"
+for label, value in (("Run record", run_record), ("Change summary", change_summary)):
+    pattern = rf"(?mi)^- {re.escape(label)}:.*$"
     replacement = f"- {label}: `{value}`"
     if re.search(pattern, text):
         text = re.sub(pattern, replacement, text, count=1)
+
+if "### Decision and handoff" not in text and "### Resolution candidate" not in text:
+    section = '''### Decision and handoff
+
+- Proposed resolution class: delivered / decision / administrative / unresolved_loss
+- Disposition:
+- Landed: true / false / not_applicable
+- Released: true / false / not_applicable
+- Evidence basis:
+- Decision owner:
+- Remaining uncertainty:
+- Final summary:
+- Follow-up:
+- Initiative updated:
+
+'''
+    marker = "### Learning checkpoint"
+    text = text.replace(marker, section + marker, 1) if marker in text else text + "\n" + section
+
+if "### Run history" in text and f"| {run_id} |" not in text:
+    table_divider = "| --- | --- | --- | ---: |"
+    if table_divider in text:
+        text = text.replace(table_divider, table_divider + f"\n| {run_id} | in progress |  |  |", 1)
 
 path.write_text(text)
 PY2
@@ -401,6 +371,7 @@ fi
 COMMIT="$(git rev-parse --short HEAD)"
 python - ".agent/workpads/issue-${ISSUE}.md" "$RUN_RESOURCE_RECORD" "$COMMIT" "$WORKPAD_URL" <<'PY2'
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -410,7 +381,7 @@ commit = sys.argv[3]
 workpad_url = sys.argv[4]
 
 text = workpad.read_text()
-text = text.replace('commit:\n', f'commit: {commit}\n', 1)
+text = re.sub(r'(?m)^commit:.*$', f'commit: {commit}', text, count=1)
 if 'Canonical workpad:' not in text:
     text += f'\n<!-- Canonical workpad: {workpad_url} -->\n'
 workpad.write_text(text)
